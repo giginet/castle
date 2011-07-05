@@ -48,5 +48,8 @@ noremap <C-t> :new<CR>
 
 "Plugin Settings
 silent! nmap <unique> <C-r> <Plug>(quickrun)
+"Pydictionの設定有効化
+autocmd FileType python let g:pydiction_location = '~/.vim/bundle/Pydiction/complete-dict'
 "Bundle Plugins
 Bundle 'quickrun.vim'
+Bundle 'Pydiction'
