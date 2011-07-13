@@ -53,3 +53,4 @@ autocmd FileType python let g:pydiction_location = '~/.vim/bundle/Pydiction/comp
 "Bundle Plugins
 Bundle 'quickrun.vim'
 Bundle 'Pydiction'
+Bundle 'unite.vim'
