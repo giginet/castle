@@ -48,6 +48,14 @@ noremap <C-t> :new<CR>
 
 "Plugin Settings
 silent! nmap <unique> <C-r> <Plug>(quickrun)
+"QuickRun.vim
+let g:quickrun_config = { 
+\ 'tex' : {
+\   'command' : 'platex-utf8',
+\   'exec'    : ['%c -output-directory %s:h %s', 'dvipdfmx -o %s:r.pdf %s:r.dvi', 'open %s:r.pdf'],
+\   'output'  : '_'
+\ }
+\}
 "Pydictionの設定有効化
 autocmd FileType python let g:pydiction_location = '~/.vim/bundle/Pydiction/complete-dict'
 "Bundle Plugins
