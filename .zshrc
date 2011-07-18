@@ -43,3 +43,6 @@ alias ls="ls -G -l"
 alias -s txt=less
 alias -s py=python
 alias -s rb=ruby
+##PythonSelect
+alias python_select26="sudo port select --set python python26"
+alias python_select27="sudo port select --set python python27"

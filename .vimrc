@@ -63,3 +63,6 @@ Bundle 'quickrun.vim'
 Bundle 'Pydiction'
 Bundle 'unite.vim'
 Bundle 'acp.vim'
+"Template設定
+autocmd BufNewFile *.py 0r $HOME/.vim/template/python.txt
+autocmd BufNewFile *.tex 0r $HOME/.vim/template/tex.txt

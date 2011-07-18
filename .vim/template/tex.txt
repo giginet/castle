@@ -1,0 +1,34 @@
+\documentclass[12pt]{jarticle}
+\usepackage[dvips]{graphicx}
+\usepackage{amsmath}
+\usepackage{ascmac,here,txfonts,txfonts}
+\usepackage{listings}
+\usepackage{color}
+
+\lstset{
+  breaklines = true,
+  language=C++,
+  basicstyle=\ttfamily\scriptsize,
+  commentstyle={\itshape \color[cmyk]{1,0.4,1,0}},
+  classoffset=1,
+  keywordstyle={\bfseries \color[rgb]{0,0,1}},
+  stringstyle={\ttfamily \color[rgb]{0,0,1}},
+  frame=tRBl,
+  framesep=5pt,
+  showstringspaces=false,
+  numbers=left,
+  stepnumber=1,
+  numberstyle=\tiny,
+  tabsize=2,
+}
+\begin{document}
+\title{タイトル}
+\author{北海道大学工学部\\
+情報エレクトロニクス系　情報工学コース所属\\
+25090335 三木康暉}
+\date{\today}
+\maketitle
+
+\clearpage
+
+\end{document}
