@@ -2,4 +2,4 @@
 	name = giginet
 	email = giginet.net@gmail.com
 [core]
-	excludesfile = /Users/giginet/.gitignore
+	excludesfile = ~/.gitignore

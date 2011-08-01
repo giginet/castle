@@ -18,7 +18,6 @@ unsetopt list_rows_first        # 補完の表示順序を水平方向にする
 unsetopt complete_aliases       # エイリアスには別の補完規則を適用する
 unsetopt correct_all            # 引数についてもスペル修正を試みる(うっとおしい)
 autoload -U compinit; compinit  # zshの補完機能を利用する
-fignore=(CVS .svn)              # 補完対象外
 zstyle ':completion:*:default' list-colors ${LS_COLORS}
 # 補完の時に大文字小文字を区別しない(但し、大文字を打った場合は小文字に変換しない)
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
@@ -46,6 +45,7 @@ zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
+
 setopt bang_hist                 # !を使ったヒストリ展開を利用する
 setopt extended_history          # 履歴に開始/終了時刻を記録
 setopt inc_append_history        # 履歴をインクリメンタルに追加
