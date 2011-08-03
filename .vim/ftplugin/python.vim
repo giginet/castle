@@ -6,4 +6,3 @@ autocmd BufNewFile *.py 0r $HOME/.vim/template/python.py
 "Pydictionの設定有効化
 "autocmd FileType python let g:pydiction_location = '~/.vim/bundle/Pydiction/complete-dict'
 Bundle 'Pydiction'
-

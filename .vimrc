@@ -52,10 +52,11 @@ Bundle 'quickrun.vim'
 Bundle 'unite.vim'
 Bundle 'vimlatex'
 "Template設定
-autocmd BufNewFile *.tex 0r $HOME/.vim/template/tex.txt
+autocmd BufNewFile *.py 0r $HOME/.vim/template/python.py
+autocmd BufNewFile *.tex 0r $HOME/.vim/template/tex.tex
 "Quickrun
 "出力を下側に表示
-"let g:quickrun_config = {
+let g:quickrun_config = {
 \ '*': {
 \ 'split': '{"rightbelow 20sp"}'
 \ }

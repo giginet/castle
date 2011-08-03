@@ -19,6 +19,7 @@ unsetopt complete_aliases       # エイリアスには別の補完規則を適�
 unsetopt correct_all            # 引数についてもスペル修正を試みる(うっとおしい)
 autoload -U compinit; compinit  # zshの補完機能を利用する
 zstyle ':completion:*:default' list-colors ${LS_COLORS}
+
 # 補完の時に大文字小文字を区別しない(但し、大文字を打った場合は小文字に変換しない)
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # sudo も補完対象にする
@@ -35,17 +36,16 @@ setopt prompt_subst
 #scp補完無効
 zstyle ':completion:*:complete:scp:*:files' command command -
 
-
 #コマンド履歴
-HISTFILE=~/.zsh_history
-HISTSIZE=100000
-SAVEHIST=100000
 autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
 
+HISTFILE=~/.zsh_history
+HISTSIZE=100000
+SAVEHIST=100000
 setopt bang_hist                 # !を使ったヒストリ展開を利用する
 setopt extended_history          # 履歴に開始/終了時刻を記録
 setopt inc_append_history        # 履歴をインクリメンタルに追加
@@ -70,9 +70,11 @@ setopt autopushd
 setopt auto_cd
 setopt auto_list
 setopt auto_menu
+
 #色の設定
 autoload colors
 colors
+
 ## lsをカラー化
 export LSCOLORS=exfxcxdxbxegedabagacad
 alias ls="ls -G -l"
@@ -81,6 +83,7 @@ alias ls="ls -G -l"
 alias -s txt=less
 alias -s py=python
 alias -s rb=ruby
+
 ##PythonSelect
 alias python_select26="sudo port select --set python python26"
 alias python_select27="sudo port select --set python python27"
