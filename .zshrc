@@ -36,6 +36,14 @@ setopt prompt_subst
 #scp補完無効
 zstyle ':completion:*:complete:scp:*:files' command command -
 
+#その他
+bindkey -v
+setopt multios #複数リダイレクト有効
+setopt autopushd
+setopt auto_cd
+setopt auto_list
+setopt auto_menu
+
 #コマンド履歴
 autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
@@ -62,14 +70,7 @@ unsetopt hist_save_no_dups       # ヒストリ記録時に、古いコマンド
 #環境変数
 export PATH=/usr/bin/android-sdk-mac_86/tools:/opt/local/lib:/opt/local/bin:/opt/local/sbin/:$PATH
 export MANPATH=/opt/local/man:$MANPATH
-
-#その他
-bindkey -v
-setopt multios #複数リダイレクト有効
-setopt autopushd
-setopt auto_cd
-setopt auto_list
-setopt auto_menu
+export EDITOR=vi
 
 #色の設定
 autoload colors
