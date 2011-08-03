@@ -6,4 +6,5 @@ let g:quickrun_config = {
 \   'output'  : '_'
 \ }
 \}
-
+"Template
+0r ~/.vim/template/tex.tex

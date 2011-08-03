@@ -34,6 +34,7 @@ set smartcase      "enable smart case
 set grepprg=grep\ -nH\ $*
 
 "Plugin Settings
+filetype on
 filetype plugin on
 filetype plugin indent on
 filetype indent on
@@ -62,9 +63,14 @@ Bundle 'quickrun.vim'
 Bundle 'unite.vim'
 Bundle 'vimlatex'
 
-"Template Settings
-autocmd BufNewFile *.tex 0r $HOME/.vim/template/tex.tex
-autocmd BufNewFile *.py 0r $HOME/.vim/template/python.py
+"Template
+autocmd BufNewFile *.py 0r ~/.vim/template/python.py
+autocmd BufNewFile *.tex 0r ~/.vim/template/tex.tex
+
+
+"Pydictionの設定有効化
+Bundle 'Pydiction'
+let g:pydiction_location = '~/.vim/bundle/Pydiction/complete-dict'
 
 "Quickrun
 "出力を下側に表示
@@ -73,3 +79,4 @@ let g:quickrun_config = {
 \ 'split': '{"rightbelow 20sp"}'
 \ }
 \}
+
