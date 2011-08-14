@@ -61,12 +61,10 @@ silent! nmap <unique> <C-r> <Plug>(quickrun)
 "Bundle Plugins
 Bundle 'quickrun.vim'
 Bundle 'unite.vim'
-Bundle 'vimlatex'
 
 "Template
-autocmd BufNewFile *.py 0r ~/.vim/template/python.py
-autocmd BufNewFile *.tex 0r ~/.vim/template/tex.tex
-
+autocmd BufNewFile *.py 0r ~/.vim/templates/python.py
+autocmd BufNewFile *.pl *.pm 0r ~/.vim/templates/perl.pl
 
 "Pydictionの設定有効化
 Bundle 'Pydiction'
@@ -80,3 +78,4 @@ let g:quickrun_config = {
 \ }
 \}
 
+au BufNewFile,BufRead *.tex,*.latex,*.sty,*.dtx,*.ltx,*.bbl setf tex
