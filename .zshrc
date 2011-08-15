@@ -38,22 +38,23 @@ zstyle ':completion:*:complete:scp:*:files' command command -
 
 #その他
 bindkey -v
-setopt multios #複数リダイレクト有効
-setopt autopushd
-setopt auto_cd
-setopt auto_list
-setopt auto_menu
+setopt multios                  # 複数リダイレクト有効
+setopt autopushd                # cdの履歴を自動的に保存
+setopt auto_cd                  # ディレクトリ名のみのとき、自動的にcd
+setopt auto_list                # lsのリスト表示
+setopt auto_menu                # lsのメニュー化
 
 #コマンド履歴
+#<C-p>,<C-n>でコマンド履歴を戻る、進む
 autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
 
-HISTFILE=~/.zsh_history
-HISTSIZE=100000
-SAVEHIST=100000
+HISTFILE=~/.zsh_history          # コマンド履歴を保存するパス
+HISTSIZE=100000                  # 保持する履歴の数
+SAVEHIST=100000                  # 保存する最新の履歴の数
 setopt bang_hist                 # !を使ったヒストリ展開を利用する
 setopt extended_history          # 履歴に開始/終了時刻を記録
 setopt inc_append_history        # 履歴をインクリメンタルに追加
