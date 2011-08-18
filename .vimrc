@@ -79,3 +79,4 @@ let g:quickrun_config = {
 \}
 
 au BufNewFile,BufRead *.tex,*.latex,*.sty,*.dtx,*.ltx,*.bbl setf tex
+au BufReadPost,BufNewFile *.t :setl filetype=perl

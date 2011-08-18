@@ -68,7 +68,7 @@ unsetopt hist_expire_dups_first  # 古いヒストリが削除されるとき、
 unsetopt hist_save_no_dups       # ヒストリ記録時に、古いコマンドと同じものがあれば削除する
 
 #環境変数
-export PATH=/opt/local/lib/perl5/site_perl/5.12.3:/usr/bin/android-sdk-mac_86/tools:/opt/local/lib:/opt/local/bin:/opt/local/sbin:$PATH
+export PATH=~/perl5/perlbrew/perls/perl-5.8.8/bin:/usr/local/bin:/opt/local/lib/perl5/site_perl/5.12.3:/usr/bin/android-sdk-mac_86/tools:/opt/local/lib:/opt/local/bin:/opt/local/sbin:$PATH
 export MANPATH=/opt/local/man:$MANPATH
 export EDITOR=vi
 
@@ -89,3 +89,4 @@ alias -s rb=ruby
 alias python_select26="sudo port select --set python python26"
 alias python_select27="sudo port select --set python python27"
 alias python_select32="sudo port select --set python python32"
+source ~/perl5/perlbrew/etc/bashrc
