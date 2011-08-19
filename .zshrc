@@ -69,8 +69,8 @@ unsetopt hist_expire_dups_first  # 古いヒストリが削除されるとき、
 unsetopt hist_save_no_dups       # ヒストリ記録時に、古いコマンドと同じものがあれば削除する
 
 #環境変数
-export PATH=/usr/local/bin:/opt/local/lib/perl5/site_perl/5.12.3:/usr/bin/android-sdk-mac_86/tools:/opt/local/lib:/opt/local/bin:/opt/local/sbin:$PATH
-export PATH=/usr/local/mysql/bin:~/perl5/perlbrew/perls/perl-5.8.8/bin:$PATH
+export PATH=/usr/local/bin:/usr/bin/android-sdk-mac_86/tools:/opt/local/lib:/opt/local/bin:/opt/local/sbin:$PATH
+export PATH=/usr/local/mysql/bin:$PATH
 export MANPATH=/opt/local/man:$MANPATH
 export EDITOR=vi
 
