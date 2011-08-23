@@ -63,15 +63,6 @@ silent! nmap <unique> <C-r> <Plug>(quickrun)
 Bundle 'quickrun.vim'
 Bundle 'unite.vim'
 
-"Template
-autocmd BufNewFile *.py 0r ~/.vim/templates/python.py
-autocmd BufNewFile *.pl 0r ~/.vim/templates/perl.pl
-autocmd BufNewFile *.pm 0r ~/.vim/templates/perl-module.pm
-
-"Pydictionの設定有効化
-Bundle 'Pydiction'
-let g:pydiction_location = '~/.vim/bundle/Pydiction/complete-dict'
-
 "Quickrun
 "出力を下側に表示
 let g:quickrun_config = {
