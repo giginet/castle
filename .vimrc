@@ -45,10 +45,10 @@ syntax on
 colorscheme summerfruit
 
 "Key Mappings
-noremap z :tabp<CR>
-noremap x :tabn<CR>
-noremap q :tabonly<CR>
-noremap t gg=G<C-o><C-o>
+noremap <C-z> :tabp<CR>
+noremap <C-x> :tabn<CR>
+noremap <C-t> gg=G<C-o><C-o>
+noremap r :redo<CR>
 noremap <C-o> :tabnew 
 noremap <C-t> :new<CR>
 
@@ -62,14 +62,10 @@ silent! nmap <unique> <C-r> <Plug>(quickrun)
 "Bundle Plugins
 Bundle 'quickrun.vim'
 Bundle 'unite.vim'
+au BufNewFile *.js set ft=javascript
 
 "Quickrun
-"出力を下側に表示
-let g:quickrun_config = {
-\ '*': {
-\ 'split': '{"rightbelow 20sp"}'
-\ }
-\}
+"出力を下側に表示"
 
 au BufNewFile,BufRead *.tex,*.latex,*.sty,*.dtx,*.ltx,*.bbl setf tex
 au BufReadPost,BufNewFile *.t :setl filetype=perl

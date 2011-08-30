@@ -22,3 +22,58 @@ exit
 zsh
 #1312595342
 zsh
+exit
+zsh
+exit
+zsh
+exit
+zsh
+exit
+zsh
+exit
+zsh
+exit
+zsh
+exit
+zsh
+exit
+exit
+cp templates/index.html templates/tag.html
+exit
+zsh
+exit
+git status
+git revert -hard static//js/jquery.readmore.js 
+git checkout static/js/jquery.readmore.js 
+exit
+zsh
+exit
+zsh
+exit
+zsh
+exit
+zsh
+exit
+zsh
+exit
+sh t/setup_db.sh 
+sh t/setup_db.sh 
+exit
+zsh
+exit
+zsh
+exit
+zsh
+exit
+zsh
+exit
+zsh
+exit
+zsh
+exit
+zsh
+exit
+zsh
+exit
+zsh
+exit

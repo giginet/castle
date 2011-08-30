@@ -9,3 +9,5 @@ set expandtab
 set shiftround
 
 set modelines=0
+
+set path+=lib
