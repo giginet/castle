@@ -9,6 +9,7 @@ set cinoptions=g0
 set directory=$HOME/.vimbackup
 set smartindent
 set title
+set mouse=a
 
 "Language Settings
 set encoding=utf8
@@ -69,3 +70,11 @@ au BufNewFile *.js set ft=javascript
 
 au BufNewFile,BufRead *.tex,*.latex,*.sty,*.dtx,*.ltx,*.bbl setf tex
 au BufReadPost,BufNewFile *.t :setl filetype=perl
+au BufReadPost,BufNewFile *.tt :set filetype=tt2html
+
+"テンプレート作成
+function! InsertSignature()
+  let filename = expand('%')
+  let command = ".!python ~/.vim/templates/signature.py " . filename
+  execute command
+endfunction

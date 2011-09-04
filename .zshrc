@@ -75,7 +75,7 @@ export MANPATH=/opt/local/man:$MANPATH
 export EDITOR=vi
 
 #色の設定
-autoload colors
+autoload -U colors
 colors
 
 ## lsをカラー化
