@@ -1,12 +1,11 @@
-ln -s -f .bash_history ~/
-ln -s -f .bash_profile ~/
-ln -s -f .bashrc ~/
-ln -s -f .git ~/
-ln -s -f .gitignore ~/
-ln -s -f .gitmodules ~/
-ln -s -f .tmux.conf ~/
-ln -s -f .vim ~/
-ln -s -f .vim-vundle ~/
-ln -s -f .vimrc ~/
-ln -s -f .zshrc ~/
-ln -s -f gitignore_global ~/.gitconfig
+path=$(cd $(dirname $0); pwd)
+ln -s -f ${path}/.git ~/.git
+ln -s -f ${path}/.gitignore ~/.gitignore
+ln -s -f ${path}/.gitmodules ~/.gitmodules
+ln -s -f ${path}/.tmux.conf ~/.tmum.conf
+ln -s -f ${path}/.vim ~/.vim
+ln -s -f ${path}/.vim-vundle ~/.vim-vundle
+ln -s -f "${path}/.vimrc" ~/.vimrc
+ln -s -f ${path}/.zshrc ~/.zshrc
+ln -s -f ${path}/gitignore_global ~/.gitignore
+ln -s -f ${path}/.gitconfig ~/.gitconfig
