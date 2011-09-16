@@ -1,0 +1,12 @@
+ln -s -f .bash_history ~/
+ln -s -f .bash_profile ~/
+ln -s -f .bashrc ~/
+ln -s -f .git ~/
+ln -s -f .gitignore ~/
+ln -s -f .gitmodules ~/
+ln -s -f .tmux.conf ~/
+ln -s -f .vim ~/
+ln -s -f .vim-vundle ~/
+ln -s -f .vimrc ~/
+ln -s -f .zshrc ~/
+ln -s -f gitignore_global ~/.gitconfig

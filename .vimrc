@@ -63,6 +63,7 @@ silent! nmap <unique> <C-r> <Plug>(quickrun)
 "Bundle Plugins
 Bundle 'quickrun.vim'
 Bundle 'unite.vim'
+Bundle 'pylint.vim'
 au BufNewFile *.js set ft=javascript
 
 "Quickrun
