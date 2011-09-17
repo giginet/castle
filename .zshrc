@@ -88,9 +88,4 @@ alias -s py=python
 alias -s rb=ruby
 alias -s pl=perl
 
-##PythonSelect
-alias python_select26="sudo port select --set python python26"
-alias python_select27="sudo port select --set python python27"
-alias python_select32="sudo port select --set python python32"
-source ~/perl5/perlbrew/etc/bashrc
 source /Users/giginet/.pythonbrew/etc/bashrc
