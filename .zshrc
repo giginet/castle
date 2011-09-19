@@ -97,6 +97,7 @@ export MANPATH=/opt/local/man:$MANPATH
 export EDITOR=vi
 export CLICOLOR=1
 export LSCOLORS=DxGxcxdxCxegedabagacad
+export PYTHONPATH=~/.pythonbrew/pythons/Python-2.7.2/lib
 
 #色の設定
 autoload -U colors
