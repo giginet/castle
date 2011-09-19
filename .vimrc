@@ -78,6 +78,12 @@ let NERDTreeShowHidden = 1            "show dotfiles on NERDTree
 
 "Quickrun Setting
 silent! nmap <unique> <C-r> <Plug>(quickrun)
+let g:loaded_quicklaunch = 1
+let g:quickrun_config = {
+  \ '*': {
+  \ 'split': '{"rightbelow 10sp"}'
+  \ }
+\}
 
 "Insert Signature
 function! InsertSignature()
@@ -91,5 +97,3 @@ function! InsertSignature()
   call cursor('$', 0)
 endfunction
 autocmd BufNewFile * call InsertSignature()
-
-
