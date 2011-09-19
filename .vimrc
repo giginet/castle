@@ -21,6 +21,7 @@ set shiftwidth=2
 set expandtab     "replace tab to spaces
 set showmatch     "auto complete )
 set matchtime=1   "wait time for showmatch
+set backspace=indent,eol,start
 
 "Display Settings
 set number
@@ -48,34 +49,47 @@ colorscheme summerfruit
 "Key Mappings
 noremap <C-z> :tabp<CR>
 noremap <C-x> :tabn<CR>
-noremap <C-t> gg=G<C-o><C-o>
+"noremap <C-t> gg=G<C-o><C-o>
 noremap r :redo<CR>
 noremap <C-o> :tabnew 
 noremap <C-t> :new<CR>
 
-"tmuxとの互換性を持たせる
+"mapping like tmux
 noremap <C-w>% :vsp<CR>
 noremap <C-w>" :sp<CR>
 
-"Plugin Settings
-silent! nmap <unique> <C-r> <Plug>(quickrun)
-
-"Bundle Plugins
-Bundle 'quickrun.vim'
+"Bundle Universal Plugins
+Bundle 'quickrun'
 Bundle 'unite.vim'
-Bundle 'pylint.vim'
+Bundle 'The-NERD-tree'
 au BufNewFile *.js set ft=javascript
-
-"Quickrun
-"出力を下側に表示"
 
 au BufNewFile,BufRead *.tex,*.latex,*.sty,*.dtx,*.ltx,*.bbl setf tex
 au BufReadPost,BufNewFile *.t :setl filetype=perl
 au BufReadPost,BufNewFile *.tt :set filetype=tt2html
 
-"テンプレート作成
+"NERDTree Settings
+function! ToggleNAEDTree()
+  let current = expand('%:p')
+  execute printf(':NERDTreeToggle %s', current)
+endfunction
+noremap t :call ToggleNAEDTree()<CR>  "toggle NERDTree display
+let NERDTreeShowHidden = 1            "show dotfiles on NERDTree
+
+"Quickrun Setting
+silent! nmap <unique> <C-r> <Plug>(quickrun)
+
+"Insert Signature
 function! InsertSignature()
   let filename = expand('%')
-  let command = ".!python ~/.vim/templates/signature.py " . filename
-  execute command
+  let date = strftime("%Y/%m/%d")
+  let user = $USER
+  call append(1, '#')
+  call append(2, printf('# %s', filename))
+  call append(3, printf('# created by %s on %s', user, date))
+  call append(4, '#')
+  call cursor('$', 0)
 endfunction
+autocmd BufNewFile * call InsertSignature()
+
+

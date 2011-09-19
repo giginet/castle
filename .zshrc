@@ -33,6 +33,7 @@ zstyle ':completion:*:default' menu select=1
 zstyle ':completion:*:default' menu select=1
 setopt correct
 setopt prompt_subst
+
 #scp補完無効
 zstyle ':completion:*:complete:scp:*:files' command command -
 
@@ -68,11 +69,34 @@ unsetopt hist_ignore_all_dups    # ヒストリ内に全く同じ行があれば
 unsetopt hist_expire_dups_first  # 古いヒストリが削除されるとき、まったく同じ行があれば、それを削除する
 unsetopt hist_save_no_dups       # ヒストリ記録時に、古いコマンドと同じものがあれば削除する
 
+
+#auto ls
+function chpwd() {
+  case ${OSTYPE} in
+    freebsd*|darwin*)
+      ls -G -l -a -w;;
+    linux*)
+      ls -l -a --color;;
+  esac
+}
+
+# cd .. with ^^
+function cdup(){
+  echo
+  cd ..
+  zle reset-prompt
+ }
+ zle -N cdup
+ bindkey '\^\^' cdup
+
+
 #環境変数
 export PATH=/usr/local/bin:/usr/bin/android-sdk-mac_86/tools:/opt/local/lib:/opt/local/bin:/opt/local/sbin:$PATH
 export PATH=/usr/local/mysql/bin:$PATH
 export MANPATH=/opt/local/man:$MANPATH
 export EDITOR=vi
+export CLICOLOR=1
+export LSCOLORS=DxGxcxdxCxegedabagacad
 
 #色の設定
 autoload -U colors
@@ -88,4 +112,7 @@ alias -s py=python
 alias -s rb=ruby
 alias -s pl=perl
 
-source /Users/giginet/.pythonbrew/etc/bashrc
+#for Python
+source $HOME/.pythonbrew/etc/bashrc
+export WORKON_HOME=$HOME/.virtualenvs
+source `which virtualenvwrapper.sh`
