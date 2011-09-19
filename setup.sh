@@ -9,3 +9,4 @@ ln -s -f "${path}/.vimrc" ~/.vimrc
 ln -s -f ${path}/.zshrc ~/.zshrc
 ln -s -f ${path}/gitignore_global ~/.gitignore
 ln -s -f ${path}/.gitconfig ~/.gitconfig
+ln -s -f ${path}/.hgrc ~/.hgrc
