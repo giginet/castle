@@ -34,3 +34,4 @@ aa2179b80cf07c1bbaf97cae1f98775efe091e20 81b3582648fb992d40251131339fa9dfd4f44b2
 40618ebae3e591ffa926858bf3886b75bb91bb53 39daf6b888ac360529a1c7537dce475e26842419 giginet <giginet.net@gmail.com> 1316394645 +0900	commit: add .hgrc
 39daf6b888ac360529a1c7537dce475e26842419 1c4811da1ee24f1eeb51f193bde484fae05e3f26 giginet <giginet.net@gmail.com> 1316395244 +0900	commit: add ssh/config
 1c4811da1ee24f1eeb51f193bde484fae05e3f26 57be56859d8fba0215ad1feda720d0bfaf2c8a04 giginet <giginet.net@gmail.com> 1316662811 +0900	commit: ねむたい
+57be56859d8fba0215ad1feda720d0bfaf2c8a04 74d2a19f72c3b15d1b382855592dc3895f867ee8 giginet <giginet.net@gmail.com> 1316916478 +0900	commit: setup.sh書いた
