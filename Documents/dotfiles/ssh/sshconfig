@@ -1,0 +1,6 @@
+Host github.com
+ IdentityFile = ~/.ssh/id_rsa
+Host bb
+ Compression yes
+ HostName bitbucket.org
+ User hg

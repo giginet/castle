@@ -1,0 +1,36 @@
+0000000000000000000000000000000000000000 7fa1a7dde6929059ea81a748bec6d0f86889a3f5 giginet <giginet@giginets-iMac.local> 1309867048 +0900	clone: from ssh://giginet@gigi-net.net/~/git/dotfiles.git
+7fa1a7dde6929059ea81a748bec6d0f86889a3f5 566bf897ed6ea2bc93dc1c9de32addf687f0538e giginet <giginet.net@gmail.com> 1309867390 +0900	commit: .vim/.vimを削除
+566bf897ed6ea2bc93dc1c9de32addf687f0538e 05d3258d158b433c9482f5b37c621c0488df955f giginet <giginet.net@gmail.com> 1309867504 +0900	commit: Vundleを削除
+05d3258d158b433c9482f5b37c621c0488df955f 297bfa48cef31a15acb771d6cbde3f105e6cb895 giginet <giginet.net@gmail.com> 1309867577 +0900	commit: Vundleをサブモジュールへ
+297bfa48cef31a15acb771d6cbde3f105e6cb895 bf1abddf9a2f77383dd1389860d4d5a3022a14a4 giginet <giginet.net@gmail.com> 1309867857 +0900	commit: Bundleをignore
+bf1abddf9a2f77383dd1389860d4d5a3022a14a4 eea3c7f12205abfd9ac042255762c469877159bc giginet <giginet.net@gmail.com> 1309869478 +0900	pull : Fast-forward
+eea3c7f12205abfd9ac042255762c469877159bc f5b9bbabccf16d5874d8bcaab1210e9d12aa3bde giginet <giginet.net@gmail.com> 1309869634 +0900	pull : Fast-forward
+f5b9bbabccf16d5874d8bcaab1210e9d12aa3bde 4568c96036a6ccfdb663afe01a264fcb64316da6 giginet <giginet.net@gmail.com> 1309869732 +0900	commit: quickrunインストール
+4568c96036a6ccfdb663afe01a264fcb64316da6 e40045b367fe74e8b7d8f175157f5203a02c6f4c giginet <giginet.net@gmail.com> 1309869943 +0900	commit: ignore
+e40045b367fe74e8b7d8f175157f5203a02c6f4c 95284d47cc9a82fe13a92abf42225e780819243b giginet <giginet.net@gmail.com> 1309870210 +0900	commit: ignore設定変更
+95284d47cc9a82fe13a92abf42225e780819243b 4ff5c76b0ecdb1c596126469c039d48f6dfd0c84 giginet <giginet.net@gmail.com> 1309872973 +0900	commit: ignore設定変更
+4ff5c76b0ecdb1c596126469c039d48f6dfd0c84 6a9d0abb2dca73e91ce0c05ca4383e21637f7141 giginet <giginet.net@gmail.com> 1309875493 +0900	commit: Python用プラグイン追加
+6a9d0abb2dca73e91ce0c05ca4383e21637f7141 f5da5b993292d6d51f450f277946ea4f3447132f giginet <giginet.net@gmail.com> 1310551873 +0900	commit: .vimrcをマージ
+f5da5b993292d6d51f450f277946ea4f3447132f e3ee3b0f16e4a9bf7f2edbc9040bf9445192f5d1 giginet <giginet.net@gmail.com> 1310551887 +0900	pull : Merge made by recursive.
+e3ee3b0f16e4a9bf7f2edbc9040bf9445192f5d1 5889cb28d4d44733bb31ad258ea6c23250ea3540 giginet <giginet.net@gmail.com> 1310824293 +0900	commit: acp.vimインストール
+5889cb28d4d44733bb31ad258ea6c23250ea3540 f891446f356f5e83eb2e643c7f645a29465d1623 giginet <giginet.net@gmail.com> 1310824354 +0900	commit: BundleInstall
+f891446f356f5e83eb2e643c7f645a29465d1623 03557e8bd7531ecfcc751614813a07109e9659dc giginet <giginet.net@gmail.com> 1310979962 +0900	commit: Python_selectのエイリアス設定
+03557e8bd7531ecfcc751614813a07109e9659dc 182e4d726fdf4b96ec407f4a62fb17fb6c82b3eb giginet <giginet.net@gmail.com> 1310980722 +0900	commit: acp.vim導入
+182e4d726fdf4b96ec407f4a62fb17fb6c82b3eb b2a09512f2f93738e3cddc6160ffbf0dc03b717d giginet <giginet.net@gmail.com> 1310981648 +0900	commit: python_select32
+b2a09512f2f93738e3cddc6160ffbf0dc03b717d 3854f1944feb4bf71d5520614e879e67fcfb524c giginet <giginet.net@gmail.com> 1311153759 +0900	commit: zshrcを変更
+3854f1944feb4bf71d5520614e879e67fcfb524c 7a5568a6af6235a06a59d7e31c0ed37f0616d0a0 giginet <giginet.net@gmail.com> 1312166896 +0900	commit: .gitrcをftpluginに一部分離。QuickRunの設定変更
+7a5568a6af6235a06a59d7e31c0ed37f0616d0a0 9b7e091922f79a1247bbfb01d57249b0a0f9463f giginet <giginet.net@gmail.com> 1312350081 +0900	commit: ftpluginにテンプレート設定が出来ない！
+9b7e091922f79a1247bbfb01d57249b0a0f9463f 7013daa1330cd93e46ac20545ffad6853b89b8c6 giginet <giginet.net@gmail.com> 1312351893 +0900	commit: 履歴補完周り修正
+7013daa1330cd93e46ac20545ffad6853b89b8c6 35eae941c58940dd324058da3bbab556c5b165f1 giginet <giginet.net@gmail.com> 1312352397 +0900	commit: .tmux.conf追加
+35eae941c58940dd324058da3bbab556c5b165f1 a6ba6d24228097583f8e834b459335475f7a5899 giginet <giginet.net@gmail.com> 1312356087 +0900	commit: Pydictionの設定
+a6ba6d24228097583f8e834b459335475f7a5899 c96ceff1c73aff7a6a16ea75ca16f8699ef2956f giginet <giginet.net@gmail.com> 1313297691 +0900	commit: Perl環境構築
+c96ceff1c73aff7a6a16ea75ca16f8699ef2956f 3cbf1bdd4c6a3b76ffea76f69cdbf9f9359c6b5b giginet <giginet.net@gmail.com> 1313385291 +0900	commit: .zshrcにコメント追加
+3cbf1bdd4c6a3b76ffea76f69cdbf9f9359c6b5b 4491d72cbf470150dd623982d129652e4c6461c8 giginet <giginet.net@gmail.com> 1315663309 +0900	pull : Fast-forward
+4491d72cbf470150dd623982d129652e4c6461c8 61a0e3565de9cd03cb233debad82f1af6fad9447 giginet <giginet.net@gmail.com> 1316241524 +0900	pull : Fast-forward
+61a0e3565de9cd03cb233debad82f1af6fad9447 fa4e07ed71a24114d2c5295e795741654e612e63 giginet <giginet.net@gmail.com> 1316256315 +0900	commit: pythonselect廃止
+fa4e07ed71a24114d2c5295e795741654e612e63 aa2179b80cf07c1bbaf97cae1f98775efe091e20 giginet <giginet.net@gmail.com> 1316390663 +0900	commit: Python向けプラグインをいろいろ入れた
+aa2179b80cf07c1bbaf97cae1f98775efe091e20 81b3582648fb992d40251131339fa9dfd4f44b2f giginet <giginet.net@gmail.com> 1316391958 +0900	commit: refactor .vimrc
+81b3582648fb992d40251131339fa9dfd4f44b2f 40618ebae3e591ffa926858bf3886b75bb91bb53 giginet <giginet.net@gmail.com> 1316394296 +0900	commit: ropevimを設定
+40618ebae3e591ffa926858bf3886b75bb91bb53 39daf6b888ac360529a1c7537dce475e26842419 giginet <giginet.net@gmail.com> 1316394645 +0900	commit: add .hgrc
+39daf6b888ac360529a1c7537dce475e26842419 1c4811da1ee24f1eeb51f193bde484fae05e3f26 giginet <giginet.net@gmail.com> 1316395244 +0900	commit: add ssh/config
+1c4811da1ee24f1eeb51f193bde484fae05e3f26 57be56859d8fba0215ad1feda720d0bfaf2c8a04 giginet <giginet.net@gmail.com> 1316662811 +0900	commit: ねむたい

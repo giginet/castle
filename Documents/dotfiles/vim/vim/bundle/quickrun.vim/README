@@ -1,0 +1,41 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=3146
+
+*quickrun* is Vim plugin to execute whole/part of editing file and show the result.
+It provides :QuickRun command for it.
+
+Default is set in the following languages:
+
+- awk
+- bash
+- c
+- cpp
+- dosbatch
+- erlang
+- eruby
+- go
+- groovy
+- haskell
+- io
+- java
+- javascript
+- llvm
+- lua
+- ocaml
+- perl
+- perl6
+- php
+- python
+- r
+- ruby
+- scala
+- scheme
+- sed
+- sh
+- vim
+- zsh
+
+You can add settings for other languages and situations.
+
+Latest Version:
+https://github.com/thinca/vim-quickrun
+
