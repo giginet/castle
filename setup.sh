@@ -1,13 +1,35 @@
 path=$(cd $(dirname $0); pwd)
-ln -s -f ${path}/.git ~/.git
-ln -s -f ${path}/.gitignore ~/.gitignore
-ln -s -f ${path}/.gitmodules ~/.gitmodules
-ln -s -f ${path}/.tmux.conf ~/.tmum.conf
-ln -s -f ${path}/.vim ~/.vim
-ln -s -f ${path}/.vim-vundle ~/.vim-vundle
-ln -s -f "${path}/.vimrc" ~/.vimrc
-ln -s -f ${path}/.zshrc ~/.zshrc
-ln -s -f ${path}/gitignore_global ~/.gitignore
-ln -s -f ${path}/.gitconfig ~/.gitconfig
-ln -s -f ${path}/.hgrc ~/.hgrc
-ln -s -f ${path}/sshconfig ~/.ssh/config
+
+function yes_no {
+  MSG=$1
+  while :
+  do
+    echo -n "${MSG} y/N: "
+    read ans
+    case $ans in
+      [yY]) return 1 ;;
+    [nN]) return 0 ;;
+    esac
+  done
+}
+
+yes_no 'CAUTION : your dotfiles under $HOME will be replaced.'
+if [ $? -eq 1 ]
+then
+  for dir in $(ls -l | awk '$1 ~ /d/ {print $9 }')
+  do
+    for file in $(ls $dir)
+    do
+      from=$path"/"$dir"/"$file
+      if [ $file = "sshconfig" ]
+      then
+        to="$HOME/.ssh/"$file
+      else
+        to="$HOME/."$file
+      fi
+      ln -f -s $from $to
+    done
+  done
+fi
+
+

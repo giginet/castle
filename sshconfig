@@ -1,8 +1,0 @@
-Host github.com
- IdentityFile = ~/.ssh/id_rsa
-Host gigi-net.net
- HostName 125.205.199.157
-Host bb
- Compression yes
- HostName bitbucket.org
- User hg

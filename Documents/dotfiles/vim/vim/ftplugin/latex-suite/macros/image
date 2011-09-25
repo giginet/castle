@@ -1,8 +1,0 @@
-\begin{figure}[htbp]
-\begin{center}
-\includegraphics[bb=0 0 <++> <++>, width=<++>cm]{<++>}
-\end{center}
-\caption{<++>}
-\label{fig:one}
-\end{figure}
-
