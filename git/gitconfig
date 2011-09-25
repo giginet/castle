@@ -8,6 +8,7 @@
   branch = auto
   interactive = auto
   grep = auto
+	ui = true
 [push]
   default = tracking           # defaultのpush先はtrackingしているリポジトリ
 [core]
