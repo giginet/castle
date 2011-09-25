@@ -9,4 +9,4 @@ let ropevim_vim_completion=1
 let ropevim_extended_complete=1
 
 "pysmell
-"autocmd FileType python set omnifunc=pysmell#Complete
+"autocmd FileType python setlocal omnifunc=pysmell#Complete
