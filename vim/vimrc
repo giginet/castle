@@ -97,7 +97,6 @@ let g:gist_show_privates = 1
 
 "neocomplcache Settings
 let g:neocomplcache_enable_at_startup = 1
-let g:acp_enableAtStartup = 0
 
 "Insert Signature
 function! InsertSignature()
