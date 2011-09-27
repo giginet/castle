@@ -22,6 +22,7 @@ set expandtab     "replace tab to spaces
 set showmatch     "auto complete )
 set matchtime=1   "wait time for showmatch
 set backspace=indent,eol,start
+set virtualedit=block
 
 "Display Settings
 set number
@@ -35,6 +36,7 @@ set hlsearch       "enable highligt
 set incsearch      "enable incremental search
 set smartcase      "enable smart case
 set grepprg=grep\ -nH\ $*
+noremap <ESC><ESC> :nohlsearch<CR>
 
 "Plugin Settings
 filetype on

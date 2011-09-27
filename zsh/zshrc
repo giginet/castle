@@ -116,4 +116,6 @@ alias -s pl=perl
 #for Python
 source $HOME/.pythonbrew/etc/bashrc
 export WORKON_HOME=$HOME/.virtualenvs
-source `which virtualenvwrapper.sh`
+alias mkvenv="pythonbrew venv create"
+alias rmvenv="pythonbrew venv delete"
+alias swvenv="pythonbrew venv use"
