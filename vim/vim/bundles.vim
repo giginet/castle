@@ -22,5 +22,7 @@ Bundle 'basyura/jslint.vim'
 "Bundle 'jcf/vim-latex'
 "for HTML
 Bundle 'ZenCoding.vim'
+"for CofeeScript
+Bundle 'vim-coffee-script'
 
 filetype plugin indent on

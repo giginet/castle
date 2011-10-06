@@ -31,7 +31,6 @@ set hlsearch       "enable highligt
 set incsearch      "enable incremental search
 set smartcase      "enable smart case
 set grepprg=grep\ -nH\ $*
-noremap <ESC><ESC> :nohlsearch<CR>
 
 "Plugin Settings
 filetype on
@@ -44,17 +43,19 @@ syntax on
 colorscheme desert
 
 "Key Mappings
-noremap <C-t><C-z> :tabp<CR>
-noremap <C-t><C-x> :tabn<CR>
-noremap <C-t><c-n> :tabnew<CR>
 noremap r :redo<CR>
+noremap <ESC><ESC> :nohlsearch<CR>
 
-"mapping like tmux
+"split like tmux
 noremap <C-w>% :vsp<CR>
 noremap <C-w>" :sp<CR>
+noremap <C-w>p :tabp<CR>
+noremap <C-w>n :tabn<CR>
+noremap <C-w>c :tabnew<CR>
 
 au BufNewFile *.js set ft=javascript
 au BufReadPost,BufNewFile,BufRead *.tex,*.latex,*.sty,*.dtx,*.ltx,*.bbl :set filetype=tex
+au BufReadPost,BufNewFile,BufRead *.coffee :set filetype=coffee
 au BufReadPost,BufNewFile *.t :setl filetype=perl
 au BufReadPost,BufNewFile *.tt :set filetype=tt2html
 
@@ -82,6 +83,14 @@ let g:gist_show_privates = 1
 "neocomplcache Settings
 let g:neocomplcache_enable_at_startup = 1
 
+"errormarker.vim Settings
+let g:errormarker_errortext = '!!'
+let g:errormarker_warningtext = '??'
+let g:errormarker_errorgroup = 'Error'
+let g:errormarker_warninggroup = 'Todo'
+highlight Error ctermbg=52 guibg=#5F0000
+highlight Todo ctermbg=17 guibg=#00005F
+
 "Insert Signature
 function! InsertSignature()
   let filename = expand('%')
@@ -95,12 +104,5 @@ function! InsertSignature()
 endfunction
 autocmd BufNewFile *.py call InsertSignature()
 
+"Load local Settings
 source $HOME/.vimrc_local
-
-"for errormarker.vim
-let g:errormarker_errortext = '!!'
-let g:errormarker_warningtext = '??'
-let g:errormarker_errorgroup = 'Error'
-let g:errormarker_warninggroup = 'Todo'
-highlight Error ctermbg=52 guibg=#5F0000
-highlight Todo ctermbg=17 guibg=#00005F

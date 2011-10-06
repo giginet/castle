@@ -1,6 +1,7 @@
 .DS_Store
 .project
 .pydevproject
+.classpath
 .settings
 *.mo
 *.egg-info
