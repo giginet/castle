@@ -34,5 +34,4 @@ fi
 
 touch $HOME/.vimrc_local
 mkdir $HOME/.vimbackup
-git submodule init
-git submodule update
+sh $path/tmux/pasteboard.sh
