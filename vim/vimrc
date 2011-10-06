@@ -1,8 +1,3 @@
-"Initialize Vundle
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
-
 "General Settings
 set cindent
 set cinoptions=g0
@@ -61,19 +56,11 @@ noremap <C-w>% :vsp<CR>
 noremap <C-w>" :sp<CR>
 
 au BufNewFile *.js set ft=javascript
-au BufNewFile,BufRead *.tex,*.latex,*.sty,*.dtx,*.ltx,*.bbl setf tex
+au BufReadPost,BufNewFile,BufRead *.tex,*.latex,*.sty,*.dtx,*.ltx,*.bbl :set filetype=tex
 au BufReadPost,BufNewFile *.t :setl filetype=perl
 au BufReadPost,BufNewFile *.tt :set filetype=tt2html
 
-"Bundle Universal Plugins
-Bundle 'quickrun'
-Bundle 'unite.vim'
-Bundle 'The-NERD-tree'
-Bundle 'Gist.vim'
-Bundle 'ref.vim'
-Bundle 'tComment'
-Bundle 'neocomplcache'
-Bundle 'simplenote.vim'
+source <sfile>:h/.vim/bundles.vim
 
 "NERDTree Settings
 function! ToggleNAEDTree()
@@ -86,12 +73,10 @@ let NERDTreeShowHidden = 1            "show dotfiles on NERDTree
 "Quickrun Settings
 silent! nmap <unique> <C-r> <Plug>(quickrun)
 let g:loaded_quicklaunch = 1
-let g:quickrun_config = {
-  \ '*': {
-  \ 'split': '{"rightbelow 10sp"}'
-  \ }
+let g:quickrun_config = {}
+let g:quickrun_config._ = {
+\ 'split': '{"rightbelow 10sp"}'
 \}
-
 "Gist.vim Settings
 let g:gist_privates = 1
 let g:gist_show_privates = 1

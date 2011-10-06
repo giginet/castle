@@ -114,7 +114,7 @@ alias -s txt=less
 alias -s rb=ruby
 alias -s pl=perl
 alias ls="ls -a -G -l"
-alias django-admin.py=django-admin.py # これを設定しておかないと、django-admin.pyコマンドが誤爆する
+alias django-admin="django-admin.py" # これを設定しておかないと、django-admin.pyコマンドが誤爆する
 
 #for Python
 source $HOME/.pythonbrew/etc/bashrc
