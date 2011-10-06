@@ -41,7 +41,7 @@ filetype indent on
 syntax on
 
 "Color Scheme
-colorscheme summerfruit
+colorscheme desert
 
 "Key Mappings
 noremap <C-t><C-z> :tabp<CR>
