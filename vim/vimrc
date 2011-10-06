@@ -96,3 +96,11 @@ endfunction
 autocmd BufNewFile *.py call InsertSignature()
 
 source $HOME/.vimrc_local
+
+"for errormarker.vim
+let g:errormarker_errortext = '!!'
+let g:errormarker_warningtext = '??'
+let g:errormarker_errorgroup = 'Error'
+let g:errormarker_warninggroup = 'Todo'
+highlight Error ctermbg=52 guibg=#5F0000
+highlight Todo ctermbg=17 guibg=#00005F
