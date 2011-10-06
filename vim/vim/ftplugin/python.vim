@@ -9,4 +9,5 @@ let ropevim_vim_completion=1
 let ropevim_extended_complete=1
 
 "pysmell
-"autocmd FileType python set omnifunc=pysmell#Complete
+let g:pysmell_matcher='camel-case' 
+let g:pysmell_debug=1

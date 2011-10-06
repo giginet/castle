@@ -44,12 +44,10 @@ syntax on
 colorscheme summerfruit
 
 "Key Mappings
-noremap <C-z> :tabp<CR>
-noremap <C-x> :tabn<CR>
-"noremap <C-t> gg=G<C-o><C-o>
+noremap <C-t><C-z> :tabp<CR>
+noremap <C-t><C-x> :tabn<CR>
+noremap <C-t><c-n> :tabnew<CR>
 noremap r :redo<CR>
-noremap <C-o> :tabnew 
-noremap <C-t> :new<CR>
 
 "mapping like tmux
 noremap <C-w>% :vsp<CR>

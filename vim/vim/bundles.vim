@@ -14,7 +14,6 @@ Bundle 'tComment'
 Bundle 'neocomplcache'
 "fot Python
 Bundle 'pylint.vim'
-Bundle 'PySmell'
 "for JavaScript
 Bundle 'basyura/jslint.vim'
 "for TeX
