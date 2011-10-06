@@ -9,11 +9,13 @@ Bundle 'ujihisa/quickrun'
 Bundle 'unite.vim'
 Bundle 'The-NERD-tree'
 Bundle 'Gist.vim'
-Bundle 'ref.vim'
+Bundle 'thinca/vim-ref'
 Bundle 'tComment'
 Bundle 'neocomplcache'
+Bundle 'errormarker.vim'
 "fot Python
 Bundle 'pylint.vim'
+Bundle 'peplin/ropevim'
 "for JavaScript
 Bundle 'basyura/jslint.vim'
 "for TeX
