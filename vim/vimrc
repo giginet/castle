@@ -73,6 +73,7 @@ Bundle 'Gist.vim'
 Bundle 'ref.vim'
 Bundle 'tComment'
 Bundle 'neocomplcache'
+Bundle 'simplenote.vim'
 
 "NERDTree Settings
 function! ToggleNAEDTree()
