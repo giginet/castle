@@ -91,7 +91,7 @@ function cdup(){
 
 
 #環境変数
-export PATH=$HOME/.bin:/usr/local/bin:/usr/bin/android-sdk-mac_86/tools:/opt/local/lib:/opt/local/bin:/opt/local/sbin:$PATH
+export PATH=/usr/texbin:$HOME/.bin:/usr/local/bin:/usr/bin/android-sdk-mac_86/tools:/opt/local/lib:/opt/local/bin:/opt/local/sbin:$PATH
 export MANPATH=/opt/local/man:$MANPATH
 export EDITOR=vi
 export CLICOLOR=1
@@ -112,6 +112,7 @@ alias -s py=python
 alias -s txt=less
 alias -s rb=ruby
 alias -s pl=perl
+alias rm="rm -ri"
 alias ls="ls -a -G -l"
 alias django-admin="django-admin.py" # これを設定しておかないと、django-admin.pyコマンドが誤爆する
 

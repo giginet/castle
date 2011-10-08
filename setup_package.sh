@@ -9,8 +9,8 @@ pythonbrew switch 2.7.2
 #install pythonpackages
 pip install mercurial
 pip install pysmell
-pip install pyflakes
 pip install ropevim
+pip install ipython
 
 # install python support vim
 brew install https://raw.github.com/adamv/homebrew-alt/master/duplicates/vim.rb
