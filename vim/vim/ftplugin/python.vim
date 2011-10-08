@@ -11,4 +11,3 @@ let ropevim_extended_complete=1
 "pysmell
 let g:pysmell_matcher='camel-case' 
 let g:pysmell_debug=1
-let g:ropevim_autoimport_modules = ["os"]

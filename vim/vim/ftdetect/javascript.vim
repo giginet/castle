@@ -28,19 +28,4 @@ function CompressJS ()
         call system( 'yuicompressor '.cwd.'/'.nam.'.'.ext.' -o '.cwd.'/'.minfname)
     endif
 endfunction
-
-function Css_compress ()
-    let cwd = expand('pwd')
-    let nam = expand('%:r')
-    let ext = "css"
-    if -1 == match(nam, "[\._]src$")
-        let minfname = nam.".min.".ext
-    else
-        let minfname = substitute(nam, "[\._]src$", "", "g").".".ext
-    endif
-    let com = 'yuicompressor '.cwd.'/'.nam.'.'.ext.' -o '.cwd.'/'.minfname.' &'
-    "call system( 'yuicompressor '.cwd.'/'.nam.'.'.ext.' -o '.cwd.'/'.minfname.' &')
-    call system(com)
-endfunction
-
-autocmd BufWritePost javascript call Css_compress()
+autocmd BufWritePost *.js :call CompressJS()

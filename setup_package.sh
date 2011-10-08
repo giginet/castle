@@ -9,7 +9,7 @@ pythonbrew switch 2.7.2
 #install pythonpackages
 pip install mercurial
 pip install pysmell
-pip install pylint
+pip install pyflakes
 pip install ropevim
 
 # install python support vim

@@ -14,7 +14,6 @@ Bundle 'tComment'
 Bundle 'neocomplcache'
 Bundle 'errormarker.vim'
 "fot Python
-Bundle 'pylint.vim'
 Bundle 'peplin/ropevim'
 "for JavaScript
 Bundle 'basyura/jslint.vim'
