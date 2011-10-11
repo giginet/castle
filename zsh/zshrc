@@ -108,11 +108,10 @@ export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46
 alias gls="gls --color"
 zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
 
-alias -s py=python
 alias -s txt=less
 alias -s rb=ruby
 alias -s pl=perl
-alias rm="rm -ri"
+alias rm="rm -rf"
 alias ls="ls -a -G -l"
 alias django-admin="django-admin.py" # これを設定しておかないと、django-admin.pyコマンドが誤爆する
 
