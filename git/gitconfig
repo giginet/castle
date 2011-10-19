@@ -1,5 +1,5 @@
 [user]
-  name  = giginet
+	name = giginet
   email = giginet.net@gmail.com
 [color]
   #colorの設定(以下のコマンドは自動で色つける)

@@ -66,7 +66,7 @@ function! ToggleNAEDTree()
   let current = expand('%:p')
   execute printf(':NERDTreeToggle %s', current)
 endfunction
-noremap t :call ToggleNAEDTree()<CR>  "toggle NERDTree display
+noremap <C-n>t :call ToggleNAEDTree()<CR>  "toggle NERDTree display
 let NERDTreeShowHidden = 1            "show dotfiles on NERDTree
 
 "Quickrun Settings

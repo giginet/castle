@@ -26,8 +26,6 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin
 # kill の候補にも色付き表示
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([%0-9]#)*=0=01;31'
-# 補完候補は Emacs のキーバインドで選択
-zstyle ':completion:*:default' menu select=1
 
 ## 補完候補のカーソル選択を有効に
 zstyle ':completion:*:default' menu select=1
@@ -93,7 +91,7 @@ function cdup(){
 #環境変数
 export PATH=/usr/texbin:$HOME/.bin:/usr/local/bin:/usr/bin/android-sdk-mac_86/tools:/opt/local/lib:/opt/local/bin:/opt/local/sbin:$PATH
 export MANPATH=/opt/local/man:$MANPATH
-export EDITOR=vi
+export EDITOR=/usr/local/bin/vim
 export CLICOLOR=1
 export LSCOLORS=DxGxcxdxCxegedabagacad
 export PYTHONPATH=~/.pythonbrew/pythons/Python-2.7.2/lib

@@ -1,8 +1,13 @@
+# generic
 .DS_Store
+
+# eclipse
 .project
 .pydevproject
 .classpath
 .settings
+
+# python
 *.mo
 *.egg-info
 *.egg
@@ -18,10 +23,15 @@ parts
 dist
 .installed.cfg
 .mr.developer.cfg
+*.pyc
+*.pyo
+
+# vcs
 .hg
 .bzr
 .svn
-*.pyc
-*.pyo
+
+# vim
 *.tmp*
 PYSMELL*
+.ropeproject
