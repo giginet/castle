@@ -28,4 +28,4 @@ function CompressJS ()
         call system( 'yuicompressor '.cwd.'/'.nam.'.'.ext.' -o '.cwd.'/'.minfname)
     endif
 endfunction
-autocmd BufWritePost *.js :call CompressJS()
+"autocmd BufWritePost *.js :call CompressJS()
