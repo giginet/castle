@@ -67,7 +67,6 @@ unsetopt hist_ignore_all_dups    # ヒストリ内に全く同じ行があれば
 unsetopt hist_expire_dups_first  # 古いヒストリが削除されるとき、まったく同じ行があれば、それを削除する
 unsetopt hist_save_no_dups       # ヒストリ記録時に、古いコマンドと同じものがあれば削除する
 
-
 #auto ls
 function chpwd() {
   case ${OSTYPE} in
@@ -87,9 +86,19 @@ function cdup(){
  zle -N cdup
  bindkey '\^\^' cdup
 
+# show vcs branch info
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' formats '(%r)-[%b]'
+zstyle ':vcs_info:*' actionformats '(%r)-[%b|%a]'
+precmd () {
+  psvar=()
+  LANG=en_US.UTF-8 vcs_info
+  [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+}
+RPROMPT="%1(v|%F{green}%1v%f|)"
 
 #環境変数
-export PATH=/usr/texbin:$HOME/.bin:/usr/local/bin:/usr/bin/android-sdk-mac_86/tools:/opt/local/lib:/opt/local/bin:/opt/local/sbin:$PATH
+export PATH=/usr/texbin:$HOME/.bin:/usr/local/Cellar:/usr/local/bin:/usr/bin/android-sdk-mac_86/tools:$PATH
 export MANPATH=/opt/local/man:$MANPATH
 export EDITOR=/usr/local/bin/vim
 export CLICOLOR=1
@@ -119,3 +128,8 @@ export WORKON_HOME=$HOME/.virtualenvs
 alias mkvenv="pythonbrew venv create"
 alias rmvenv="pythonbrew venv delete"
 alias swvenv="pythonbrew venv use"
+
+#git aliases
+alias git co="git checkout"
+alias git ci="git commit"
+alias git log="tig"

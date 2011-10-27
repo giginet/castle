@@ -44,7 +44,6 @@ colorscheme desert
 
 "Key Mappings
 noremap r :redo<CR>
-noremap <ESC><ESC> :nohlsearch<CR>
 
 "split like tmux
 noremap <C-w>% :vsp<CR>
