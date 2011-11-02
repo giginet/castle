@@ -1,5 +1,3 @@
-filetype plugin off
-
 "Initialize NeoBundle
 set nocompatible
 filetype off
