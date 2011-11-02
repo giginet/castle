@@ -5,7 +5,7 @@ setl tabstop=4 expandtab shiftwidth=4 softtabstop=4
 set expandtab
 
 "pylint
-set makeprg=$PYTHONPATH/pylint\ --rcfile=$HOME/.pylint\ -r=n\ %:p
+set makeprg=$PYTHONPATH/../bin/pylint\ --rcfile=$HOME/.pylint\ -r=n\ %:p
 set errorformat=%f:%l:\ %m
 
 "ropevim

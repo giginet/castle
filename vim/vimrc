@@ -1,4 +1,4 @@
-"General Settings
+/"General Settings
 set cindent
 set cinoptions=g0
 set directory=$HOME/.vimbackup
@@ -58,7 +58,7 @@ au BufReadPost,BufNewFile,BufRead *.coffee :set filetype=coffee
 au BufReadPost,BufNewFile *.t :setl filetype=perl
 au BufReadPost,BufNewFile *.tt :set filetype=tt2html
 
-source <sfile>:h/.vim/bundles.vim
+source <sfile>:h/.vim/neobundles.vim
 
 "NERDTree Settings
 function! ToggleNAEDTree()
