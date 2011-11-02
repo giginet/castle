@@ -1,4 +1,4 @@
-/"General Settings
+"General Settings
 set cindent
 set cinoptions=g0
 set directory=$HOME/.vimbackup

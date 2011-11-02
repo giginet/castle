@@ -3,9 +3,8 @@ set nocompatible
 filetype off
 
 if has('vim_starting')
-  set runtimepath+='path to neobundle directory'
-
-  call neobundle#rc(expand('~/.bundle'))
+  set runtimepath+=~/.vim/neobundle.vim
+  call neobundle#rc(expand('~/bundle'))
 endif
 
 "Universal Plugins
