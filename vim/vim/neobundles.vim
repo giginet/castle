@@ -9,16 +9,17 @@ endif
 
 "Universal Plugins
 NeoBundle 'ujihisa/quickrun'
-NeoBundle 'unite.vim'
-NeoBundle 'The-NERD-tree'
-NeoBundle 'Gist.vim'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'mattn/gist-vim'
 NeoBundle 'thinca/vim-ref'
-NeoBundle 'tComment'
-NeoBundle 'neocomplcache'
-NeoBundle 'errormarker.vim'
+NeoBundle 'vim-scripts/tComment'
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neobundle.vim'
+NeoBundle 'vim-scripts/errormarker.vim'
 "fot Python
 NeoBundle 'peplin/ropevim'
-NeoBundle 'pythoncomplete'
+NeoBundle 'mjbrownie/pythoncomplete.vim'
 NeoBundle 'vim-scripts/pep8'
 "for JavaScript
 NeoBundle 'basyura/jslint.vim'
@@ -26,9 +27,9 @@ NeoBundle 'pangloss/vim-javascript'
 "for TeX
 "NeoBundle 'jcf/vim-latex'
 "for HTML
-NeoBundle 'ZenCoding.vim'
+NeoBundle 'mattn/zencoding-vim'
 NeoBundle 'othree/html5.vim'
 "for CofeeScript
-NeoBundle 'vim-coffee-script'
+NeoBundle 'kchmck/vim-coffee-script'
 
 filetype plugin indent on
