@@ -4,7 +4,7 @@ filetype off
 
 if has('vim_starting')
   set runtimepath+=~/.vim/neobundle.vim
-  call neobundle#rc(expand('~/bundle'))
+  call neobundle#rc(expand('~/.bundle'))
 endif
 
 "Universal Plugins
