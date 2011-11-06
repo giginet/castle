@@ -17,19 +17,26 @@ NeoBundle 'vim-scripts/tComment'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'vim-scripts/errormarker.vim'
+NeoBundle 'https://github.com/reinh/vim-makegreen.git'
+
 "fot Python
 NeoBundle 'peplin/ropevim'
 NeoBundle 'mjbrownie/pythoncomplete.vim'
 NeoBundle 'vim-scripts/pep8'
+
 "for JavaScript
 NeoBundle 'basyura/jslint.vim'
 NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'lambdalisue/nodeunit.vim'
+
+"for CofeeScript
+NeoBundle 'kchmck/vim-coffee-script'
+
 "for TeX
 "NeoBundle 'jcf/vim-latex'
+
 "for HTML
 NeoBundle 'mattn/zencoding-vim'
 NeoBundle 'othree/html5.vim'
-"for CofeeScript
-NeoBundle 'kchmck/vim-coffee-script'
 
 filetype plugin indent on
