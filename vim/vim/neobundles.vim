@@ -18,6 +18,8 @@ NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'vim-scripts/errormarker.vim'
 NeoBundle 'https://github.com/reinh/vim-makegreen.git'
+NeoBundle 'sjl/gundo.vim'
+NeoBundle 'mrtazz/simplenote.vim'
 
 "fot Python
 NeoBundle 'peplin/ropevim'

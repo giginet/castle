@@ -90,18 +90,8 @@ let g:errormarker_warninggroup = 'Todo'
 highlight Error ctermbg=52 guibg=#5F0000
 highlight Todo ctermbg=17 guibg=#00005F
 
-"Insert Signature
-function! InsertSignature()
-  let filename = expand('%')
-  let date = strftime("%Y/%m/%d")
-  let user = $USER
-  call append(1, '#')
-  call append(2, printf('# %s', filename))
-  call append(3, printf('# created by %s on %s', user, date))
-  call append(4, '#')
-  call cursor('$', 0)
-endfunction
-autocmd BufNewFile *.py call InsertSignature()
+"Gundo.vim Settings
+noremap U :<C-u>GundoToggle<CR>
 
 "Load local Settings
 source $HOME/.vimrc_local
