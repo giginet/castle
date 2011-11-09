@@ -35,3 +35,4 @@ dist
 *.tmp*
 PYSMELL*
 .ropeproject
+pysmell_exc.txt

@@ -14,7 +14,6 @@ let ropevim_extended_complete=1
 
 "pysmell
 let g:pysmell_matcher='camel-case' 
-let g:pysmell_debug=1
 
 "pep8
-let pep8_map='<Leader>8'
+let g:pep8_map='<Leader>8'
