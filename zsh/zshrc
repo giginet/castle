@@ -68,14 +68,7 @@ unsetopt hist_expire_dups_first  # 古いヒストリが削除されるとき、
 unsetopt hist_save_no_dups       # ヒストリ記録時に、古いコマンドと同じものがあれば削除する
 
 #auto ls
-function chpwd() {
-  case ${OSTYPE} in
-    freebsd*|darwin*)
-      ls -G -l -a -w;;
-    linux*)
-      ls -l -a --color;;
-  esac
-}
+function chpwd() { ls }
 
 # cd .. with ^^
 function cdup(){
@@ -85,6 +78,22 @@ function cdup(){
  }
  zle -N cdup
  bindkey '\^\^' cdup
+
+# back and next current directory
+function cdback(){
+   pwd
+   cd +1
+   zle reset-prompt
+  }
+  zle -N cdback
+  bindkey '<<' cdback
+function cdnext(){
+   pwd
+   cd -0
+   zle reset-prompt
+  }
+  zle -N cdnext
+  bindkey '>>' cdnext
 
 # show vcs branch info
 autoload -Uz vcs_info

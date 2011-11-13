@@ -67,6 +67,7 @@ function! ToggleNAEDTree()
 endfunction
 noremap <C-n>t :call ToggleNAEDTree()<CR>  "toggle NERDTree display
 let NERDTreeShowHidden = 1            "show dotfiles on NERDTree
+let NERDTreeIgnore=['\.vim$', '\~$', '\.py[oc]$', '^\.DS_Store$', '^\.git$', '^\.hg$', '^\.svn$']
 
 "Quickrun Settings
 silent! nmap <unique> <C-r> <Plug>(quickrun)
@@ -81,7 +82,6 @@ let g:gist_show_privates = 1
 
 "Ref.vim
 let g:ref_alc_start_linenumber = 10
-let g:ref_alc_encoding = 'EUC-JP'
 
 "neocomplcache Settings
 let g:neocomplcache_enable_at_startup = 1
