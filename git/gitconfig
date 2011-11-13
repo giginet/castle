@@ -1,15 +1,23 @@
 [user]
 	name = giginet
-  email = giginet.net@gmail.com
+	email = giginet.net@gmail.com
 [color]
-  #colorの設定(以下のコマンドは自動で色つける)
-  status = auto
-  diff   = auto
-  branch = auto
-  interactive = auto
-  grep = auto
+	#colorの設定(以下のコマンドは自動で色つける)
+	status = auto
+	diff   = auto
+	branch = auto
+	interactive = auto
+	grep = auto
 	ui = true
 [push]
-  default = tracking           # defaultのpush先はtrackingしているリポジトリ
+	default = tracking           # defaultのpush先はtrackingしているリポジトリ
 [core]
-  excludesfile = ~/.gitignore  # globalな.gitignoreの指定
+	excludesfile = ~/.gitignore  # globalな.gitignoreの指定
+[alias]
+	a = add -A
+	b = branch
+	st = status
+	ci = commit -a
+	co = checkout
+	sw = checkout -b
+	di = diff --color-words

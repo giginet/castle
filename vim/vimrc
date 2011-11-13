@@ -79,6 +79,10 @@ let g:quickrun_config._ = {
 let g:gist_privates = 1
 let g:gist_show_privates = 1
 
+"Ref.vim
+let g:ref_alc_start_linenumber = 10
+let g:ref_alc_encoding = 'EUC-JP'
+
 "neocomplcache Settings
 let g:neocomplcache_enable_at_startup = 1
 
