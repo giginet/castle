@@ -2,7 +2,6 @@
 	name = giginet
 	email = giginet.net@gmail.com
 [color]
-	#colorの設定(以下のコマンドは自動で色つける)
 	status = auto
 	diff   = auto
 	branch = auto
@@ -10,9 +9,9 @@
 	grep = auto
 	ui = true
 [push]
-	default = tracking           # defaultのpush先はtrackingしているリポジトリ
+	default = tracking
 [core]
-	excludesfile = ~/.gitignore  # globalな.gitignoreの指定
+	excludesfile = ~/.gitignore
 [alias]
 	a = add -A
 	b = branch
@@ -21,3 +20,4 @@
 	co = checkout
 	sw = checkout -b
 	di = diff --color-words
+	shorten = !"sh -c 'curl -i http://git.io/ -F url=$1 `[ -n \"$2\" ] && echo -F code=$2`' -"

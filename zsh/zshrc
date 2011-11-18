@@ -68,7 +68,7 @@ unsetopt hist_expire_dups_first  # 古いヒストリが削除されるとき、
 unsetopt hist_save_no_dups       # ヒストリ記録時に、古いコマンドと同じものがあれば削除する
 
 #auto ls
-function chpwd() { ls }
+function chpwd() { ls -a }
 
 # cd .. with ^^
 function cdup(){

@@ -52,12 +52,6 @@ noremap <C-w>p :tabp<CR>
 noremap <C-w>n :tabn<CR>
 noremap <C-w>c :tabnew<CR>
 
-au BufNewFile *.js set ft=javascript
-au BufReadPost,BufNewFile,BufRead *.tex,*.latex,*.sty,*.dtx,*.ltx,*.bbl :set filetype=tex
-au BufReadPost,BufNewFile,BufRead *.coffee :set filetype=coffee
-au BufReadPost,BufNewFile *.t :setl filetype=perl
-au BufReadPost,BufNewFile *.tt :set filetype=tt2html
-
 source <sfile>:h/.vim/neobundles.vim
 
 "NERDTree Settings
@@ -82,6 +76,7 @@ let g:gist_show_privates = 1
 
 "Ref.vim
 let g:ref_alc_start_linenumber = 10
+"let g:ref_alc_encoding = 'Shift-JIS'
 
 "neocomplcache Settings
 let g:neocomplcache_enable_at_startup = 1
