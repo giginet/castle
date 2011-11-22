@@ -18,6 +18,7 @@
 	st = !"tig status"
 	lg = !"tig"
 	bl = !"tig blame"
+	sh = !"tig show"
 	ci = commit -a
 	co = checkout
 	sw = checkout -b
