@@ -13,11 +13,13 @@
 [core]
 	excludesfile = ~/.gitignore
 [alias]
-	a = add -A
-	b = branch
-	st = status
+	ad = add -A
+	br = branch
+	st = !"tig status"
+	lg = !"tig"
+	bl = !"tig blame"
 	ci = commit -a
 	co = checkout
 	sw = checkout -b
-	di = diff --color-words
+	diff = diff --color-words
 	shorten = !"sh -c 'curl -i http://git.io/ -F url=$1 `[ -n \"$2\" ] && echo -F code=$2`' -"

@@ -8,37 +8,37 @@ if has('vim_starting')
 endif
 
 "Universal Plugins
-NeoBundle 'ujihisa/quickrun'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'mattn/gist-vim'
-NeoBundle 'thinca/vim-ref'
-NeoBundle 'vim-scripts/tComment'
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/neobundle.vim'
-NeoBundle 'vim-scripts/errormarker.vim'
+NeoBundle 'https://github.com/ujihisa/quickrun'
+NeoBundle 'https://github.com/Shougo/unite.vim'
+NeoBundle 'https://github.com/scrooloose/nerdtree'
+NeoBundle 'https://github.com/mattn/gist-vim'
+NeoBundle 'https://github.com/thinca/vim-ref'
+NeoBundle 'https://github.com/vim-scripts/tComment'
+NeoBundle 'https://github.com/Shougo/neocomplcache'
+NeoBundle 'https://github.com/Shougo/neobundle.vim'
+NeoBundle 'https://github.com/vim-scripts/errormarker.vim'
 NeoBundle 'https://github.com/reinh/vim-makegreen.git'
-NeoBundle 'sjl/gundo.vim'
-NeoBundle 'mrtazz/simplenote.vim'
+NeoBundle 'https://github.com/sjl/gundo.vim'
+NeoBundle 'https://github.com/mrtazz/simplenote.vim'
 
 "fot Python
-NeoBundle 'peplin/ropevim'
-NeoBundle 'mjbrownie/pythoncomplete.vim'
-NeoBundle 'vim-scripts/pep8'
+NeoBundle 'https://github.com/peplin/ropevim'
+NeoBundle 'https://github.com/mjbrownie/pythoncomplete.vim'
+NeoBundle 'https://github.com/vim-scripts/pep8'
 
 "for JavaScript
-NeoBundle 'basyura/jslint.vim'
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'lambdalisue/nodeunit.vim'
+NeoBundle 'https://github.com/basyura/jslint.vim'
+NeoBundle 'https://github.com/pangloss/vim-javascript'
+NeoBundle 'https://github.com/lambdalisue/nodeunit.vim'
 
 "for CofeeScript
-NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'https://github.com/kchmck/vim-coffee-script'
 
 "for TeX
-"NeoBundle 'jcf/vim-latex'
+"NeoBundle 'https://github.com/jcf/vim-latex'
 
 "for HTML
-NeoBundle 'mattn/zencoding-vim'
-NeoBundle 'othree/html5.vim'
+NeoBundle 'https://github.com/mattn/zencoding-vim'
+NeoBundle 'https://github.com/othree/html5.vim'
 
 filetype plugin indent on
