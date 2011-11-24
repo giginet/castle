@@ -4,8 +4,7 @@ let g:quickrun_config.coffee = {
 
 function! Cake()
   if filereadable('Cakefile')
-    let result = system("cake compile")
-    echo result
+    call system("cake compile") | cwindow | redraw!
   else
     silent CoffeeMake! -cb | cwindow | redraw!
   endif
