@@ -1,4 +1,8 @@
 <+	+>	!comp!	!exe!
+%        File: !comp!expand("%")!comp!
+%     Created: !comp!strftime("%a %b %d %I:00 %p %Y ").substitute(strftime('%Z'), '\<\(\w\)\(\w*\)\>\(\W\|$\)', '\1', 'g')!comp!
+% Last Change: !comp!strftime("%a %b %d %I:00 %p %Y ").substitute(strftime('%Z'), '\<\(\w\)\(\w*\)\>\(\W\|$\)', '\1', 'g')!comp!
+%
 \documentclass[12pt]{jarticle}
 \usepackage[dvips]{graphicx}
 \usepackage{amsmath}
@@ -8,20 +12,20 @@
 \usepackage{fancybox} 
 
 \lstset{
-  breaklines = true,
-  language=C++,
-  basicstyle=\ttfamily\scriptsize,
-  commentstyle={\itshape \color[cmyk]{1,0.4,1,0}},
-  classoffset=1,
-  keywordstyle={\bfseries \color[rgb]{0,0,1}},
-  stringstyle={\ttfamily \color[rgb]{0,0,1}},
-  frame=tRBl,
-  framesep=5pt,
-  showstringspaces=false,
-  numbers=left,
-  stepnumber=1,
-  numberstyle=\tiny,
-  tabsize=2,
+breaklines = true,
+language=C++,
+basicstyle=\ttfamily\scriptsize,
+commentstyle={\itshape \color[cmyk]{1,0.4,1,0}},
+classoffset=1,
+keywordstyle={\bfseries \color[rgb]{0,0,1}},
+stringstyle={\ttfamily \color[rgb]{0,0,1}},
+frame=tRBl,
+framesep=5pt,
+showstringspaces=false,
+numbers=left,
+stepnumber=1,
+numberstyle=\tiny,
+tabsize=2,
 }
 \begin{document}
 \title{タイトル}
@@ -33,5 +37,4 @@
 
 \clearpage
 <++>
-
 \end{document}
