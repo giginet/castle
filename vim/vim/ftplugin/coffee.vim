@@ -9,4 +9,4 @@ function! Cake()
     silent CoffeeMake! -cb | cwindow | redraw!
   endif
 endfunction
-autocmd BufWritePost *.coffee call Cake()
+"autocmd BufWritePost *.coffee call Cake()

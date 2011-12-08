@@ -12,6 +12,7 @@
 	default = tracking
 [core]
 	excludesfile = ~/.gitignore
+	quotepath = false
 [alias]
 	ad = add -A
 	br = branch
