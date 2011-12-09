@@ -107,7 +107,7 @@ precmd () {
 RPROMPT="%1(v|%F{blue}%1v%f|)"
 
 # Environment Variable Settings
-export PATH=/opt/local/bin:/usr/texbin:$HOME/.bin:/usr/local/Cellar:/usr/local/bin:/usr/bin/android-sdk-mac_86/tools:$PATH
+export PATH=/usr/texbin:$HOME/.bin:/usr/local/Cellar:/usr/local/bin:/usr/bin/android-sdk-mac_86/tools:$PATH
 export MANPATH=/opt/local/man:$MANPATH
 export EDITOR=/usr/local/bin/vim
 export CLICOLOR=1
