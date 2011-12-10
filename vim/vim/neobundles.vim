@@ -7,6 +7,10 @@ if has('vim_starting')
   call neobundle#rc(expand('~/.bundle'))
 endif
 
+
+" 北大のクソネットワークではgitプロトコルによるcloneができないので
+" あえてusername/repositoryという書き方をしていない
+
 "Universal Plugins
 NeoBundle 'https://github.com/ujihisa/quickrun'
 NeoBundle 'https://github.com/Shougo/unite.vim'
@@ -20,6 +24,7 @@ NeoBundle 'https://github.com/vim-scripts/errormarker.vim'
 NeoBundle 'https://github.com/reinh/vim-makegreen.git'
 NeoBundle 'https://github.com/sjl/gundo.vim'
 NeoBundle 'https://github.com/mrtazz/simplenote.vim'
+NeoBundle 'https://github.com/vim-scripts/surround.vim'
 
 "fot Python
 NeoBundle 'https://github.com/peplin/ropevim'
