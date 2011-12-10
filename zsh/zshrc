@@ -137,3 +137,6 @@ export WORKON_HOME=$HOME/.virtualenvs
 alias mkvenv="pythonbrew venv create"
 alias rmvenv="pythonbrew venv delete"
 alias swvenv="pythonbrew venv use"
+
+#for Ruby Development
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
