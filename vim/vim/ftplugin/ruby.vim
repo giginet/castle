@@ -1,2 +1,0 @@
-set nolist
-set noexpandtab

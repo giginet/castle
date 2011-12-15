@@ -48,4 +48,7 @@ NeoBundle 'https://github.com/kchmck/vim-coffee-script'
 NeoBundle 'https://github.com/mattn/zencoding-vim'
 NeoBundle 'https://github.com/othree/html5.vim'
 
+"for Scala
+NeoBundle 'https://github.com/derekwyatt/vim-scala.git'
+
 filetype plugin indent on
