@@ -47,5 +47,7 @@ NeoBundle 'https://github.com/kchmck/vim-coffee-script'
 "for HTML
 NeoBundle 'https://github.com/mattn/zencoding-vim'
 NeoBundle 'https://github.com/othree/html5.vim'
+NeoBundle 'https://github.com/cakebaker/scss-syntax.vim.git'
+NeoBundle 'https://github.com/hail2u/vim-css3-syntax.git'
 
 filetype plugin indent on

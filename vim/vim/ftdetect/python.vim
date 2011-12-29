@@ -1,6 +1,5 @@
 autocmd BufNewFile *.py 0r ~/.vim/templates/python.py
-autocmd FileType python compiler pylint
-autocmd FileType python set omnifunc=pythoncomplete#Complete
+" autocmd FileType python set omnifunc=pythoncomplete#Complete
 
 if !exists('g:flymake_enabled')
   let g:flymake_enabled = 1

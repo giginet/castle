@@ -36,3 +36,5 @@ dist
 PYSMELL*
 .ropeproject
 pysmell_exc.txt
+
+.sass-cache
