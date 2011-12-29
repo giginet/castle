@@ -50,4 +50,7 @@ NeoBundle 'https://github.com/othree/html5.vim'
 NeoBundle 'https://github.com/cakebaker/scss-syntax.vim.git'
 NeoBundle 'https://github.com/hail2u/vim-css3-syntax.git'
 
+"for Scala
+NeoBundle 'https://github.com/derekwyatt/vim-scala.git'
+
 filetype plugin indent on
