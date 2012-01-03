@@ -20,7 +20,7 @@ unsetopt correct_all            # 引数についてもスペル修正を試み�
 zstyle ':completion:*:default' list-colors ${LS_COLORS}
 
 # 補完の時に大文字小文字を区別しない(但し、大文字を打った場合は小文字に変換しない)
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' '+m:{A-Z}={a-z}'
 # sudo も補完対象にする
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin
 # kill の候補にも色付き表示
@@ -30,6 +30,14 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([%0-9]#)*=0=01;31
 zstyle ':completion:*:default' menu select=1
 setopt correct
 setopt prompt_subst
+
+## インクリメンタルに補完
+# Ref http://d.hatena.ne.jp/seiunsky/20110519/1305764493
+ENABLE_INCREMENTAL_COMPLETION=1
+if [ $ENABLE_INCREMENTAL_COMPLETION = 1 ] ;
+then
+  source $HOME/.incr.zsh
+fi
 
 # Ignore completion on scp
 zstyle ':completion:*:complete:scp:*:files' command command -
