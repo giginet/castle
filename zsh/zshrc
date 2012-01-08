@@ -33,7 +33,7 @@ setopt prompt_subst
 
 ## インクリメンタルに補完
 # Ref http://d.hatena.ne.jp/seiunsky/20110519/1305764493
-ENABLE_INCREMENTAL_COMPLETION=1
+ENABLE_INCREMENTAL_COMPLETION=0
 if [ $ENABLE_INCREMENTAL_COMPLETION = 1 ] ;
 then
   source $HOME/.incr.zsh
@@ -86,22 +86,6 @@ function cdup(){
  }
  zle -N cdup
  bindkey '\^\^' cdup
-
-# back and next current directory
-function cdback(){
-   pwd
-   cd +1
-   zle reset-prompt
-  }
-  zle -N cdback
-  bindkey '<<' cdback
-function cdnext(){
-   pwd
-   cd -0
-   zle reset-prompt
-  }
-  zle -N cdnext
-  bindkey '>>' cdnext
 
 # show vcs branch info
 autoload -Uz vcs_info
