@@ -138,3 +138,6 @@ alias swvenv="pythonbrew venv use"
 
 #for Ruby Development
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+export CC=gcc-4.2
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
