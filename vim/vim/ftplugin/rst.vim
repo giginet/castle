@@ -1,4 +1,5 @@
 let g:quickrun_config['rst'] = {
 \ 'command': 'rst2html.py',
-\ 'outputter': 'browser',
+\ 'exec'    : ['%c %s > %s:r.html', 'open %s:r.html'],
+\ 'split': '{"rightbelow 10sp"}'
 \}
