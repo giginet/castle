@@ -141,3 +141,12 @@ alias swvenv="pythonbrew venv use"
 export CC=gcc-4.2
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+#Setting for hub
+#https://github.com/defunkt/hub/blob/master/etc/hub.zsh_completion
+source $HOME/.hub.zsh_completion
+# hub alias -s zsh
+alias git=hub
+if type compdef >/dev/null; then
+   compdef hub=git
+fi
