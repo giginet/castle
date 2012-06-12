@@ -13,7 +13,7 @@ pip install ropevim
 pip install ipython
 
 # install python support vim
-brew install https://raw.github.com/adamv/homebrew-alt/master/duplicates/vim.rb
+brew install https://raw.github.com/Homebrew/homebrew-dupes/master/vim.rb
 
 # for vim plugins
 brew install node
