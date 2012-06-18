@@ -19,4 +19,6 @@ brew install https://raw.github.com/Homebrew/homebrew-dupes/master/vim.rb
 brew install node
 brew install yuicompressor
 
+brew install tmux
+brew install tig
 brew install hub
