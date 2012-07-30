@@ -86,6 +86,12 @@ function cdup(){
  zle -N cdup
  bindkey '\^\^' cdup
 
+# Autojump settings
+alias j="autojump"
+if [ -f `brew --prefix`/etc/autojump ]; then
+  . `brew --prefix`/etc/autojump
+fi
+
 # show vcs branch info
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' formats '(%r)-[%b]'
