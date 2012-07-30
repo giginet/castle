@@ -15,6 +15,8 @@ pip install ipython
 # install python support vim
 brew install https://raw.github.com/Homebrew/homebrew-dupes/master/vim.rb
 
+brew install zsh
+
 # for vim plugins
 brew install node
 brew install yuicompressor
