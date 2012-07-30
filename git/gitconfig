@@ -28,5 +28,3 @@
 	lg = !"tig"
 [github]
 	user = giginet
-[hub]
-	protocol = https
