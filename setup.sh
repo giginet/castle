@@ -34,4 +34,3 @@ fi
 
 touch $HOME/.vimrc_local
 mkdir $HOME/.vimbackup
-sh $path/tmux/pasteboard.sh

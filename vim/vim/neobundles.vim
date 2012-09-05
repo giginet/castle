@@ -27,7 +27,7 @@ NeoBundle 'https://github.com/mrtazz/simplenote.vim'
 NeoBundle 'https://github.com/vim-scripts/surround.vim'
 
 "fot Python
-NeoBundle 'https://github.com/peplin/ropevim'
+"NeoBundle 'https://github.com/peplin/ropevim'
 NeoBundle 'https://github.com/mjbrownie/pythoncomplete.vim'
 NeoBundle 'https://github.com/vim-scripts/pep8'
 NeoBundle 'lambdalisue/vim-django-support'
