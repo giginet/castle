@@ -32,7 +32,7 @@ setopt prompt_subst
 
 ## インクリメンタルに補完
 # Ref http://d.hatena.ne.jp/seiunsky/20110519/1305764493
-ENABLE_INCREMENTAL_COMPLETION=1
+ENABLE_INCREMENTAL_COMPLETION=0
 if [ $ENABLE_INCREMENTAL_COMPLETION = 1 ] ;
 then
   source $HOME/.incr.zsh
@@ -150,10 +150,14 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 #Setting for hub
 #https://github.com/defunkt/hub/blob/master/etc/hub.zsh_completion
-source $HOME/.hub.zsh_completion
+source ~/.hub.zsh_completion
 # hub alias -s zsh
 alias git=hub
 if type compdef >/dev/null; then
    compdef hub=git
 fi
+
+#Setting for git-flow
+source ~/.git-flow-completion.zsh
+
 export SDL_VIDEODRIVER=X11
