@@ -161,4 +161,9 @@ fi
 source ~/.git-flow-completion.zsh
 
 export SDL_VIDEODRIVER=X11
-source ~/perl5/perlbrew/etc/bashrc
+
+# setup perlbrew
+if [ -f "~/perl5" ];
+then
+  source ~/perl5/perlbrew/etc/bashrc
+fi
