@@ -1,6 +1,3 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_cnt =1
 let g:netrw_dirhist_1='/Users/giginet/Documents/dotfiles/.git'
-let g:netrw_dirhist_2='/Users/giginet/Desktop/hello'
-let g:netrw_dirhist_3='/Users/giginet/Desktop/mysite/polls'
-let g:netrw_dirhist_4='/Users/giginet/Dropbox/KawazShooting/.git'

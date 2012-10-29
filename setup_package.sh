@@ -2,9 +2,9 @@
 /usr/bin/ruby -e "$(curl -fsSL https://raw.github.com/gist/323731)"
 
 #install pythonbrew and setup python
-curl -kL https://raw.github.com/saghul/pythonz/master/pythonz-install | bash
-pythonz install 2.7.3
-pythonz switch 2.7.3
+curl -kL http://xrl.us/pythonbrewinstall | bash
+pythonbrew install 2.7.2
+pythonbrew switch 2.7.2
 
 #install pythonpackages
 pip install pysmell
