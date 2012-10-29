@@ -111,12 +111,11 @@ zle -N showFinder
 bindkey '^f' showFinder
 
 # Environment Variable Settings
-export PATH=/Applications/Xcode.app/Contents/Developer/usr/bin:/Cellar/open-mpi/1.4.3/bin:/usr/texbin:$HOME/.bin:/usr/local/Cellar:/usr/local/bin:$PATH
+export PATH=$HOME/.bim:/usr/local/share/npm/bin:/Cellar/open-mpi/1.4.3/bin:/usr/texbin:$HOME/.bin:/usr/local/Cellar:/usr/local/bin:$PATH
 export MANPATH=/opt/local/man:$MANPATH
 export EDITOR=/usr/local/bin/vim
 export CLICOLOR=1
 export LSCOLORS=DxGxcxdxCxegedabagacad
-export PYTHONPATH=~/.pythonbrew/pythons/Python-2.7.2/lib
 
 # Color Settings
 autoload -U colors
@@ -136,11 +135,8 @@ alias ls="ls -a -G -l"
 alias gcc-4.2="gcc"
 
 #for Python Development
-source $HOME/.pythonbrew/etc/bashrc
+[[ -s $HOME/.pythonz/etc/bashrc ]] && source $HOME/.pythonz/etc/bashrc
 export WORKON_HOME=$HOME/.virtualenvs
-alias mkvenv="pythonbrew venv create"
-alias rmvenv="pythonbrew venv delete"
-alias swvenv="pythonbrew venv use"
 
 #for Ruby Development
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
@@ -167,3 +163,4 @@ if [ -f "~/perl5" ];
 then
   source ~/perl5/perlbrew/etc/bashrc
 fi
+export PYTHONSTARTUP=~/.pythonrc
