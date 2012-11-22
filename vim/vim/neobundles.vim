@@ -25,6 +25,7 @@ NeoBundle 'https://github.com/reinh/vim-makegreen.git'
 NeoBundle 'https://github.com/sjl/gundo.vim'
 NeoBundle 'https://github.com/mrtazz/simplenote.vim'
 NeoBundle 'https://github.com/vim-scripts/surround.vim'
+NeoBundle 'maksimr/vim-translator'
 
 "fot Python
 "NeoBundle 'https://github.com/peplin/ropevim'

@@ -95,3 +95,9 @@ noremap U :<C-u>GundoToggle<CR>
 
 "Load local Settings
 source $HOME/.vimrc_local
+
+"vim-translator Settings
+let g:goog_user_conf = {
+\ 'langpair': 'en|ja',
+\ 'v_key': 'T'
+\}

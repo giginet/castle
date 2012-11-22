@@ -133,7 +133,7 @@ alias -s rb=ruby
 alias -s pl=perl
 alias rm="rm -rf"
 alias ls="ls -a -G -l"
-alias gcc-4.2="gcc"
+# alias gcc-4.2="gcc"
 
 #for Python Development
 source $HOME/.pythonbrew/etc/bashrc
