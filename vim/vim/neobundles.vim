@@ -54,6 +54,9 @@ NeoBundle 'https://github.com/hail2u/vim-css3-syntax.git'
 "for Scala
 NeoBundle 'https://github.com/derekwyatt/vim-scala.git'
 
+"for Lua
+NeoBundle 'lua-support'
+
 "for restructuredText
 NeoBundle 'mattn/mkdpreview-vim'
 NeoBundle 'mattn/webapi-vim'

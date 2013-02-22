@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/Users/giginet/trac/plugins/TracDjangoAuth'
+let g:netrw_dirhist_2='/Users/giginet/.pythonbrew/venvs/Python-2.7.2/trac/lib/python2.7/site-packages/trac/prefs'
+let g:netrw_dirhist_3='/Users/giginet/VOXCHRONICLE/VOXCHRONICLE.xcodeproj'

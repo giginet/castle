@@ -7,6 +7,10 @@
 .classpath
 .settings
 
+#for XCode
+*.xcodeproj/xcuserdata/*
+*.xcodeproj/project.xcworkspace/xcuserdata/*
+
 # python
 *.mo
 *.egg-info
@@ -25,6 +29,9 @@ dist
 .mr.developer.cfg
 *.pyc
 *.pyo
+
+# for PyCharm
+.idea
 
 # vcs
 .hg
