@@ -60,6 +60,9 @@ NeoBundle 'lua-support'
 "for Puppet
 NeoBundle 'rodjek/vim-puppet'
 
+"for Groovy
+NeoBundle 'groovy.vim'
+
 "for restructuredText
 NeoBundle 'mattn/mkdpreview-vim'
 NeoBundle 'mattn/webapi-vim'
