@@ -101,3 +101,5 @@ let g:goog_user_conf = {
 \ 'langpair': 'en|ja',
 \ 'v_key': 'T'
 \}
+
+autocmd BufRead /tmp/crontab.* :set nobackup nowritebackup

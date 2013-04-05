@@ -57,6 +57,9 @@ NeoBundle 'https://github.com/derekwyatt/vim-scala.git'
 "for Lua
 NeoBundle 'lua-support'
 
+"for Puppet
+NeoBundle 'rodjek/vim-puppet'
+
 "for restructuredText
 NeoBundle 'mattn/mkdpreview-vim'
 NeoBundle 'mattn/webapi-vim'

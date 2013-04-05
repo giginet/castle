@@ -131,8 +131,8 @@ zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'c
 alias -s txt=less
 alias -s rb=ruby
 alias -s pl=perl
-alias rm="rm -rf"
 alias ls="ls -a -G -l"
+alias rm="rm -i"
 # alias gcc-4.2="gcc"
 
 #for Python Development
