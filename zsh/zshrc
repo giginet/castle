@@ -87,10 +87,7 @@ function cdup(){
  bindkey '\^\^' cdup
 
 # Autojump settings
-alias j="autojump"
-if [ -f `brew --prefix`/etc/autojump ]; then
-  . `brew --prefix`/etc/autojump
-fi
+[[ -s /etc/profile.d/autojump.sh ]] && source /etc/profile.d/autojump.sh
 
 # show vcs branch info
 autoload -Uz vcs_info
