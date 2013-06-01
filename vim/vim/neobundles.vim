@@ -63,6 +63,9 @@ NeoBundle 'rodjek/vim-puppet'
 "for Groovy
 NeoBundle 'groovy.vim'
 
+"for MoonScript
+NeoBundle 'leafo/moonscript-vim'
+
 "for restructuredText
 NeoBundle 'mattn/mkdpreview-vim'
 NeoBundle 'mattn/webapi-vim'

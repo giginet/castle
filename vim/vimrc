@@ -103,3 +103,4 @@ let g:goog_user_conf = {
 \}
 
 autocmd BufRead /tmp/crontab.* :set nobackup nowritebackup
+set expandtab
