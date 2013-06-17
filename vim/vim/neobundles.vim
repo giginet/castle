@@ -27,6 +27,7 @@ NeoBundle 'https://github.com/mrtazz/simplenote.vim'
 NeoBundle 'https://github.com/vim-scripts/surround.vim'
 NeoBundle 'maksimr/vim-translator'
 NeoBundle 'trotter/autojump.vim.git'
+NeoBundle 'terryma/vim-multiple-cursors'
 
 "fot Python
 "NeoBundle 'https://github.com/peplin/ropevim'
