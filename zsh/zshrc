@@ -108,7 +108,7 @@ zle -N showFinder
 bindkey '^f' showFinder
 
 # Environment Variable Settings
-export PATH=/usr/local/share/npm/bin:/usr/texbin:$HOME/.bin:/usr/local/bin:/Applications/Android/sdk/platform-tools:$PATH
+export PATH=/usr/local/share/npm/bin:/usr/texbin:$HOME/.bin:/usr/local/bin:/Applications/Android/sdk/platform-tools:$HOME/Library/Haskell/bin:$PATH
 export MANPATH=/opt/local/man:$MANPATH
 export EDITOR=/usr/local/bin/vim
 export CLICOLOR=1
