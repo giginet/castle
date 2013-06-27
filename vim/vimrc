@@ -19,6 +19,13 @@ set showmatch     "auto complete )
 set matchtime=1   "wait time for showmatch
 set backspace=indent,eol,start
 set virtualedit=block
+" クリップボードをデフォルトのレジスタとして指定。後にYankRingを使うので
+" 'unnamedplus'が存在しているかどうかで設定を分ける必要がある
+if has('unnamedplus')
+  set clipboard& clipboard+=unnamedplus
+else
+  set clipboard& clipboard+=unnamed
+endif
 
 "Display Settings
 set number
@@ -95,6 +102,20 @@ noremap U :<C-u>GundoToggle<CR>
 
 "Load local Settings
 source $HOME/.vimrc_local
+
+"Pandoc, shareboard Settings
+function! s:shareboard_settings()
+  nnoremap <buffer>[shareboard] <Nop>
+  nmap <buffer><Leader> [shareboard]
+  nnoremap <buffer><silent> [shareboard]v :ShareboardPreview<CR>
+  nnoremap <buffer><silent> [shareboard]c :ShareboardCompile<CR>
+endfunction
+autocmd FileType rst,text,pandoc,markdown,textile call s:shareboard_settings()
+let s:hooks = neobundle#get_hooks("shareboard.vim")
+function! s:hooks.on_source(bundle)
+  " VimからPandocが見えないことが多々あるので念の為~/.cabal/binをPATHに追加
+  let $PATH=expand("~/.cabal/bin:") . $PATH
+endfunction
 
 "vim-translator Settings
 let g:goog_user_conf = {
