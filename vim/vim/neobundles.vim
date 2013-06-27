@@ -5,58 +5,71 @@ filetype off
 if has('vim_starting')
   set runtimepath+=~/.vim/neobundle.vim
   call neobundle#rc(expand('~/.bundle'))
+  NeoBundleFetch 'Shougo/neobundle.vim'
+  NeoBundleCheck
 endif
 
 
-" 北大のクソネットワークではgitプロトコルによるcloneができないので
-" あえてusername/repositoryという書き方をしていない
-
 "Universal Plugins
-NeoBundle 'https://github.com/ujihisa/quickrun'
-NeoBundle 'https://github.com/Shougo/unite.vim'
-NeoBundle 'https://github.com/scrooloose/nerdtree'
-NeoBundle 'https://github.com/mattn/gist-vim'
-NeoBundle 'https://github.com/thinca/vim-ref'
-NeoBundle 'https://github.com/vim-scripts/tComment'
-NeoBundle 'https://github.com/Shougo/neocomplcache'
-NeoBundle 'https://github.com/Shougo/neobundle.vim'
-NeoBundle 'https://github.com/vim-scripts/errormarker.vim'
-NeoBundle 'https://github.com/reinh/vim-makegreen.git'
-NeoBundle 'https://github.com/sjl/gundo.vim'
-NeoBundle 'https://github.com/mrtazz/simplenote.vim'
-NeoBundle 'https://github.com/vim-scripts/surround.vim'
+NeoBundle 'ujihisa/quickrun'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'mattn/gist-vim'
+NeoBundle 'thinca/vim-ref'
+NeoBundle 'vim-scripts/tComment'
+NeoBundle 'vim-scripts/errormarker.vim'
+NeoBundle 'sjl/gundo.vim'
+NeoBundle 'mrtazz/simplenote.vim'
+NeoBundle 'vim-scripts/surround.vim'
 NeoBundle 'maksimr/vim-translator'
 NeoBundle 'trotter/autojump.vim.git'
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'vim-pandoc/vim-pandoc'
 NeoBundle 'lambdalisue/shareboard.vim'
+NeoBundleLazy 'Shougo/neocomplete.vim', {
+    \ "autoload": {"insert": 1}}
+let s:hooks = neobundle#get_hooks("neocomplete.vim")
+function! s:hooks.on_source(bundle)
+    let g:acp_enableAtStartup = 0
+    let g:neocomplete#enable_smart_case = 1
+    NeoCompleteEnable
+endfunction
 
 "fot Python
-"NeoBundle 'https://github.com/peplin/ropevim'
-NeoBundle 'https://github.com/mjbrownie/pythoncomplete.vim'
-NeoBundle 'https://github.com/vim-scripts/pep8'
-NeoBundle 'lambdalisue/vim-django-support'
-NeoBundle 'mitechie/pyflakes-pathogen'
+NeoBundleLazy "davidhalter/jedi-vim", {
+      \ "autoload": {
+      \   "filetypes": ["python", "python3", "djangohtml"],
+      \   "build": {
+      \     "mac": "pip install jedi",
+      \     "unix": "pip install jedi",
+      \   }
+      \ }}
+let s:hooks = neobundle#get_hooks("jedi-vim")
+function! s:hooks.on_source(bundle)
+  let g:jedi#auto_vim_configuration = 0
+  let g:jedi#popup_select_first = 0
+  let g:jedi#rename_command = '<Leader>R'
+  let g:jedi#goto_command = '<Leader>G'
+endfunction
 
 "for JavaScript
-NeoBundle 'https://github.com/basyura/jslint.vim'
-NeoBundle 'https://github.com/pangloss/vim-javascript'
-NeoBundle 'https://github.com/lambdalisue/nodeunit.vim'
+NeoBundle 'basyura/jslint.vim'
+NeoBundle 'pangloss/vim-javascript'
 
 "for CofeeScript
-NeoBundle 'https://github.com/kchmck/vim-coffee-script'
+NeoBundle 'kchmck/vim-coffee-script'
 
 "for TeX
 "NeoBundle 'https://github.com/jcf/vim-latex'
 
 "for HTML
-NeoBundle 'https://github.com/mattn/zencoding-vim'
-NeoBundle 'https://github.com/othree/html5.vim'
-NeoBundle 'https://github.com/cakebaker/scss-syntax.vim.git'
-NeoBundle 'https://github.com/hail2u/vim-css3-syntax.git'
+NeoBundle 'mattn/zencoding-vim'
+NeoBundle 'othree/html5.vim'
+NeoBundle 'cakebaker/scss-syntax.vim.git'
+NeoBundle 'hail2u/vim-css3-syntax.git'
 
 "for Scala
-NeoBundle 'https://github.com/derekwyatt/vim-scala.git'
+NeoBundle 'derekwyatt/vim-scala.git'
 
 "for Lua
 NeoBundle 'lua-support'
