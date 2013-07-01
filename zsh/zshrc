@@ -154,7 +154,7 @@ if type compdef >/dev/null; then
    compdef hub=git
 fi
 
-#Setting for git-flow
+#Settings for git-flow
 source ~/.git-flow-completion.zsh
 
 export SDL_VIDEODRIVER=X11

@@ -103,6 +103,14 @@ noremap U :<C-u>GundoToggle<CR>
 "Load local Settings
 source $HOME/.vimrc_local
 
+"NeoComplete Settings
+let s:hooks = neobundle#get_hooks("neocomplete.vim")
+function! s:hooks.on_source(bundle)
+    let g:acp_enableAtStartup = 0
+    let g:neocomplete#enable_smart_case = 1
+    NeoCompleteEnable
+endfunction
+
 "Pandoc, shareboard Settings
 function! s:shareboard_settings()
   nnoremap <buffer>[shareboard] <Nop>
