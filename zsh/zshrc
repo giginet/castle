@@ -115,6 +115,12 @@ export CLICOLOR=1
 export LSCOLORS=DxGxcxdxCxegedabagacad
 export PYTHONPATH=~/.pythonbrew/pythons/Python-2.7.2/lib
 
+# Environment for Android Development
+#
+export PATH=$PATH:/Applications/Android/sdk/tools
+export PATH=$PATH:/Applications/Android/sdk/platform-tools
+export ANDROID_HOME=/Applications/Android/sdk
+
 # Color Settings
 autoload -U colors
 colors
