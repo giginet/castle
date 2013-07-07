@@ -14,7 +14,6 @@
 	excludesfile = ~/.gitignore
 	quotepath = false
 [alias]
-	ad = add -A
 	br = branch
 	st = !"tig status"
 	lg = !"tig"
@@ -25,6 +24,6 @@
 	sw = checkout -b
 	diff = diff --color-words
 	shorten = !"sh -c 'curl -i http://git.io/ -F url=$1 `[ -n \"$2\" ] && echo -F code=$2`' -"
-	lg = !"tig"
+	pbcopy = !printf "$1" | pbcopylg = !"tig"
 [github]
 	user = giginet
