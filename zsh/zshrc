@@ -145,11 +145,7 @@ alias mkvenv="pythonbrew venv create"
 alias rmvenv="pythonbrew venv delete"
 alias swvenv="pythonbrew venv use"
 
-#for Ruby Development
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-export CC=gcc-4.2
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=$HOME/.rbenv/shims:$PATH # Add rbenv to PATH
 
 #Setting for hub
 #https://github.com/defunkt/hub/blob/master/etc/hub.zsh_completion
