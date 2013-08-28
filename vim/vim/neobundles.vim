@@ -29,6 +29,7 @@ NeoBundle 'lambdalisue/shareboard.vim'
 NeoBundle "Shougo/neocomplete.vim"
 
 "fot Python
+NeoBundle 'davidhalter/jedi-vim'
 
 "for JavaScript
 NeoBundle 'basyura/jslint.vim'
