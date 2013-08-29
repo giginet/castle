@@ -47,3 +47,6 @@ PYSMELL*
 pysmell_exc.txt
 
 .sass-cache
+
+*.lock
+.irb_history

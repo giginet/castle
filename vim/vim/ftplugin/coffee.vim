@@ -10,6 +10,3 @@ function! Cake()
   endif
 endfunction
 noremap <C-c> :call Cake()<CR>
-
-set shiftwidth=4
-set tabstop=4
