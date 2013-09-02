@@ -111,6 +111,7 @@ bindkey '^f' showFinder
 export PATH=/usr/local/share/npm/bin:/usr/texbin:$HOME/.bin:/usr/local/bin:/Applications/Android/sdk/platform-tools:$HOME/Library/Haskell/bin:$PATH
 export MANPATH=/opt/local/man:$MANPATH
 export EDITOR=/usr/local/bin/vim
+
 export CLICOLOR=1
 export LSCOLORS=DxGxcxdxCxegedabagacad
 export PYTHONPATH=~/.pythonbrew/pythons/Python-2.7.2/lib
@@ -139,12 +140,10 @@ alias rm="rm -i"
 # alias gcc-4.2="gcc"
 
 #for Python Development
-source $HOME/.pythonbrew/etc/bashrc
-export WORKON_HOME=$HOME/.virtualenvs
-alias mkvenv="pythonbrew venv create"
-alias rmvenv="pythonbrew venv delete"
-alias swvenv="pythonbrew venv use"
+PYENV_ROOT=$HOME/.pyenv
+PATH=$PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH
 
+#for Ruby Development
 PATH=$HOME/.rbenv/shims:$PATH # Add rbenv to PATH
 
 #Setting for hub

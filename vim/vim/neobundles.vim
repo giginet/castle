@@ -42,7 +42,7 @@ NeoBundle 'kchmck/vim-coffee-script'
 "NeoBundle 'https://github.com/jcf/vim-latex'
 
 "for HTML
-NeoBundle 'mattn/zencoding-vim'
+NeoBundle 'mattn/emmet-vim'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'cakebaker/scss-syntax.vim.git'
 NeoBundle 'hail2u/vim-css3-syntax.git'
