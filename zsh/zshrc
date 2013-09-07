@@ -47,8 +47,6 @@ setopt multios                  # 複数リダイレクト有効
 setopt auto_pushd               # cdの履歴を自動的に保存
 setopt PUSHD_IGNORE_DUPS        # auto_pushd時に重複ディレクトリを無視
 setopt auto_cd                  # ディレクトリ名のみのとき、自動的にcd
-setopt auto_list                # lsのリスト表示
-setopt auto_menu                # lsのメニュー化
 
 # History Settings
 #<C-p>,<C-n>でコマンド履歴を戻る、進む
@@ -111,16 +109,10 @@ bindkey '^f' showFinder
 export PATH=/usr/local/share/npm/bin:/usr/texbin:$HOME/.bin:/usr/local/bin:/Applications/Android/sdk/platform-tools:$HOME/Library/Haskell/bin:$PATH
 export MANPATH=/opt/local/man:$MANPATH
 export EDITOR=/usr/local/bin/vim
+export SDL_VIDEODRIVER=X11
 
 export CLICOLOR=1
 export LSCOLORS=DxGxcxdxCxegedabagacad
-export PYTHONPATH=~/.pythonbrew/pythons/Python-2.7.2/lib
-
-# Environment for Android Development
-#
-export PATH=$PATH:/Applications/Android/sdk/tools
-export PATH=$PATH:/Applications/Android/sdk/platform-tools
-export ANDROID_HOME=/Applications/Android/sdk
 
 # Color Settings
 autoload -U colors
@@ -137,7 +129,6 @@ alias -s rb=ruby
 alias -s pl=perl
 alias ls="ls -a -G -l"
 alias rm="rm -i"
-# alias gcc-4.2="gcc"
 
 #for Python Development
 PYENV_ROOT=$HOME/.pyenv
@@ -157,8 +148,6 @@ fi
 
 #Settings for git-flow
 source ~/.git-flow-completion.zsh
-
-export SDL_VIDEODRIVER=X11
 
 # setup perlbrew
 if [ -f "~/perl5" ];
