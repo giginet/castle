@@ -6,64 +6,121 @@ if has('vim_starting')
   set runtimepath+=~/.vim/neobundle.vim
   call neobundle#rc(expand('~/.bundle'))
   NeoBundleFetch 'Shougo/neobundle.vim'
+  NeoBundle "Shougo/vimproc", {
+        \ "build": {
+        \   "windows"   : "make -f make_mingw32.mak",
+        \   "cygwin"    : "make -f make_cygwin.mak",
+        \   "mac"       : "make -f make_mac.mak",
+        \   "unix"      : "make -f make_unix.mak",
+        \ }}
+
+  "Universal Plugins
+  NeoBundleLazy "thinca/vim-quickrun", {
+        \ "autoload": {
+        \   "mappings": [['nxo', '<Plug>(quickrun)']]
+        \ }}
+  NeoBundleLazy "Shougo/unite.vim", {
+      \ "autoload": {
+      \   "commands": ["Unite", "UniteWithBufferDir"]
+      \ }}
+  NeoBundleLazy 'mattn/gist-vim', {
+        \ "autoload" : {"commands": ["Gist"]}}
+  NeoBundleLazy 'thinca/vim-ref', {
+        \ "autoload" : {"commands": ["Ref"]}}
+  NeoBundleLazy 'vim-scripts/tComment', {
+        \ "autoload" : {"commands": ["TComment"]}}
+  NeoBundleLazy 'sjl/gundo.vim', {
+        \ "autoload" : {"commands": ["GundoToggle"]}}
+  NeoBundleLazy 'mrtazz/simplenote.vim', {
+        \ "autoload" : {"commands": ["Simplenote"]}}
+  NeoBundle 'vim-scripts/surround.vim'
+  NeoBundleLazy 'maksimr/vim-translator', {
+        \ "autoload" : {"mappings": ["<plug>TranslateBlockText"]}}
+  NeoBundle 'vim-scripts/errormarker.vim'
+  NeoBundleLazy 'trotter/autojump.vim.git', {
+        \ "autoload" : {
+        \   "commands": ["J"]
+        \ },
+        \ "build": {
+        \   "mac": "brew install autojump"
+        \ }}
+  NeoBundleLazy "vim-pandoc/vim-pandoc", {
+      \ "autoload": {
+      \   "filetypes": ["text", "pandoc", "markdown", "rst", "textile"],
+      \ }}
+  NeoBundleLazy "lambdalisue/shareboard.vim", {
+      \ "autoload": {
+      \   "commands": ["ShareboardPreview", "ShareboardCompile"],
+      \ },
+      \ "build": {
+      \   "mac": "pip install shareboard",
+      \   "unix": "pip install shareboard",
+      \ }}
+  NeoBundleLazy 'Shougo/neocomplete.vim', {
+        \ "autoload": {"insert": 1}}
+  NeoBundleLazy "Shougo/vimfiler", {
+      \ "depends": ["Shougo/unite.vim"],
+      \ "autoload": {
+      \   "commands": ["VimFilerTab", "VimFiler", "VimFilerExplorer"],
+      \   "mappings": ['<Plug>(vimfiler_switch)'],
+      \   "explorer": 1,
+      \ }}
+
+  "fot Python
+  NeoBundleLazy 'davidhalter/jedi-vim', {
+        \ "autoload": {"filetypes": ['py']}}
+
+  "for JavaScript
+  NeoBundleLazy 'basyura/jslint.vim', {
+        \ "autoload": {"filetypes": ['js']}}
+  NeoBundleLazy 'pangloss/vim-javascript', {
+        \ "autoload": {"filetypes": ['js']}}
+
+  "for CofeeScript
+  NeoBundleLazy 'kchmck/vim-coffee-script', {
+        \ "autoload": {"filetypes": ['coffee']}}
+
+  "for TeX
+  NeoBundleLazy 'jcf/vim-latex', {
+        \ "autoload": {"filetypes": ['tex']}}
+
+  "for HTML
+  NeoBundleLazy 'mattn/emmet-vim', {
+        \ "autoload": {"filetypes": ['html']}}
+  NeoBundleLazy 'othree/html5.vim', {
+        \ "autoload": {"filetypes": ['html']}}
+  NeoBundleLazy 'cakebaker/scss-syntax.vim.git', {
+        \ "autoload": {"filetypes": ['sass']}}
+  NeoBundleLazy 'hail2u/vim-css3-syntax.git', {
+        \ "autoload": {"filetypes": ['css']}}
+
+  "for Scala
+  NeoBundleLazy 'derekwyatt/vim-scala.git', {
+        \ "autoload": {"filetypes": ['scala']}}
+
+  "for Lua
+  NeoBundleLazy 'lua-support', {
+        \ "autoload": {"filetypes": ['lua']}}
+
+  "for Puppet
+  NeoBundleLazy 'rodjek/vim-puppet', {
+        \ "autoload": {"filetypes": ['puppet']}}
+
+  "for Groovy
+  NeoBundleLazy 'groovy.vim', {
+        \ "autoload": {"filetypes": ['groovy']}}
+
+  "for MoonScript
+  NeoBundleLazy 'leafo/moonscript-vim', {
+        \ "autoload": {"filetypes": ['moon']}}
+
+  "for restructuredText
+  NeoBundleLazy 'mattn/mkdpreview-vim', {
+        \ "autoload": {"filetypes": ['rst']}}
+
+  NeoBundle 'mattn/webapi-vim'
+
   NeoBundleCheck
 endif
-
-
-"Universal Plugins
-NeoBundle 'ujihisa/quickrun'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'mattn/gist-vim'
-NeoBundle 'thinca/vim-ref'
-NeoBundle 'vim-scripts/tComment'
-NeoBundle 'vim-scripts/errormarker.vim'
-NeoBundle 'sjl/gundo.vim'
-NeoBundle 'mrtazz/simplenote.vim'
-NeoBundle 'vim-scripts/surround.vim'
-NeoBundle 'maksimr/vim-translator'
-NeoBundle 'trotter/autojump.vim.git'
-NeoBundle 'terryma/vim-multiple-cursors'
-NeoBundle 'vim-pandoc/vim-pandoc'
-NeoBundle 'lambdalisue/shareboard.vim'
-NeoBundle "Shougo/neocomplete.vim"
-
-"fot Python
-NeoBundle 'davidhalter/jedi-vim'
-
-"for JavaScript
-NeoBundle 'basyura/jslint.vim'
-NeoBundle 'pangloss/vim-javascript'
-
-"for CofeeScript
-NeoBundle 'kchmck/vim-coffee-script'
-
-"for TeX
-"NeoBundle 'https://github.com/jcf/vim-latex'
-
-"for HTML
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'othree/html5.vim'
-NeoBundle 'cakebaker/scss-syntax.vim.git'
-NeoBundle 'hail2u/vim-css3-syntax.git'
-
-"for Scala
-NeoBundle 'derekwyatt/vim-scala.git'
-
-"for Lua
-NeoBundle 'lua-support'
-
-"for Puppet
-NeoBundle 'rodjek/vim-puppet'
-
-"for Groovy
-NeoBundle 'groovy.vim'
-
-"for MoonScript
-NeoBundle 'leafo/moonscript-vim'
-
-"for restructuredText
-NeoBundle 'mattn/mkdpreview-vim'
-NeoBundle 'mattn/webapi-vim'
 
 filetype plugin indent on
