@@ -85,7 +85,8 @@ function cdup(){
  bindkey '\^\^' cdup
 
 # Autojump settings
-[[ -s /etc/profile.d/autojump.sh ]] && source /etc/profile.d/autojump.sh
+PATH=$HOME/.autojump/bin:$PATH
+[[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
 
 # show vcs branch info
 autoload -Uz vcs_info
@@ -138,8 +139,6 @@ PATH=$PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH
 PATH=$HOME/.rbenv/shims:$PATH # Add rbenv to PATH
 
 #Setting for hub
-#https://github.com/defunkt/hub/blob/master/etc/hub.zsh_completion
-source ~/.hub.zsh_completion
 # hub alias -s zsh
 alias git=hub
 if type compdef >/dev/null; then
@@ -158,3 +157,5 @@ fi
 # for Android
 NDK_ROOT=/Applications/Android/sdk
 ANDROID_SDK_ROOT_LOCAL=/Applications/Android/sdk
+
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
