@@ -1,6 +1,9 @@
-let g:quickrun_config.coffee = {
-\  'command' : 'coffee'
-\}
+let s:hooks = neobundle#get_hooks("vim-quickrun")
+function! s:hooks.on_source(bundle)
+  let g:quickrun_config.coffee = {
+        \  'command' : 'coffee'
+        \}
+endfunction
 
 function! Cake()
   if filereadable('Cakefile')

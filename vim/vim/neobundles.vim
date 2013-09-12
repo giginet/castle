@@ -1,4 +1,4 @@
-"Initialize NeoBundle
+" Initialize NeoBundle
 set nocompatible
 filetype off
 
@@ -28,7 +28,7 @@ if has('vim_starting')
   NeoBundleLazy 'thinca/vim-ref', {
         \ "autoload" : {"commands": ["Ref"]}}
   NeoBundleLazy 'vim-scripts/tComment', {
-        \ "autoload" : {"commands": ["TComment"]}}
+        \ "autoload" : {"mappings": ["<C-_><C-_>"]}}
   NeoBundleLazy 'sjl/gundo.vim', {
         \ "autoload" : {"commands": ["GundoToggle"]}}
   NeoBundleLazy 'mrtazz/simplenote.vim', {
@@ -36,7 +36,8 @@ if has('vim_starting')
   NeoBundle 'vim-scripts/surround.vim'
   NeoBundleLazy 'maksimr/vim-translator', {
         \ "autoload" : {"mappings": ["<plug>TranslateBlockText"]}}
-  NeoBundle 'vim-scripts/errormarker.vim'
+  NeoBundleLazy 'vim-scripts/errormarker.vim', {
+        \ "autoload" : {"augroup": ["errormarker"]}}
   NeoBundleLazy 'trotter/autojump.vim.git', {
         \ "autoload" : {
         \   "commands": ["J"]
