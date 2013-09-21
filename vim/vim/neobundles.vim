@@ -66,14 +66,13 @@ if has('vim_starting')
       \   "mappings": ['<Plug>(vimfiler_switch)'],
       \   "explorer": 1,
       \ }}
+  NeoBundle 'mattn/webapi-vim'
 
   "fot Python
   NeoBundleLazy 'davidhalter/jedi-vim', {
         \ "autoload": {"filetypes": ['py']}}
 
   "for JavaScript
-  NeoBundleLazy 'basyura/jslint.vim', {
-        \ "autoload": {"filetypes": ['js']}}
   NeoBundleLazy 'pangloss/vim-javascript', {
         \ "autoload": {"filetypes": ['js']}}
 
@@ -119,7 +118,9 @@ if has('vim_starting')
   NeoBundleLazy 'mattn/mkdpreview-vim', {
         \ "autoload": {"filetypes": ['rst']}}
 
-  NeoBundle 'mattn/webapi-vim'
+  "for GLSL
+  NeoBundleLazy 'tikhomirov/vim-glsl', {
+        \ "autoload": {"filetypes": ['vert', 'frag', 'fp', 'vp', 'glsl']}}
 
   NeoBundleCheck
 endif
