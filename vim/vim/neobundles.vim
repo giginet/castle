@@ -73,6 +73,8 @@ if has('vim_starting')
         \ "autoload": {"filetypes": ['py']}}
 
   "for JavaScript
+  NeoBundleLazy 'hallettj/jslint.vim', {
+        \ "autoload": {"filetypes": ['js']}}
   NeoBundleLazy 'pangloss/vim-javascript', {
         \ "autoload": {"filetypes": ['js']}}
 
