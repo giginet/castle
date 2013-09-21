@@ -19,3 +19,6 @@ au BufNewFile,BufRead Podfile,*.podspec set filetype=ruby
 
 " Gemfile
 au BufNewFile,BufRead Gemfile set filetype=ruby
+
+" Guardfile
+au BufNewFile,BufRead Guardfile set filetype=ruby
