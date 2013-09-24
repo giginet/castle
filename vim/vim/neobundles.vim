@@ -82,6 +82,9 @@ if has('vim_starting')
   NeoBundleLazy 'kchmck/vim-coffee-script', {
         \ "autoload": {"filetypes": ['coffee']}}
 
+  "for TypeScript
+  NeoBundle 'leafgarland/typescript-vim'
+
   "for TeX
   NeoBundleLazy 'jcf/vim-latex', {
         \ "autoload": {"filetypes": ['tex']}}
