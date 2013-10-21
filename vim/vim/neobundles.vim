@@ -45,10 +45,10 @@ if has('vim_starting')
         \ "build": {
         \   "mac": "brew install autojump"
         \ }}
-  NeoBundleLazy "vim-pandoc/vim-pandoc", {
-      \ "autoload": {
-      \   "filetypes": ["text", "pandoc", "markdown", "rst", "textile"],
-      \ }}
+  " NeoBundleLazy "vim-pandoc/vim-pandoc", {
+  "     \ "autoload": {
+  "     \   "filetypes": ["text", "pandoc", "markdown", "rst", "textile"],
+  "     \ }}
   NeoBundleLazy "lambdalisue/shareboard.vim", {
       \ "autoload": {
       \   "commands": ["ShareboardPreview", "ShareboardCompile"],
