@@ -1,1 +1,2 @@
 bind main Y !@git pbcopy %(commit)
+bind main B !@git browse %(commit)
