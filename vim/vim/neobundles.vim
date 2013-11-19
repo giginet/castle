@@ -71,6 +71,8 @@ if has('vim_starting')
   "fot Python
   NeoBundleLazy 'davidhalter/jedi-vim', {
         \ "autoload": {"filetypes": ['py']}}
+  NeoBundleLazy 'kevinw/pyflakes-vim', {
+        \ "autoload": {"filetypes": ['py']}}
 
   "for JavaScript
   NeoBundleLazy 'hallettj/jslint.vim', {
