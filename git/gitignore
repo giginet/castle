@@ -35,6 +35,9 @@ dist
 # for PyCharm
 .idea
 
+# for Xamarin
+obj/*
+
 # vcs
 .hg
 .bzr
