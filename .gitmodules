@@ -4,3 +4,6 @@
 [submodule "home/.zsh-syntax-highlighting"]
 	path = home/.zsh-syntax-highlighting
 	url = git://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule "home/.tmux-powerline"]
+	path = home/.tmux-powerline
+	url = https://github.com/erikw/tmux-powerline.git

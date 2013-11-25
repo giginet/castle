@@ -185,4 +185,7 @@ fi
 NDK_ROOT=/Applications/Android/sdk
 ANDROID_SDK_ROOT_LOCAL=/Applications/Android/sdk
 
+#Settings for tmux-powerline
+PROMPT="$PROMPT"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
+
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
