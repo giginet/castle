@@ -136,6 +136,22 @@ if [ -f ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
   source ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
+# powerline-shell
+function powerline_precmd() {
+  export PS1="$(~/.powerline-shell.py $? --shell zsh 2> /dev/null)"
+}
+
+function install_powerline_precmd() {
+  for s in "${precmd_functions[@]}"; do
+    if [ "$s" = "powerline_precmd" ]; then
+      return
+    fi
+  done
+  precmd_functions+=(powerline_precmd)
+}
+
+install_powerline_precmd
+
 #for Python Development
 PYENV_ROOT=$HOME/.pyenv
 PATH=$PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH
