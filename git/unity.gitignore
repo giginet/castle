@@ -1,9 +1,0 @@
-# Unity
-Library/*
-ProjectSettings/*
-Temp/*
-Assets/Standard\ Assets/*
-Assets/*.meta
-Assembly*
-*.sln
-*.userprefs
