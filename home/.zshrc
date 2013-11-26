@@ -1,5 +1,4 @@
 # Completion Settings
-autoload -U compinit; compinit  # zshの補完機能を利用する
 setopt always_last_prompt       # 補完をしてもプロンプトの位置を変えない
 setopt auto_list                # 補完候補が複数あるとき、自動でメニューをリストアップする
 setopt auto_menu                # tab,^i で順次補完候補を補完
@@ -173,3 +172,6 @@ ANDROID_SDK_ROOT_LOCAL=/Applications/Android/sdk
 PROMPT="$PROMPT"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
+fpath=(/usr/local/share/zsh/site-functions/ ${fpath})
+autoload -U compinit; compinit -u  # zshの補完機能を利用する
