@@ -155,9 +155,6 @@ if type compdef >/dev/null; then
    compdef hub=git
 fi
 
-#Settings for git-flow
-source ~/.git-flow-completion.zsh
-
 # setup perlbrew
 if [ -f "~/perl5" ];
 then
