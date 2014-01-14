@@ -88,8 +88,8 @@ if has('vim_starting')
   NeoBundle 'leafgarland/typescript-vim'
 
   "for TeX
-  NeoBundleLazy 'jcf/vim-latex', {
-        \ "autoload": {"filetypes": ['tex']}}
+  " NeoBundleLazy 'jcf/vim-latex', {
+  "       \ "autoload": {"filetypes": ['tex']}}
 
   "for HTML
   NeoBundleLazy 'mattn/emmet-vim', {
