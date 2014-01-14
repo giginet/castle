@@ -165,6 +165,8 @@ autocmd BufRead /tmp/crontab.* :set nobackup nowritebackup
 set expandtab
 
 "Load local Settings
-source $HOME/.vimrc_local
+if filereadable($HOME.'/.vimrc_local')
+  source $HOME/.vimrc_local
+endif
 
 
