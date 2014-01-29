@@ -30,5 +30,7 @@
 	pr = pull-request
 [github]
 	user = giginet
+[gitlab]
+	url = http://gitlab.kawaz.org
 [include]
 	path = .gitconfig.local
