@@ -162,8 +162,8 @@ then
 fi
 
 # for Android
-NDK_ROOT=/Applications/Android/sdk
-ANDROID_SDK_ROOT_LOCAL=/Applications/Android/sdk
+NDK_ROOT=/usr/local/Cellar/android-ndk/9
+ANDROID_SDK_ROOT_LOCAL=/usr/local/Cellar/android-sdk/22.3
 
 #Settings for tmux-powerline
 PROMPT="$PROMPT"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
