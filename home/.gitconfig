@@ -9,7 +9,7 @@
 	grep = auto
 	ui = true
 [push]
-	default = tracking
+	default = simple
 [core]
 	excludesfile = ~/.gitignore
 	quotepath = false
