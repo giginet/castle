@@ -172,3 +172,12 @@ PROMPT="$PROMPT"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" 
 
 fpath=(/usr/local/share/zsh/site-functions/ ${fpath})
 autoload -U compinit; compinit -u  # zshの補完機能を利用する
+
+# Settings for cocos2d-x 3.0
+export COCOS_CONSOLE_ROOT=/Users/giginet/cocos2d-x-3.0/tools/cocos2d-console/bin
+export PATH=$COCOS_CONSOLE_ROOT:$PATH
+export NDK_ROOT=/usr/local/Cellar/android-ndk/9
+export PATH=$NDK_ROOT:$PATH
+export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/22.3
+export PATH=$ANDROID_SDK_ROOT:$PATH
+export PATH=$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools:$PATH
