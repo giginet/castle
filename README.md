@@ -3,17 +3,17 @@
 ## Install homesick
 
 ```shell
-gem install homesick
+$ git clone git://github.com/andsens/homeshick.git $HOME/.homesick/repos/homeshick
 ```
 
 ## clone my castle
 
 ```shell
-homesick clone giginet/castle
+$ homeshick clone giginet/castle
 ```
 
 ## symlink to all dotfiles
 
 ```shell
-homesick symlink castle
+$ homeshick symlink castle
 ```
