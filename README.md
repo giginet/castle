@@ -1,6 +1,6 @@
 # My Castle
 
-## Install homesick
+## Install homeshick
 
 ```shell
 $ git clone git://github.com/andsens/homeshick.git $HOME/.homesick/repos/homeshick
