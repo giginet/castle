@@ -28,6 +28,7 @@
 	pbcopy = !printf "$1" | pbcopy
 	lg = !"tig"
 	pr = pull-request
+	delete-merged = !"git branch --merged | grep -v '*' | xargs -I % git branch -d %"
 [github]
 	user = giginet
 [gitlab]
