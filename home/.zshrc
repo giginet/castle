@@ -181,3 +181,5 @@ export PATH=$NDK_ROOT:$PATH
 export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/22.3
 export PATH=$ANDROID_SDK_ROOT:$PATH
 export PATH=$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools:$PATH
+
+source "$HOME/.homesick/repos/homeshick/homeshick.sh"
