@@ -21,6 +21,7 @@
 	sh = !"tig show"
 	ci = commit
 	co = checkout
+	cp = cherry-pick
 	discard = reset --hard HEAD
 	sw = checkout -b
 	diff = diff --color-words
