@@ -19,14 +19,9 @@ DerivedData
 *.egg
 *.EGG
 *.EGG-INFO
-bin
-build
 develop-eggs
-downloads
 eggs
 fake-eggs
-parts
-dist
 .installed.cfg
 .mr.developer.cfg
 *.pyc
@@ -35,9 +30,6 @@ dist
 
 # for PyCharm
 .idea
-
-# for Xamarin
-obj/*
 
 # vcs
 .hg
