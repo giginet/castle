@@ -49,14 +49,6 @@ if has('vim_starting')
   "     \ "autoload": {
   "     \   "filetypes": ["text", "pandoc", "markdown", "rst", "textile"],
   "     \ }}
-  NeoBundleLazy "lambdalisue/shareboard.vim", {
-      \ "autoload": {
-      \   "commands": ["ShareboardPreview", "ShareboardCompile"],
-      \ },
-      \ "build": {
-      \   "mac": "pip install shareboard",
-      \   "unix": "pip install shareboard",
-      \ }}
   NeoBundleLazy 'Shougo/neocomplete.vim', {
         \ "autoload": {"insert": 1}}
   NeoBundleLazy "Shougo/vimfiler", {
@@ -66,7 +58,9 @@ if has('vim_starting')
       \   "mappings": ['<Plug>(vimfiler_switch)'],
       \   "explorer": 1,
       \ }}
-  NeoBundle 'mattn/webapi-vim'
+  NeoBundleLazy 'airblade/vim-gitgutter', {
+        \ "autoload": {"insert": 1}}
+
 
   "fot Python
   NeoBundleLazy 'davidhalter/jedi-vim', {
@@ -128,7 +122,7 @@ if has('vim_starting')
   "for GLSL
   NeoBundleLazy 'tikhomirov/vim-glsl', {
         \ "autoload": {"filetypes": ['vert', 'frag', 'fp', 'vp', 'glsl']}}
-
+ 
   NeoBundleCheck
 endif
 
