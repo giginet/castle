@@ -60,7 +60,8 @@ if has('vim_starting')
       \ }}
   NeoBundleLazy 'airblade/vim-gitgutter', {
         \ "autoload": {"insert": 1}}
-
+  NeoBundleLazy 'rhysd/wandbox-vim', {
+        \ "autoload": {"insert": 1}}
 
   "fot Python
   NeoBundleLazy 'davidhalter/jedi-vim', {
