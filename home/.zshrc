@@ -161,10 +161,6 @@ then
   source ~/perl5/perlbrew/etc/bashrc
 fi
 
-# for Android
-NDK_ROOT=/usr/local/Cellar/android-ndk/9
-ANDROID_SDK_ROOT_LOCAL=/usr/local/Cellar/android-sdk/22.3
-
 #Settings for tmux-powerline
 PROMPT="$PROMPT"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 
@@ -178,12 +174,19 @@ export COCOS_CONSOLE_ROOT=/Users/giginet/cocos2d-x-3.1.1/tools/cocos2d-console/b
 export PATH=$COCOS_CONSOLE_ROOT:$PATH
 export NDK_ROOT=/usr/local/Cellar/android-ndk/9
 export PATH=$NDK_ROOT:$PATH
-export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/22.3
+export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/22.6.2
 export PATH=$ANDROID_SDK_ROOT:$PATH
 export PATH=$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools:$PATH
 
 # Settings for homeshick
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+
+# Settings for go lang
+if [ -x "`which go`" ]; then
+  export GOROOT=`go env GOROOT`
+  export GOPATH=$HOME/go
+  export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+fi
 
 # Settings for Gibo
 source ~/.gibo-completion.zsh

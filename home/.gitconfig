@@ -36,3 +36,5 @@
 	url = http://gitlab.kawaz.org
 [include]
 	path = .gitconfig.local
+[hub]
+	protocol = ssh
