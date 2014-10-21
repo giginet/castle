@@ -1,3 +1,5 @@
+set tabstop=4
+set shiftwidth=4
 let s:hooks = neobundle#get_hooks("vim-quickrun")
 function! s:hooks.on_source(bundle)
   let g:quickrun_config = {}
