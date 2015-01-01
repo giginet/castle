@@ -46,3 +46,6 @@ pysmell_exc.txt
 
 *.lock
 .irb_history
+
+# envdir
+.envrc
