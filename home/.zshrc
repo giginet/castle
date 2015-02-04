@@ -169,16 +169,6 @@ PROMPT="$PROMPT"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" 
 fpath=(/usr/local/share/zsh/site-functions/ ${fpath})
 autoload -U compinit; compinit -u  # zshの補完機能を利用する
 
-# Settings for cocos2d-x 3.2
-export COCOS_CONSOLE_ROOT=/Users/giginet/cocos2d-x-3.2/tools/cocos2d-console/bin
-export ANT_ROOT=/usr/local/bin
-export PATH=$COCOS_CONSOLE_ROOT:$PATH
-export NDK_ROOT=/Applications/Android/ndk
-export PATH=$NDK_ROOT:$PATH
-export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/23.0.2
-export PATH=$ANDROID_SDK_ROOT:$PATH
-export PATH=$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools:$PATH
-
 # Settings for homeshick
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 
@@ -198,10 +188,22 @@ source ~/.gibo-completion.zsh
 # direnv
 eval "$(direnv hook zsh)"
 
-# Add environment variable COCOS_X_ROOT for cocos2d-x
-export COCOS_X_ROOT=/Users/giginet/cocos2d-x-3.3
-export PATH=$COCOS_X_ROOT:$PATH
+# percol
+function exists { which $1 &> /dev/null }
 
-# Add environment variable COCOS_TEMPLATES_ROOT for cocos2d-x
-export COCOS_TEMPLATES_ROOT=/Users/giginet/cocos2d-x-3.3/templates
-export PATH=$COCOS_TEMPLATES_ROOT:$PATH
+if exists percol; then
+    function percol_select_history() {
+        local tac
+        exists gtac && tac="gtac" || { exists tac && tac="tac" || { tac="tail -r" } }
+        BUFFER=$(history -n 1 | eval $tac | percol --query "$LBUFFER")
+        CURSOR=$#BUFFER         # move cursor
+        zle -R -c               # refresh
+    }
+
+    zle -N percol_select_history
+    bindkey '^R' percol_select_history
+fi
+
+# Add environment variable COCOS_CONSOLE_ROOT for cocos2d-x
+export COCOS_CONSOLE_ROOT=/Users/giginet/cocos2d-x-3.3/tools/cocos2d-console/bin
+export PATH=$COCOS_CONSOLE_ROOT:$PATH
