@@ -38,3 +38,5 @@
 	path = .gitconfig.local
 [hub]
 	protocol = ssh
+[ghi]
+	token = !security find-internet-password -a giginet -s github.com -l 'ghi token' -w
