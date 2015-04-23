@@ -18,6 +18,10 @@ unsetopt complete_aliases       # エイリアスには別の補完規則を適�
 unsetopt correct_all            # 引数についてもスペル修正を試みる
 zstyle ':completion:*:default' list-colors ${LS_COLORS}
 
+# enable cdr
+autoload -Uz add-zsh-hock
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+
 # 補完の時に大文字小文字を区別しない(但し、大文字を打った場合は小文字に変換しない)
 zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' '+m:{A-Z}={a-z}'
 # sudo も補完対象にする
@@ -129,6 +133,7 @@ alias -s rb=ruby
 alias -s pl=perl
 alias ls="ls -a -G -l"
 alias rm="rm -i"
+alias venv="pyenv virtualenvs | percol | awk '{ print $1 }' | xargs pyenv local"
 
 #zsh syntax highlighting
 if [ -f ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
@@ -203,6 +208,19 @@ if exists percol; then
     zle -N percol_select_history
     bindkey '^R' percol_select_history
 fi
+
+# Move cd histroy by percol
+function percol-cdr () {
+    local selected_dir=$(cdr -l | awk '{ print $2 }' | percol --query "$LBUFFER")
+    if [ -n "$selected_dir" ]; then
+        BUFFER="cd ${selected_dir}"
+        zle accept-line
+    fi
+    zle clear-screen
+}
+zle -N percol-cdr
+
+bindkey '^@' percol-cdr
 
 # Add environment variable COCOS_CONSOLE_ROOT for cocos2d-x
 export COCOS_CONSOLE_ROOT=/Users/giginet/cocos2d-x-3.3/tools/cocos2d-console/bin
