@@ -133,7 +133,20 @@ alias -s rb=ruby
 alias -s pl=perl
 alias ls="ls -a -G -l"
 alias rm="rm -i"
-alias venv="pyenv virtualenvs | percol | awk '{ print $1 }' | xargs pyenv local"
+
+function venv() {
+    pyenv virtualenvs | percol | awk '{ print $1 }' | xargs pyenv local
+}
+
+function ppkill() {
+    if [[ $1 =~ "^-" ]]; then
+        QUERY=""            # options only
+    else
+        QUERY=$1            # with a query
+        [[ $# > 0 ]] && shift
+    fi
+    ppgrep $QUERY | xargs kill $*
+}
 
 #zsh syntax highlighting
 if [ -f ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
