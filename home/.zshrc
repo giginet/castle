@@ -147,6 +147,15 @@ function venv() {
     pyenv local $venv_name
 }
 
+function ppgrep() {
+    if [[ $1 == "" ]]; then
+        PERCOL=percol
+    else
+        PERCOL="percol --query $1"
+    fi
+    ps aux | eval $PERCOL | awk '{ print $2 }'
+}
+
 function ppkill() {
     if [[ $1 =~ "^-" ]]; then
         QUERY=""            # options only
