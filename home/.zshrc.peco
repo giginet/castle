@@ -1,0 +1,64 @@
+# peco
+function exists { which $1 &> /dev/null }
+
+if exists peco; then
+    function peco_select_history() {
+        local tac
+        exists gtac && tac="gtac" || { exists tac && tac="tac" || { tac="tail -r" } }
+        BUFFER=$(history -n 1 | eval $tac | peco --query "$LBUFFER")
+        CURSOR=$#BUFFER         # move cursor
+        zle -R -c               # refresh
+    }
+
+    zle -N peco_select_history
+    bindkey '^R' peco_select_history
+fi
+
+# Move cd histroy by peco
+function peco-cdr () {
+    local selected_dir=$(cdr -l | awk '{ print $2 }' | peco --query "$LBUFFER")
+    if [ -n "$selected_dir" ]; then
+        BUFFER="cd ${selected_dir}"
+        zle accept-line
+    fi
+    zle clear-screen
+}
+zle -N peco-cdr
+
+bindkey '^@' peco-cdr
+pecorake() { local task=$(rake -W | peco | cut -d " " -f 2); rake $task }
+
+alias prake='pecorake'
+
+function venv() {
+    venvs=`pyenv versions | peco`
+    venv0=`echo $venvs | cut -d' ' -f1`
+    venv1=`echo $venvs | cut -d' ' -f2`
+    if [[ $venv0 == "*" ]]; then
+      venv_name=$venv1
+    else
+      venv_name=`echo $venvs| awk '{ print $1 }'`
+    fi
+    echo "Set Python version to ${venv_name}"
+    pyenv local $venv_name
+}
+
+function ppgrep() {
+    if [[ $1 == "" ]]; then
+        PECO=peco
+    else
+        PECO="peco --query $1"
+    fi
+    ps aux | eval $PECO | awk '{ print $2 }'
+}
+
+function ppkill() {
+    if [[ $1 =~ "^-" ]]; then
+        QUERY=""            # options only
+    else
+        QUERY=$1            # with a query
+        [[ $# > 0 ]] && shift
+    fi
+    ppgrep $QUERY | xargs kill $*
+}
+

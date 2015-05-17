@@ -134,38 +134,6 @@ alias -s pl=perl
 alias ls="ls -a -G -l"
 alias rm="rm -i"
 
-function venv() {
-    venvs=`pyenv versions | peco`
-    venv0=`echo $venvs | cut -d' ' -f1`
-    venv1=`echo $venvs | cut -d' ' -f2`
-    if [[ $venv0 == "*" ]]; then
-      venv_name=$venv1
-    else
-      venv_name=`echo $venvs| awk '{ print $1 }'`
-    fi
-    echo "Set Python version to ${venv_name}"
-    pyenv local $venv_name
-}
-
-function ppgrep() {
-    if [[ $1 == "" ]]; then
-        PECO=peco
-    else
-        PECO="peco --query $1"
-    fi
-    ps aux | eval $PECO | awk '{ print $2 }'
-}
-
-function ppkill() {
-    if [[ $1 =~ "^-" ]]; then
-        QUERY=""            # options only
-    else
-        QUERY=$1            # with a query
-        [[ $# > 0 ]] && shift
-    fi
-    ppgrep $QUERY | xargs kill $*
-}
-
 #zsh syntax highlighting
 if [ -f ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
   source ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -200,8 +168,6 @@ fi
 #Settings for tmux-powerline
 PROMPT="$PROMPT"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 
-[ -f ~/.zshrc.local ] && source ~/.zshrc.local
-
 fpath=(/usr/local/share/zsh/site-functions/ ${fpath})
 autoload -U compinit; compinit -u  # zshの補完機能を利用する
 
@@ -224,31 +190,11 @@ source ~/.gibo-completion.zsh
 # direnv
 eval "$(direnv hook zsh)"
 
-# peco
-function exists { which $1 &> /dev/null }
+# Load peco functions
+# peco依存の奴が多いから分離
+[ -f ~/.zshrc.local ] && source ~/.zshrc.peco
 
-if exists peco; then
-    function peco_select_history() {
-        local tac
-        exists gtac && tac="gtac" || { exists tac && tac="tac" || { tac="tail -r" } }
-        BUFFER=$(history -n 1 | eval $tac | peco --query "$LBUFFER")
-        CURSOR=$#BUFFER         # move cursor
-        zle -R -c               # refresh
-    }
+# Load Local Settings
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
-    zle -N peco_select_history
-    bindkey '^R' peco_select_history
-fi
 
-# Move cd histroy by peco
-function peco-cdr () {
-    local selected_dir=$(cdr -l | awk '{ print $2 }' | peco --query "$LBUFFER")
-    if [ -n "$selected_dir" ]; then
-        BUFFER="cd ${selected_dir}"
-        zle accept-line
-    fi
-    zle clear-screen
-}
-zle -N peco-cdr
-
-bindkey '^@' peco-cdr
