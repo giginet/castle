@@ -43,9 +43,6 @@ syntax on
 "Color Scheme
 colorscheme desert
 
-"Key Mappings
-noremap r :redo<CR>
-
 "split like tmux
 noremap <C-w>% :vsp<CR>
 noremap <C-w>" :sp<CR>
