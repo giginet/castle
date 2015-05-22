@@ -58,5 +58,4 @@ coverage.xml
 # Sphinx documentation
 docs/_build/
 
-
-
+!home/.gitconfig

@@ -49,3 +49,6 @@ pysmell_exc.txt
 
 # envdir
 .envrc
+
+# Git local setting
+.gitconfig
