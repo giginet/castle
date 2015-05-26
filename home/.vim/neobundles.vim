@@ -23,32 +23,21 @@ if has('vim_starting')
       \ "autoload": {
       \   "commands": ["Unite", "UniteWithBufferDir"]
       \ }}
-  NeoBundleLazy 'mattn/gist-vim', {
-        \ "autoload" : {"commands": ["Gist"]}}
-  NeoBundleLazy 'thinca/vim-ref', {
-        \ "autoload" : {"commands": ["Ref"]}}
+  " neobundle.vim (Lazy)
+  NeoBundleLazy 'lambdalisue/vim-gista', {
+    \ 'autoload': {
+    \    'commands': ['Gista'],
+    \    'mappings': '<Plug>(gista-',
+    \    'unite_sources': 'gista',
+    \}}
   NeoBundleLazy 'vim-scripts/tComment', {
         \ "autoload" : {"mappings": ["<C-_><C-_>"]}}
   NeoBundleLazy 'sjl/gundo.vim', {
         \ "autoload" : {"commands": ["GundoToggle"]}}
   NeoBundleLazy 'mrtazz/simplenote.vim', {
         \ "autoload" : {"commands": ["Simplenote"]}}
-  NeoBundle 'vim-scripts/surround.vim'
-  NeoBundleLazy 'maksimr/vim-translator', {
-        \ "autoload" : {"mappings": ["<plug>TranslateBlockText"]}}
   NeoBundleLazy 'vim-scripts/errormarker.vim', {
         \ "autoload" : {"augroup": ["errormarker"]}}
-  NeoBundleLazy 'trotter/autojump.vim.git', {
-        \ "autoload" : {
-        \   "commands": ["J"]
-        \ },
-        \ "build": {
-        \   "mac": "brew install autojump"
-        \ }}
-  " NeoBundleLazy "vim-pandoc/vim-pandoc", {
-  "     \ "autoload": {
-  "     \   "filetypes": ["text", "pandoc", "markdown", "rst", "textile"],
-  "     \ }}
   NeoBundleLazy 'Shougo/neocomplete.vim', {
         \ "autoload": {"insert": 1}}
   NeoBundleLazy "Shougo/vimfiler", {
@@ -70,8 +59,6 @@ if has('vim_starting')
         \ "autoload": {"filetypes": ['py']}}
 
   "for JavaScript
-  NeoBundleLazy 'hallettj/jslint.vim', {
-        \ "autoload": {"filetypes": ['js']}}
   NeoBundleLazy 'pangloss/vim-javascript', {
         \ "autoload": {"filetypes": ['js']}}
 
@@ -81,10 +68,6 @@ if has('vim_starting')
 
   "for TypeScript
   NeoBundle 'leafgarland/typescript-vim'
-
-  "for TeX
-  " NeoBundleLazy 'jcf/vim-latex', {
-  "       \ "autoload": {"filetypes": ['tex']}}
 
   "for HTML
   NeoBundleLazy 'mattn/emmet-vim', {
