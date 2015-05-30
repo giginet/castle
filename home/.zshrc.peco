@@ -44,7 +44,7 @@ function venv() {
     if [[ $1 == "--global" ]]; then
       mode=global
     fi
-    echo "Set Python ${mode} version to ${venv_name}"
+    echo "Set ${mode} Python version to ${venv_name}"
     pyenv $mode $venv_name
 }
 
