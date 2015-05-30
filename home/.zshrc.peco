@@ -39,8 +39,13 @@ function venv() {
     else
       venv_name=`echo $venvs| awk '{ print $1 }'`
     fi
-    echo "Set Python version to ${venv_name}"
-    pyenv local $venv_name
+
+    mode=local
+    if [[ $1 == "--global" ]]; then
+      mode=global
+    fi
+    echo "Set Python ${mode} version to ${venv_name}"
+    pyenv $mode $venv_name
 }
 
 function ppgrep() {
