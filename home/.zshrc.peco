@@ -67,3 +67,8 @@ function ppkill() {
     ppgrep $QUERY | xargs kill $*
 }
 
+function pghq () {
+  local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
+  echo $selected_dir
+  cd $selected_dir
+}
