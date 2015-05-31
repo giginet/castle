@@ -2,35 +2,37 @@
 function exists { which $1 &> /dev/null }
 
 if exists peco; then
-    function peco_select_history() {
-        local tac
-        exists gtac && tac="gtac" || { exists tac && tac="tac" || { tac="tail -r" } }
-        BUFFER=$(history -n 1 | eval $tac | peco --query "$LBUFFER")
-        CURSOR=$#BUFFER         # move cursor
-        zle -R -c               # refresh
-    }
+  # ignore duplicates from history
+  function peco-select-history() {
+    local tac
+    if which tac > /dev/null; then
+      tac="tac"
+    else
+      tac="tail -r"
+    fi
+    BUFFER=$(history -n 1 | eval $tac | awk '!a[$0]++' | peco --query "$LBUFFER")
+    CURSOR=$#BUFFER
+  }
+  zle -N peco-select-history
+  bindkey '^r' peco-select-history
 
-    zle -N peco_select_history
-    bindkey '^R' peco_select_history
-fi
-
-# Move cd histroy by peco
-function peco-cdr () {
+  # Move cd histroy by peco
+  function peco-cdr () {
     local selected_dir=$(cdr -l | awk '{ print $2 }' | peco --query "$LBUFFER")
     if [ -n "$selected_dir" ]; then
-        BUFFER="cd ${selected_dir}"
-        zle accept-line
+      BUFFER="cd ${selected_dir}"
+      zle accept-line
     fi
     zle clear-screen
-}
-zle -N peco-cdr
+  }
+  zle -N peco-cdr
 
-bindkey '^@' peco-cdr
-pecorake() { local task=$(rake -W | peco | cut -d " " -f 2); rake $task }
+  bindkey '^@' peco-cdr
+  pecorake() { local task=$(rake -W | peco | cut -d " " -f 2); rake $task }
 
-alias prake='pecorake'
+  alias prake='pecorake'
 
-function venv() {
+  function venv() {
     venvs=`pyenv versions | peco`
     venv0=`echo $venvs | cut -d' ' -f1`
     venv1=`echo $venvs | cut -d' ' -f2`
@@ -46,29 +48,31 @@ function venv() {
     fi
     echo "Set ${mode} Python version to ${venv_name}"
     pyenv $mode $venv_name
-}
+  }
 
-function ppgrep() {
+  function ppgrep() {
     if [[ $1 == "" ]]; then
-        PECO=peco
+    PECO=peco
     else
-        PECO="peco --query $1"
+    PECO="peco --query $1"
     fi
     ps aux | eval $PECO | awk '{ print $2 }'
-}
+  }
 
-function ppkill() {
+  function ppkill() {
     if [[ $1 =~ "^-" ]]; then
-        QUERY=""            # options only
+      QUERY=""            # options only
     else
-        QUERY=$1            # with a query
-        [[ $# > 0 ]] && shift
+      QUERY=$1            # with a query
+      [[ $# > 0 ]] && shift
     fi
     ppgrep $QUERY | xargs kill $*
-}
+  }
 
-function pghq () {
-  local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
-  echo $selected_dir
-  cd $selected_dir
-}
+  function pghq () {
+    local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
+    echo $selected_dir
+    cd $selected_dir
+  }
+
+fi
