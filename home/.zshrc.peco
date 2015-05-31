@@ -16,18 +16,12 @@ if exists peco; then
   zle -N peco-select-history
   bindkey '^r' peco-select-history
 
-  # Move cd histroy by peco
-  function peco-cdr () {
-    local selected_dir=$(cdr -l | awk '{ print $2 }' | peco --query "$LBUFFER")
-    if [ -n "$selected_dir" ]; then
-      BUFFER="cd ${selected_dir}"
-      zle accept-line
-    fi
-    zle clear-screen
+  function peco-autojump() {
+    cd $(j -s | awk '{ print $2 }' | awk '/^\//' | peco)
   }
-  zle -N peco-cdr
+  zle -N peco-autojump
+  bindkey '^@' peco-autojump
 
-  bindkey '^@' peco-cdr
   pecorake() { local task=$(rake -W | peco | cut -d " " -f 2); rake $task }
 
   alias prake='pecorake'
