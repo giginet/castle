@@ -9,7 +9,6 @@ au BufNewFile,BufRead [rR]akefile,*.rake set filetype=ruby
 
 " eRuby
 au BufNewFile,BufRead *.erb,*.rhtml set filetype=eruby
-autocmd BufNewFile *.rb 0r ~/.vim/templates/ruby.rb
 
 " jBuilder
 au BufNewFile,BufRead *.jbuilder set filetype=ruby
