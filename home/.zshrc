@@ -146,6 +146,8 @@ PATH=$PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH
 #for Ruby Development
 PATH=$HOME/.rbenv/bin:$PATH
 PATH=$HOME/.rbenv/shims:$PATH # Add rbenv to PATH
+# Auto load Gemfile
+export RUBYGEMS_GEMDEPS=-
 
 #for Node Development
 if [[ -f ~/.nodebrew/nodebrew ]]; then
@@ -196,5 +198,4 @@ eval "$(direnv hook zsh)"
 
 # Load Local Settings
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
-
 
