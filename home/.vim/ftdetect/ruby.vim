@@ -21,3 +21,6 @@ au BufNewFile,BufRead Gemfile set filetype=ruby
 
 " Guardfile
 au BufNewFile,BufRead Guardfile set filetype=ruby
+
+" fastlane
+au BufNewFile,BufRead Fastfile,Appfile,Snapfile set filetype=ruby
