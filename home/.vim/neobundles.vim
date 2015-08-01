@@ -51,6 +51,8 @@ if has('vim_starting')
         \ "autoload": {"insert": 1}}
   NeoBundleLazy 'rhysd/wandbox-vim', {
         \ "autoload": {"insert": 1}}
+  NeoBundleLazy 'rhysd/wandbox-vim', {
+        \ "autoload": {'commands': ["Wandbox"]}}
 
   "fot Python
   NeoBundleLazy 'davidhalter/jedi-vim', {
