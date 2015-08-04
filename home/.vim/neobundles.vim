@@ -23,7 +23,6 @@ if has('vim_starting')
       \ "autoload": {
       \   "commands": ["Unite", "UniteWithBufferDir"]
       \ }}
-  " neobundle.vim (Lazy)
   NeoBundleLazy 'lambdalisue/vim-gista', {
     \ 'autoload': {
     \    'commands': ['Gista'],
@@ -83,7 +82,8 @@ if has('vim_starting')
         \ "autoload": {"filetypes": ['coffee']}}
 
   "for TypeScript
-  NeoBundle 'leafgarland/typescript-vim'
+  NeoBundleLazy 'leafgarland/typescript-vim', {
+        \ "autoload": {"filetypes": ['ts']}}
 
   "for HTML
   NeoBundleLazy 'mattn/emmet-vim', {
