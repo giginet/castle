@@ -69,7 +69,7 @@ if exists peco; then
     cd $selected_dir
   }
 
-  function pgit-co {
+  function pco {
     git checkout `git branch | peco | sed -e "s/\* //g" | awk "{print \$1}"`
   }
 
