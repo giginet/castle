@@ -72,4 +72,9 @@ if exists peco; then
   function pgit-co {
     git checkout `git branch | peco | sed -e "s/\* //g" | awk "{print \$1}"`
   }
+
+  function pag () {
+    vim $(ag $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
+  }
+
 fi
