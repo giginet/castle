@@ -2,8 +2,7 @@
 function exists { which $1 &> /dev/null }
 
 if exists peco; then
-  # ignore duplicates from history
-  function peco-select-history() {
+  function phistory() {
     local tac
     if which tac > /dev/null; then
       tac="tac"
@@ -13,20 +12,18 @@ if exists peco; then
     BUFFER=$(history -n 1 | eval $tac | awk '!a[$0]++' | peco --query "$LBUFFER")
     CURSOR=$#BUFFER
   }
-  zle -N peco-select-history
-  bindkey '^r' peco-select-history
+  zle -N phistory
+  bindkey '^r' phistory
 
-  function peco-autojump() {
+  function pj() {
     cd $(j -s | awk '{ print $2 }' | awk '/^\//' | peco)
   }
-  zle -N peco-autojump
-  bindkey '^@' peco-autojump
+  zle -N pj
+  bindkey '^@' pj
 
-  pecorake() { local task=$(rake -W | peco | cut -d " " -f 2); rake $task }
+  prake() { local task=$(rake -W | peco | cut -d " " -f 2); rake $task }
 
-  alias prake='pecorake'
-
-  function venv() {
+  function pvenv() {
     venvs=`pyenv versions | peco`
     venv0=`echo $venvs | cut -d' ' -f1`
     venv1=`echo $venvs | cut -d' ' -f2`
