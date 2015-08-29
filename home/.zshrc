@@ -197,7 +197,7 @@ eval "$(direnv hook zsh)"
 
 # Load peco functions
 # peco依存の奴が多いから分離
-[ -f ~/.zshrc.local ] && source ~/.zshrc.peco
+[ -f ~/.zshrc.peco ] && source ~/.zshrc.peco
 
 # Load Local Settings
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
