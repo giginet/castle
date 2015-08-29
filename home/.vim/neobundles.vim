@@ -15,6 +15,7 @@ if has('vim_starting')
         \ }}
 
   "Universal Plugins
+  NeoBundle "wakatime/vim-wakatime"
   NeoBundleLazy "thinca/vim-quickrun", {
         \ "autoload": {
         \   "mappings": [['nxo', '<Plug>(quickrun)']]
