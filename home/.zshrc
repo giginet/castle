@@ -87,6 +87,10 @@ function cdup(){
  zle -N cdup
  bindkey '\^\^' cdup
 
+function git-root() {
+  cd `git rev-parse --show-toplevel`
+}
+
 # Autojump settings
 PATH=$HOME/.autojump/bin:$PATH
 [[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
