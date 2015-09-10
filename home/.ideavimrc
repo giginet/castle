@@ -1,1 +1,49 @@
+"General Settings
+set cindent
+set cinoptions=g0
+set directory=$HOME/.vimbackup
+set smartindent
+set title
+set mouse=a
+
+"Language Settings
+set encoding=utf8
+set fileencoding=utf8
+set hlg=ja
+
+"Edit Settings
+set expandtab     "replace tab to spaces
+set showmatch     "auto complete )
+set matchtime=1   "wait time for showmatch
+set backspace=indent,eol,start
+set virtualedit=block
+
+"Display Settings
 set number
+set list
+set ruler
+set nowrap
+set shellslash
+
+"Search Settings
+set hlsearch       "enable highligt
+set incsearch      "enable incremental search
+set smartcase      "enable smart case
+set grepprg=grep\ -nH\ $*
+
+"Plugin Settings
+filetype on
+filetype plugin on
+filetype plugin indent on
+filetype indent on
+syntax on
+
+"Color Scheme
+colorscheme desert
+
+"split like tmux
+noremap <C-w>% :vsp<CR>
+noremap <C-w>" :sp<CR>
+noremap <C-w>p :tabp<CR>
+noremap <C-w>n :tabn<CR>
+noremap <C-w>c :tabnew<CR>
