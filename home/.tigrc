@@ -1,3 +1,3 @@
 bind main Y !@git pbcopy %(commit)
-bind main B !@hub browse %(commit)
+bind main B !@hub browse -- commit/%(commit)
 bind main C !@hub compare %(commit)...%(branch)
