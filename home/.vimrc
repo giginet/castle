@@ -50,13 +50,8 @@ noremap <C-w>p :tabp<CR>
 noremap <C-w>n :tabn<CR>
 noremap <C-w>c :tabnew<CR>
 
-" クリップボードをデフォルトのレジスタとして指定。後にYankRingを使うので
-" 'unnamedplus'が存在しているかどうかで設定を分ける必要がある
-if has('unnamedplus')
-  set clipboard& clipboard+=unnamedplus
-else
-  set clipboard& clipboard+=unnamed
-endif
+" Sync clipboard and register
+set clipboard& clipboard+=unnamed
 
 " :e などでファイルを開く際にフォルダが存在しない場合は自動作成
 function! s:mkdir(dir, force)
