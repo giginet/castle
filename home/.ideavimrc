@@ -47,3 +47,5 @@ noremap <C-w>" :sp<CR>
 noremap <C-w>p :tabp<CR>
 noremap <C-w>n :tabn<CR>
 noremap <C-w>c :tabnew<CR>
+
+set clipboard& clipboard+=unnamed
