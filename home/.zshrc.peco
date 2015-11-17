@@ -74,4 +74,7 @@ if exists peco; then
     vim $(ag $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
   }
 
+  function pspec () {
+    git ls-files spec | peco | xargs bundle exec rspec
+  }
 fi
