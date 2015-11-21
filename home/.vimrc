@@ -86,7 +86,7 @@ function! s:hooks.on_source(bundle)
 endfunction
 
 "Quickrun Settings
-silent! nmap <unique> <C-r> <Plug>(quickrun)
+silent! nmap <unique> <C-x> <Plug>(quickrun)
 let s:hooks = neobundle#get_hooks("vim-quickrun")
 function! s:hooks.on_source(bundle)
   let g:loaded_quicklaunch = 1
@@ -160,5 +160,4 @@ set expandtab
 if filereadable($HOME.'/.vimrc_local')
   source $HOME/.vimrc_local
 endif
-
 
