@@ -46,10 +46,11 @@ zstyle ':completion:*:complete:scp:*:files' command command -
 
 # Other Settings
 bindkey -v
-setopt multios                  # 複数リダイレクト有効
-setopt auto_pushd               # cdの履歴を自動的に保存
-setopt PUSHD_IGNORE_DUPS        # auto_pushd時に重複ディレクトリを無視
-setopt auto_cd                  # ディレクトリ名のみのとき、自動的にcd
+setopt multios
+setopt autopushd
+setopt PUSHD_IGNORE_DUPS
+setopt auto_cd
+setopt pushd_ignore_dups
 
 # History Settings
 #<C-p>,<C-n>でコマンド履歴を戻る、進む
