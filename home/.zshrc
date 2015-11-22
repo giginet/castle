@@ -122,6 +122,7 @@ export SDL_VIDEODRIVER=X11
 
 export CLICOLOR=1
 export LSCOLORS=DxGxcxdxCxegedabagacad
+export XDG_CONFIG_HOME=$HOME/.config
 
 # Color Settings
 autoload -U colors

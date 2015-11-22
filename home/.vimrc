@@ -62,7 +62,11 @@ function! s:mkdir(dir, force)
 endfunction
 au BufWritePre * call s:mkdir(expand('<afile>:p:h'), v:cmdbang)
 
-source <sfile>:h/.vim/neobundles.vim
+if has('nvim')
+  source <sfile>:h/neobundles.vim
+else
+  source <sfile>:h/.vim/neobundles.vim
+endif
 
 "vimfiler Settings
 nnoremap <C-n>t :VimFilerExplorer<CR>
