@@ -139,6 +139,7 @@ alias -s rb=ruby
 alias -s pl=perl
 alias ls="ls -a -G -l"
 alias rm="rm -i"
+alias vim=nvim
 
 #zsh syntax highlighting
 if [ -f ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
