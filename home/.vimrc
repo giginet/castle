@@ -151,11 +151,18 @@ function! s:hooks.on_source(bundle)
 endfunction
 
 "neocomplete Settings
-let s:hooks = neobundle#get_hooks("neocomplete.vim")
-function! s:hooks.on_source(bundle)
+if has('nvim')
+  let s:hooks = neobundle#get_hooks("deoplete.nvim")
+  function! s:hooks.on_source(bundle)
+    let g:deoplete#enable_at_startup = 1
+  endfunction
+else
+  let s:hooks = neobundle#get_hooks("neocomplete.vim")
+  function! s:hooks.on_source(bundle)
     let g:neocomplete#enable_smart_case = 1
     let g:neocomplete#enable_at_startup = 1
-endfunction
+  endfunction
+endif
 
 autocmd BufRead /tmp/crontab.* :set nobackup nowritebackup
 set expandtab
