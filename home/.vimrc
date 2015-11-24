@@ -68,6 +68,11 @@ else
   source <sfile>:h/.vim/neobundles.vim
 endif
 
+"Python3 support
+let g:python3_host_prog = expand('$HOME') . '/.pyenv/shims/python'
+let g:loaded_python_provider = 1
+let g:python_host_skip_check = 1
+
 "vimfiler Settings
 nnoremap <C-n>t :VimFilerExplorer<CR>
 " close vimfiler automatically when there are only vimfiler open
@@ -177,7 +182,3 @@ map <up> <nop>
 map <down> <nop>
 map <left> <nop>
 map <right> <nop>
-imap <up> <nop>
-imap <down> <nop>
-imap <left> <nop>
-imap <right> <nop>
