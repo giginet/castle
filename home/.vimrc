@@ -70,8 +70,6 @@ endif
 
 "Python3 support
 let g:python3_host_prog = expand('$HOME') . '/.pyenv/shims/python'
-let g:loaded_python_provider = 1
-let g:python_host_skip_check = 1
 
 "vimfiler Settings
 nnoremap <C-n>t :VimFilerExplorer<CR>
