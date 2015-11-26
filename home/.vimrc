@@ -103,6 +103,12 @@ function! s:hooks.on_source(bundle)
       \ }
 endfunction
 
+"Investigate.vim Settings
+let s:hooks = neobundle#get_hooks("investigate.vim")
+function! s:hooks.on_source(bundle)
+  let g:investigate_use_dash = 1
+endfunction
+
 "errormarker.vim Settings
 let g:errormarker_errortext = '!!'
 let g:errormarker_warningtext = '??'
