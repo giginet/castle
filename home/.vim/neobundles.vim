@@ -134,6 +134,12 @@ if has('vim_starting')
   "for GLSL
   NeoBundleLazy 'tikhomirov/vim-glsl', {
         \ "autoload": {"filetypes": ['vert', 'frag', 'fp', 'vp', 'glsl']}}
+
+  "for Markdown
+  NeoBundleLazy 'AndrewRadev/inline_edit.vim', {
+        \ "autoload": {"filetypes": ['md']}}
+  NeoBundleLazy 'dhruvasagar/vim-table-mode', {
+        \ "autoload": {"filetypes": ['md']}}
  
   NeoBundleCheck
 endif
