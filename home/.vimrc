@@ -41,7 +41,7 @@ filetype indent on
 syntax on
 
 "Color Scheme
-colorscheme desert
+colorscheme jellybeans
 
 "split like tmux
 noremap <C-w>% :vsp<CR>
