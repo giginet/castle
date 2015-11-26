@@ -103,22 +103,6 @@ function! s:hooks.on_source(bundle)
       \ }
 endfunction
 
-"Gist.vim Settings
-let s:hooks = neobundle#get_hooks("gist-vim")
-function! s:hooks.on_source(bundle)
-  let g:gist_show_privates = 1
-  let g:gist_privates = 1
-endfunction
-
-
-"Ref.vim
-let s:hooks = neobundle#get_hooks("vim-ref")
-function! s:hooks.on_source(bundle)
-  let g:ref_alc_start_linenumber = 10
-  let g:ref_alc_encoding = 'Shift-JIS'
-endfunction
-
-
 "errormarker.vim Settings
 let g:errormarker_errortext = '!!'
 let g:errormarker_warningtext = '??'
@@ -129,19 +113,6 @@ highlight Todo ctermbg=17 guibg=#00005F
 
 "Gundo.vim Settings
 noremap U :<C-u>GundoToggle<CR>
-
-"Pandoc, shareboard Settings
-function! s:shareboard_settings()
-  nnoremap <buffer>[shareboard] <Nop>
-  nmap <buffer><Leader> [shareboard]
-  nnoremap <buffer><silent> [shareboard]v :ShareboardPreview<CR>
-  nnoremap <buffer><silent> [shareboard]c :ShareboardCompile<CR>
-endfunction
-autocmd FileType rst,text,pandoc,markdown,textile call s:shareboard_settings()
-let s:hooks = neobundle#get_hooks("shareboard.vim")
-function! s:hooks.on_source(bundle)
-  let $PATH=expand("~/.cabal/bin:") . $PATH
-endfunction
 
 "vim-translator Settings
 let s:hooks = neobundle#get_hooks("vim-translator")
@@ -168,7 +139,6 @@ else
 endif
 
 autocmd BufRead /tmp/crontab.* :set nobackup nowritebackup
-set expandtab
 
 "Load local Settings
 if filereadable($HOME.'/.vimrc_local')
