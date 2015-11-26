@@ -120,16 +120,6 @@ highlight Todo ctermbg=17 guibg=#00005F
 "Gundo.vim Settings
 noremap U :<C-u>GundoToggle<CR>
 
-"vim-translator Settings
-let s:hooks = neobundle#get_hooks("vim-translator")
-function! s:hooks.on_source(bundle)
-  let g:goog_user_conf = {
-    \ 'langpair': 'en|ja',
-    \ 'cmd': 'lua',
-    \ 'v_key': 'T'
-  \}
-endfunction
-
 "neocomplete Settings
 if has('nvim')
   let s:hooks = neobundle#get_hooks("deoplete.nvim")
