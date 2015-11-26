@@ -122,6 +122,8 @@ if has('vim_starting')
   "for Groovy
   NeoBundleLazy 'groovy.vim', {
         \ "autoload": {"filetypes": ['groovy']}}
+  NeoBundleLazy 'tfnico/vim-gradle', {
+        \ "autoload": {"filetypes": ['gradle']}}
 
   "for MoonScript
   NeoBundleLazy 'leafo/moonscript-vim', {
