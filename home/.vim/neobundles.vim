@@ -101,6 +101,10 @@ if has('vim_starting')
   NeoBundleLazy 'hail2u/vim-css3-syntax.git', {
         \ "autoload": {"filetypes": ['css']}}
 
+  "for Swift
+  NeoBundleLazy 'toyamarinyon/vim-swift', {
+        \ "autoload": {"filetypes": ['swift']}}
+
   "for Scala
   NeoBundleLazy 'derekwyatt/vim-scala.git', {
         \ "autoload": {"filetypes": ['scala']}}
