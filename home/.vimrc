@@ -109,6 +109,12 @@ function! s:hooks.on_source(bundle)
   let g:investigate_use_dash = 1
 endfunction
 
+"vim-gista Settings
+let s:hooks = neobundle#get_hooks("vim-gista")
+function! s:hooks.on_source(bundle)
+  let g:gista#github_user = 'giginet'
+endfunction
+
 "errormarker.vim Settings
 let g:errormarker_errortext = '!!'
 let g:errormarker_warningtext = '??'
