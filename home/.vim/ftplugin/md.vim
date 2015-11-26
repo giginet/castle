@@ -11,3 +11,5 @@ function! s:hooks.on_source(bundle)
         \ 'exec'      : '%c %o %a %s',
         \ }
 endfunction
+noremap <C-t> :TableModeToggle<CR>
+noremap ``` :InlineEdit<CR>
