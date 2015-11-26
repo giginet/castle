@@ -61,8 +61,8 @@ bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
 
 HISTFILE=~/.zsh_history          # コマンド履歴を保存するパス
-HISTSIZE=100000                  # 保持する履歴の数
-SAVEHIST=100000                  # 保存する最新の履歴の数
+HISTSIZE=1000000                 # 保持する履歴の数
+SAVEHIST=1000000                 # 保存する最新の履歴の数
 setopt bang_hist                 # !を使ったヒストリ展開を利用する
 setopt extended_history          # 履歴に開始/終了時刻を記録
 setopt inc_append_history        # 履歴をインクリメンタルに追加
