@@ -1,3 +1,6 @@
+# Load Local Settings
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
 # Completion Settings
 setopt always_last_prompt       # 補完をしてもプロンプトの位置を変えない
 setopt auto_list                # 補完候補が複数あるとき、自動でメニューをリストアップする
@@ -130,8 +133,7 @@ bindkey '^f' showFinder
 
 # Environment Variable Settings
 export PATH=/usr/local/share/npm/bin:/usr/texbin:$HOME/.bin:/usr/local/bin:/Applications/Android/sdk/platform-tools:$HOME/Library/Haskell/bin:$PATH
-export MANPATH=/opt/local/man:$MANPATH
-export EDITOR=/usr/local/bin/vim
+export EDITOR=$(brew --prefix)/bin/nvim
 export SDL_VIDEODRIVER=X11
 
 export CLICOLOR=1
@@ -215,8 +217,4 @@ eval "$(direnv hook zsh)"
 # Load peco functions
 # peco依存の奴が多いから分離
 [ -f ~/.zshrc.peco ] && source ~/.zshrc.peco
-
-# Load Local Settings
-[ -f ~/.zshrc.local ] && source ~/.zshrc.local
-
 
