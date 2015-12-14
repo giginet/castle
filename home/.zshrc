@@ -2,41 +2,37 @@
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
 # Completion Settings
-setopt always_last_prompt       # 補完をしてもプロンプトの位置を変えない
-setopt auto_list                # 補完候補が複数あるとき、自動でメニューをリストアップする
-setopt auto_menu                # tab,^i で順次補完候補を補完
-setopt auto_param_keys          # 変数名を補完する
-setopt list_packed              # 補完候補を詰めて表示
-setopt list_types               # 補完候補表示時にファイルの種類も表示する *, @, / などが付く
-setopt auto_remove_slash        # ディレクトリの後でスペースを入力すると、ディレクトリの後ろに付くスラッシュを削除する
-setopt auto_param_slash         # ディレクトリ名の補完で末尾に / を自動的に補完
-setopt mark_dirs                # ファイル名展開でディレクトリにマッチすると / をつける
-setopt complete_in_word         # 語の途中でもカーソル位置で補完
-setopt magic_equal_subst        # --prefix=/usr などの = 以降も補完
-setopt hist_verify              # ヒストリから呼び出したときに一度編集できるように
-unsetopt list_beep              # 補完の時にベルを鳴らさない
-unsetopt menu_complete          # 補完候補が複数ある時、すぐに最初の候補を補完する
-unsetopt list_rows_first        # 補完の表示順序を水平方向にする
-unsetopt complete_aliases       # エイリアスには別の補完規則を適用する
-unsetopt correct_all            # 引数についてもスペル修正を試みる
+setopt always_last_prompt
+setopt auto_list
+setopt auto_menu
+setopt auto_param_keys
+setopt list_packed
+setopt list_types
+setopt auto_remove_slash
+setopt auto_param_slash
+setopt mark_dirs
+setopt complete_in_word
+setopt magic_equal_subst
+setopt hist_verify
+unsetopt list_beep
+unsetopt menu_complete
+unsetopt list_rows_first
+unsetopt complete_aliases
+unsetopt correct_all
 zstyle ':completion:*:default' list-colors ${LS_COLORS}
 
 # enable cdr
 autoload -Uz add-zsh-hock
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
 
-# 補完の時に大文字小文字を区別しない(但し、大文字を打った場合は小文字に変換しない)
 zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' '+m:{A-Z}={a-z}'
-# sudo も補完対象にする
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin
-# kill の候補にも色付き表示
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([%0-9]#)*=0=01;31'
 
 ## 補完候補のカーソル選択を有効に
 zstyle ':completion:*:default' menu select=1
 setopt prompt_subst
 
-## インクリメンタルに補完
 # Ref http://d.hatena.ne.jp/seiunsky/20110519/1305764493
 ENABLE_INCREMENTAL_COMPLETION=0
 if [ $ENABLE_INCREMENTAL_COMPLETION = 1 ] ;
@@ -56,28 +52,27 @@ setopt auto_cd
 setopt pushd_ignore_dups
 
 # History Settings
-#<C-p>,<C-n>でコマンド履歴を戻る、進む
 autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
 
-HISTFILE=~/.zsh_history          # コマンド履歴を保存するパス
-HISTSIZE=1000000                 # 保持する履歴の数
-SAVEHIST=1000000                 # 保存する最新の履歴の数
-setopt bang_hist                 # !を使ったヒストリ展開を利用する
-setopt extended_history          # 履歴に開始/終了時刻を記録
-setopt inc_append_history        # 履歴をインクリメンタルに追加
-setopt hist_ignore_dups          # 同じコマンドを連続して実行したとき、1つしか記録しない
-setopt hist_ignore_space         # スペースから始まるものはヒストリに追加しない
-setopt hist_reduce_blanks        # ヒストリ記録時に余分なスペースを削除する
-setopt hist_no_store             # history コマンドは記録しない
-setopt append_history            # zsh 複数起動時 history ファイルを上書きせず追記
-setopt share_history             # 複数のzshセッションでヒストリをリアルタイムで共有する
-unsetopt hist_ignore_all_dups    # ヒストリ内に全く同じ行があれば、古い方を削除する
-unsetopt hist_expire_dups_first  # 古いヒストリが削除されるとき、まったく同じ行があれば、それを削除する
-unsetopt hist_save_no_dups       # ヒストリ記録時に、古いコマンドと同じものがあれば削除する
+HISTFILE=~/.zsh_history
+HISTSIZE=1000000
+SAVEHIST=1000000
+setopt bang_hist
+setopt extended_history
+setopt inc_append_history
+setopt hist_ignore_dups
+setopt hist_ignore_space
+setopt hist_reduce_blanks
+setopt hist_no_store
+setopt append_history
+setopt share_history
+unsetopt hist_ignore_all_dups
+unsetopt hist_expire_dups_first
+unsetopt hist_save_no_dups
 
 #auto ls
 function chpwd() { ls -a }
@@ -193,7 +188,7 @@ fi
 PROMPT="$PROMPT"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 
 fpath=(/usr/local/share/zsh/site-functions/ ${fpath})
-autoload -U compinit; compinit -u  # zshの補完機能を利用する
+autoload -U compinit; compinit -u
 
 # Settings for homeshick
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
@@ -215,6 +210,5 @@ source ~/.gibo-completion.zsh
 eval "$(direnv hook zsh)"
 
 # Load peco functions
-# peco依存の奴が多いから分離
 [ -f ~/.zshrc.peco ] && source ~/.zshrc.peco
 
