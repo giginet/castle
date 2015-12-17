@@ -129,7 +129,6 @@ bindkey '^f' showFinder
 # Environment Variable Settings
 export PATH=/usr/local/share/npm/bin:/usr/texbin:$HOME/.bin:/usr/local/bin:/Applications/Android/sdk/platform-tools:$HOME/Library/Haskell/bin:$PATH
 export EDITOR=$(brew --prefix)/bin/nvim
-export SDL_VIDEODRIVER=X11
 
 export CLICOLOR=1
 export LSCOLORS=DxGxcxdxCxegedabagacad
