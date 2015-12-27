@@ -66,6 +66,10 @@ if exists peco; then
     cd $selected_dir
   }
 
+  function pirkit () {
+    irkit -list | ruby -e '$stdin.readlines.each{|line| break if line.start_with?("== Devices");next if line.start_with?("~");next if line.start_with?("=");puts line;}' | peco | xargs -I{} irkit --post {} --device IRKit0
+  }
+
   function pco {
     git checkout `git branch | peco | sed -e "s/\* //g" | awk "{print \$1}"`
   }
