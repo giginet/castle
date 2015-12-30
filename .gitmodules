@@ -7,3 +7,6 @@
 [submodule "home/.tmux-powerline"]
 	path = home/.tmux-powerline
 	url = https://github.com/erikw/tmux-powerline.git
+[submodule "home/.peco-anyenv"]
+	path = home/.peco-anyenv
+	url = https://github.com/giginet/peco-anyenv.git

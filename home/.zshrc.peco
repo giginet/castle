@@ -23,24 +23,6 @@ if exists peco; then
 
   prake() { local task=$(rake -W | peco | cut -d " " -f 2); rake $task }
 
-  function pvenv() {
-    venvs=`pyenv versions | peco`
-    venv0=`echo $venvs | cut -d' ' -f1`
-    venv1=`echo $venvs | cut -d' ' -f2`
-    if [[ $venv0 == "*" ]]; then
-      venv_name=$venv1
-    else
-      venv_name=`echo $venvs| awk '{ print $1 }'`
-    fi
-
-    mode=local
-    if [[ $1 == "--global" ]]; then
-      mode=global
-    fi
-    echo "Set ${mode} Python version to ${venv_name}"
-    pyenv $mode $venv_name
-  }
-
   function ppgrep() {
     if [[ $1 == "" ]]; then
     PECO=peco

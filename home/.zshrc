@@ -211,3 +211,5 @@ eval "$(direnv hook zsh)"
 # Load peco functions
 [ -f ~/.zshrc.peco ] && source ~/.zshrc.peco
 
+
+source "$HOME/.peco-anyenv/peco-anyenv.sh"
