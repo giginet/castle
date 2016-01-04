@@ -202,6 +202,12 @@ fi
 # Settings for Gibo
 source ~/.gibo-completion.zsh
 
+# http://qiita.com/laiso/items/8a30e3656c980863ccfa
+propen() {
+  local current_branch_name=$(git symbolic-ref --short HEAD | xargs perl -MURI::Escape -e 'print uri_escape($ARGV[0]);')
+  hub browse -- pull/${current_branch_name}
+}
+
 # added by travis gem
 [ -f /Users/giginet/.travis/travis.sh ] && source /Users/giginet/.travis/travis.sh
 
