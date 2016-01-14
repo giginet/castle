@@ -10,3 +10,6 @@
 [submodule "home/.peco-anyenv"]
 	path = home/.peco-anyenv
 	url = https://github.com/giginet/peco-anyenv.git
+[submodule "home/.antigen"]
+	path = home/.antigen
+	url = git@github.com:zsh-users/antigen.git

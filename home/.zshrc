@@ -151,6 +151,9 @@ alias ls="ls -a -G -l"
 alias rm="rm -i"
 alias vim=nvim
 
+# Antigen
+source $HOME/.antigen/antigen.zsh
+
 #zsh syntax highlighting
 if [ -f ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
   source ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
