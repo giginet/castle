@@ -155,6 +155,7 @@ alias vim=nvim
 source $HOME/.antigen/antigen.zsh
 
 antigen bundle Tarrasch/zsh-bd
+antigen bundle zsh-users/zsh-syntax-highlighting
 
 antigen apply
 
