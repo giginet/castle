@@ -154,6 +154,10 @@ alias vim=nvim
 # Antigen
 source $HOME/.antigen/antigen.zsh
 
+antigen bundle Tarrasch/zsh-bd
+
+antigen apply
+
 #zsh syntax highlighting
 if [ -f ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
   source ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
