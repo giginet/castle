@@ -156,6 +156,7 @@ source $HOME/.antigen/antigen.zsh
 
 antigen bundle Tarrasch/zsh-bd
 antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle giginet/peco-anyenv
 
 antigen apply
 
@@ -225,5 +226,3 @@ eval "$(direnv hook zsh)"
 # Load peco functions
 [ -f ~/.zshrc.peco ] && source ~/.zshrc.peco
 
-
-source "$HOME/.peco-anyenv/peco-anyenv.sh"
