@@ -154,6 +154,10 @@ alias vim=nvim
 # Antigen
 source $HOME/.antigen/antigen.zsh
 
+antigen bundle git
+antigen bundle osx
+antigen bundle brew
+antigen bundle pip
 antigen bundle Tarrasch/zsh-bd
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle giginet/peco-anyenv
