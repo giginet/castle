@@ -28,7 +28,7 @@ fake-eggs
 *.pyo
 .python-version
 
-# for PyCharm
+# for JetBrains
 .idea
 
 # vcs
@@ -52,3 +52,7 @@ pysmell_exc.txt
 
 # Git local setting
 .gitconfig
+
+# anyenv
+.python-version
+.ruby-version
