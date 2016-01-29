@@ -10,8 +10,11 @@
 #for XCode
 *.xcodeproj/xcuserdata/*
 *.xcodeproj/project.xcworkspace/xcuserdata/*
+*.xccheckout
+*.xcscmblueprint
 xcuserdata
 DerivedData
+
 
 # python
 *.mo
@@ -33,18 +36,13 @@ fake-eggs
 
 # vcs
 .hg
-.bzr
 .svn
 
 # vim
 *.tmp*
-PYSMELL*
-.ropeproject
-pysmell_exc.txt
 
 .sass-cache
 
-*.lock
 .irb_history
 
 # envdir
