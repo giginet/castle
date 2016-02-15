@@ -73,4 +73,9 @@ if exists peco; then
   }
   zle -N pcdr
   bindkey '^h' pcdr
+
+  function pvim() {
+    vim $(find . | peco)
+  }
+
 fi
