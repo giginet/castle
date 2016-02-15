@@ -228,5 +228,5 @@ propen() {
 eval "$(direnv hook zsh)"
 
 # Load peco functions
-[ -f ~/.zshrc.peco ] && source ~/.zshrc.peco
+[ -f ~/.peco-functions.zsh ] && source ~/.peco-functions.zsh
 
