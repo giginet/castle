@@ -74,8 +74,7 @@ if exists peco; then
   zle -N pcdr
   bindkey '^h' pcdr
 
-  function pvim() {
-    vim $(find . | peco)
-  }
+  function pvim() { vim $(find . ! -path "*/.git/*"| peco) }
+  function popen() { open $(find . ! -path "*/.git/*" | peco) }
 
 fi
