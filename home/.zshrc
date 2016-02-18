@@ -161,6 +161,7 @@ antigen bundle pip
 antigen bundle Tarrasch/zsh-bd
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle giginet/peco-anyenv
+antigen bundle simonwhitaker/gibo
 
 antigen apply
 
@@ -211,9 +212,6 @@ if [ -x "`which go`" ]; then
   export GOPATH=$HOME/go
   export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 fi
-
-# Settings for Gibo
-source ~/.gibo-completion.zsh
 
 # http://qiita.com/laiso/items/8a30e3656c980863ccfa
 propen() {
