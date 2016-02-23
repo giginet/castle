@@ -76,5 +76,6 @@ if exists peco; then
 
   function pvim() { vim $(find . ! -path "*/.git/*"| peco) }
   function popen() { open $(find . ! -path "*/.git/*" | peco) }
+  function pbrowse() { hub browse -- blob/$(git rev-parse --abbrev-ref HEAD)/$(find . ! -path "*/.git/*" | peco) }
 
 fi
