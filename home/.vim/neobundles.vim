@@ -142,7 +142,15 @@ if has('vim_starting')
         \ "autoload": {"filetypes": ['md']}}
   NeoBundleLazy 'dhruvasagar/vim-table-mode', {
         \ "autoload": {"filetypes": ['md']}}
- 
+  
+  "for Haskell
+  NeoBundleLazy 'dag/vim2hs', {
+        \ "autoload": {"filetypes": ['hs']}}
+  NeoBundleLazy 'eagletmt/neco-ghc', {
+        \ "autoload": {"filetypes": ['hs']}}
+  NeoBundleLazy 'eagletmt/ghcmod-vim', {
+        \ "autoload": {"filetypes": ['hs']}}
+
   NeoBundleCheck
 endif
 
