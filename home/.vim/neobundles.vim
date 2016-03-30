@@ -130,8 +130,8 @@ if has('vim_starting')
         \ "autoload": {"filetypes": ['moon']}}
 
   "for restructuredText
-  NeoBundleLazy 'mattn/mkdpreview-vim', {
-        \ "autoload": {"filetypes": ['rst']}}
+  NeoBundleLazy 'kannokanno/previm', {
+        \ "autoload": {"filetypes": ['rst', 'md']}}
 
   "for GLSL
   NeoBundleLazy 'tikhomirov/vim-glsl', {
