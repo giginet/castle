@@ -132,6 +132,8 @@ if has('vim_starting')
   "for restructuredText
   NeoBundleLazy 'kannokanno/previm', {
         \ "autoload": {"filetypes": ['rst', 'md']}}
+  NeoBundleLazy 'vim-scripts/rest.vim', {
+        \ "autoload": {"filetypes": ['rst']}}
 
   "for GLSL
   NeoBundleLazy 'tikhomirov/vim-glsl', {
