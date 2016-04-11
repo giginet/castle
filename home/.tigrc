@@ -2,6 +2,7 @@ bind main Y !@git pbcopy %(commit)
 bind main B !@hub browse -- commit/%(commit)
 bind main C !@hub compare %(commit)...%(branch)
 bind main P !@git openpr %(commit)
+bind blame P !@git openpr %(commit)
 
 # Press R then git rebase -i will start from the commit
 bind main R !git rebase -i %(commit)
