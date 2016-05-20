@@ -184,6 +184,9 @@ if [[ -f ~/.nodebrew/nodebrew ]]; then
   export PATH=$HOME/.nodebrew/current/bin:$PATH
 fi
 
+# for swiftenv
+eval "$(swiftenv init -)"
+
 #Setting for hub
 # hub alias -s zsh
 alias git=hub
