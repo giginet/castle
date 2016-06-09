@@ -223,7 +223,7 @@ propen() {
 }
 
 # added by travis gem
-[ -f /Users/giginet/.travis/travis.sh ] && source /Users/giginet/.travis/travis.sh
+[ -f $HOME/.travis/travis.sh ] && source /Users/giginet/.travis/travis.sh
 
 # direnv
 eval "$(direnv hook zsh)"
