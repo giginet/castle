@@ -185,7 +185,7 @@ if [[ -f ~/.nodebrew/nodebrew ]]; then
 fi
 
 # for swiftenv
-eval "$(swiftenv init -)"
+if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
 
 #Setting for hub
 # hub alias -s zsh
