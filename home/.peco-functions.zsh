@@ -76,5 +76,11 @@ if exists peco; then
 
   function pvim() { vim $(git ls-files | peco) }
   function popen() { open $(git ls-files | peco) }
-  function pbrowse() { hub browse -- blob/$(git rev-parse --abbrev-ref HEAD)/$(git ls-files | peco) }
+  function pbrowse() { 
+    branch=master
+    if [[ $1 == "--current" ]]; then
+      branch=$(git rev-parse --abbrev-ref HEAD)
+    fi
+    hub browse -- blob/$branch/$(git ls-files | peco) 
+  }
 fi
