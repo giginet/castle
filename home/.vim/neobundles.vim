@@ -94,8 +94,6 @@ if has('vim_starting')
         \ "autoload": {"filetypes": ['ts']}}
 
   "for HTML
-  NeoBundleLazy 'mattn/emmet-vim', {
-        \ "autoload": {"filetypes": ['html']}}
   NeoBundleLazy 'othree/html5.vim', {
         \ "autoload": {"filetypes": ['html']}}
   NeoBundleLazy 'cakebaker/scss-syntax.vim.git', {
