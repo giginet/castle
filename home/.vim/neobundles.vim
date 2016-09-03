@@ -151,6 +151,10 @@ if has('vim_starting')
   NeoBundleLazy 'eagletmt/ghcmod-vim', {
         \ "autoload": {"filetypes": ['hs']}}
 
+  " for Octave
+  NeoBundleLazy 'jvirtanen/vim-octave', {
+        \ "autoload": {"filetypes": ['octave']}}
+
   NeoBundleCheck
 endif
 
