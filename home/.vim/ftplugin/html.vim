@@ -1,6 +1,5 @@
-let s:hooks = neobundle#get_hooks("vim-quickrun")
-function! s:hooks.on_source(bundle)
+if dein#tap("vim-quickrun")
   let g:quickrun_config.html = {
   \  'command' : 'open'
   \}
-endfunction
+endif
