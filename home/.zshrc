@@ -33,7 +33,6 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([%0-9]#)*=0=01;31
 zstyle ':completion:*:default' menu select=1
 setopt prompt_subst
 
-# Ref http://d.hatena.ne.jp/seiunsky/20110519/1305764493
 ENABLE_INCREMENTAL_COMPLETION=0
 if [ $ENABLE_INCREMENTAL_COMPLETION = 1 ] ;
 then
@@ -144,9 +143,6 @@ export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46
 alias gls="gls --color"
 zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
 
-alias -s txt=less
-alias -s rb=ruby
-alias -s pl=perl
 alias ls="ls -a -G -l"
 alias rm="rm -i"
 alias vim=nvim
@@ -165,7 +161,7 @@ antigen bundle simonwhitaker/gibo
 
 antigen apply
 
-#zsh syntax highlighting
+# zsh syntax highlighting
 if [ -f ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
   source ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
@@ -190,20 +186,14 @@ if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
 # for xcenv
 eval "$(xcenv init -)"
 
-#Setting for hub
+# Setting for hub
 # hub alias -s zsh
 alias git=hub
 if type compdef >/dev/null; then
    compdef hub=git
 fi
 
-# setup perlbrew
-if [ -f "~/perl5" ];
-then
-  source ~/perl5/perlbrew/etc/bashrc
-fi
-
-#Settings for tmux-powerline
+# Settings for tmux-powerline
 PROMPT="$PROMPT"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 
 fpath=(/usr/local/share/zsh/site-functions/ ${fpath})
@@ -218,12 +208,6 @@ if [ -x "`which go`" ]; then
   export GOPATH=$HOME/go
   export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 fi
-
-# http://qiita.com/laiso/items/8a30e3656c980863ccfa
-propen() {
-  local current_branch_name=$(git symbolic-ref --short HEAD | xargs perl -MURI::Escape -e 'print uri_escape($ARGV[0]);')
-  hub browse -- pull/${current_branch_name}
-}
 
 # added by travis gem
 [ -f $HOME/.travis/travis.sh ] && source /Users/giginet/.travis/travis.sh
