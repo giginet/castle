@@ -154,6 +154,9 @@ if has('vim_starting')
   " for Octave
   NeoBundleLazy 'jvirtanen/vim-octave', {
         \ "autoload": {"filetypes": ['octave']}}
+  " for TOML
+  NeoBundleLazy 'cespare/vim-toml', {
+        \ "autoload": {"filetypes": ['toml']}}
 
   NeoBundleCheck
 endif
