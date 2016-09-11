@@ -10,5 +10,10 @@ if dein#tap('vim-quickrun')
         \ 'exec'      : '%c %o %a %s',
         \ }
 endif
+
+if dein#tap('vim-markdown')
+  let g:vim_markdown_folding_disabled = 1
+endif
+
 noremap <C-t> :TableModeToggle<CR>
 noremap ``` :InlineEdit<CR>
