@@ -1,0 +1,185 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+
+[[plugins]]
+repo = 'wakatime/vim-wakatime'
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+on_map = ['nxo', '<Plug>(quickrun)']
+
+[[plugins]] 
+repo = "Shougo/unite.vim"
+
+[[plugins]]
+repo = "lambdalisue/vim-gista"
+on_cmd = ['Gista']
+on_map = ['<Plug>(gista-']
+
+[[plugins]]
+repo = 'vim-scripts/tComment'
+on_map = ['<C-_><C-_>']
+
+[[plugins]]
+repo = 'sjl/gundo.vim'
+on_cmd = ['GundoToggle']
+
+[[plugins]]
+repo = 'mrtazz/simplenote.vim'
+on_cmd = ['Simplenote']
+
+[[plugins]]
+repo = 'vim-scripts/errormarker.vim'
+augroup = ['errormarker']
+
+[[plugins]]
+repo = 'Shougo/vimfiler'
+depends = 'unite.vim'
+on_cmd = ["VimFilerTab", "VimFiler", "VimFilerExplorer"]
+on_map = ['<Plug>(vimfiler_switch)']
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+on_i = 1
+
+[[plugins]]
+repo = 'rhysd/wandbox-vim'
+on_cmd = ['Wandbox']
+
+[[plugins]]
+repo = 'keith/investigate.vim'
+on_map = ["gK"]
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+on_i = 1
+if = '''has('nvim')'''
+
+# fot Python
+[[plugins]]
+repo = 'davidhalter/jedi-vim'
+on_ft = ['py']
+
+[[plugins]]
+repo = 'kevinw/pyflakes-vim'
+on_ft = ['py']
+  
+# for JavaScript
+[[plugins]]
+repo = 'pangloss/vim-javascript'
+on_ft = ['js']
+
+#for CofeeScript
+[[plugins]]
+repo = 'kchmck/vim-coffee-script'
+on_ft = ['coffee']
+
+#for TypeScript
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+on_ft = ['ts']
+
+# for HTML
+[[plugins]]
+repo = 'othree/html5.vim'
+on_ft = ['html']
+
+[[plugins]]
+repo = 'cakebaker/scss-syntax.vim.git'
+on_ft = ['sass']
+
+[[plugins]]
+repo = 'hail2u/vim-css3-syntax.git'
+on_ft = ['css']
+
+# for Swift
+[[plugins]]
+repo = 'toyamarinyon/vim-swift'
+on_ft = ['swift']
+
+# for Scala
+[[plugins]]
+repo = 'derekwyatt/vim-scala.git'
+on_ft = ['scala']
+
+# for Lua
+[[plugins]]
+repo = 'lua-support'
+on_ft = ['lua']
+
+# for Puppet
+[[plugins]]
+repo = 'rodjek/vim-puppet'
+on_ft = ['puppet']
+
+# for Groovy
+[[plugins]]
+repo = 'groovy.vim'
+on_ft = ['groovy']
+
+[[plugins]]
+repo = 'tfnico/vim-gradle'
+on_ft = ['groovy']
+
+# for MoonScript
+[[plugins]]
+repo = 'leafo/moonscript-vim'
+on_ft = ['moon']
+
+# for restructuredText
+[[plugins]]
+repo = 'kannokanno/previm'
+on_ft = ['rst', 'md']
+
+[[plugins]]
+repo = 'vim-scripts/rest.vim'
+on_ft = ['rst']
+
+# for GLSL
+[[plugins]]
+repo = 'tikhomirov/vim-glsl'
+on_ft = ['vert', 'frag', 'fp', 'vp', 'glsl']
+
+# for Markdown
+[[plugins]]
+repo = 'godlygeek/tabular'
+
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
+depends = 'tabular'
+on_ft = ['md']
+
+[[plugins]]
+repo = 'AndrewRadev/inline_edit.vim'
+on_ft = ['md']
+
+[[plugins]]
+repo = 'dhruvasagar/vim-table-mode'
+on_ft = ['md']
+
+# for Haskell
+[[plugins]]
+repo = 'dag/vim2hs'
+on_ft = ['hs']
+
+[[plugins]]
+repo = 'eagletmt/neco-ghc'
+on_ft = ['hs']
+
+[[plugins]]
+repo = 'eagletmt/ghcmod-vim'
+on_ft = ['hs']
+
+# for Octave
+[[plugins]]
+repo = 'jvirtanen/vim-octave'
+on_ft = ['octave']
+
+# for TOML
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = ['toml']

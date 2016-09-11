@@ -1,7 +1,6 @@
 set tabstop=4
 set shiftwidth=4
-let s:hooks = neobundle#get_hooks("vim-quickrun")
-function! s:hooks.on_source(bundle)
+if dein#tap('vim-quickrun')
   let g:quickrun_config = {}
   let g:quickrun_config.md = {
         \ 'outputter' : 'null',
@@ -10,6 +9,6 @@ function! s:hooks.on_source(bundle)
         \ 'args'      : 'Marked\ 2',
         \ 'exec'      : '%c %o %a %s',
         \ }
-endfunction
+endif
 noremap <C-t> :TableModeToggle<CR>
 noremap ``` :InlineEdit<CR>

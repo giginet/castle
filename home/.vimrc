@@ -62,10 +62,25 @@ function! s:mkdir(dir, force)
 endfunction
 au BufWritePre * call s:mkdir(expand('<afile>:p:h'), v:cmdbang)
 
-if has('nvim')
-  source <sfile>:h/neobundles.vim
-else
-  source <sfile>:h/.vim/neobundles.vim
+" Bootstrap dein.vim
+if &compatible
+  set nocompatible
+endif
+
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
+
+call dein#begin('~/.cache/dein')
+
+call dein#add('Shougo/dein.vim')
+
+call dein#load_toml('~/.config/nvim/dein.toml', {'lazy': 1})
+
+call dein#end()
+
+filetype plugin indent on
+
+if dein#check_install()
+  call dein#install()
 endif
 
 "Python support
@@ -76,8 +91,7 @@ let g:python3_host_prog = expand('$HOME') . '/.pyenv/shims/python'
 nnoremap <C-n>t :VimFilerExplorer<CR>
 " close vimfiler automatically when there are only vimfiler open
 autocmd BufEnter * if (winnr('$') == 1 && &filetype ==# 'vimfiler') | q | endif
-let s:hooks = neobundle#get_hooks("vimfiler")
-function! s:hooks.on_source(bundle)
+if dein#tap("vimfiler")
   " vimfiler specific key mappings
   autocmd FileType vimfiler call s:vimfiler_settings()
   function! s:vimfiler_settings()
@@ -91,30 +105,27 @@ function! s:hooks.on_source(bundle)
     " overwrite C-l
     nmap <buffer> <C-l> <C-w>l
   endfunction
-endfunction
+endif
 
 "Quickrun Settings
 silent! nmap <unique> <C-x> <Plug>(quickrun)
-let s:hooks = neobundle#get_hooks("vim-quickrun")
-function! s:hooks.on_source(bundle)
+if dein#tap("vim-quickrun")
   let g:loaded_quicklaunch = 1
   let g:quickrun_config = {
       \ "*": {"runner": "remote/vimproc"},
       \ 'split': '{"rightbelow 10sp"}'
       \ }
-endfunction
+endif
 
 "Investigate.vim Settings
-let s:hooks = neobundle#get_hooks("investigate.vim")
-function! s:hooks.on_source(bundle)
+if dein#tap("investigate.vim")
   let g:investigate_use_dash = 1
-endfunction
+endif
 
 "vim-gista Settings
-let s:hooks = neobundle#get_hooks("vim-gista")
-function! s:hooks.on_source(bundle)
+if dein#tap("vim-gista")
   let g:gista#github_user = 'giginet'
-endfunction
+endif
 
 "errormarker.vim Settings
 let g:errormarker_errortext = '!!'
@@ -129,16 +140,14 @@ noremap U :<C-u>GundoToggle<CR>
 
 "neocomplete Settings
 if has('nvim')
-  let s:hooks = neobundle#get_hooks("deoplete.nvim")
-  function! s:hooks.on_source(bundle)
+  if dein#tap("deoplete.nvim")
     let g:deoplete#enable_at_startup = 1
-  endfunction
+  endif
 else
-  let s:hooks = neobundle#get_hooks("neocomplete.vim")
-  function! s:hooks.on_source(bundle)
+  if dein#tap("neocomplete.vim")
     let g:neocomplete#enable_smart_case = 1
     let g:neocomplete#enable_at_startup = 1
-  endfunction
+  endif
 endif
 
 autocmd BufRead /tmp/crontab.* :set nobackup nowritebackup

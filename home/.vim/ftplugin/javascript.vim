@@ -6,7 +6,7 @@ set expandtab
 set shiftround
 
 "Quickrun
-let s:hooks = neobundle#get_hooks("vim-quickrun")
+let s:hooks = dein#tap("vim-quickrun")
 function! s:hooks.on_source(bundle)
   let g:quickrun_config.js = {
   \ 'command' : 'node',
@@ -16,11 +16,10 @@ endfunction
 
 "jslint.vim
 "ref : http://blog.monoweb.info/article/2011042918.html
-let s:hooks = neobundle#get_hooks("jslint.vim")
-function! s:hooks.on_source(bundle)
+if dein#tap("jslint.vim")
   autocmd FileType javascript call s:javascript_filetype_settings()
   let g:JSLintHighlightErrorLine = 1
-endfunction
+endif
 function! s:javascript_filetype_settings()
   autocmd BufLeave     <buffer> call jslint#clear()
   autocmd BufWritePost <buffer> call jslint#check()
