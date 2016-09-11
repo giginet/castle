@@ -146,6 +146,10 @@ on_ft = ['vert', 'frag', 'fp', 'vp', 'glsl']
 
 # for Markdown
 [[plugins]]
+repo = 'plasticboy/vim-markdown'
+on_ft = ['md']
+
+[[plugins]]
 repo = 'AndrewRadev/inline_edit.vim'
 on_ft = ['md']
 
