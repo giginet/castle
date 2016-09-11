@@ -38,7 +38,7 @@ augroup = ['errormarker']
 
 [[plugins]]
 repo = 'Shougo/vimfiler'
-depends = 'Shougo/unite.vim'
+depends = 'unite.vim'
 on_cmd = ["VimFilerTab", "VimFiler", "VimFilerExplorer"]
 on_map = ['<Plug>(vimfiler_switch)']
 
@@ -146,7 +146,11 @@ on_ft = ['vert', 'frag', 'fp', 'vp', 'glsl']
 
 # for Markdown
 [[plugins]]
+repo = 'godlygeek/tabular'
+
+[[plugins]]
 repo = 'plasticboy/vim-markdown'
+depends = 'tabular'
 on_ft = ['md']
 
 [[plugins]]
