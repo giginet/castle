@@ -54,5 +54,6 @@ fake-eggs
 # anyenv
 .python-version
 .ruby-version
+.xcode-version
 
 .tox/*
