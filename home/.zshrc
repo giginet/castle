@@ -183,9 +183,6 @@ fi
 # for swiftenv
 if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
 
-# for xcenv
-eval "$(xcenv init -)"
-
 # Setting for hub
 # hub alias -s zsh
 alias git=hub
