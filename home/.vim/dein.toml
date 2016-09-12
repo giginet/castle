@@ -35,6 +35,10 @@ repo = 'mrtazz/simplenote.vim'
 on_cmd = ['Simplenote']
 
 [[plugins]]
+repo = 'glidenote/newdayone.vim'
+on_cmd = ['NewDayOne', 'OpenDayOne']
+
+[[plugins]]
 repo = 'vim-scripts/errormarker.vim'
 augroup = ['errormarker']
 
