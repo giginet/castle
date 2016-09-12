@@ -163,6 +163,14 @@ on_ft = ['md']
 repo = 'dhruvasagar/vim-table-mode'
 on_ft = ['md']
 
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
+
+[[plugins]]
+repo = 'osyo-manga/vim-precious'
+on_ft = ['md']
+depends = ['context_filetype.vim', 'vim-quickrun']
+
 # for Haskell
 [[plugins]]
 repo = 'dag/vim2hs'
