@@ -23,8 +23,8 @@ on_cmd = ['Gista']
 on_map = ['<Plug>(gista-']
 
 [[plugins]]
-repo = 'vim-scripts/tComment'
-on_map = ['<C-_><C-_>']
+repo = 'scrooloose/nerdcommenter'
+on_map = ['<Leader>cc', '<Leader>cs', '<Leader>cu']
 
 [[plugins]]
 repo = 'sjl/gundo.vim'
@@ -79,7 +79,7 @@ on_ft = ['py']
 repo = 'pangloss/vim-javascript'
 on_ft = ['js']
 
-#for CofeeScript
+# for CofeeScript
 [[plugins]]
 repo = 'kchmck/vim-coffee-script'
 on_ft = ['coffee']
@@ -166,14 +166,6 @@ on_ft = ['md']
 [[plugins]]
 repo = 'dhruvasagar/vim-table-mode'
 on_ft = ['md']
-
-[[plugins]]
-repo = 'Shougo/context_filetype.vim'
-
-[[plugins]]
-repo = 'osyo-manga/vim-precious'
-on_ft = ['md']
-depends = ['context_filetype.vim', 'vim-quickrun']
 
 # for Haskell
 [[plugins]]
