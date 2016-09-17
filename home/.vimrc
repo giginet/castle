@@ -9,7 +9,8 @@ set mouse=a
 "Language Settings
 set encoding=utf8
 set fileencoding=utf8
-set hlg=ja
+set hlg=en
+language C
 
 "Edit Settings
 set tabstop=2
