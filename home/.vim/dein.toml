@@ -104,7 +104,7 @@ on_ft = ['css']
 
 # for Swift
 [[plugins]]
-repo = 'toyamarinyon/vim-swift'
+repo = 'bumaociyuan/vim-swift'
 on_ft = ['swift']
 
 # for Scala
