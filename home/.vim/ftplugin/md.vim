@@ -2,7 +2,7 @@ set tabstop=4
 set shiftwidth=4
 if dein#tap('vim-quickrun')
   let g:quickrun_config = {}
-  let g:quickrun_config.md = {
+  let g:quickrun_config.markdown = {
         \ 'outputter' : 'null',
         \ 'command'   : 'open',
         \ 'cmdopt'    : '-a',
