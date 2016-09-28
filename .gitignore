@@ -61,3 +61,4 @@ docs/_build/
 !home/.gitconfig
 
 home/.vim/.init.vim-rplugin~
+!home/.cache/dein/repos/github.com/Shougo/dein.vim
