@@ -83,4 +83,7 @@ if exists peco; then
     fi
     hub browse -- blob/$branch/$(git ls-files | peco) 
   }
+  function ptoybox() {
+    toybox list | peco | sed -E 's/\(.*\)$//g' | xargs toybox open
+  }
 fi
