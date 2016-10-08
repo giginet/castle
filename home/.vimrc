@@ -125,7 +125,7 @@ endif
 
 "vim-gista Settings
 if dein#tap("vim-gista")
-  let g:gista#github_user = 'giginet'
+  let g:gista#client#use_git_config_github_username = 1
 endif
 
 "errormarker.vim Settings
