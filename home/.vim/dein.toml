@@ -65,6 +65,11 @@ repo = 'Shougo/deoplete.nvim'
 on_i = 1
 if = '''has('nvim')'''
 
+# for Ruby
+[[plugins]]
+repo = 'tpope/vim-bundler'
+on_path = 'Gemfile'
+
 # fot Python
 [[plugins]]
 repo = 'davidhalter/jedi-vim'
