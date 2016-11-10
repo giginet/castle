@@ -109,7 +109,7 @@ if dein#tap("vimfiler")
 endif
 
 "Quickrun Settings
-silent! nmap <unique> <C-x> <Plug>(quickrun)
+silent! nmap <unique> <C-x><C-x> <Plug>(quickrun)
 if dein#tap("vim-quickrun")
   let g:loaded_quicklaunch = 1
   let g:quickrun_config = {
@@ -143,6 +143,10 @@ noremap U :<C-u>GundoToggle<CR>
 if has('nvim')
   if dein#tap("deoplete.nvim")
     let g:deoplete#enable_at_startup = 1
+    let g:deoplete#enable_smart_case = 1
+    let g:deoplete#auto_completion_start_length = 1
+    let g:deoplete#omni#functions = {}
+    set completeopt+=noinsert
   endif
 else
   if dein#tap("neocomplete.vim")
@@ -150,6 +154,24 @@ else
     let g:neocomplete#enable_at_startup = 1
   endif
 endif
+
+augroup MyAutoCmd
+  autocmd!
+augroup END
+
+if dein#tap('vim-emoji')
+  function! s:enable_emoji_complete() abort
+    setlocal completefunc=emoji#complete
+    setlocal omnifunc=emoji#complete
+    let g:deoplete#omni#functions = {}
+    let g:deoplete#omni#functions._ = [
+      \ 'emoji#complete',
+      \]
+  endfunction
+
+  execute 'autocmd MyAutoCmd User' 'dein#source#' . g:dein#name
+        \ 'call s:enable_emoji_complete()'
+end
 
 autocmd BufRead /tmp/crontab.* :set nobackup nowritebackup
 

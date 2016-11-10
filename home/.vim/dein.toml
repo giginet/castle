@@ -65,6 +65,10 @@ repo = 'Shougo/deoplete.nvim'
 on_i = 1
 if = '''has('nvim')'''
 
+[[plugins]]
+repo = 'junegunn/vim-emoji'
+on_i = 1
+
 # for Ruby
 [[plugins]]
 repo = 'tpope/vim-bundler'
