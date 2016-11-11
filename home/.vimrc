@@ -144,8 +144,6 @@ if has('nvim')
   if dein#tap("deoplete.nvim")
     let g:deoplete#enable_at_startup = 1
     let g:deoplete#enable_smart_case = 1
-    let g:deoplete#auto_completion_start_length = 1
-    let g:deoplete#omni#functions = {}
     set completeopt+=noinsert
   endif
 else
@@ -153,6 +151,10 @@ else
     let g:neocomplete#enable_smart_case = 1
     let g:neocomplete#enable_at_startup = 1
   endif
+endif
+
+if dein#tap('deoplete-jedi')
+  let g:jedi#completions_enabled = 1
 endif
 
 augroup MyAutoCmd
@@ -163,10 +165,6 @@ if dein#tap('vim-emoji')
   function! s:enable_emoji_complete() abort
     setlocal completefunc=emoji#complete
     setlocal omnifunc=emoji#complete
-    let g:deoplete#omni#functions = {}
-    let g:deoplete#omni#functions._ = [
-      \ 'emoji#complete',
-      \]
   endfunction
 
   execute 'autocmd MyAutoCmd User' 'dein#source#' . g:dein#name

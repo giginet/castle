@@ -76,13 +76,10 @@ on_path = 'Gemfile'
 
 # fot Python
 [[plugins]]
-repo = 'davidhalter/jedi-vim'
-on_ft = ['py']
+repo = 'zchee/deoplete-jedi'
+depends = ['deoplete.nvim']
+on_ft = ['python']
 
-[[plugins]]
-repo = 'kevinw/pyflakes-vim'
-on_ft = ['py']
-  
 # for JavaScript
 [[plugins]]
 repo = 'pangloss/vim-javascript'
@@ -114,6 +111,11 @@ on_ft = ['css']
 # for Swift
 [[plugins]]
 repo = 'bumaociyuan/vim-swift'
+on_ft = ['swift']
+
+[[plugins]]
+repo = 'landaire/deoplete-swift'
+depends = ['deoplete.nvim']
 on_ft = ['swift']
 
 # for Scala
