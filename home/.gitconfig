@@ -14,7 +14,7 @@
 	excludesfile = ~/.gitignore
 	quotepath = false
 [alias]
-	br = branch
+	br = branch --sort=-committerdate
 	st = !"tig status"
 	lg = !"tig"
 	bl = !"tig blame"
