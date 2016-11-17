@@ -43,7 +43,11 @@ if exists peco; then
   }
 
   function pghq () {
-    local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
+    if  [[ "$1" == "" ]]; then
+      local selected_dir=$(ghq list -p | peco)
+    else
+      local selected_dir=$(ghq list -p | peco --query $1)
+    fi
     echo $selected_dir
     cd $selected_dir
   }
