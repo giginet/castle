@@ -42,3 +42,5 @@
 	token = !security find-internet-password -a giginet -s github.com -l 'ghi token' -w
 [include]
 	path = ~/.gitconfig.local
+[rerere]
+	enabled = true
