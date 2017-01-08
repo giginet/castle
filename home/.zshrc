@@ -158,6 +158,7 @@ antigen bundle Tarrasch/zsh-bd
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle giginet/peco-anyenv
 antigen bundle simonwhitaker/gibo
+antigen bundle b4b4r07/enhancd
 
 antigen apply
 
