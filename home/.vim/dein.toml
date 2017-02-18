@@ -74,6 +74,10 @@ on_i = 1
 repo = 'tpope/vim-bundler'
 on_path = 'Gemfile'
 
+[[plugins]]
+repo = 'rhysd/vim-textobj-ruby'
+on_ft = ['ruby']
+
 # fot Python
 [[plugins]]
 repo = 'zchee/deoplete-jedi'
