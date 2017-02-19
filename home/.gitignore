@@ -29,7 +29,6 @@ fake-eggs
 .mr.developer.cfg
 *.pyc
 *.pyo
-.python-version
 
 # for JetBrains
 .idea
@@ -57,3 +56,6 @@ fake-eggs
 .xcode-version
 
 .tox/*
+
+# Python virtual env
+.venv/*
