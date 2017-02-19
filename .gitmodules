@@ -1,9 +1,6 @@
 [submodule "home/.tmux-powerline"]
 	path = home/.tmux-powerline
 	url = https://github.com/erikw/tmux-powerline.git
-[submodule "home/.antigen"]
-	path = home/.antigen
-	url = git@github.com:zsh-users/antigen.git
 [submodule "home/.cache/dein/repos/github.com/Shougo/dein.vim"]
 	path = home/.cache/dein/repos/github.com/Shougo/dein.vim
 	url = https://github.com/Shougo/dein.vim

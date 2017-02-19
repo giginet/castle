@@ -147,16 +147,28 @@ alias ls="ls -a -G -l"
 alias rm="rm -i"
 alias vim=nvim
 
-# Antigen
-source $HOME/.antigen/antigen.zsh
+# zplug
+if [ -f $HOME/.zplug/init.zsh ]; then
+  source $HOME/.zplug/init.zsh
 
-antigen bundle Tarrasch/zsh-bd
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle giginet/peco-anyenv
-antigen bundle simonwhitaker/gibo
-antigen bundle b4b4r07/enhancd
+  zplug "Tarrasch/zsh-bd"
+  zplug "zsh-users/zsh-syntax-highlighting", defer:2
+  zplug "giginet/peco-anyenv"
+  zplug "simonwhitaker/gibo"
+  zplug "b4b4r07/enhancd"
 
-antigen apply
+  if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+      echo; zplug install
+    fi
+  fi
+
+  zplug load
+else
+  echo 'zplug is not installed'
+  echo "Execute 'curl -sL zplug.sh/installer | zsh'"
+fi
 
 # zsh syntax highlighting
 if [ -f ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
