@@ -93,31 +93,6 @@ function git-root() {
 PATH=$HOME/.autojump/bin:$PATH
 [[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
 
-# show vcs branch info
-autoload -Uz vcs_info
-zstyle ':vcs_info:*' enable git svn
-zstyle ':vcs_info:*' max-exports 6 
-zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' formats '%b@%r' '%c' '%u'
-zstyle ':vcs_info:git:*' actionformats '%b@%r|%a' '%c' '%u'
-setopt prompt_subst
-function vcs_echo {
-    local st branch color
-    STY= LANG=en_US.UTF-8 vcs_info
-    st=`git status 2> /dev/null`
-    if [[ -z "$st" ]]; then return; fi
-    branch="$vcs_info_msg_0_"
-    if   [[ -n "$vcs_info_msg_1_" ]]; then color=${fg[green]} #staged
-    elif [[ -n "$vcs_info_msg_2_" ]]; then color=${fg[red]} #unstaged
-    elif [[ -n `echo "$st" | grep "^Untracked"` ]]; then color=${fg[blue]} # untracked
-    else color=${fg[cyan]}
-    fi
-    echo "%{$color%}(%{$branch%})%{$reset_color%}" | sed -e s/@/"%F{yellow}@%f%{$color%}"/
-}
-PROMPT='
-%F{yellow}[%~]%f `vcs_echo`
-%(?.$.%F{red}$%f) '
-
 # Show current directory on Finder
 function showFinder(){
   open `pwd`
@@ -137,12 +112,6 @@ export XDG_CONFIG_HOME=$HOME/.config
 autoload -U colors
 colors
 
-## ls
-export LSCOLORS=exfxcxdxbxegedabagacad
-export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-alias gls="gls --color"
-zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
-
 alias ls="ls -a -G -l"
 alias rm="rm -i"
 alias vim=nvim
@@ -156,6 +125,7 @@ if [ -f $HOME/.zplug/init.zsh ]; then
   zplug "giginet/peco-anyenv"
   zplug "simonwhitaker/gibo"
   zplug "b4b4r07/enhancd"
+  zplug "dracula/zsh", as:theme
 
   if ! zplug check --verbose; then
     printf "Install? [y/N]: "
