@@ -203,7 +203,10 @@ fi
 PROMPT="$PROMPT"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 
 fpath=(/usr/local/share/zsh/site-functions/ ${fpath})
-autoload -U compinit; compinit -u
+# Run compinit if zplug comp file hasn't load
+if (( ! $+functions[_zplug] )); then
+  compinit
+fi
 
 # Settings for homeshick
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
