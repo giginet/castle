@@ -5,6 +5,7 @@ set directory=$HOME/.vimbackup
 set smartindent
 set title
 set mouse=a
+set shortmess=a
 
 "Language Settings
 set encoding=utf8
