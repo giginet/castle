@@ -64,8 +64,8 @@ if exists peco; then
     vim $(ag $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
   }
 
-  function pspec () {
-    git ls-files spec | peco | xargs bundle exec rspec
+  function prspec () {
+    git ls-files | grep '_spec\.rb$' | peco | xargs bundle exec rspec
   }
   function pcdr () {
     local selected_dir=$(cdr -l | awk '{ print $2 }' | peco)
