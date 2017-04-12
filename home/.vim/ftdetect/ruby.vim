@@ -24,3 +24,6 @@ au BufNewFile,BufRead Guardfile set filetype=ruby
 
 " fastlane
 au BufNewFile,BufRead Fastfile,Appfile,Snapfile,Gymfile,Matchfile,Deliverfile set filetype=ruby
+
+" Danger
+au BufNewFile,BufRead Dangerfile set filetype=ruby
