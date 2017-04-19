@@ -6,10 +6,6 @@ repo = 'Shougo/vimproc.vim'
 build = 'make'
 
 [[plugins]]
-repo = 'wakatime/vim-wakatime'
-on_i = 1
-
-[[plugins]]
 repo = 'thinca/vim-quickrun'
 on_map = ['nxo', '<Plug>(quickrun)']
 
