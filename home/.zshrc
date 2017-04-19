@@ -90,8 +90,7 @@ function git-root() {
 }
 
 # Autojump settings
-PATH=$HOME/.autojump/bin:$PATH
-[[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
+[ -f `brew --prefix`/etc/profile.d/autojump.sh ] && . `brew --prefix`/etc/profile.d/autojump.sh
 
 # Show current directory on Finder
 function showFinder(){
