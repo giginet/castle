@@ -24,7 +24,7 @@
 	cp = cherry-pick
 	discard = reset --hard HEAD
 	sw = checkout -b
-	diff = diff --color-words
+	df = diff --color-words
 	shorten = !"sh -c 'curl -i http://git.io/ -F url=$1 `[ -n \"$2\" ] && echo -F code=$2`' -"
 	pbcopy = !printf "$1" | pbcopy
 	lg = !"tig"
