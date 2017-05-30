@@ -69,6 +69,10 @@ on_i = 1
 repo = 'tpope/vim-surround'
 on_i = 1
 
+[[plugins]]
+repo = 'simnalamburt/vim-mundo'
+on_i = 1
+
 # for Ruby
 [[plugins]]
 repo = 'tpope/vim-bundler'

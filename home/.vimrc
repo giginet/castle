@@ -5,7 +5,6 @@ set directory=$HOME/.vimbackup
 set smartindent
 set title
 set mouse=a
-set shortmess=a
 
 "Language Settings
 set encoding=utf8
@@ -137,8 +136,10 @@ let g:errormarker_warninggroup = 'Todo'
 highlight Error ctermbg=52 guibg=#5F0000
 highlight Todo ctermbg=17 guibg=#00005F
 
-"Gundo.vim Settings
-noremap U :<C-u>GundoToggle<CR>
+"mundo.vim Settings
+nnoremap U :MundoToggle<CR>
+set undofile
+set undodir=~/.vim/undo
 
 "neocomplete Settings
 if has('nvim')
@@ -157,21 +158,6 @@ endif
 if dein#tap('deoplete-jedi')
   let g:jedi#completions_enabled = 1
 endif
-
-augroup MyAutoCmd
-  autocmd!
-augroup END
-
-if dein#tap('vim-emoji')
-  function! s:enable_emoji_complete() abort
-    setlocal completefunc=emoji#complete
-    setlocal omnifunc=emoji#complete
-  endfunction
-
-  execute 'autocmd MyAutoCmd User' 'dein#source#' . g:dein#name
-        \ 'call s:enable_emoji_complete()'
-end
-
 autocmd BufRead /tmp/crontab.* :set nobackup nowritebackup
 
 "Load local Settings
