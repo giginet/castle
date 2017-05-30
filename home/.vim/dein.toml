@@ -23,16 +23,8 @@ repo = 'vim-scripts/tComment'
 on_map = ['<C-_><C-_>']
 
 [[plugins]]
-repo = 'sjl/gundo.vim'
-on_cmd = ['GundoToggle']
-
-[[plugins]]
 repo = 'mrtazz/simplenote.vim'
 on_cmd = ['Simplenote']
-
-[[plugins]]
-repo = 'glidenote/newdayone.vim'
-on_cmd = ['NewDayOne', 'OpenDayOne']
 
 [[plugins]]
 repo = 'vim-scripts/errormarker.vim'
@@ -49,10 +41,6 @@ repo = 'airblade/vim-gitgutter'
 on_i = 1
 
 [[plugins]]
-repo = 'rhysd/wandbox-vim'
-on_cmd = ['Wandbox']
-
-[[plugins]]
 repo = 'keith/investigate.vim'
 on_map = ["gK"]
 
@@ -60,14 +48,6 @@ on_map = ["gK"]
 repo = 'Shougo/deoplete.nvim'
 on_i = 1
 if = '''has('nvim')'''
-
-[[plugins]]
-repo = 'junegunn/vim-emoji'
-on_i = 1
-
-[[plugins]]
-repo = 'tpope/vim-surround'
-on_i = 1
 
 [[plugins]]
 repo = 'simnalamburt/vim-mundo'
@@ -146,11 +126,6 @@ on_ft = ['groovy']
 repo = 'tfnico/vim-gradle'
 on_ft = ['groovy']
 
-# for MoonScript
-[[plugins]]
-repo = 'leafo/moonscript-vim'
-on_ft = ['moon']
-
 # for restructuredText
 [[plugins]]
 repo = 'kannokanno/previm'
@@ -176,10 +151,6 @@ on_ft = ['md']
 
 [[plugins]]
 repo = 'AndrewRadev/inline_edit.vim'
-on_ft = ['md']
-
-[[plugins]]
-repo = 'dhruvasagar/vim-table-mode'
 on_ft = ['md']
 
 [[plugins]]
