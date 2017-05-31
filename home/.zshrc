@@ -88,9 +88,6 @@ function git-root() {
   cd `git rev-parse --show-toplevel`
 }
 
-# Autojump settings
-[ -f `brew --prefix`/etc/profile.d/autojump.sh ] && . `brew --prefix`/etc/profile.d/autojump.sh
-
 # Show current directory on Finder
 function showFinder(){
   open `pwd`
@@ -137,6 +134,9 @@ else
   echo 'zplug is not installed'
   echo "Execute 'curl -sL zplug.sh/installer | zsh'"
 fi
+
+# Autojump settings
+[ -f `brew --prefix`/etc/profile.d/autojump.sh ] && . `brew --prefix`/etc/profile.d/autojump.sh
 
 # zsh syntax highlighting
 if [ -f ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
