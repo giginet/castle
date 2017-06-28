@@ -10,8 +10,8 @@ repo = 'thinca/vim-quickrun'
 on_map = ['nxo', '<Plug>(quickrun)']
 
 [[plugins]] 
-repo = "Shougo/unite.vim"
-on_cmd = 'Unite'
+repo = "Shougo/denite.nvim"
+on_cmd = ['Denite']
 
 [[plugins]]
 repo = "lambdalisue/vim-gista"
@@ -31,10 +31,8 @@ repo = 'vim-scripts/errormarker.vim'
 augroup = ['errormarker']
 
 [[plugins]]
-repo = 'Shougo/vimfiler'
-depends = 'unite.vim'
-on_cmd = ["VimFilerTab", "VimFiler", "VimFilerExplorer"]
-on_map = ['<Plug>(vimfiler_switch)']
+repo = 'scrooloose/nerdtree'
+on_cmd = ['NERDTreeToggle']
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'

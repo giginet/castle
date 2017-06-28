@@ -87,24 +87,7 @@ let g:python2_host_prog = expand('$HOME') . '/.pyenv/versions/2.7.10/bin/python'
 let g:python3_host_prog = expand('$HOME') . '/.pyenv/shims/python'
 
 "vimfiler Settings
-nnoremap <C-n>t :VimFilerExplorer<CR>
-" close vimfiler automatically when there are only vimfiler open
-autocmd BufEnter * if (winnr('$') == 1 && &filetype ==# 'vimfiler') | q | endif
-if dein#tap("vimfiler")
-  " vimfiler specific key mappings
-  autocmd FileType vimfiler call s:vimfiler_settings()
-  function! s:vimfiler_settings()
-    "let g:vimfiler_as_default_explorer = 1
-    let g:vimfiler_enable_auto_cd = 1
-    "let g:vimfiler_ignore_pattern = "^\%(.git\|.DS_Store\)$"
-    " ^^ to go up
-    nmap <buffer> ^^ <Plug>(vimfiler_switch_to_parent_directory)
-    " use R to refresh
-    nmap <buffer> R <Plug>(vimfiler_redraw_screen)
-    " overwrite C-l
-    nmap <buffer> <C-l> <C-w>l
-  endfunction
-endif
+nnoremap <C-n>t :NERDTreeToggle<CR>
 
 "Quickrun Settings
 silent! nmap <unique> <C-x><C-x> <Plug>(quickrun)
