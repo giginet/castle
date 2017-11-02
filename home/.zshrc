@@ -111,6 +111,12 @@ alias ls="ls -a -G -l"
 alias rm="rm -i"
 alias vim=nvim
 
+if [[ -z "$TMUX" ]]
+then
+  tmux new-session;
+  exit;
+fi
+
 # zplug
 if [ -f $HOME/.zplug/init.zsh ]; then
   source $HOME/.zplug/init.zsh
