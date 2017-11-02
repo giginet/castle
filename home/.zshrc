@@ -32,6 +32,8 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([%0-9]#)*=0=01;31
 zstyle ':completion:*:default' menu select=1
 setopt prompt_subst
 
+# When zplug checking is disabled
+# You have to execute `zplug install && zplug load` manually
 ENABLE_INCREMENTAL_COMPLETION=0
 if [ $ENABLE_INCREMENTAL_COMPLETION = 1 ] ;
 then
@@ -118,6 +120,7 @@ then
 fi
 
 # zplug
+ENABLE_ZPLUG_CHECKING=0
 if [ -f $HOME/.zplug/init.zsh ]; then
   source $HOME/.zplug/init.zsh
 
@@ -127,10 +130,12 @@ if [ -f $HOME/.zplug/init.zsh ]; then
   zplug "b4b4r07/enhancd", lazy:true, use:'enhancd', as:command
   zplug "dracula/zsh", as:theme
 
-  if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-      echo; zplug install
+  if [ $ENABLE_ZPLUG_CHECKING = 1 ] ; then 
+    if ! zplug check --verbose; then
+      printf "Install? [y/N]: "
+      if read -q; then
+        echo; zplug install
+      fi
     fi
   fi
 
