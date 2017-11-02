@@ -57,7 +57,7 @@ if exists peco; then
   }
 
   function pco {
-    git checkout `git branch | peco | sed -e "s/\* //g" | awk "{print \$1}"`
+    git checkout `git branch --sort=-committerdate | peco | sed -e "s/\* //g" | awk "{print \$1}"`
   }
 
   function pag () {
