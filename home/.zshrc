@@ -121,11 +121,10 @@ fi
 if [ -f $HOME/.zplug/init.zsh ]; then
   source $HOME/.zplug/init.zsh
 
-  zplug "Tarrasch/zsh-bd"
   zplug "zsh-users/zsh-syntax-highlighting", defer:2
   zplug "giginet/peco-anyenv"
-  zplug "simonwhitaker/gibo"
-  zplug "b4b4r07/enhancd"
+  zplug "simonwhitaker/gibo", lazy:true, use:'gibo', as:command
+  zplug "b4b4r07/enhancd", lazy:true, use:'enhancd', as:command
   zplug "dracula/zsh", as:theme
 
   if ! zplug check --verbose; then
