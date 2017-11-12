@@ -46,3 +46,5 @@
 	enabled = true
 [url "git@github.com:"]
 	insteadOf = "https://github.com/"
+[includeIf "gitdir://~/.ghq/github.com/cookpad"]
+	path = ~/.gitconfig.work
