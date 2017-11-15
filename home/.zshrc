@@ -128,6 +128,7 @@ if [ -f $HOME/.zplug/init.zsh ]; then
   zplug "giginet/peco-anyenv"
   zplug "simonwhitaker/gibo", lazy:true, use:'gibo', as:command
   zplug "b4b4r07/enhancd", lazy:true, use:'enhancd', as:command
+  zplug "glidenote/hub-zsh-completion"
   zplug "dracula/zsh", as:theme
 
   if [ $ENABLE_ZPLUG_CHECKING = 1 ] ; then 
