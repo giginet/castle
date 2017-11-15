@@ -59,6 +59,12 @@ if exists peco; then
   function pco {
     git checkout `git branch --sort=-committerdate | peco | sed -e "s/\* //g" | awk "{print \$1}"`
   }
+  function pmerge {
+    git merge `git branch --sort=-committerdate | peco | sed -e "s/\* //g" | awk "{print \$1}"`
+  }
+  function prebase {
+    git rebase `git branch --sort=-committerdate | peco | sed -e "s/\* //g" | awk "{print \$1}"`
+  }
 
   function pag () {
     vim $(ag $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
@@ -90,5 +96,8 @@ if exists peco; then
   }
   function ptoybox() {
     toybox list | peco | sed -E 's/\(.*\)$//g' | xargs toybox open
+  }
+  function pgit() {
+    git $1 $(git ls-files | peco)
   }
 fi
