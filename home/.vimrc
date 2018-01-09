@@ -136,9 +136,6 @@ else
   endif
 endif
 
-if dein#tap('deoplete-jedi')
-  let g:jedi#completions_enabled = 1
-endif
 autocmd BufRead /tmp/crontab.* :set nobackup nowritebackup
 
 "Load local Settings

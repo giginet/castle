@@ -10,3 +10,7 @@ let ropevim_extended_complete=1
 
 "pep8
 let g:pep8_map='<Leader>8'
+
+if dein#tap('deoplete-jedi')
+  let g:jedi#completions_enabled = 1
+endif
