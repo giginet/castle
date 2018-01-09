@@ -130,6 +130,7 @@ if [ -f $HOME/.zplug/init.zsh ]; then
   zplug "b4b4r07/enhancd", lazy:true, use:'enhancd', as:command
   zplug "glidenote/hub-zsh-completion"
   zplug "dracula/zsh", as:theme
+  zplug "iam4x/zsh-iterm-touchbar"
 
   if [ $ENABLE_ZPLUG_CHECKING = 1 ] ; then 
     if ! zplug check --verbose; then
