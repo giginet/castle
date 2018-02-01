@@ -92,7 +92,7 @@ on_ft = ['css']
 
 # for Swift
 [[plugins]]
-repo = 'keith/swift.vim'
+repo = 'bumaociyuan/vim-swift'
 on_ft = ['swift']
 
 [[plugins]]
