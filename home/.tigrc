@@ -8,3 +8,6 @@ bind main O !@git browse -- blob/master/%(file)
 # Press R then git rebase -i will start from the commit
 bind main R !git rebase -i %(commit)
 bind diff R !git rebase -i %(commit)
+
+# Support Mouse
+set mouse = yes
