@@ -85,6 +85,7 @@ if exists peco; then
   bindkey '^h' pcdr
 
   function pvim() { vim $(git ls-files | peco) }
+  function ptig() { tig -- $(git ls-files | peco) }
   function pblame() { tig blame $(git ls-files | peco) }
   function popen() { open $(git ls-files | peco) }
   function pbrowse() { 
