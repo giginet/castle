@@ -23,7 +23,7 @@ au BufNewFile,BufRead Gemfile set filetype=ruby
 au BufNewFile,BufRead Guardfile set filetype=ruby
 
 " fastlane
-au BufNewFile,BufRead Fastfile,Appfile,Snapfile,Scanfile,Gymfile,Matchfile,Deliverfile set filetype=ruby
+au BufNewFile,BufRead Fastfile,Appfile,Snapfile,Scanfile,Gymfile,Matchfile,Deliverfile,Pluginfile set filetype=ruby
 
 " Danger
 au BufNewFile,BufRead Dangerfile set filetype=ruby
