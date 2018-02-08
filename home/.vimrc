@@ -137,6 +137,9 @@ else
   endif
 endif
 
+"denite.nvim
+noremap <C-o> :Denite file_rec<CR>
+
 autocmd BufRead /tmp/crontab.* :set nobackup nowritebackup
 
 "Load local Settings
