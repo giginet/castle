@@ -16,15 +16,11 @@
 [alias]
 	br = branch --sort=-committerdate
 	st = !"tig status"
-	lg = !"tig"
-	bl = !"tig blame"
-	sh = !"tig show"
 	ci = commit
 	co = checkout
 	cp = cherry-pick
 	discard = reset --hard HEAD
 	sw = checkout -b
-	df = diff --color-words
 	shorten = !"sh -c 'curl -i http://git.io/ -F url=$1 `[ -n \"$2\" ] && echo -F code=$2`' -"
 	pbcopy = !printf "$1" | pbcopy
 	lg = !"tig"
@@ -32,6 +28,7 @@
 	delete-merged = !"git branch --merged | grep -v '*' | xargs -I % git branch -d %"
 	openpr = "!f() { hub browse -- `git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request #' | head -n 1 | cut -f5 -d' ' | sed -e 's%#%pull/%'`; }; f"
 	force-push = "push --force-with-lease"
+	pretty-log = !"git log --oneline -n 100 | emojify"
 [github]
 	user = giginet
 [gitlab]
