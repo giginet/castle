@@ -11,3 +11,6 @@ bind diff R !git rebase -i %(commit)
 
 # Support Mouse
 set mouse = yes
+set main-view = id date author:full commit-title,graph=v2,refs=true
+set main-view-date = custom
+set main-view-date-format = "%Y/%m/%d %H:%M"
