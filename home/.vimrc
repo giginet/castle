@@ -16,6 +16,7 @@ language C
 set tabstop=2
 set shiftwidth=2
 set expandtab     "replace tab to spaces
+set autoindent
 set showmatch     "auto complete )
 set matchtime=1   "wait time for showmatch
 set backspace=indent,eol,start
