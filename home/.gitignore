@@ -51,8 +51,6 @@ fake-eggs
 .gitconfig
 
 # anyenv
-.python-version
-.ruby-version
 .xcode-version
 
 .tox/*
