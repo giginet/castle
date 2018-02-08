@@ -10,3 +10,7 @@ endif
 if dein#tap('swift.vim')
   let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
 endif
+
+set tabstop=4
+set shiftwidth=4
+set expandtab
