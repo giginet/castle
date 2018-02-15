@@ -201,12 +201,10 @@ if [ -x "`which go`" ]; then
 fi
 
 # added by travis gem
-[ -f $HOME/.travis/travis.sh ] && source /Users/giginet/.travis/travis.sh
+[ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
 # direnv
 eval "$(direnv hook zsh)"
 
 # Load peco functions
 [ -f ~/.peco-functions.zsh ] && source ~/.peco-functions.zsh
-
-
