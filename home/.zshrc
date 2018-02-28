@@ -208,3 +208,6 @@ eval "$(direnv hook zsh)"
 
 # Load peco functions
 [ -f ~/.peco-functions.zsh ] && source ~/.peco-functions.zsh
+
+# JDK
+export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8
