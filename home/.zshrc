@@ -211,3 +211,4 @@ eval "$(direnv hook zsh)"
 
 # JDK
 export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8
+export ANDROID_HOME=$HOME/Library/Android/sdk
