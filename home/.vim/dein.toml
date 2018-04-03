@@ -7,7 +7,7 @@ build = 'make'
 
 [[plugins]]
 repo = 'thinca/vim-quickrun'
-on_map = ['nxo', '<Plug>(quickrun)']
+on_map = ['<Plug>(quickrun)']
 
 [[plugins]] 
 repo = "Shougo/denite.nvim"
@@ -22,14 +22,6 @@ on_map = ['<Plug>(gista-']
 [[plugins]]
 repo = 'vim-scripts/tComment'
 on_map = ['<C-_><C-_>']
-
-[[plugins]]
-repo = 'mrtazz/simplenote.vim'
-on_cmd = ['Simplenote']
-
-[[plugins]]
-repo = 'vim-scripts/errormarker.vim'
-augroup = ['errormarker']
 
 [[plugins]]
 repo = 'scrooloose/nerdtree'
