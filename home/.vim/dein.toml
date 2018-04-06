@@ -68,7 +68,7 @@ on_ft = ['coffee']
 #for TypeScript
 [[plugins]]
 repo = 'leafgarland/typescript-vim'
-on_ft = ['ts']
+on_ft = ['typescript']
 
 # for HTML
 [[plugins]]
