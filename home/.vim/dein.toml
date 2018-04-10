@@ -174,3 +174,8 @@ on_ft = ['octave']
 [[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = ['toml']
+
+# for JSON
+[[plugins]]
+repo = 'elzr/vim-json'
+on_ft = ['json']
