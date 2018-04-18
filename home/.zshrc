@@ -92,7 +92,7 @@ function git-root() {
 
 # Show current directory on Finder
 function showFinder(){
-  open `pwd`
+  open -R `pwd`
 }
 zle -N showFinder
 bindkey '^f' showFinder
