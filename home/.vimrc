@@ -84,7 +84,7 @@ filetype plugin indent on
 syntax enable
 
 "Python support
-let g:python2_host_prog = expand('$HOME') . '/.pyenv/versions/2.7.10/bin/python'
+let g:python2_host_prog = expand('$HOME') . '/.pyenv/versions/2.7.13/bin/python'
 let g:python3_host_prog = expand('$HOME') . '/.pyenv/shims/python'
 
 "vimfiler Settings
