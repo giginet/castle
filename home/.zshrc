@@ -131,6 +131,7 @@ if [ -f $HOME/.zplug/init.zsh ]; then
   zplug "glidenote/hub-zsh-completion"
   zplug "dracula/zsh", as:theme
   zplug "iam4x/zsh-iterm-touchbar"
+  zplug "iamthememory/homesick-zsh-completion"
 
   if [ $ENABLE_ZPLUG_CHECKING = 1 ] ; then 
     if ! zplug check --verbose; then
