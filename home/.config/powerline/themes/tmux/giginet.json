@@ -3,31 +3,35 @@
   "segments": {
     "left": [
       {
+        "function": "powerline.segments.common.net.hostname",
+        "priority": 1
+      },
+      {
         "function": "powerline.segments.common.env.cwd",
-        "width": "auto",
-        "align": "l"
+        "priority": 1
       },
       {
         "function": "powerline.segments.common.vcs.branch",
-        "priority": 50
+        "priority": 1
       },
       {
         "function": "powerline.segments.common.vcs.stash",
-        "priority": 50
+        "priority": 100
       }
     ],
     "right": [
       {
         "function": "powerline.segments.common.players.itunes",
+        "priority": 10,
         "name": "player"
       },
       {
         "function": "powerline.segments.common.bat.battery",
-        "priority": 50
+        "priority": 10
       },
       {
         "function": "powerline.segments.common.wthr.weather",
-        "priority": 50,
+        "priority": 10,
         "args": {
           "unit": "C",
           "icons": {
@@ -48,18 +52,17 @@
         }
       },
       {
-        "function": "powerline.segments.common.time.date"
+        "function": "powerline.segments.common.time.date",
+        "priority": 1
       },
       {
         "function": "powerline.segments.common.time.date",
+        "priority": 1,
         "name": "time",
         "args": {
           "format": "%H:%M",
           "istime": true
         }
-      },
-      {
-        "function": "powerline.segments.common.net.hostname"
       }
     ]
   }

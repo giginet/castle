@@ -130,11 +130,13 @@ fi
 # for swiftenv
 if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
 
-# if [[ -z "$TMUX" ]]
-# then
-#   tmux new-session;
-#   exit;
-# fi
+source "$HOME/.pyenv/versions/3.6.1/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh"
+
+if [[ -z "$TMUX" ]]
+then
+  tmux new-session;
+  exit;
+fi
 
 # zplug
 ENABLE_ZPLUG_CHECKING=0
@@ -179,9 +181,6 @@ alias git=hub
 if type compdef >/dev/null; then
    compdef hub=git
 fi
-
-# Settings for tmux-powerline
-PROMPT="$PROMPT"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 
 fpath=(/usr/local/share/zsh/site-functions/ ${fpath})
 # Run compinit if zplug comp file hasn't load
