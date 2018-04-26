@@ -113,12 +113,6 @@ alias ls="ls -a -G -l"
 alias rm="rm -i"
 alias vim=nvim
 
-if [[ -z "$TMUX" ]]
-then
-  tmux new-session;
-  exit;
-fi
-
 # zplug
 ENABLE_ZPLUG_CHECKING=0
 if [ -f $HOME/.zplug/init.zsh ]; then
@@ -213,3 +207,9 @@ eval "$(direnv hook zsh)"
 # JDK
 export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8
 export ANDROID_HOME=$HOME/Library/Android/sdk
+
+if [[ -z "$TMUX" ]]
+then
+  tmux new-session;
+  exit;
+fi
