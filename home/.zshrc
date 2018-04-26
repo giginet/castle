@@ -113,6 +113,29 @@ alias ls="ls -a -G -l"
 alias rm="rm -i"
 alias vim=nvim
 
+#for Python Development
+PYENV_ROOT=$HOME/.pyenv
+PATH=$PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH
+
+#for Ruby Development
+PATH=$HOME/.rbenv/bin:$PATH
+PATH=$HOME/.rbenv/shims:$PATH # Add rbenv to PATH
+alias be="bundle exec"
+
+#for Node Development
+if [[ -f ~/.nodebrew/nodebrew ]]; then
+  export PATH=$HOME/.nodebrew/current/bin:$PATH
+fi
+
+# for swiftenv
+if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
+
+# if [[ -z "$TMUX" ]]
+# then
+#   tmux new-session;
+#   exit;
+# fi
+
 # zplug
 ENABLE_ZPLUG_CHECKING=0
 if [ -f $HOME/.zplug/init.zsh ]; then
@@ -149,23 +172,6 @@ fi
 if [ -f ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
   source ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
-
-#for Python Development
-PYENV_ROOT=$HOME/.pyenv
-PATH=$PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH
-
-#for Ruby Development
-PATH=$HOME/.rbenv/bin:$PATH
-PATH=$HOME/.rbenv/shims:$PATH # Add rbenv to PATH
-alias be="bundle exec"
-
-#for Node Development
-if [[ -f ~/.nodebrew/nodebrew ]]; then
-  export PATH=$HOME/.nodebrew/current/bin:$PATH
-fi
-
-# for swiftenv
-if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
 
 # Setting for hub
 # hub alias -s zsh
@@ -207,9 +213,3 @@ eval "$(direnv hook zsh)"
 # JDK
 export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8
 export ANDROID_HOME=$HOME/Library/Android/sdk
-
-if [[ -z "$TMUX" ]]
-then
-  tmux new-session;
-  exit;
-fi
