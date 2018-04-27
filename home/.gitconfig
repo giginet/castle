@@ -21,9 +21,7 @@
 	cp = cherry-pick
 	discard = reset --hard HEAD
 	sw = checkout -b
-	shorten = !"sh -c 'curl -i http://git.io/ -F url=$1 `[ -n \"$2\" ] && echo -F code=$2`' -"
 	pbcopy = !printf "$1" | pbcopy
-	lg = !"tig"
 	pr = pull-request
 	delete-merged = !"git branch --merged | grep -v '*' | xargs -I % git branch -d %"
 	openpr = "!f() { hub browse -- `git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request #' | head -n 1 | cut -f5 -d' ' | sed -e 's%#%pull/%'`; }; f"
@@ -32,8 +30,6 @@
 	gsub = !"f() { git grep -l \"$1\" | xargs sed -i '' -e \"s/$1/$2/g\"; }; f"
 [github]
 	user = giginet
-[gitlab]
-	url = http://gitlab.kawaz.org
 [hub]
 	protocol = ssh
 [ghi]
