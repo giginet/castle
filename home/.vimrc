@@ -110,31 +110,16 @@ if dein#tap("vim-gista")
   let g:gista#client#use_git_config_github_username = 1
 endif
 
-"errormarker.vim Settings
-let g:errormarker_errortext = '!!'
-let g:errormarker_warningtext = '??'
-let g:errormarker_errorgroup = 'Error'
-let g:errormarker_warninggroup = 'Todo'
-highlight Error ctermbg=52 guibg=#5F0000
-highlight Todo ctermbg=17 guibg=#00005F
-
 "mundo.vim Settings
 nnoremap U :MundoToggle<CR>
 set undofile
 set undodir=~/.vim/undo
 
 "neocomplete Settings
-if has('nvim')
-  if dein#tap("deoplete.nvim")
-    let g:deoplete#enable_at_startup = 1
-    let g:deoplete#enable_smart_case = 1
-    set completeopt+=noinsert
-  endif
-else
-  if dein#tap("neocomplete.vim")
-    let g:neocomplete#enable_smart_case = 1
-    let g:neocomplete#enable_at_startup = 1
-  endif
+if dein#tap("deoplete.nvim")
+  let g:deoplete#enable_at_startup = 1
+  let g:deoplete#enable_smart_case = 1
+  set completeopt+=noinsert
 endif
 
 "denite.nvim
