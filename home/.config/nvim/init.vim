@@ -42,9 +42,6 @@ filetype plugin indent on
 filetype indent on
 syntax on
 
-"Color Scheme
-colorscheme jellybeans
-
 "split like tmux
 noremap <C-w>% :vsp<CR>
 noremap <C-w>" :sp<CR>
@@ -63,6 +60,10 @@ function! s:mkdir(dir, force)
   endif
 endfunction
 au BufWritePre * call s:mkdir(expand('<afile>:p:h'), v:cmdbang)
+
+augroup MyAutoCmd
+  autocmd!
+augroup END
 
 " Bootstrap dein.vim
 if &compatible

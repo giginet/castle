@@ -44,6 +44,14 @@ if = '''has('nvim')'''
 repo = 'simnalamburt/vim-mundo'
 on_i = 1
 
+[[plugins]]
+repo = 'nanotech/jellybeans.vim'
+on_event = ['VimEnter']
+hook_post_source = '''
+  set background=dark
+  colorscheme jellybeans
+'''
+
 # for Ruby
 [[plugins]]
 repo = 'tpope/vim-bundler'
