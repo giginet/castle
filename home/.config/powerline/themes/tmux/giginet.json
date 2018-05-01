@@ -8,7 +8,10 @@
       },
       {
         "function": "powerline.segments.common.env.cwd",
-        "priority": 1
+        "priority": 1,
+        "args": {
+          "dir_limit_depth": 2
+        }
       },
       {
         "function": "powerline.segments.common.vcs.branch",
