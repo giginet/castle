@@ -1,3 +1,6 @@
 [submodule "home/.cache/dein/repos/github.com/Shougo/dein.vim"]
 	path = home/.cache/dein/repos/github.com/Shougo/dein.vim
 	url = https://github.com/Shougo/dein.vim
+[submodule "home/.tmux/plugins/tpm"]
+	path = home/.tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
