@@ -31,15 +31,6 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([%0-9]#)*=0=01;31
 ## 補完候補のカーソル選択を有効に
 zstyle ':completion:*:default' menu select=1
 setopt prompt_subst
-
-# When zplug checking is disabled
-# You have to execute `zplug install && zplug load` manually
-ENABLE_INCREMENTAL_COMPLETION=0
-if [ $ENABLE_INCREMENTAL_COMPLETION = 1 ] ;
-then
-  source $HOME/.incr.zsh
-fi
-
 # Ignore completion on scp
 zstyle ':completion:*:complete:scp:*:files' command command -
 
@@ -139,7 +130,9 @@ then
 fi
 
 # zplug
-ENABLE_ZPLUG_CHECKING=0
+# When zplug checking is disabled
+# You have to execute `zplug install && zplug load` manually
+ENABLE_ZPLUG_CHECKING=1
 if [ -f $HOME/.zplug/init.zsh ]; then
   source $HOME/.zplug/init.zsh
 
@@ -149,7 +142,6 @@ if [ -f $HOME/.zplug/init.zsh ]; then
   zplug "b4b4r07/enhancd", lazy:true, use:'enhancd', as:command
   zplug "glidenote/hub-zsh-completion"
   zplug "dracula/zsh", as:theme
-  zplug "iam4x/zsh-iterm-touchbar"
   zplug "iamthememory/homesick-zsh-completion"
 
   if [ $ENABLE_ZPLUG_CHECKING = 1 ] ; then 
@@ -169,11 +161,6 @@ fi
 
 # Autojump settings
 [ -f `brew --prefix`/etc/profile.d/autojump.sh ] && . `brew --prefix`/etc/profile.d/autojump.sh
-
-# zsh syntax highlighting
-if [ -f ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
-  source ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
 
 # Setting for hub
 # hub alias -s zsh
