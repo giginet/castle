@@ -199,3 +199,7 @@ eval "$(direnv hook zsh)"
 # JDK
 export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8
 export ANDROID_HOME=$HOME/Library/Android/sdk
+
+# dracula theme
+export ZSH_THEME_GIT_PROMPT_CLEAN=") %{$fg_bold[green]%}● "
+export ZSH_THEME_GIT_PROMPT_DIRTY=") %{$fg_bold[yellow]%}× "
