@@ -82,11 +82,13 @@ function git-root() {
 }
 
 # Show current directory on Finder
-function showFinder(){
-  open -R `pwd`
-}
+function showFinder() { open -R `pwd` }
 zle -N showFinder
 bindkey '^f' showFinder
+
+function showGitHub() { git browse }
+zle -N showGitHub
+bindkey '^b' showGitHub
 
 # Environment Variable Settings
 export PATH=/usr/local/share/npm/bin:/usr/texbin:$HOME/.bin:/usr/local/bin:/Applications/Android/sdk/platform-tools:$HOME/Library/Haskell/bin:$PATH
