@@ -187,3 +187,7 @@ on_ft = ['toml']
 [[plugins]]
 repo = 'elzr/vim-json'
 on_ft = ['json']
+
+# for tmux.conf
+repo = 'tmux-plugins/vim-tmux'
+on_ft = ['tmux']
