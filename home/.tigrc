@@ -14,3 +14,5 @@ set mouse = yes
 set main-view = id date author:full commit-title,graph=v2,refs=true
 set main-view-date = custom
 set main-view-date-format = "%Y/%m/%d %H:%M"
+
+set blame-view = line-number:yes,interval=1 date:custom,format="%Y/%m/%d" file-name:no id:yes,color author:full text 
