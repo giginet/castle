@@ -121,7 +121,8 @@ fi
 # for swiftenv
 if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
 
-source "$HOME/.pyenv/versions/3.6.1/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh"
+export POWERLINE_ROOT=$HOME/.pyenv/versions/3.6.1/lib/python3.6/site-packages/powerline
+source "$POWERLINE_ROOT/bindings/zsh/powerline.zsh"
 
 if [[ -z "$TMUX" ]]
 then
