@@ -81,15 +81,6 @@ function git-root() {
   cd `git rev-parse --show-toplevel`
 }
 
-# Show current directory on Finder
-function showFinder() { open -R `pwd` }
-zle -N showFinder
-bindkey '^f' showFinder
-
-function showGitHub() { git browse }
-zle -N showGitHub
-bindkey '^b' showGitHub
-
 # Environment Variable Settings
 export PATH=/usr/local/share/npm/bin:/usr/texbin:$HOME/.bin:/usr/local/bin:/Applications/Android/sdk/platform-tools:$HOME/Library/Haskell/bin:$PATH
 export EDITOR=$(brew --prefix)/bin/nvim
@@ -171,6 +162,15 @@ alias git=hub
 if type compdef >/dev/null; then
    compdef hub=git
 fi
+
+# Show current directory on Finder
+function showFinder() { open -R `pwd` }
+zle -N showFinder
+bindkey '^f' showFinder
+
+function showGitHub() { git browse }
+zle -N showGitHub
+bindkey '^g' showGitHub
 
 fpath=(/usr/local/share/zsh/site-functions/ ${fpath})
 # Run compinit if zplug comp file hasn't load
