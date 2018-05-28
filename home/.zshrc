@@ -112,7 +112,9 @@ if [[ -f ~/.nodebrew/nodebrew ]]; then
 fi
 
 # for swiftenv
-if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
+export SWIFTENV_ROOT="$HOME/.swiftenv"
+export PATH="$SWIFTENV_ROOT/bin:$PATH"
+eval "$(swiftenv init -)"
 
 export POWERLINE_ROOT=$HOME/.pyenv/versions/3.6.1/lib/python3.6/site-packages/powerline
 source "$POWERLINE_ROOT/bindings/zsh/powerline.zsh"
