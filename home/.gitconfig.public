@@ -1,3 +1,4 @@
+# vim: set syntax=gitconfig:
 [user]
 	name = giginet
 	email = giginet.net@gmail.com
