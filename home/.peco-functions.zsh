@@ -101,4 +101,7 @@ if exists peco; then
   function pgit() {
     git $1 $(git ls-files | peco)
   }
+  function pdocker() {
+    docker $1 $(docker ps | tail -n +2 | peco | cut -d" " -f1)
+  }
 fi
