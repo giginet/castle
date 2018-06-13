@@ -195,3 +195,7 @@ on_ft = ['tmux']
 # for Dockerfile
 repo = 'ekalinin/dockerfile.vim'
 on_ft = ['dockerfile']
+
+# for Jsonnet
+repo = 'google/vim-jsonnet'
+on_ft = ['jsonnet']
