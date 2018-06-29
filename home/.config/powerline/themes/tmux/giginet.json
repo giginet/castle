@@ -3,14 +3,11 @@
   "segments": {
     "left": [
       {
-        "function": "powerline.segments.common.net.hostname",
-        "priority": 5
-      },
-      {
         "function": "powerline.segments.common.env.cwd",
         "priority": 1,
         "args": {
-          "dir_limit_depth": 2
+          "dir_limit_depth": 2,
+          "use_path_separator": true
         }
       },
       {
@@ -21,16 +18,19 @@
     "right": [
       {
         "function": "powerline.segments.common.players.itunes",
-        "priority": 2,
-        "name": "player"
+        "priority": 3,
+        "name": "player",
+        "args": {
+          "format": "{state_symbol}  {title}"
+        }
       },
       {
         "function": "powerline.segments.common.bat.battery",
-        "priority": 4
+        "priority": 5
       },
       {
         "function": "powerline.segments.common.wthr.weather",
-        "priority": 3,
+        "priority": 4,
         "args": {
           "unit": "C",
           "icons": {
@@ -52,7 +52,7 @@
       },
       {
         "function": "powerline.segments.common.time.date",
-        "priority": 3
+        "priority": 5
       },
       {
         "function": "powerline.segments.common.time.date",
