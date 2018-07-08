@@ -105,3 +105,11 @@ if exists peco; then
     docker $1 $(docker ps | tail -n +2 | peco | cut -d" " -f1)
   }
 fi
+function pxcode() {
+  VERSION=xcversion installed | awk '{print $1}' | peco
+  echo "Try selectiong Xcode version $(VERSION)"
+  xcversion select VERSION
+}
+function pxcode-install() {
+  xcversion list | peco | xargs -I{} xcversion install {}
+}
