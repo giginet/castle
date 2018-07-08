@@ -116,12 +116,18 @@ nnoremap U :MundoToggle<CR>
 set undofile
 set undodir=~/.vim/undo
 
-"neocomplete Settings
+"deoplete Settings
 if dein#tap("deoplete.nvim")
   let g:deoplete#enable_at_startup = 1
   let g:deoplete#enable_smart_case = 1
   set completeopt+=noinsert
 endif
+
+"open-google-translate Settings
+if dein#tap("open-google-translate")
+  let g:opengoogletranslate#default_lang = 'ja'
+endif
+noremap <C-t> :OpenGoogleTranslate --to=ja --from=en<CR>
 
 "denite.nvim
 noremap <C-o> :Denite file_rec<CR>
