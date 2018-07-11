@@ -1,0 +1,8 @@
+{
+  "Keymap": {
+    "C-k": "peco.SelectUp",
+    "C-j": "peco.SelectDown",
+    "C-g": "peco.ScrollFirstItem",
+    "C-b": "peco.ScrollLastItem"
+  }
+}
