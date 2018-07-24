@@ -73,9 +73,9 @@ function cdup(){
   echo
   cd ..
   zle reset-prompt
- }
- zle -N cdup
- bindkey '\^\^' cdup
+}
+zle -N cdup
+bindkey '\^\^' cdup
 
 function git-root() {
   cd `git rev-parse --show-toplevel`
