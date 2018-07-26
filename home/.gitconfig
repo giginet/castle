@@ -13,6 +13,11 @@
 [core]
 	excludesfile = ~/.gitignore
 	quotepath = false
+	editor = nvim
+[merge]
+	ff = only
+[pull]
+	rebase = true
 [alias]
 	br = branch --sort=-committerdate
 	st = !"tig status"
