@@ -63,6 +63,10 @@ depends = ['open-browser.vim']
 
 [[plugins]]
 repo = 'oblitum/rainbow'
+hook_add = '''
+  let g:rainbow_active = 1
+  au MyAutoCmd VimEnter * nested call rainbow#load()
+'''
 
 # for Ruby
 [[plugins]]
