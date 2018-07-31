@@ -49,11 +49,10 @@ repo = 'tyru/open-browser.vim'
 on_i = 1
 
 [[plugins]]
-repo = 'nanotech/jellybeans.vim'
+repo = 'dracula/vim'
 on_event = ['VimEnter']
 hook_post_source = '''
-  set background=dark
-  colorscheme jellybeans
+  color dracula
 '''
 
 [[plugins]]
