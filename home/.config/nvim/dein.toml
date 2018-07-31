@@ -61,6 +61,9 @@ repo = 'haya14busa/vim-open-googletranslate'
 on_event = ['OpenGoogleTranslate']
 depends = ['open-browser.vim']
 
+[[plugins]]
+repo = 'oblitum/rainbow'
+
 # for Ruby
 [[plugins]]
 repo = 'tpope/vim-bundler'
