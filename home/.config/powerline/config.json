@@ -9,7 +9,7 @@
       "theme": "no-display"
     },
     "tmux": {
-      "colorscheme": "default",
+      "colorscheme": "dracula",
       "theme": "giginet"
     }
   }

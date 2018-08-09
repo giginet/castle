@@ -77,7 +77,24 @@
 		"solarized:violet": [13, "6c71c4"],
 		"solarized:blue": [4, "268bd2"],
 		"solarized:cyan": [6, "2aa198"],
-		"solarized:green": [2, "859900"]
+		"solarized:green": [2, "859900"],
+
+		"dracula:fg": [255, "f8f8f2"],
+		"dracula:bglighter": [238, "424550"],
+		"dracula:bglight": [237, "343746"],
+		"dracula:bg": [236, "282a36"],
+		"dracula:bgdark": [235, "21222c"],
+		"dracula:bgdarker": [234, "191A21"],
+
+		"dracula:selection": [239, "44475a"],
+		"dracula:comment": [61, "6272a4"],
+		"dracula:cyan": [117, "8be9fd"],
+		"dracula:green": [84, "50fa7b"],
+		"dracula:orange": [215, "ffbb6c"],
+		"dracula:pink": [212, "ff70c6"],
+		"dracula:purple": [141, "bd93f9"],
+		"dracula:red": [203, "ff5555"],
+		"dracula:yellow": [228, "f1fa8c"]
 	},
 	"gradients": {
 		"dark_GREEN_Orange_red": [
