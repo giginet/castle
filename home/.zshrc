@@ -116,7 +116,7 @@ export SWIFTENV_ROOT="$HOME/.swiftenv"
 export PATH="$SWIFTENV_ROOT/bin:$PATH"
 eval "$(swiftenv init -)"
 
-export POWERLINE_ROOT=$HOME/.pyenv/versions/3.6.1/lib/python3.6/site-packages/powerline
+export POWERLINE_ROOT=$HOME/.pyenv/versions/3.7.0/lib/python3.7/site-packages/powerline
 . $POWERLINE_ROOT/bindings/zsh/powerline.zsh
 
 if [[ -z "$TMUX" ]]
