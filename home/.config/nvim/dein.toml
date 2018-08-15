@@ -8,6 +8,14 @@ build = 'make'
 [[plugins]]
 repo = 'thinca/vim-quickrun'
 on_map = ['<Plug>(quickrun)']
+hook_add = '''
+  let g:loaded_quicklaunch = 1
+  let g:quickrun_config = {
+      \ "*": {"runner": "remote/vimproc"},
+      \ 'split': '{"rightbelow 10sp"}'
+      \ }
+  silent! nmap <unique> <C-x><C-x> <Plug>(quickrun)
+'''
 
 [[plugins]] 
 repo = "Shougo/denite.nvim"
@@ -22,6 +30,9 @@ hook_post_source = '''
 repo = "lambdalisue/vim-gista"
 on_cmd = ['Gista']
 on_map = ['<Plug>(gista-']
+hook_add = '''
+  let g:gista#client#use_git_config_github_username = 1
+'''
 
 [[plugins]]
 repo = 'vim-scripts/tComment'
@@ -38,11 +49,19 @@ on_i = 1
 [[plugins]]
 repo = 'keith/investigate.vim'
 on_map = ["gK"]
+hook_source = '''
+  let g:investigate_use_dash = 1
+'''
 
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 on_i = 1
 if = '''has('nvim')'''
+hook_source = '''
+  let g:deoplete#enable_at_startup = 1
+  let g:deoplete#enable_smart_case = 1
+  set completeopt+=noinsert
+'''
 
 [[plugins]]
 repo = 'simnalamburt/vim-mundo'
@@ -63,6 +82,10 @@ hook_post_source = '''
 repo = 'haya14busa/vim-open-googletranslate'
 on_event = ['OpenGoogleTranslate']
 depends = ['open-browser.vim']
+hook_add = '''
+  let g:opengoogletranslate#default_lang = 'ja'
+  noremap <C-t> :OpenGoogleTranslate --to=ja --from=en<CR>
+'''
 
 [[plugins]]
 repo = 'oblitum/rainbow'
@@ -209,6 +232,9 @@ on_ft = ['toml']
 [[plugins]]
 repo = 'elzr/vim-json'
 on_ft = ['json']
+hook_add = '''
+  let g:vim_json_syntax_conceal = 0
+'''
 
 # for tmux.conf
 repo = 'tmux-plugins/vim-tmux'

@@ -88,46 +88,13 @@ syntax enable
 let g:python2_host_prog = expand('$HOME') . '/.pyenv/versions/2.7.13/bin/python'
 let g:python3_host_prog = expand('$HOME') . '/.pyenv/shims/python'
 
-"vimfiler Settings
+"NERDTree Settings
 nnoremap <C-n>t :NERDTreeToggle<CR>
-
-"Quickrun Settings
-silent! nmap <unique> <C-x><C-x> <Plug>(quickrun)
-if dein#tap("vim-quickrun")
-  let g:loaded_quicklaunch = 1
-  let g:quickrun_config = {
-      \ "*": {"runner": "remote/vimproc"},
-      \ 'split': '{"rightbelow 10sp"}'
-      \ }
-endif
-
-"Investigate.vim Settings
-if dein#tap("investigate.vim")
-  let g:investigate_use_dash = 1
-endif
-
-"vim-gista Settings
-if dein#tap("vim-gista")
-  let g:gista#client#use_git_config_github_username = 1
-endif
 
 "mundo.vim Settings
 nnoremap U :MundoToggle<CR>
 set undofile
 set undodir=~/.vim/undo
-
-"deoplete Settings
-if dein#tap("deoplete.nvim")
-  let g:deoplete#enable_at_startup = 1
-  let g:deoplete#enable_smart_case = 1
-  set completeopt+=noinsert
-endif
-
-"open-google-translate Settings
-if dein#tap("open-google-translate")
-  let g:opengoogletranslate#default_lang = 'ja'
-endif
-noremap <C-t> :OpenGoogleTranslate --to=ja --from=en<CR>
 
 "denite.nvim
 noremap <C-o> :Denite file_rec<CR>
