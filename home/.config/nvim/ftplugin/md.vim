@@ -11,8 +11,4 @@ if dein#tap('vim-quickrun')
         \ }
 endif
 
-if dein#tap('vim-markdown')
-  let g:vim_markdown_folding_disabled = 1
-endif
-
 noremap ``` :InlineEdit<CR>

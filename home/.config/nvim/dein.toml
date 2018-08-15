@@ -13,6 +13,10 @@ on_map = ['<Plug>(quickrun)']
 repo = "Shougo/denite.nvim"
 on_cmd = ['Denite']
 hook_source = 'source ~/.config/nvim/userautoload/plugins/plugins-denite.vim'
+hook_post_source = '''
+  call denite#custom#map('insert', "<C-j>", '<denite:move_to_next_line>', 'noremap')
+  call denite#custom#map('insert', "<C-k>", '<denite:move_to_previous_line>', 'noremap')
+'''
 
 [[plugins]]
 repo = "lambdalisue/vim-gista"
@@ -162,6 +166,9 @@ repo = 'godlygeek/tabular'
 repo = 'plasticboy/vim-markdown'
 depends = 'tabular'
 on_ft = ['md']
+hook_add = '''
+  let g:vim_markdown_folding_disabled = 1
+'''
 
 [[plugins]]
 repo = 'AndrewRadev/inline_edit.vim'
