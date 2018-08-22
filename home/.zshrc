@@ -208,3 +208,8 @@ export ANDROID_HOME=$HOME/Library/Android/sdk
 # dracula theme
 export ZSH_THEME_GIT_PROMPT_CLEAN=") %{$fg_bold[green]%}● "
 export ZSH_THEME_GIT_PROMPT_DIRTY=") %{$fg_bold[yellow]%}~ "
+
+function highlight() { 
+  pbpaste | pygmentize -l $1 -O style=monokai -f rtf | pbcopy 
+  echo "Your clipboard is highlighted ✨"
+}
