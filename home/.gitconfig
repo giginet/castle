@@ -18,8 +18,6 @@
 	ff = only
 [pull]
 	rebase = true
-[submodule]
-	recurse = true
 [alias]
 	br = branch --sort=-committerdate
 	st = !"tig status"
@@ -29,7 +27,6 @@
 	discard = reset --hard HEAD
 	sw = checkout -b
 	pbcopy = !printf "$1" | pbcopy
-	pr = !"hub pull-request"
 	delete-merged = !"git branch --merged | grep -v '*' | xargs -I % git branch -d %"
 	openpr = "!f() { hub browse -- `git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request #' | head -n 1 | cut -f5 -d' ' | sed -e 's%#%pull/%'`; }; f"
 	force-push = "push --force-with-lease"
