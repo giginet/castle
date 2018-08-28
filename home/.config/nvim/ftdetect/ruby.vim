@@ -27,3 +27,6 @@ au BufNewFile,BufRead Fastfile,Appfile,Snapfile,Scanfile,Gymfile,Matchfile,Deliv
 
 " Danger
 au BufNewFile,BufRead Dangerfile set filetype=ruby
+
+"miam
+au BufNewFile,BufRead *.iam set filetype=ruby
