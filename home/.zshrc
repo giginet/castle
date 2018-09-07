@@ -128,14 +128,13 @@ fi
 # zplug
 # When zplug checking is disabled
 # You have to execute `zplug install && zplug load` manually
-ENABLE_ZPLUG_CHECKING=1
+ENABLE_ZPLUG_CHECKING=0
 if [ -f $HOME/.zplug/init.zsh ]; then
   source $HOME/.zplug/init.zsh
 
   zplug "zsh-users/zsh-syntax-highlighting", defer:2
   zplug "giginet/peco-anyenv"
   zplug "simonwhitaker/gibo", lazy:true, use:'gibo', as:command
-  zplug "b4b4r07/enhancd", lazy:true, use:'enhancd', as:command
   zplug "glidenote/hub-zsh-completion"
   zplug "dracula/zsh", as:theme
   zplug "iamthememory/homesick-zsh-completion"
