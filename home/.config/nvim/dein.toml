@@ -54,6 +54,10 @@ hook_source = '''
 '''
 
 [[plugins]]
+repo = 'tpope/vim-git'
+on_ft = ['git', 'gitcommit', 'gitconfig', 'gitrebase', 'gitsendemail']
+
+[[plugins]]
 repo = 'Shougo/deoplete.nvim'
 on_i = 1
 if = '''has('nvim')'''
