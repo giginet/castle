@@ -211,3 +211,8 @@ function highlight() {
   pbpaste | pygmentize -l $1 -O style=monokai -f rtf | pbcopy 
   echo "Your clipboard is highlighted ✨"
 }
+
+# Compile zshrc
+if [ ~/.zshrc -nt ~/.zshrc.zwc ]; then
+  zcompile ~/.zshrc
+fi
