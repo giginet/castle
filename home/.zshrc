@@ -82,7 +82,7 @@ function git-root() {
 }
 
 # Environment Variable Settings
-export PATH=/usr/local/share/npm/bin:/usr/texbin:$HOME/.bin:/usr/local/bin:/Applications/Android/sdk/platform-tools:$HOME/Library/Haskell/bin:$PATH
+export PATH=/usr/local/bin:$PATH
 export EDITOR=$(brew --prefix)/bin/nvim
 
 export CLICOLOR=1
