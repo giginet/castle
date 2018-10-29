@@ -148,11 +148,15 @@ hook_source = '''
   let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
 '''
 
-
 [[plugins]]
 repo = 'landaire/deoplete-swift'
 depends = ['deoplete.nvim']
 on_ft = ['swift']
+
+[[plugins]]
+repo = 'apple/swift'
+on_ft = 'sil'
+rtp = 'utils/vim'
 
 # for Scala
 [[plugins]]
