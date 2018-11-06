@@ -15,8 +15,6 @@
 	quotepath = false
 	editor = nvim
 	commentchar = :
-[merge]
-	ff = only
 [pull]
 	rebase = true
 [alias]
