@@ -89,9 +89,10 @@ if exists peco; then
   function pblame() { tig blame $(git ls-files | peco) }
   function popen() { open $(git ls-files | peco) }
   function pbrowse() { 
-    branch=master
-    if [[ $1 == "--current" ]]; then
-      branch=$(git rev-parse --abbrev-ref HEAD)
+    if [[ $1 == "--master" ]]; then
+      branch=master
+    else
+      branch=$(git rev-parse HEAD)
     fi
     hub browse -- blob/$branch/$(git ls-files | peco) 
   }
