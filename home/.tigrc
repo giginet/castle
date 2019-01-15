@@ -5,15 +5,13 @@ bind main D !@hub compare %(commit)...%(branch)
 bind refs D !@hub compare master...%(branch)
 bind main P !@git openpr %(commit)
 bind blame P !@git openpr %(commit)
-
-# Press R then git rebase -i will start from the commit
 bind main R !git rebase -i %(commit)
 bind diff R !git rebase -i %(commit)
 
-# Support Mouse
 set mouse = yes
 set main-view = id date author:full commit-title,graph=v2,refs=true
 set main-view-date = custom
 set main-view-date-format = "%Y/%m/%d %H:%M"
+set split-view-width = 80%
 
 set blame-view = line-number:yes,interval=1 date:custom,format="%Y/%m/%d" file-name:no id:yes,color author:full text 
