@@ -44,7 +44,9 @@ syntax on
 
 "split like tmux
 noremap <C-w>% :vsp<CR>
+noremap <C-w>\| :vsp<CR>
 noremap <C-w>" :sp<CR>
+noremap <C-w>_ :sp<CR>
 noremap <C-w>p :tabp<CR>
 noremap <C-w>n :tabn<CR>
 noremap <C-w>c :tabnew<CR>
