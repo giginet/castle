@@ -14,4 +14,7 @@ set main-view-date = custom
 set main-view-date-format = "%Y/%m/%d %H:%M"
 set split-view-width = 80%
 
+bind generic g move-first-line
+bind generic G move-last-line
+
 set blame-view = line-number:yes,interval=1 date:custom,format="%Y/%m/%d" file-name:no id:yes,color author:full text 
