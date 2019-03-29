@@ -114,3 +114,6 @@ function pxcode() {
 function pxcode-install() {
   xcversion list | peco | xargs -I{} xcversion install {}
 }
+function pstm() {
+  stm list | peco | xargs stm show
+}
