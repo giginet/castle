@@ -4,9 +4,6 @@
 [submodule "home/.tmux/plugins/tpm"]
 	path = home/.tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
-[submodule "home/.swiftenv"]
-	path = home/.swiftenv
-	url = https://github.com/kylef/swiftenv.git
 [submodule "home/.zplug"]
 	path = home/.zplug
 	url = git@github.com:zplug/zplug.git
