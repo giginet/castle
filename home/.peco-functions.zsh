@@ -97,7 +97,7 @@ if exists peco; then
     hub browse -- blob/$branch/$(git ls-files | peco) 
   }
   function ptoybox() {
-    toybox list | peco | sed -E 's/\(.*\)$//g' | xargs toybox open
+    toybox list | peco | awk '{print $1}' | xargs toybox open
   }
   function pgit() {
     git $1 $(git ls-files | peco)
