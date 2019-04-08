@@ -78,6 +78,7 @@ if dein#load_state('~/.cache/dein')
 
   call dein#add('Shougo/dein.vim')
 
+  call dein#load_toml('~/.config/nvim/nonlazy.toml')
   call dein#load_toml('~/.config/nvim/dein.toml', {'lazy': 1})
 
   call dein#end()
@@ -87,7 +88,7 @@ filetype plugin indent on
 syntax enable
 
 "Python support
-let g:python2_host_prog = expand('$HOME') . '/.pyenv/versions/2.7.13/bin/python'
+let g:python2_host_prog = expand('$HOME') . '/.pyenv/shims/python2'
 let g:python3_host_prog = expand('$HOME') . '/.pyenv/shims/python'
 
 "NERDTree Settings
