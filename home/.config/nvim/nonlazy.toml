@@ -1,0 +1,76 @@
+# for markdown
+[[plugins]]
+repo = 'godlygeek/tabular'
+
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
+depends = 'tabular'
+hook_add = '''
+  let g:vim_markdown_folding_disabled = 1
+'''
+
+[[plugins]]
+repo = 'AndrewRadev/inline_edit.vim'
+
+# for Ruby
+[[plugins]]
+repo = 'tpope/vim-bundler'
+
+#for TypeScript
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+
+# for HTML
+[[plugins]]
+repo = 'othree/html5.vim'
+
+# for Swift
+[[plugins]]
+repo = 'keith/swift.vim'
+hook_source = '''
+  let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
+'''
+[[plugins]]
+repo = 'apple/swift'
+rtp = 'utils/vim'
+
+# for Lua
+[[plugins]]
+repo = 'vim-scripts/lua-support'
+
+# for Groovy
+[[plugins]]
+repo = 'tfnico/vim-gradle'
+
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
+
+[[plugins]]
+repo = 'osyo-manga/vim-precious'
+depends = ['context_filetype.vim', 'vim-quickrun']
+
+# for TOML
+[[plugins]]
+repo = 'cespare/vim-toml'
+
+# for JSON
+[[plugins]]
+repo = 'elzr/vim-json'
+hook_add = '''
+  let g:vim_json_syntax_conceal = 0
+'''
+
+# for tmux.conf
+repo = 'tmux-plugins/vim-tmux'
+
+# for Dockerfile
+repo = 'ekalinin/dockerfile.vim'
+
+# for Jsonnet
+repo = 'google/vim-jsonnet'
+
+# for modulemap
+repo = 'compnerd/modulemap-vim'
+
+# for xcconfig
+repo = 'keith/xcconfig.vim'

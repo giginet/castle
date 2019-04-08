@@ -10,5 +10,3 @@ if dein#tap('vim-quickrun')
         \ 'exec'      : '%c %o %a %s',
         \ }
 endif
-
-noremap ``` :InlineEdit<CR>
