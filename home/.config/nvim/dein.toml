@@ -8,6 +8,21 @@ repo = 'Shougo/context_filetype.vim'
 repo = 'osyo-manga/vim-precious'
 depends = ['context_filetype.vim', 'vim-quickrun']
 
+[[plugins]]
+repo = 'autozimu/LanguageClient-neovim'
+branch = 'next'
+build = 'bash install.sh'
+hook_add = '''
+let g:LanguageClient_serverCommands = {
+    \ 'swift': ['~/.bin/sourcekit-lsp'],
+    \ }
+nnoremap <buffer> <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <buffer> <silent> gd :call LanguageClient#textDocument_definition()<CR>
+autocmd User LanguageClientStarted setlocal signcolumn=yes
+autocmd User LanguageClientStopped setlocal signcolumn=auto
+let g:LanguageClient_useVirtualText = 0
+'''
+
 # for Ruby
 [[plugins]]
 repo = 'tpope/vim-bundler'
