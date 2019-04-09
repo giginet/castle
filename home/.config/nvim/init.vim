@@ -78,8 +78,8 @@ if dein#load_state('~/.cache/dein')
 
   call dein#add('Shougo/dein.vim')
 
-  call dein#load_toml('~/.config/nvim/nonlazy.toml')
-  call dein#load_toml('~/.config/nvim/dein.toml', {'lazy': 1})
+  call dein#load_toml('~/.config/nvim/dein.toml')
+  call dein#load_toml('~/.config/nvim/dein_lazy.toml', {'lazy': 1})
 
   call dein#end()
   call dein#save_state()
