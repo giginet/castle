@@ -84,6 +84,7 @@ function git-root() {
 # Environment Variable Settings
 export PATH=/usr/local/bin:$PATH
 export EDITOR=$(brew --prefix)/bin/nvim
+PATH=$HOME/.bin:$PATH
 
 export CLICOLOR=1
 export LSCOLORS=DxGxcxdxCxegedabagacad

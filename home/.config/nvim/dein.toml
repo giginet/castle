@@ -13,9 +13,11 @@ repo = 'autozimu/LanguageClient-neovim'
 branch = 'next'
 build = 'bash install.sh'
 hook_add = '''
-let g:LanguageClient_serverCommands = {
-    \ 'swift': ['~/.bin/sourcekit-lsp'],
-    \ }
+if executable('sourcekit-lsp')
+  let g:LanguageClient_serverCommands = {
+        \ 'swift': ['~/.bin/sourcekit-lsp'],
+        \ }
+endif
 nnoremap <buffer> <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <buffer> <silent> gd :call LanguageClient#textDocument_definition()<CR>
 autocmd User LanguageClientStarted setlocal signcolumn=yes
