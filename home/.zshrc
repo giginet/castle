@@ -212,6 +212,11 @@ function highlight() {
   echo "Your clipboard is highlighted ✨"
 }
 
+# Mint
+export MINT_PATH=$HOME/.mint
+export MINT_LINK_PATH=$HOME/.mint/bin
+export PATH=$PATH:$MINT_LINK_PATH
+
 # Compile zshrc
 if [ ~/.zshrc -nt ~/.zshrc.zwc ]; then
   zcompile ~/.zshrc
