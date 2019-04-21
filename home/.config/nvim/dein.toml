@@ -73,3 +73,7 @@ repo = 'compnerd/modulemap-vim'
 # for xcconfig
 [[plugins]]
 repo = 'keith/xcconfig.vim'
+
+# for Rust
+[[plugins]]
+repo = 'rust-lang/rust.vim'
