@@ -42,8 +42,6 @@
 	path = ~/.gitconfig.local
 [rerere]
 	enabled = true
-[url "git@github.com:"]
-	insteadOf = "https://github.com/"
 [includeIf "gitdir:~/.ghq/github.com/"]
 	path = ~/.gitconfig.public
 [includeIf "gitdir:~/.ghq/github.com/cookpad/"]
