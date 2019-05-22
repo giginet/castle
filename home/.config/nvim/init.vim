@@ -114,3 +114,6 @@ map <up> <nop>
 map <down> <nop>
 map <left> <nop>
 map <right> <nop>
+
+noremap <C-j> <C-u>
+noremap <C-k> <C-d>
