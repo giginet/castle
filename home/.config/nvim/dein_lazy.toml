@@ -19,7 +19,12 @@ hook_add = '''
         \ 'args'      : 'Marked\ 2',
         \ 'exec'      : '%c %o %a %s',
         \ }
-  let g:quickrun_config.swift = {'exec' : '/usr/bin/xcrun swift %s'}
+  let g:quickrun_config.swift = {
+        \ 'exec' : '/usr/bin/xcrun swift %s'
+        \ }
+  let g:quickrun_config.rust = {
+        \ 'exec' : 'cargo run'
+        \ }
   silent! nmap <unique> <C-x><C-x> <Plug>(quickrun)
 '''
 
