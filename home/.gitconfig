@@ -14,7 +14,6 @@
 	excludesfile = ~/.gitignore
 	quotepath = false
 	editor = nvim
-	commentchar = :
 [pull]
 	rebase = true
 [alias]
