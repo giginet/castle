@@ -109,6 +109,9 @@ if filereadable($HOME.'/.vimrc_local')
   source $HOME/.vimrc_local
 endif
 
+autocmd TermOpen * setlocal norelativenumber
+autocmd TermOpen * setlocal nonumber
+
 "Disable Arrow keys
 map <up> <nop>
 map <down> <nop>
