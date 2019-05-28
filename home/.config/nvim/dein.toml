@@ -17,11 +17,16 @@ let g:LanguageClient_serverCommands = {
       \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
       \ 'swift': ['~/.bin/sourcekit-lsp'],
       \ }
+let g:LanguageClient_diagnosticsDisplay = {
+  \1: {'name': 'Error', 'texthl': 'ALEError', 'signText': 'X', 'signTexthl': 'ALEErrorSign',},
+  \2: {'name': 'Warning', 'texthl': 'ALEWarning', 'signText': '!', 'signTexthl': 'ALEWarningSign',},
+  \3: {'name': 'Information', 'texthl': 'ALEInfo', 'signText': 'i', 'signTexthl': 'ALEInfoSign',},
+  \4: {'name': 'Hint', 'texthl': 'ALEInfo', 'signText': '>', 'signTexthl': 'ALEInfoSign',},
+\}
 nnoremap <buffer> <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <buffer> <silent> gd :call LanguageClient#textDocument_definition()<CR>
 autocmd User LanguageClientStarted setlocal signcolumn=yes
 autocmd User LanguageClientStopped setlocal signcolumn=auto
-let g:LanguageClient_useVirtualText = 0
 '''
 
 # for Ruby
