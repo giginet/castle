@@ -22,6 +22,9 @@ hook_add = '''
   let g:quickrun_config.swift = {
         \ 'exec' : '/usr/bin/xcrun swift %s'
         \ }
+  let g:quickrun_config.plantuml = {
+        \ 'exec' : 'plantuml %s'
+        \ }
   let g:quickrun_config.rust = {
         \ 'exec' : 'cargo run'
         \ }

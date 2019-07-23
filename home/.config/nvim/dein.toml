@@ -81,3 +81,7 @@ repo = 'keith/xcconfig.vim'
 # for Rust
 [[plugins]]
 repo = 'rust-lang/rust.vim'
+
+# for PlantUML
+[[plugins]]
+repo = 'aklt/plantuml-syntax'
