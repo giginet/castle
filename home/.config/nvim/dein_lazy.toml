@@ -23,7 +23,10 @@ hook_add = '''
         \ 'exec' : '/usr/bin/xcrun swift %s'
         \ }
   let g:quickrun_config.plantuml = {
-        \ 'exec' : 'plantuml %s'
+        \ 'outputter' : 'null',
+        \ 'cmdopt'    : '-tpng',
+        \ 'command'   : 'plantuml',
+        \ 'exec'      : '%c %o %s; open *.png',
         \ }
   let g:quickrun_config.rust = {
         \ 'exec' : 'cargo run'
