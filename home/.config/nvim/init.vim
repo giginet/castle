@@ -74,12 +74,16 @@ endif
 
 set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 if dein#load_state('~/.cache/dein')
-  call dein#begin('~/.cache/dein')
+  let config_base = expand('$HOME') . '/.config/nvim/'
+  call dein#begin(
+        \ '~/.cache/dein', 
+        \ [config_base . 'dein.toml', config_base . 'dein_lazy.toml']
+        \)
 
   call dein#add('Shougo/dein.vim')
 
-  call dein#load_toml('~/.config/nvim/dein.toml')
-  call dein#load_toml('~/.config/nvim/dein_lazy.toml', {'lazy': 1})
+  call dein#load_toml(config_base . 'dein.toml')
+  call dein#load_toml(config_base . 'dein_lazy.toml', {'lazy': 1})
 
   call dein#end()
   call dein#save_state()
