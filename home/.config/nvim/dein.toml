@@ -85,3 +85,7 @@ repo = 'rust-lang/rust.vim'
 # for PlantUML
 [[plugins]]
 repo = 'aklt/plantuml-syntax'
+
+# for Jinja2
+[[plugins]]
+repo = 'Glench/Vim-Jinja2-Syntax'
