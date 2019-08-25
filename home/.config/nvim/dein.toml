@@ -9,25 +9,45 @@ repo = 'osyo-manga/vim-precious'
 depends = ['context_filetype.vim', 'vim-quickrun']
 
 [[plugins]]
-repo = 'autozimu/LanguageClient-neovim'
-branch = 'next'
-build = 'bash install.sh'
+repo = 'prabirshrestha/async.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/vim-lsp'
 hook_add = '''
-let g:LanguageClient_serverCommands = {
-      \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-      \ 'swift': ['~/.bin/sourcekit-lsp'],
-      \ }
-let g:LanguageClient_diagnosticsDisplay = {
-  \1: {'name': 'Error', 'texthl': 'ALEError', 'signText': '!', 'signTexthl': 'ALEErrorSign',},
-  \2: {'name': 'Warning', 'texthl': 'ALEWarning', 'signText': 'W', 'signTexthl': 'ALEWarningSign',},
-  \3: {'name': 'Information', 'texthl': 'ALEInfo', 'signText': 'i', 'signTexthl': 'ALEInfoSign',},
-  \4: {'name': 'Hint', 'texthl': 'ALEInfo', 'signText': '>', 'signTexthl': 'ALEInfoSign',},
-\}
-nnoremap <buffer> <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <buffer> <silent> gd :call LanguageClient#textDocument_definition()<CR>
-autocmd User LanguageClientStarted setlocal signcolumn=yes
-autocmd User LanguageClientStopped setlocal signcolumn=auto
+let g:lsp_signs_enabled = 1
+let g:lsp_diagnostics_echo_cursor = 1
+let g:lsp_signs_error = {'text': '✗'}
+let g:lsp_signs_warning = {'text': '‼'}
+let g:lsp_signs_hint = {'text': 'i'}
+" let g:lsp_virtual_text_enabled = 0
+" For Rust language server
+if (executable('rustup'))
+  augroup LspRust
+    autocmd!
+    autocmd User lsp_setup call lsp#register_server({
+          \ 'name': 'rust',
+          \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
+          \ 'whitelist': ['rust'],
+          \ })
+  augroup END
+endif
+
+" For Swift language server
+if (executable('sourcekit-lsp'))
+  augroup LspSwift
+    autocmd!
+    autocmd User lsp_setup call lsp#register_server({
+          \ 'name': 'swift',
+          \ 'cmd': {server_info->['sourcekit-lsp']},
+          \ 'whitelist': ['swift'],
+          \ })
+  augroup END
+endif
 '''
+
+[[plugins]]
+repo = 'lighttiger2505/deoplete-vim-lsp'
+depends = ['deoplete.nvim']
 
 # for Ruby
 [[plugins]]
