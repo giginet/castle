@@ -132,6 +132,7 @@ if [ -f $HOME/.zplug/init.zsh ]; then
   zplug "glidenote/hub-zsh-completion"
   zplug "dracula/zsh", as:theme
   zplug "giginet/swift-toolchain-manager", lazy:true, use:'bin/stm', as:command
+  zplug "giginet/xcode-opener", lazy:true, use:'bin/xcopen', as:command
 
   if [ $ENABLE_ZPLUG_CHECKING = 1 ] ; then 
     if ! zplug check --verbose; then
