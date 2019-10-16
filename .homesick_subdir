@@ -2,3 +2,4 @@
 .config
 .fonts
 .cache
+.zsh

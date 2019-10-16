@@ -119,35 +119,7 @@ then
   exit;
 fi
 
-# zplug
-# When zplug checking is disabled
-# You have to execute `zplug install && zplug load` manually
-ENABLE_ZPLUG_CHECKING=0
-if [ -f $HOME/.zplug/init.zsh ]; then
-  source $HOME/.zplug/init.zsh
-
-  zplug "zsh-users/zsh-syntax-highlighting", defer:2
-  zplug "giginet/peco-anyenv"
-  zplug "simonwhitaker/gibo", lazy:true, use:'gibo', as:command
-  zplug "glidenote/hub-zsh-completion"
-  zplug "dracula/zsh", as:theme
-  zplug "giginet/swift-toolchain-manager", lazy:true, use:'bin/stm', as:command
-  zplug "giginet/xcode-opener", lazy:true, use:'bin/xcopen', as:command
-
-  if [ $ENABLE_ZPLUG_CHECKING = 1 ] ; then 
-    if ! zplug check --verbose; then
-      printf "Install? [y/N]: "
-      if read -q; then
-        echo; zplug install
-      fi
-    fi
-  fi
-
-  zplug load
-else
-  echo 'zplug is not installed'
-  echo "Execute 'curl -sL zplug.sh/installer | zsh'"
-fi
+source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Autojump settings
 [ -f `brew --prefix`/etc/profile.d/autojump.sh ] && . `brew --prefix`/etc/profile.d/autojump.sh
@@ -169,10 +141,6 @@ zle -N showGitHub
 bindkey '^g' showGitHub
 
 fpath=(/usr/local/share/zsh/site-functions/ ${fpath})
-# Run compinit if zplug comp file hasn't load
-if (( ! $+functions[_zplug] )); then
-  compinit
-fi
 
 # Settings for homeshick
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
@@ -203,9 +171,18 @@ export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # dracula theme
+source $HOME/.zsh/dracula/dracula.zsh-theme
+ZSH_THEME="dracula"
 export ZSH_THEME_GIT_PROMPT_CLEAN=") %{$fg_bold[green]%}● "
 export ZSH_THEME_GIT_PROMPT_DIRTY=") %{$fg_bold[yellow]%}~ "
 export DRACULA_ARROW_ICON=""
+
+# gibo
+PATH=$PATH:$HOME/.zsh/gibo
+
+# My Tools
+source $HOME/.zsh/peco-anyenv/peco-anyenv.sh
+PATH=$PATH:$HOME/.zsh/swift-toolchain-manager/bin:$HOME/.zsh/xcode-opener/bin
 
 function highlight() { 
   pbpaste | pygmentize -l $1 -O style=monokai -f rtf | pbcopy 
@@ -218,6 +195,6 @@ export MINT_LINK_PATH=$HOME/.mint/bin
 export PATH=$PATH:$MINT_LINK_PATH
 
 # Compile zshrc
-if [ ~/.zshrc -nt ~/.zshrc.zwc ]; then
-  zcompile ~/.zshrc
+if [ $HOME/.zshrc -nt ~/.zshrc.zwc ]; then
+  zcompile $HOME/.zshrc
 fi

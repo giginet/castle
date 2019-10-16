@@ -1,3 +1,18 @@
-[submodule "home/.zplug"]
-	path = home/.zplug
-	url = git@github.com:zplug/zplug.git
+[submodule "home/.zsh/zsh-syntax-highlighting"]
+	path = home/.zsh/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule "home/.zsh/dracula"]
+	path = home/.zsh/dracula
+	url = https://github.com/dracula/zsh.git
+[submodule "home/.zsh/gibo"]
+	path = home/.zsh/gibo
+	url = https://github.com/simonwhitaker/gibo.git
+[submodule "home/.zsh/peco-anyenv"]
+	path = home/.zsh/peco-anyenv
+	url = https://github.com/giginet/peco-anyenv
+[submodule "home/.zsh/xcode-opener"]
+	path = home/.zsh/xcode-opener
+	url = https://github.com/giginet/xcode-opener
+[submodule "home/.zsh/swift-toolchain-manager"]
+	path = home/.zsh/swift-toolchain-manager
+	url = https://github.com/giginet/swift-toolchain-manager.git
