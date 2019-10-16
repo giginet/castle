@@ -140,11 +140,12 @@ function showGitHub() { git browse }
 zle -N showGitHub
 bindkey '^g' showGitHub
 
-fpath=(/usr/local/share/zsh/site-functions/ ${fpath})
-
 # Settings for homeshick
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
-fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
+fpath=(`brew --prefix`/share/zsh/site-functions/
+  $HOME/.homesick/repos/homeshick/completions 
+  ${fpath})
+autoload -U compinit && compinit
 
 # Settings for go lang
 if [ -x "`which go`" ]; then
