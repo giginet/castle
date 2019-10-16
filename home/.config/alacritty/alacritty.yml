@@ -51,7 +51,7 @@ window:
   decorations: full
 
   # When true, alacritty starts maximized.
-  startup_mode: Fullscreen
+  startup_mode: SimpleFullscreen
 
 scrolling:
   # Maximum number of lines in the scrollback buffer.
