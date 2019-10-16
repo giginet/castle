@@ -64,7 +64,7 @@ unsetopt hist_expire_dups_first
 unsetopt hist_save_no_dups
 
 #auto ls
-function chpwd() { ls -a }
+function chpwd() { ls -a -G -l }
 
 # cd .. with ^^
 function cdup(){
@@ -84,9 +84,6 @@ export BREW_PREFIX=$(brew --prefix)
 export PATH=/usr/local/bin:$PATH
 export EDITOR=$BREW_PREFIX/bin/nvim
 PATH=$HOME/.bin:$PATH
-
-export CLICOLOR=1
-export LSCOLORS=DxGxcxdxCxegedabagacad
 export XDG_CONFIG_HOME=$HOME/.config
 
 # Color Settings
@@ -174,6 +171,8 @@ ZSH_THEME="dracula"
 export ZSH_THEME_GIT_PROMPT_CLEAN=") %{$fg_bold[green]%}● "
 export ZSH_THEME_GIT_PROMPT_DIRTY=") %{$fg_bold[yellow]%}~ "
 export DRACULA_ARROW_ICON=""
+export CLICOLOR=1
+export LSCOLORS=ExFxBxDxCxegedabagacad
 
 # gibo
 PATH=$PATH:$HOME/.zsh/gibo
@@ -196,3 +195,4 @@ export PATH=$PATH:$MINT_LINK_PATH
 if [ $HOME/.zshrc -nt ~/.zshrc.zwc ]; then
   zcompile $HOME/.zshrc
 fi
+
