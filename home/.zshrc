@@ -31,8 +31,6 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([%0-9]#)*=0=01;31
 ## 補完候補のカーソル選択を有効に
 zstyle ':completion:*:default' menu select=1
 setopt prompt_subst
-# Ignore completion on scp
-zstyle ':completion:*:complete:scp:*:files' command command -
 
 # Other Settings
 bindkey -v
@@ -82,8 +80,9 @@ function git-root() {
 }
 
 # Environment Variable Settings
+export BREW_PREFIX=$(brew --prefix)
 export PATH=/usr/local/bin:$PATH
-export EDITOR=$(brew --prefix)/bin/nvim
+export EDITOR=$BREW_PREFIX/bin/nvim
 PATH=$HOME/.bin:$PATH
 
 export CLICOLOR=1
@@ -120,7 +119,7 @@ fi
 source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Autojump settings
-[ -f `brew --prefix`/etc/profile.d/autojump.sh ] && . `brew --prefix`/etc/profile.d/autojump.sh
+[ -f $BREW_PREFIX/etc/profile.d/autojump.sh ] && . $BREW_PREFIX/etc/profile.d/autojump.sh
 
 # Setting for hub
 # hub alias -s zsh
@@ -140,7 +139,7 @@ bindkey '^g' showGitHub
 
 # Settings for homeshick
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
-fpath=(`brew --prefix`/share/zsh/site-functions/
+fpath=($BREW_PREFIX/share/zsh/site-functions/
   $HOME/.homesick/repos/homeshick/completions 
   ${fpath})
 autoload -U compinit && compinit
