@@ -107,6 +107,8 @@ if [[ -f ~/.nodebrew/nodebrew ]]; then
   export PATH=$HOME/.nodebrew/current/bin:$PATH
 fi
 
+export POWERLINE_ROOT=$HOME/.pyenv/versions/3.7.0/lib/python3.7/site-packages/powerline
+
 if [[ -z "$TMUX" ]]
 then
   tmux new-session;
