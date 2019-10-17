@@ -188,6 +188,9 @@ function highlight() {
   echo "Your clipboard is highlighted ✨"
 }
 
+# Alacritty
+PATH=$PATH:/Applications/Alacritty.app/Contents/MacOS
+
 # Mint
 export MINT_PATH=$HOME/.mint
 export MINT_LINK_PATH=$HOME/.mint/bin
