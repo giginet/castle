@@ -160,5 +160,5 @@ on_event = ['OpenGoogleTranslate']
 depends = 'open-browser.vim'
 hook_add = '''
   let g:opengoogletranslate#default_lang = 'ja'
-  noremap <C-t><C-t> :OpenGoogleTranslate --to=ja --from=en<CR>
+  noremap <C-t> :OpenGoogleTranslate --to=ja --from=en<CR>
 '''
