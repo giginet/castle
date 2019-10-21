@@ -70,13 +70,17 @@ on_map = ['<C-_><C-_>']
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 on_cmd = ['NERDTreeToggle']
+hook_add = '''
+let NERDTreeShowHidden=1
+let NERDTreeIgnore=['\.vim$', '\.git$', '\.DS_Store']
+'''
 
 [[plugins]]
 repo = 'iberianpig/tig-explorer.vim'
 depends = 'blose.vim'
 on_cmd = ['TigOpenCurrentFile', 'TigOpenProjectRootDir', 'TigGrep', 'TigGrepResume', 'TigBlame']
 hook_add = '''
-nnoremap <C-t>o :TigOpenProjectRootDir<CR>
+nnoremap <C-t> :TigOpenProjectRootDir<CR>
 nnoremap <C-t>l :TigOpenCurrentFile<CR>
 nnoremap <C-t>b :TigBlame<CR>
 nnoremap <C-t>g :TigGrep<CR>
