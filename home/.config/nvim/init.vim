@@ -103,12 +103,7 @@ nnoremap U :MundoToggle<CR>
 set undofile
 set undodir=~/.vim/undo
 
-"denite.nvim
-noremap <C-o> :Denite file_rec<CR>
-
 autocmd BufRead /tmp/crontab.* :set nobackup nowritebackup
-
-let g:deoplete#enable_at_startup = 1
 
 "Load local Settings
 if filereadable($HOME.'/.vimrc_local')
