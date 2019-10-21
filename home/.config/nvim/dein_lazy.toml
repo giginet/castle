@@ -72,6 +72,17 @@ repo = 'scrooloose/nerdtree'
 on_cmd = ['NERDTreeToggle']
 
 [[plugins]]
+repo = 'iberianpig/tig-explorer.vim'
+depends = 'blose.vim'
+on_cmd = ['TigOpenCurrentFile', 'TigOpenProjectRootDir', 'TigGrep', 'TigGrepResume', 'TigBlame']
+hook_add = '''
+nnoremap <C-t>o :TigOpenProjectRootDir<CR>
+nnoremap <C-t>l :TigOpenCurrentFile<CR>
+nnoremap <C-t>b :TigBlame<CR>
+nnoremap <C-t>g :TigGrep<CR>
+'''
+
+[[plugins]]
 repo = 'airblade/vim-gitgutter'
 on_i = 1
 
@@ -103,7 +114,7 @@ on_event = ['OpenGoogleTranslate']
 depends = ['open-browser.vim']
 hook_add = '''
   let g:opengoogletranslate#default_lang = 'ja'
-  noremap <C-t> :OpenGoogleTranslate --to=ja --from=en<CR>
+  noremap <C-t><C-t> :OpenGoogleTranslate --to=ja --from=en<CR>
 '''
 
 [[plugins]]

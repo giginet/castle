@@ -12,6 +12,9 @@ depends = ['context_filetype.vim', 'vim-quickrun']
 repo = 'prabirshrestha/async.vim'
 
 [[plugins]]
+repo = 'rbgrouleff/bclose.vim'
+
+[[plugins]]
 repo = 'prabirshrestha/vim-lsp'
 hook_add = '''
 let g:lsp_signs_enabled = 1
