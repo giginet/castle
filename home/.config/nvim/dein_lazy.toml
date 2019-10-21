@@ -90,8 +90,8 @@ repo = 'tyru/open-browser-github.vim'
 depends = 'open-browser.vim'
 on_cmd = ['OpenGithubFile', 'OpenGithubIssue', 'OpenGithubPullReq', 'OpenGithubProject']
 hook_add = '''
-nnoremap <C-g>o :OpenGithubFile<CR>
-vnoremap <C-g>o :'<,'>OpenGithubFile<CR>
+noremap <silent> <C-g>o :execute line(".") . "OpenGithubFile"<CR>
+vnoremap <silent> <C-g>o :'<,'>OpenGithubFile<CR>
 let g:openbrowser_github_always_use_commit_hash=0
 let g:openbrowser_github_url_exists_check="no"
 
