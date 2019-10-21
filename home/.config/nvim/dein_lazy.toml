@@ -86,6 +86,18 @@ call deoplete#disable()
 '''
 
 [[plugins]]
+repo = 'tyru/open-browser-github.vim'
+depends = 'open-browser.vim'
+on_cmd = ['OpenGithubFile', 'OpenGithubIssue', 'OpenGithubPullReq', 'OpenGithubProject']
+hook_add = '''
+nnoremap <C-g>o :OpenGithubFile<CR>
+vnoremap <C-g>o :'<,'>OpenGithubFile<CR>
+let g:openbrowser_github_always_use_commit_hash=0
+let g:openbrowser_github_url_exists_check="no"
+
+'''
+
+[[plugins]]
 repo = "lambdalisue/vim-gista"
 on_cmd = ['Gista']
 on_map = ['<Plug>(gista-']
@@ -110,10 +122,10 @@ repo = 'iberianpig/tig-explorer.vim'
 depends = 'blose.vim'
 on_cmd = ['TigOpenCurrentFile', 'TigOpenProjectRootDir', 'TigGrep', 'TigGrepResume', 'TigBlame']
 hook_add = '''
-nnoremap <C-t> :TigOpenProjectRootDir<CR>
-nnoremap <C-t>l :TigOpenCurrentFile<CR>
-nnoremap <C-t>b :TigBlame<CR>
-nnoremap <C-t>g :TigGrep<CR>
+nnoremap <C-g> :TigOpenProjectRootDir<CR>
+nnoremap <C-g>l :TigOpenCurrentFile<CR>
+nnoremap <C-g>b :TigBlame<CR>
+nnoremap <C-g>g :TigGrep<CR>
 '''
 
 [[plugins]]
@@ -145,7 +157,7 @@ hook_post_source = '''
 [[plugins]]
 repo = 'haya14busa/vim-open-googletranslate'
 on_event = ['OpenGoogleTranslate']
-depends = ['open-browser.vim']
+depends = 'open-browser.vim'
 hook_add = '''
   let g:opengoogletranslate#default_lang = 'ja'
   noremap <C-t><C-t> :OpenGoogleTranslate --to=ja --from=en<CR>
