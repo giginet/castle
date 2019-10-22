@@ -80,8 +80,8 @@ function git-root() {
 }
 
 # Environment Variable Settings
-export BREW_PREFIX=$(brew --prefix)
 export PATH=/usr/local/bin:$PATH
+export BREW_PREFIX=$(brew --prefix)
 export EDITOR=$BREW_PREFIX/bin/nvim
 PATH=$HOME/.bin:$PATH
 export XDG_CONFIG_HOME=$HOME/.config
