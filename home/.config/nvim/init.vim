@@ -105,6 +105,8 @@ set undodir=~/.vim/undo
 
 autocmd BufRead /tmp/crontab.* :set nobackup nowritebackup
 
+let g:deoplete#enable_at_startup = 1
+
 "Load local Settings
 if filereadable($HOME.'/.vimrc_local')
   source $HOME/.vimrc_local
