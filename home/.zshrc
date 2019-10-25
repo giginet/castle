@@ -140,6 +140,7 @@ bindkey '^g' showGitHub
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 fpath=($BREW_PREFIX/share/zsh/site-functions/
   $HOME/.homesick/repos/homeshick/completions 
+  $HOME/.zsh/shell-completions
   ${fpath})
 autoload -U compinit && compinit
 
