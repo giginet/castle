@@ -84,7 +84,7 @@ repo = 'scrooloose/nerdtree'
 on_cmd = ['NERDTreeToggle']
 hook_add = '''
 let NERDTreeShowHidden=1
-let NERDTreeIgnore=['\.vim$', '\.git$', '\.DS_Store']
+let NERDTreeIgnore=['\.vim$', '\.git$', '\.DS_Store', '\.idea', '\.build']
 '''
 
 [[plugins]]
