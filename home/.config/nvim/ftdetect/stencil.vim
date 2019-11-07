@@ -1,1 +1,1 @@
-au BufRead,BufNewFile *.stencil set ft=swift syntax=swift
+au BufRead,BufNewFile *.stencil set syntax=swift

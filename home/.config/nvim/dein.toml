@@ -44,6 +44,7 @@ if (executable('sourcekit-lsp'))
           \ 'name': 'swift',
           \ 'cmd': {server_info->['sourcekit-lsp']},
           \ 'whitelist': ['swift'],
+          \ 'blacklist': ['stencil'],
           \ })
   augroup END
 endif
