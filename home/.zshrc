@@ -79,6 +79,10 @@ function git-root() {
   cd `git rev-parse --show-toplevel`
 }
 
+function mdopen() {
+  open -a "Marked 2.app" $@
+}
+
 # Environment Variable Settings
 export PATH=/usr/local/bin:$PATH
 export BREW_PREFIX=$(brew --prefix)
