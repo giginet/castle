@@ -20,7 +20,7 @@
 	br = branch --sort=-committerdate
 	st = !"tig status"
 	ci = commit
-	co = checkout
+	co = checkout --recurse-submodules
 	cp = cherry-pick
 	discard = reset --hard HEAD
 	sw = switch -c
