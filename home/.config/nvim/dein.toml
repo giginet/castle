@@ -111,3 +111,6 @@ repo = 'aklt/plantuml-syntax'
 # for Jinja2
 [[plugins]]
 repo = 'Glench/Vim-Jinja2-Syntax'
+
+# for yaml
+repo = 'stephpy/vim-yaml'
