@@ -193,6 +193,10 @@ function highlight() {
   echo "Your clipboard is highlighted ✨"
 }
 
+function pingen() {
+  ruby -e 'puts 4.times.map { (0...10).to_a.sample.to_s }.join'
+}
+
 # Alacritty
 PATH=$PATH:/Applications/Alacritty.app/Contents/MacOS
 
