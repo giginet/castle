@@ -39,6 +39,8 @@
 	protocol = ssh
 [ghi]
 	token = !security find-internet-password -a giginet -s github.com -l 'ghi token' -w
+[ghq]
+	root = ~/.ghq
 [include]
 	path = ~/.gitconfig.local
 [rerere]
@@ -46,7 +48,7 @@
 [url "git@github.com:"]
 	pushinsteadof = "https://github.com/"
 	pushinsteadof = "git://github.com/"
-# [includeIf "gitdir:~/.ghq/github.com/"]
-# 	path = ~/.gitconfig.public
-# [includeIf "gitdir:~/.ghq/github.com/cookpad/"]
-# 	path = ~/.gitconfig.work
+[includeIf "gitdir:~/.ghq/github.com/"]
+	path = ~/.gitconfig.public
+[includeIf "gitdir:~/.ghq/github.com/cookpad/"]
+	path = ~/.gitconfig.work
