@@ -43,7 +43,7 @@ on_i = 1
 if = '''has('nvim')'''
 hook_source = '''
   let g:deoplete#enable_at_startup = 1
-  let g:deoplete#enable_smart_case = 1
+  call deoplete#custom#option('smart_case', v:true)
   set completeopt+=noinsert
 '''
 
@@ -113,4 +113,5 @@ repo = 'aklt/plantuml-syntax'
 repo = 'Glench/Vim-Jinja2-Syntax'
 
 # for yaml
+[[plugins]]
 repo = 'stephpy/vim-yaml'
