@@ -129,6 +129,11 @@ if type compdef >/dev/null; then
    compdef hub=git
 fi
 
+# gh completion
+if [ -x "`which gh`" ]; then
+  eval "$(gh completion -s zsh)"
+fi
+
 # Show current directory on Finder
 function showFinder() { open -R `pwd` }
 zle -N showFinder
