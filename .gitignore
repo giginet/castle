@@ -63,3 +63,4 @@ docs/_build/
 home/.vim/.init.vim-rplugin~
 !home/.cache/dein/repos/github.com/Shougo/dein.vim
 .zshrc.zwc
+home/.config/gh/hosts.yml
