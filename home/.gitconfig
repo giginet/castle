@@ -24,19 +24,17 @@
 	cp = cherry-pick
 	discard = reset --hard HEAD
 	sw = switch -c
+	fork = !"gh repo fork"
 	pbcopy = !printf "$1" | pbcopy
+	browse = !"gh repo view -w"
 	delete-merged = !"git branch --merged | grep -v '*' | xargs -I % git branch -d %"
-	search-pr = "!f() { hub browse -- `git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request #' | head -n 1 | cut -f5 -d' ' | sed -e 's%#%pull/%'`; }; f"
+	search-pr = "!f() { gh pr view -w `git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request #' | head -n 1 | cut -f5 -d' ' | sed -e 's%#%%'`; }; f"
 	force-push = "push --force-with-lease"
 	pretty-log = !"git log --oneline -n 100 | emojify"
 	gsub = !"f() { git grep -l \"$1\" | xargs sed -i '' -e \"s/$1/$2/g\"; }; f"
-	browse-pr = !"f() { hub browse -- \"pull/`git rev-parse --abbrev-ref HEAD`\"; }; f"
-	# .tigrc can't treat `#`.
-	browse-from-tig = !"f() { hub browse -- \"blob/${3:-master}/$1#L$2\"; }; f"
+	browse-pr = !"gh pr view -w"
 [github]
 	user = giginet
-[hub]
-	protocol = ssh
 [ghi]
 	token = !security find-internet-password -a giginet -s github.com -l 'ghi token' -w
 [ghq]
