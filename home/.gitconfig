@@ -50,3 +50,5 @@
 	path = ~/.gitconfig.public
 [includeIf "gitdir:~/.ghq/github.com/[Cc]ookpad/"]
 	path = ~/.gitconfig.work
+[init]
+	defaultBranch = main
