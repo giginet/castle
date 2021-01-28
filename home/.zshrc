@@ -122,6 +122,13 @@ source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Autojump settings
 [ -f $BREW_PREFIX/etc/profile.d/autojump.sh ] && . $BREW_PREFIX/etc/profile.d/autojump.sh
 
+# Setting for hub
+# hub alias -s zsh
+alias git=hub
+if type compdef >/dev/null; then
+   compdef hub=git
+fi
+
 # gh completion
 if [ -x "`which gh`" ]; then
   eval "$(gh completion -s zsh)"
