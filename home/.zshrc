@@ -85,7 +85,10 @@ function mdopen() {
 
 # Environment Variable Settings
 export PATH=/usr/local/bin:$PATH
-export BREW_PREFIX=$(brew --prefix)
+
+if [ -x "`which brew`" ]; then
+  export BREW_PREFIX=$(brew --prefix)
+fi
 export EDITOR=$BREW_PREFIX/bin/nvim
 PATH=$HOME/.bin:$PATH
 export XDG_CONFIG_HOME=$HOME/.config
@@ -124,9 +127,11 @@ source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Setting for hub
 # hub alias -s zsh
-alias git=hub
-if type compdef >/dev/null; then
-   compdef hub=git
+if [ -x "`which hub`" ]; then
+  alias git=hub
+  if type compdef >/dev/null; then
+     compdef hub=git
+  fi
 fi
 
 # gh completion
@@ -163,7 +168,9 @@ fi
 [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
 # direnv
-eval "$(direnv hook zsh)"
+if [ -x "`which direnv`" ]; then
+  eval "$(direnv hook zsh)"
+fi
 
 # Load peco functions
 [ -f ~/.peco-functions.zsh ] && source ~/.peco-functions.zsh
