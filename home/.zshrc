@@ -123,7 +123,12 @@ fi
 source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Autojump settings
-[ -f $BREW_PREFIX/etc/profile.d/autojump.sh ] && . $BREW_PREFIX/etc/profile.d/autojump.sh
+AUTOJUMP_ROOT=$HOME/.autojump
+if [ -e $AUTOJUMP_ROOT/etc/profile.d/autojump.sh ]; then
+  [ -f $AUTOJUMP_ROOT/etc/profile.d/autojump.sh ] && . $AUTOJUMP_ROOT/etc/profile.d/autojump.sh
+elif [ -e $BREW_PREFIX/etc/profile.d/autojump.sh ]; then
+  [ -f $BREW_PREFIX/etc/profile.d/autojump.sh ] && . $BREW_PREFIX/etc/profile.d/autojump.sh
+fi
 
 # Setting for hub
 # hub alias -s zsh
