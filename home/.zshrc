@@ -145,7 +145,7 @@ if [ -x "`which gh`" ]; then
 fi
 
 # Show current directory on Finder
-function showFinder() { open -R `pwd` }
+function showFinder() { open -R "`pwd`" }
 zle -N showFinder
 bindkey '^f' showFinder
 
