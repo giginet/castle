@@ -26,16 +26,16 @@ window:
   # Specified in number of pixels.
   # If the position is not set, the window manager will handle the placement.
   position:
-   x: 0
-   y: 0
+   x: 128
+   y: 128
 
   # Window padding (changes require restart)
   #
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-   x: 0
-   y: 0
+   x: 2
+   y: 16
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: false
