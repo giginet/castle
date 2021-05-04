@@ -101,6 +101,11 @@ alias ls="ls -a -G -l"
 alias rm="rm -i"
 alias vim=nvim
 
+# Homebrew
+if [[ -e "/opt/homebrew/bin/brew" ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
 #for Python Development
 PYENV_ROOT=$HOME/.pyenv
 PATH=$PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH
@@ -114,7 +119,7 @@ if [[ -f ~/.nodebrew/nodebrew ]]; then
   export PATH=$HOME/.nodebrew/current/bin:$PATH
 fi
 
-if [[ -z "$TMUX" ]]
+if [[ -z "$TMUX" ]] && [[ -x `which tmux` ]]
 then
   tmux new-session;
   exit;
