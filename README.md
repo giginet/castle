@@ -6,14 +6,14 @@
 $ git clone git://github.com/andsens/homeshick.git $HOME/.homesick/repos/homeshick
 ```
 
-## clone my castle
+## Clone my castle
 
 ```shell
-$ homeshick clone giginet/castle
+$ homeshick clone https://github.com/giginet/castle.git
 ```
 
-## symlink to all dotfiles
+## Symlink to all dotfiles
 
 ```shell
-$ homeshick symlink castle
+$ bash ~/.homesick/repos/homeshick/bin/homeshick symlink castle
 ```
