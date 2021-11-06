@@ -115,9 +115,8 @@ PATH=$HOME/.rbenv/bin:$PATH
 PATH=$HOME/.rbenv/shims:$PATH # Add rbenv to PATH
 
 #for Node Development
-if [[ -f ~/.nodebrew/nodebrew ]]; then
-  export PATH=$HOME/.nodebrew/current/bin:$PATH
-fi
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
 
 if [[ -z "$TMUX" ]] && [[ -x `which tmux` ]]
 then
@@ -229,4 +228,3 @@ export PATH=$PATH:$MINT_LINK_PATH
 if [ $HOME/.zshrc -nt ~/.zshrc.zwc ]; then
   zcompile $HOME/.zshrc
 fi
-
