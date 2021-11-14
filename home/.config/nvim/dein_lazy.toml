@@ -68,14 +68,6 @@ let g:openbrowser_github_url_exists_check="no"
 '''
 
 [[plugins]]
-repo = "lambdalisue/vim-gista"
-on_cmd = ['Gista']
-on_map = ['<Plug>(gista-']
-hook_add = '''
-  let g:gista#client#use_git_config_github_username = 1
-'''
-
-[[plugins]]
 repo = 'vim-scripts/tComment'
 on_map = ['<C-_><C-_>']
 
