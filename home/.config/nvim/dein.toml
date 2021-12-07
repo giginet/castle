@@ -61,9 +61,6 @@ repo = 'keith/swift.vim'
 hook_source = '''
   let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
 '''
-[[plugins]]
-repo = 'apple/swift'
-rtp = 'utils/vim'
 
 # for Groovy
 [[plugins]]
