@@ -228,3 +228,10 @@ export PATH=$PATH:$MINT_LINK_PATH
 if [ $HOME/.zshrc -nt ~/.zshrc.zwc ]; then
   zcompile $HOME/.zshrc
 fi
+
+# 1Password Integration
+# https://developer.1password.com/docs/ssh
+ONE_PASSWORD_AGENT=$HOME/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+if [ -e "$ONE_PASSWORD_AGENT" ]; then;
+  export SSH_AUTH_SOCK=$ONE_PASSWORD_AGENT
+fi
