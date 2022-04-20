@@ -1,3 +1,6 @@
+# Fig pre block. Keep at the top of this file.
+. "$HOME/.fig/shell/zshrc.pre.zsh"
+
 # Load Local Settings
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
@@ -235,3 +238,6 @@ ONE_PASSWORD_AGENT=$HOME/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/ag
 if [ -e "$ONE_PASSWORD_AGENT" ]; then;
   export SSH_AUTH_SOCK=$ONE_PASSWORD_AGENT
 fi
+
+# Fig post block. Keep at the bottom of this file.
+. "$HOME/.fig/shell/zshrc.post.zsh"
