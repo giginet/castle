@@ -15,12 +15,6 @@ if exists peco; then
   zle -N phistory
   bindkey '^r' phistory
 
-  function pj() {
-    cd $(j -s | awk '{ print $2 }' | awk '/^\//' | peco)
-  }
-  zle -N pj
-  bindkey '^j' pj
-
   prake() { local task=$(rake -W | peco | cut -d " " -f 2); rake $task }
 
   function ppgrep() {
