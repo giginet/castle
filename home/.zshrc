@@ -1,5 +1,6 @@
+FIG_HOME=$HOME/.fig
 # Fig pre block. Keep at the top of this file.
-. "$HOME/.fig/shell/zshrc.pre.zsh"
+[ -e "$FIG_HOME" ] && . "$FIG_HOME/shell/zshrc.pre.zsh"
 
 # Load Local Settings
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
@@ -240,4 +241,4 @@ if [ -e "$ONE_PASSWORD_AGENT" ]; then;
 fi
 
 # Fig post block. Keep at the bottom of this file.
-. "$HOME/.fig/shell/zshrc.post.zsh"
+[ -e "$FIG_HOME" ] && . "$FIG_HOME/shell/zshrc.post.zsh"
