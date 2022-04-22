@@ -19,6 +19,13 @@ hook_add = '''
         \ 'args'      : 'Marked\ 2',
         \ 'exec'      : '%c %o %a %s',
         \ }
+  let g:quickrun_config['markdown.slide'] = {
+        \ 'outputter' : 'null',
+        \ 'command'   : 'open',
+        \ 'cmdopt'    : '-a',
+        \ 'args'      : 'Deckset',
+        \ 'exec'      : '%c %o %a %s',
+        \ }
   let g:quickrun_config.swift = {
         \ 'exec' : '/usr/bin/xcrun swift %s'
         \ }

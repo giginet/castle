@@ -121,5 +121,8 @@ map <down> <nop>
 map <left> <nop>
 map <right> <nop>
 
+"Set filetypes for slide
+au Bufread,BufNewFile /*/slide/*.md set filetype=markdown.slide
+
 noremap <C-j> <C-u>
 noremap <C-k> <C-d>
