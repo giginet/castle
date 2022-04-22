@@ -122,6 +122,10 @@ PATH=$HOME/.rbenv/shims:$PATH # Add rbenv to PATH
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 
+# for Deno
+export DENO_INSTALL="$HOME/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+
 if [[ -z "$TMUX" ]] && [[ -x `which tmux` ]]
 then
   tmux new-session;
