@@ -53,7 +53,25 @@ hook_add = '''
   let g:vim_markdown_folding_disabled = 1
 '''
 
-[[plugins]] 
+[[plugins]]
+repo = 'giginet/denops-deckset.vim'
+on_ft = ['md', 'markdown', 'markdown.slide']
+depends = ['denops.vim']
+hook_add = '''
+let g:deckset#show_slide_numbers=1
+let g:deckset#show_slide_count=1
+let g:deckset#autoscale=0
+let g:deckset#theme="Simple, 2"
+noremap <C-s>_ :InsertCodeHighlight<CR>
+'''
+hook_post_source = '''
+augroup DecksetConfiguration
+  autocmd!
+  au BufNewFile /*/slide/*.md :InsertConfiguration
+augroup END
+'''
+
+[[plugins]]
 repo = "Shougo/denite.nvim"
 on_cmd = ['Denite']
 hook_source = 'source ~/.config/nvim/userautoload/plugins/plugins-denite.vim'
@@ -131,7 +149,3 @@ hook_add = '''
   let g:opengoogletranslate#default_lang = 'ja'
   noremap <C-t> :OpenGoogleTranslate --to=ja --from=en<CR>
 '''
-
-[[plugins]]
-repo = 'tpope/vim-git'
-on_ft = ['git', 'gitcommit', 'gitconfig', 'gitrebase']

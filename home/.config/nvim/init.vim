@@ -91,6 +91,8 @@ endif
 filetype plugin indent on
 syntax enable
 
+autocmd VimEnter * call dein#call_hook('post_source')
+
 "Python support
 let g:python2_host_prog = expand('$HOME') . '/.pyenv/shims/python2'
 let g:python3_host_prog = expand('$HOME') . '/.pyenv/shims/python'

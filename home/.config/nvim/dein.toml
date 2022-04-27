@@ -38,6 +38,9 @@ endif
 '''
 
 [[plugins]]
+repo = 'vim-denops/denops.vim'
+
+[[plugins]]
 repo = 'Shougo/deoplete.nvim'
 on_i = 1
 if = '''has('nvim')'''
@@ -112,3 +115,7 @@ repo = 'Glench/Vim-Jinja2-Syntax'
 # for yaml
 [[plugins]]
 repo = 'stephpy/vim-yaml'
+
+[[plugins]]
+repo = 'tpope/vim-git'
+on_ft = ['git', 'gitcommit', 'gitconfig', 'gitrebase']
