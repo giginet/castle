@@ -41,6 +41,14 @@ hook_add = '''
   silent! nmap <unique> <C-x><C-x> <Plug>(quickrun)
 '''
 
+[[plugins]]
+repo = 'github/copilot.vim'
+hook_add = '''
+let b:copilot_enabled = v:false
+noremap <C-c><Tab> :Copilot<CR>
+'''
+on_cmd = 'Copilot'
+
 # for markdown
 [[plugins]]
 repo = 'godlygeek/tabular'
