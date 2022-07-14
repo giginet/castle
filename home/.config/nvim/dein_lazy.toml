@@ -44,7 +44,7 @@ hook_add = '''
 [[plugins]]
 repo = 'github/copilot.vim'
 hook_add = '''
-let b:copilot_enabled = v:false
+let b:copilot_enabled = v:true
 noremap <C-c><Tab> :Copilot<CR>
 '''
 on_cmd = 'Copilot'
