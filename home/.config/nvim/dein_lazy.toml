@@ -71,11 +71,12 @@ let g:deckset#show_slide_count=1
 let g:deckset#autoscale=0
 let g:deckset#theme="Simple, 2"
 noremap <C-s>_ :InsertCodeHighlight<CR>
+noremap <C-s>l :InsertLink<CR>
 '''
 hook_post_source = '''
 augroup DecksetConfiguration
   autocmd!
-  au BufNewFile /*/slide/*.md :InsertConfiguration
+  au BufNewFile /*/slides/*.md :InsertConfiguration<CR>
 augroup END
 '''
 
