@@ -49,7 +49,12 @@
 	pushinsteadof = "git://github.com/"
 [includeIf "gitdir:~/.ghq/github.com/"]
 	path = ~/.gitconfig.public
-[includeIf "gitdir:~/.ghq/github.com/[Cc]ookpad/"]
+[includeIf "gitdir:~/.ghq/github.com/line/"]
 	path = ~/.gitconfig.work
 [init]
 	defaultBranch = main
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
