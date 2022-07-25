@@ -49,6 +49,8 @@
 	pushinsteadof = "git://github.com/"
 [includeIf "gitdir:~/.ghq/github.com/"]
 	path = ~/.gitconfig.public
+[includeIf "gitdir:~/.homesick/repos/"]
+	path = ~/.gitconfig.public
 [includeIf "gitdir:~/.ghq/github.com/line/"]
 	path = ~/.gitconfig.work
 [init]
