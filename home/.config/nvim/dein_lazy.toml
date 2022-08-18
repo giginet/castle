@@ -102,7 +102,7 @@ let g:openbrowser_github_url_exists_check="no"
 '''
 
 [[plugins]]
-repo = 'vim-scripts/tComment'
+repo = 'tomtom/tcomment_vim'
 on_map = ['<C-_><C-_>']
 
 [[plugins]]
