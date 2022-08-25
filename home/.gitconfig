@@ -32,6 +32,8 @@
 	browse-pr = !"f() { hub browse -- \"pull/`git rev-parse --abbrev-ref HEAD`\"; }; f"
 	# .tigrc can't treat `#`.
 	browse-from-tig = !"f() { hub browse -- \"blob/${3:-master}/$1#L$2\"; }; f"
+[submodule]
+	recurse = true
 [github]
 	user = giginet
 [hub]
