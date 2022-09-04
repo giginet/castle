@@ -1,0 +1,4 @@
+{
+  "sourcekit.enable": true,
+  "sourcekit.commandPath": "$HOME/.bin/sourcekit-lsp"
+}
