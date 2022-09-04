@@ -1,7 +1,4 @@
 [[plugins]]
-repo = 'Shougo/dein.vim'
-
-[[plugins]]
 repo = 'Shougo/context_filetype.vim'
 
 [[plugins]]
