@@ -15,41 +15,6 @@ repo = 'prabirshrestha/async.vim'
 repo = 'rbgrouleff/bclose.vim'
 
 [[plugins]]
-repo = 'prabirshrestha/vim-lsp'
-hook_add = '''
-let g:lsp_signs_enabled = 1
-let g:lsp_diagnostics_echo_cursor = 1
-let g:lsp_signs_error = {'text': '✗'}
-let g:lsp_signs_warning = {'text': '‼'}
-let g:lsp_signs_hint = {'text': 'i'}
-noremap <C-i> :LspHover<CR>
-noremap <C-d> :LspDefinition<CR>
-" For Rust language server
-if (executable('rustup'))
-  augroup LspRust
-    autocmd!
-    autocmd User lsp_setup call lsp#register_server({
-          \ 'name': 'rust',
-          \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
-          \ 'whitelist': ['rust'],
-          \ })
-  augroup END
-endif
-
-if (executable('sourcekit-lsp'))
-  augroup LspSwift
-    autocmd!
-    autocmd User lsp_setup call lsp#register_server({
-          \ 'name': 'swift',
-          \ 'cmd': {server_info->['sourcekit-lsp']},
-          \ 'whitelist': ['swift'],
-          \ 'blacklist': ['stencil'],
-          \ })
-  augroup END
-endif
-'''
-
-[[plugins]]
 repo = 'vim-denops/denops.vim'
 
 [[plugins]]
@@ -61,10 +26,6 @@ hook_source = '''
   call deoplete#custom#option('smart_case', v:true)
   set completeopt+=noinsert
 '''
-
-[[plugins]]
-repo = 'lighttiger2505/deoplete-vim-lsp'
-depends = ['deoplete.nvim']
 
 # for Ruby
 [[plugins]]
