@@ -1,4 +1,5 @@
 {
   "sourcekit.enable": true,
-  "sourcekit.commandPath": "$HOME/.bin/sourcekit-lsp"
+  "sourcekit.commandPath": "$HOME/.bin/sourcekit-lsp",
+  "grammarly.showExamples": true
 }

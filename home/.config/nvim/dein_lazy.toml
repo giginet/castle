@@ -5,24 +5,6 @@ let g:dein#plugin.build = 'make'
 '''
 
 [[plugins]]
-repo = 'neoclide/coc.nvim'
-rev = 'release'
-on_i = 1
-hook_source = '''
-let g:coc_config_home = '$HOME/.config/nvim'
-let g:coc_global_extensions = [
-  \'coc-json',
-  \'coc-yaml',
-  \'coc-sourcekit',
-  \'coc-grammarly',
-  \'coc-markdownlint',
-  \'coc-solargraph',
-  \'coc-toml'
-  \]
-source $HOME/.config/nvim/coc.vim
-'''
-
-[[plugins]]
 repo = 'thinca/vim-quickrun'
 on_map = ['<Plug>(quickrun)']
 depends = ['vimproc.vim']

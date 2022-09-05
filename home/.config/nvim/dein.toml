@@ -24,6 +24,24 @@ hook_source = '''
   set completeopt+=noinsert
 '''
 
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+rev = 'release'
+hook_source = '''
+let g:coc_config_home = '$HOME/.config/nvim'
+let g:coc_global_extensions = [
+  \'coc-json',
+  \'coc-yaml',
+  \'coc-sourcekit',
+  \'coc-grammarly',
+  \'coc-markdownlint',
+  \'coc-solargraph',
+  \'coc-toml',
+  \'coc-sh'
+  \]
+source $HOME/.config/nvim/coc.vim
+'''
+
 # for Ruby
 [[plugins]]
 repo = 'tpope/vim-bundler'
