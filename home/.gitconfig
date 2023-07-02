@@ -13,6 +13,7 @@
 [core]
 	quotepath = false
 	editor = nvim
+	autocrlf = false
 [pull]
 	rebase = true
 [alias]
