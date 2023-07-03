@@ -57,3 +57,6 @@ fake-eggs
 
 # Python virtual env
 .venv/*
+
+# bazel-intelij
+.clwb
