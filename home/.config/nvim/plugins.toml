@@ -36,6 +36,7 @@ hook_source = '''
 [[plugins]]
 repo = 'neoclide/coc.nvim'
 rev = 'release'
+build = 'yarn install'
 hook_source = '''
 let g:coc_config_home = '$HOME/.config/nvim'
 let g:coc_global_extensions = [
@@ -119,9 +120,7 @@ on_ft = ['git', 'gitcommit', 'gitconfig', 'gitrebase']
 
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
-hook_post_update= '''
-let g:dein#plugin.build = 'make'
-'''
+build = 'make'
 
 [[plugins]]
 repo = 'thinca/vim-quickrun'
