@@ -70,7 +70,7 @@ augroup END
 let config_base = expand('$HOME') . '/.config/nvim/'
 call jetpack#begin()
 call jetpack#add("tani/vim-jetpack")
-call jetpack#load_toml(config_base . "dein.toml")
+call jetpack#load_toml(config_base . "plugins.toml")
 
 call jetpack#end()
 
