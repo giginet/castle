@@ -67,18 +67,12 @@ augroup MyAutoCmd
   autocmd!
 augroup END
 
-" Bootstrap dein.vim
-if &compatible
-  set nocompatible
-endif
-
 let config_base = expand('$HOME') . '/.config/nvim/'
 call jetpack#begin()
+call jetpack#add("tani/vim-jetpack")
 call jetpack#load_toml(config_base . "dein.toml")
 
 call jetpack#end()
-
-autocmd VimEnter * call dein#call_hook('post_source')
 
 "Python support
 let g:python2_host_prog = expand('$HOME') . '/.pyenv/shims/python2'
