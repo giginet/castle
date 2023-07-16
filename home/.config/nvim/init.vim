@@ -72,21 +72,11 @@ if &compatible
   set nocompatible
 endif
 
-set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
-if dein#load_state('~/.cache/dein')
-  let config_base = expand('$HOME') . '/.config/nvim/'
-  call dein#begin(
-        \ '~/.cache/dein', 
-        \ [config_base . 'dein.toml']
-        \)
+let config_base = expand('$HOME') . '/.config/nvim/'
+call jetpack#begin()
+call jetpack#load_toml(config_base . "dein.toml")
 
-  call dein#add('Shougo/dein.vim')
-
-  call dein#end()
-  call dein#save_state()
-endif
-filetype plugin indent on
-syntax enable
+call jetpack#end()
 
 autocmd VimEnter * call dein#call_hook('post_source')
 
