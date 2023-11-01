@@ -203,7 +203,6 @@ export ZSH_THEME_GIT_PROMPT_DIRTY=") %{$fg_bold[yellow]%}󱗜 "
 export DRACULA_ARROW_ICON="$ "
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
-export PROMPT="%(1V:%F{yellow}:%(?:%F{green}:%F{red}))%B$(dracula_arrow start)"
 
 # gibo
 PATH=$PATH:$HOME/.zsh/gibo
