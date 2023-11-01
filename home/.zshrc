@@ -200,7 +200,7 @@ source $HOME/.zsh/dracula/dracula.zsh-theme
 ZSH_THEME="dracula"
 export ZSH_THEME_GIT_PROMPT_CLEAN=") %{$fg_bold[green]%} "
 export ZSH_THEME_GIT_PROMPT_DIRTY=") %{$fg_bold[yellow]%}󱗜 "
-export DRACULA_ARROW_ICON="$ "
+export DRACULA_ARROW_ICON=""
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 
