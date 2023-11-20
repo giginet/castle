@@ -4,9 +4,6 @@
 [submodule "home/.zsh/dracula"]
 	path = home/.zsh/dracula
 	url = https://github.com/dracula/zsh.git
-[submodule "home/.zsh/gibo"]
-	path = home/.zsh/gibo
-	url = https://github.com/simonwhitaker/gibo.git
 [submodule "home/.zsh/peco-anyenv"]
 	path = home/.zsh/peco-anyenv
 	url = https://github.com/giginet/peco-anyenv

@@ -204,9 +204,6 @@ export DRACULA_ARROW_ICON=""
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 
-# gibo
-PATH=$PATH:$HOME/.zsh/gibo
-
 # My Tools
 source $HOME/.zsh/peco-anyenv/peco-anyenv.sh
 PATH=$PATH:$HOME/.zsh/swift-toolchain-manager/bin:$HOME/.zsh/xcode-opener/bin
