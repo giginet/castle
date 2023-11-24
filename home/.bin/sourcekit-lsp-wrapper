@@ -1,0 +1,6 @@
+#!/usr/bin/env bash -eou pipefail
+
+XCODE_PATH=$(/usr/bin/xcode-select -p)
+SOURCEKIT_PATH="${XCODE_PATH}/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp"
+
+exec $SOURCEKIT_PATH
