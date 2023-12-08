@@ -21,6 +21,9 @@ hook_add = '''
 '''
 hook_post_source = '''
   let b:copilot_enabled = v:true
+  let g:copilot_filetypes = {
+  \ 'env': v:false,
+  \ }
 '''
 
 [[plugins]]
