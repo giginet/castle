@@ -30,9 +30,10 @@
 	force-push = "push --force-with-lease"
 	pretty-log = !"git log --oneline -n 100 | emojify"
 	gsub = !"f() { git grep -l \"$1\" | xargs sed -i '' -e \"s/$1/$2/g\"; }; f"
-	browse-pr = !"f() { hub browse -- \"pull/`git rev-parse --abbrev-ref HEAD`\"; }; f"
+	browse = !"gh browse"
+	browse-pr = !"gh pr view --web"
 	# .tigrc can't treat `#`.
-	browse-from-tig = !"f() { hub browse -- \"blob/${3:-master}/$1#L$2\"; }; f"
+	browse-from-tig = !"f() { gh browse -- \"blob/${3:-master}/$1#L$2\"; }; f"
 	revive = !"f() { git log --oneline -1 --format=%h -- $1 | xargs -I{} git restore -s {}^ $1; }; f"
 [github]
 	user = giginet

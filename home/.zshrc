@@ -138,15 +138,6 @@ elif [ -e $BREW_PREFIX/etc/profile.d/autojump.sh ]; then
   [ -f $BREW_PREFIX/etc/profile.d/autojump.sh ] && . $BREW_PREFIX/etc/profile.d/autojump.sh
 fi
 
-# Setting for hub
-# hub alias -s zsh
-if [ -x "`which hub`" ]; then
-  alias git=hub
-  if type compdef >/dev/null; then
-     compdef hub=git
-  fi
-fi
-
 # gh completion
 if [ -x "`which gh`" ]; then
   eval "$(gh completion -s zsh)"
