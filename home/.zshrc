@@ -122,7 +122,7 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 export DENO_INSTALL="$HOME/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
-if [[ -z "$TMUX" ]] && [[ -x `which tmux` ]] && [[ -z "$INTELLIJ_ENVIRONMENT_READER" ]]
+if [[ -z "$TMUX" ]] && [[ -x `which tmux` ]] && [[ -n "$ENABLE_TMUX" ]]
 then
   tmux new-session;
   exit;
