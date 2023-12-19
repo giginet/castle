@@ -46,7 +46,6 @@ let g:coc_global_extensions = [
   \'coc-json',
   \'coc-yaml',
   \'coc-sourcekit',
-  \'coc-grammarly',
   \'coc-markdownlint',
   \'coc-solargraph',
   \'coc-toml',
