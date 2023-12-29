@@ -254,21 +254,9 @@ repo = 'simnalamburt/vim-mundo'
 on_i = 1
 
 [[plugins]]
-repo = 'tyru/open-browser.vim'
-on_i = 1
-
-[[plugins]]
 repo = 'dracula/vim'
 on_event = ['VimEnter']
 hook_post_source = '''
   color dracula
 '''
 
-[[plugins]]
-repo = 'haya14busa/vim-open-googletranslate'
-on_event = ['OpenGoogleTranslate']
-depends = 'open-browser.vim'
-hook_add = '''
-  let g:opengoogletranslate#default_lang = 'ja'
-  noremap <C-t> :OpenGoogleTranslate --to=ja --from=en<CR>
-'''
