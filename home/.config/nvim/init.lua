@@ -1,10 +1,12 @@
 require('utils')
 
+local home_dir = vim.fn.expand('$HOME')
+
 -- Setup Options
 local options = {
   cindent = true,
   cinoptions = "g0",
-  directory = "$HOME/.vimbackup",
+  directory = home_dir .. "/.vimbackup",
   smartindent = true,
   title = true,
   mouse = "a",
@@ -33,7 +35,7 @@ local options = {
   smartcase = true,
   --    grepprg = "grep\ -nH\ $*"
   undofile = true,
-  undodir = "$HOME/.vim/undo",
+  undodir = home_dir .. "/.vim/undo",
 }
 
 vim.opt.shortmess:append("c")
@@ -46,18 +48,18 @@ vim.opt.clipboard:append{'unnamedplus'}
 
 vim.api.nvim_set_var(
   'python2_host_prog',
-  vim.fn.expand('$HOME') .. '/.pyenv/shims/python2'
+  home_dir .. '/.pyenv/shims/python2'
 )
 vim.api.nvim_set_var(
   'python3_host_prog',
-  vim.fn.expand('$HOME') .. '/.pyenv/shims/python'
+  home_dir .. '/.pyenv/shims/python'
 )
 
--- Jetpack
+-- Install Plugins
 require('plugins')
 vim.cmd[[autocmd BufWritePost plugins.lua PackerCompile]]
 
--- Keymap
+-- Set keymaps
 noremap("<C-w>%", ":vsp<CR>")
 noremap("<C-w><Bar>", ":vsp<CR>")
 noremap("<C-w>\"", ":sp<CR>")

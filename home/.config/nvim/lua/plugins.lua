@@ -47,8 +47,8 @@ return require('packer').startup(function(use)
     branch = 'release',
     run = 'yarn install',
     config = function()
-      vim.api.nvim_set_var('coc_config_home', vim.fn.stdpath('config'))
-      vim.api.nvim_set_var('coc_global_extensions', {
+      vim.g.coc_config_home = vim.fn.stdpath('config')
+      vim.g.coc_global_extensions = {
         'coc-json',
         'coc-yaml',
         'coc-sourcekit',
@@ -56,7 +56,7 @@ return require('packer').startup(function(use)
         'coc-solargraph',
         'coc-toml',
         'coc-sh',
-      })
+      }
       vim.cmd('source $HOME/.config/nvim/coc.vim')
     end,
   }
@@ -65,10 +65,10 @@ return require('packer').startup(function(use)
   use {
     'keith/swift.vim',
     config = function()
-      vim.api.nvim_set_var('syntastic_swift_checkers', {
+      vim.g.syntastic_swift_checkers = {
         'swiftpm',
         'swiftlint',
-      })
+      }
     end,
   }
   use 'tfnico/vim-gradle'
@@ -76,7 +76,7 @@ return require('packer').startup(function(use)
   use {
     'elzr/vim-json',
     config = function()
-      vim.api.nvim_set_var('vim_json_syntax_conceal', false)
+      vim.g.vim_json_syntax_conceal = false
     end,
   }
   use 'tmux-plugins/vim-tmux'
@@ -104,7 +104,7 @@ return require('packer').startup(function(use)
     keys = { '<Plug>(quickrun)' },
     require = {'vimproc.vim'},
     config = function()
-      vim.api.nvim_set_var('loaded_quicklaunch', true)
+      vim.g.loaded_quicklaunch = true
       local quickrun_config = {
 --        '*' = {runner = 'vimproc'},
 --        markdown = {
@@ -127,7 +127,7 @@ return require('packer').startup(function(use)
 --          exec = '%c %a %s',
 --        }
       }
-      vim.api.nvim_set_var('quickrun_config', quickrun_config)
+      vim.g.quickrun_config = quickrun_config
       keymap(
         'n',
         'C-c><C-x>', 
@@ -143,7 +143,7 @@ return require('packer').startup(function(use)
     ft = {'markdown'},
     require = {'tabular'},
     config = function()
-      vim.api.nvim_set_var('vim_markdown_folding_disabled', true)
+      vim.g.vim_markdown_folding_disabled = true
     end,
   }
 
@@ -182,8 +182,8 @@ return require('packer').startup(function(use)
     config = function()
       noremap('<C-g>o', 'execute line(".") . "OpenGithubFile"<CR>')
       keymap('v', '<C-g>o', ":''<','>OpenGithubFile<CR>", { noremap = true, silent = true })
-      vim.api.nvim_set_var('openbrowser_github_always_use_commit_hash', false)
-      vim.api.nvim_set_var('openbrowser_github_url_exists_check', 'no')
+      vim.g.openbrowser_github_always_use_commit_hash = false
+      vim.g.openbrowser_github_url_exists_check = 'no'
     end
   }
 
