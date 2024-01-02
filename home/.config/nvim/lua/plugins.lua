@@ -195,6 +195,9 @@ return require('packer').startup(function(use)
   use {
     'scrooloose/nerdtree',
     cmd = {'NERDTreeToggle'},
+    setup = function()
+      nnoremap('<C-n>t', ':NERDTreeToggle<CR>')
+    end,
     config = function()
       vim.g.NERDTreeShowHidden = true
       vim.g.NERDTreeIgnore = {'\\.vim$', '\\.git$', '\\.DS_Store', '\\.idea', '\\.build'}
@@ -223,7 +226,14 @@ return require('packer').startup(function(use)
     end,
   }
 
-  use 'simnalamburt/vim-mundo'
+  use {
+    'simnalamburt/vim-mundo',
+    cmd = 'MundoToggle',
+    setup = function()
+      nnoremap('U', ':MundoToggle<CR>')
+    end,
+  }
+
 
   use {
     'dracula/vim',

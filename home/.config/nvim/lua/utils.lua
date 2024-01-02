@@ -1,8 +1,10 @@
-local opts = { noremap = true }
-
 local keymap = vim.api.nvim_set_keymap
 function noremap(lhs, rhs)
-  keymap("n", lhs, rhs, opts)
+  keymap("n", lhs, rhs, { noremap = true })
+end
+
+function nnoremap(lhs, rhs)
+  keymap("n", lhs, rhs, { noremap = true })
 end
 
 function map(lhs, rhs)

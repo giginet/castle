@@ -32,6 +32,8 @@ local options = {
   incsearch = true,
   smartcase = true,
   --    grepprg = "grep\ -nH\ $*"
+  undofile = true,
+  undodir = "$HOME/.vim/undo",
 }
 
 vim.opt.shortmess:append("c")
@@ -53,6 +55,7 @@ vim.api.nvim_set_var(
 
 -- Jetpack
 require('plugins')
+vim.cmd[[autocmd BufWritePost plugins.lua PackerCompile]]
 
 -- Keymap
 noremap("<C-w>%", ":vsp<CR>")
