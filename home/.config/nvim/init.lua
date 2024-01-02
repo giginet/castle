@@ -52,25 +52,11 @@ vim.api.nvim_set_var(
 )
 
 -- Jetpack
--- TODO : Migrate to Lua interface
-vim.api.nvim_exec(
-[[
-augroup MyAutoCmd
-  autocmd!
-augroup END
-
-let config_base = expand('$HOME') . '/.config/nvim/'
-call jetpack#begin()
-call jetpack#add("tani/vim-jetpack")
-call jetpack#load_toml(config_base . "plugins.toml")
-
-call jetpack#end()
-]],
-true)
+require('plugins')
 
 -- Keymap
 noremap("<C-w>%", ":vsp<CR>")
-noremap("<C-w>\\|", ":vsp<CR>")
+noremap("<C-w><Bar>", ":vsp<CR>")
 noremap("<C-w>\"", ":sp<CR>")
 noremap("<C-w>_", ":sp<CR>")
 noremap("<C-w>p", ":tabp<CR>")
