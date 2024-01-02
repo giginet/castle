@@ -91,7 +91,7 @@ return require('packer').startup(function(use)
 
   use {
     'tpope/vim-git',
-    ft = {'git', 'gitcommit', 'gitconfig', 'gitrebase'},
+    ft = {'git', 'gitcommit', 'gitconfig', 'gitrebase'}
   }
 
   use {
@@ -101,13 +101,14 @@ return require('packer').startup(function(use)
 
   use {
     'thinca/vim-quickrun',
+    cmd = {'QuickRun'},
     require = {'vimproc.vim'},
     setup = function()
       vim.api.nvim_set_keymap(
         'n',
         '<C-x><C-x>', 
         ':QuickRun<CR>',
-        { silent = true, unique = true, }
+        { silent = true, }
       )
       vim.g.loaded_quicklaunch = true
     end,

@@ -57,7 +57,15 @@ vim.api.nvim_set_var(
 
 -- Install Plugins
 require('plugins')
-vim.cmd[[autocmd BufWritePost plugins.lua PackerCompile]]
+vim.api.nvim_create_augroup('lua', {})
+vim.api.nvim_create_autocmd({'BufWritePost'}, {
+  group = 'lua',
+  pattern = {'plugins.lua'},
+  callback = function()
+    vim.api.nvim_command('PackerCompile')
+    vim.api.nvim_echo({{"Compiled plugin definitions"}}, false, {})
+  end,
+})
 
 -- Set keymaps
 noremap("<C-w>%", ":vsp<CR>")
