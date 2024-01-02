@@ -28,10 +28,10 @@ return require('packer').startup(function(use)
     'github/copilot.vim',
     config = function()
       noremap('<C-c><Tab>', ':Copilot<CR>')
-      vim.api.nvim_buf_set_var('copilot_enabled', true)
-      vim.api.nvim_set_var('copilot_filetypes', {
+      vim.b.copilot_enabled = true
+      vim.g.copilot_filetypes = {
         env = false,
-      })
+      }
     end,
   }
   use {
@@ -170,6 +170,67 @@ return require('packer').startup(function(use)
         call denite#custom#map('insert', "<C-j>", '<denite:move_to_next_line>', 'noremap')
         call denite#custom#map('insert', "<C-k>", '<denite:move_to_previous_line>', 'noremap')
       ]])
+    end,
+  }
+
+  use 'tyru/open-browser.vim'
+
+  use {
+    'tyru/open-browser-github.vim',
+    require = {'open-browser.vim'},
+    cmd = {'OpenGithubFile', 'OpenGithubIssue', 'OpenGithubPullReq', 'OpenGithubProject',},
+    config = function()
+      noremap('<C-g>o', 'execute line(".") . "OpenGithubFile"<CR>')
+      keymap('v', '<C-g>o', ":''<','>OpenGithubFile<CR>", { noremap = true, silent = true })
+      vim.api.nvim_set_var('openbrowser_github_always_use_commit_hash', false)
+      vim.api.nvim_set_var('openbrowser_github_url_exists_check', 'no')
+    end
+  }
+
+  use {
+    'tomtom/tcomment_vim',
+    keys = {'<C-_><C-_>'}
+  }
+
+  use {
+    'scrooloose/nerdtree',
+    cmd = {'NERDTreeToggle'},
+    config = function()
+      vim.g.NERDTreeShowHidden = true
+      vim.g.NERDTreeIgnore = {'\\.vim$', '\\.git$', '\\.DS_Store', '\\.idea', '\\.build'}
+    end
+  }
+
+  use {
+    'iberianpig/tig-explorer.vim',
+    require = {'blose.vim'},
+    cmd = {'TigOpenCurrentFile', 'TigOpenProjectRootDir', 'TigGrep', 'TigGrepResume', 'TigBlame'},
+    config = function()
+      nnoremap('<C-g>', ':TigOpenProjectRootDir<CR>')
+      nnoremap('<C-g>l', ':TigOpenCurrentFile<CR>')
+      nnoremap('<C-g>b', ':TigBlame<CR>')
+      nnoremap('<C-g>g', ':TigGrep<CR>')
+    end,
+  }
+
+  use 'airblade/vim-gitgutter'
+
+  use {
+    'keith/investigate.vim',
+    keys = {'gK'},
+    config = function()
+      vim.g.investigate_use_dash = true
+    end,
+  }
+
+  use 'simnalamburt/vim-mundo'
+
+  use {
+    'dracula/vim',
+    as = 'dracula',
+    event = 'VimEnter',
+    config = function()
+      vim.cmd('color dracula')
     end,
   }
 
