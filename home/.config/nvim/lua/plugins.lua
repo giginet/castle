@@ -190,7 +190,7 @@ return require('lazy').setup({
       vim.g.NERDTreeIgnore = {'\\.vim$', '\\.git$', '\\.DS_Store', '\\.idea', '\\.build'}
     end
   },
-
+  'rbgrouleff/bclose.vim',
   {
     'iberianpig/tig-explorer.vim',
     dependencies = {'blose.vim'},
