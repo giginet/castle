@@ -59,8 +59,7 @@ vim.api.nvim_create_autocmd({'BufWritePost'}, {
   group = 'lua',
   pattern = {'plugins.lua'},
   callback = function()
-    vim.api.nvim_command('PackerCompile')
-    vim.api.nvim_echo({{"Compiled plugin definitions"}}, false, {})
+    vim.api.nvim_echo({{"Please execute :Lazy sync", "WarningMsg"}}, false, {})
   end,
 })
 

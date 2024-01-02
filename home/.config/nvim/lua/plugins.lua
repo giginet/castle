@@ -1,31 +1,33 @@
 require('utils')
 
--- Bootstrap packer.nvim
-local ensure_packer = function()
-  local fn = vim.fn
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-  if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-    vim.cmd [[packadd packer.nvim]]
-    return true
-  end
-  return false
+-- Bootstrap lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
 
-local packer_bootstrap = ensure_packer()
-
-return require('packer').startup(function(use)
-  use 'wbthomason/packer.nvim'
-  use 'Shougo/context_filetype.vim'
-  use {
+return require('lazy').setup({
+  'wbthomason/packer.nvim',
+  'Shougo/context_filetype.vim',
+  {
     'osyo-manga/vim-precious',
-    requires = {'context_filetype.vim', 'vim-quickrun'}
-  }
-  use 'prabirshrestha/async.vim'
-  use 'rbgrouleff/bclose.vim'
-  use 'vim-denops/denops.vim'
-  use {
+    dependencies = {'context_filetype.vim', 'vim-quickrun'}
+  },
+  'prabirshrestha/async.vim',
+  'rbgrouleff/bclose.vim',
+  'vim-denops/denops.vim',
+  {
     'github/copilot.vim',
+    lazy = false,
+    cmd = {'Copilot'},
     config = function()
       noremap('<C-c><Tab>', ':Copilot<CR>')
       vim.b.copilot_enabled = true
@@ -33,19 +35,19 @@ return require('packer').startup(function(use)
         env = false,
       }
     end,
-  }
-  use {
+  },
+  {
     'Shougo/deoplete.nvim',
     config = function()
       vim.api.nvim_set_var('deoplete#enable_at_startup', true)
       vim.cmd("call deoplete#custom#option('smart_case', v:true)")
       vim.opt.completeopt:append('noinsert')
     end,
-  }
-  use {
+  },
+  {
     'neoclide/coc.nvim',
     branch = 'release',
-    run = 'yarn install',
+    build = 'yarn install',
     config = function()
       vim.g.coc_config_home = vim.fn.stdpath('config')
       vim.g.coc_global_extensions = {
@@ -59,10 +61,9 @@ return require('packer').startup(function(use)
       }
       vim.cmd('source $HOME/.config/nvim/coc.vim')
     end,
-  }
-
-  use 'tpope/vim-bundler'
-  use {
+  },
+  'tpope/vim-bundler',
+  {
     'keith/swift.vim',
     config = function()
       vim.g.syntastic_swift_checkers = {
@@ -70,40 +71,37 @@ return require('packer').startup(function(use)
         'swiftlint',
       }
     end,
-  }
-  use 'tfnico/vim-gradle'
-  use 'cespare/vim-toml'
-  use {
+  },
+  'tfnico/vim-gradle',
+  'cespare/vim-toml',
+  {
     'elzr/vim-json',
     config = function()
       vim.g.vim_json_syntax_conceal = false
     end,
-  }
-  use 'tmux-plugins/vim-tmux'
-  use 'ekalinin/Dockerfile.vim'
-  use 'google/vim-jsonnet'
-  use 'compnerd/modulemap-vim'
-  use 'keith/xcconfig.vim'
-  use 'rust-lang/rust.vim'
-  use 'aklt/plantuml-syntax'
-  use 'Glench/Vim-Jinja2-Syntax'
-  use 'stephpy/vim-yaml'
-
-  use {
+  },
+  'tmux-plugins/vim-tmux',
+  'ekalinin/Dockerfile.vim',
+  'google/vim-jsonnet',
+  'compnerd/modulemap-vim',
+  'keith/xcconfig.vim',
+  'rust-lang/rust.vim',
+  'aklt/plantuml-syntax',
+  'Glench/Vim-Jinja2-Syntax',
+  'stephpy/vim-yaml',
+  {
     'tpope/vim-git',
     ft = {'git', 'gitcommit', 'gitconfig', 'gitrebase'}
-  }
-
-  use {
+  },
+  {
     'Shougo/vimproc.vim',
-    run = 'make',
-  }
-
-  use {
+    build = 'make',
+  },
+  {
     'thinca/vim-quickrun',
     cmd = {'QuickRun'},
-    require = {'vimproc.vim'},
-    setup = function()
+    dependencies = {'vimproc.vim'},
+    config = function()
       vim.api.nvim_set_keymap(
         'n',
         '<C-x><C-x>', 
@@ -111,8 +109,7 @@ return require('packer').startup(function(use)
         { silent = true, }
       )
       vim.g.loaded_quicklaunch = true
-    end,
-    config = function()
+
       local quickrun_config = {
        ['*'] = {
          runner = 'vimproc'
@@ -139,22 +136,22 @@ return require('packer').startup(function(use)
       }
       vim.g.quickrun_config = quickrun_config
     end,
-  }
-
-  use 'godlygeek/tabular'
-  use {
+  },
+  'godlygeek/tabular',
+  {
     'plasticboy/vim-markdown',
     ft = {'markdown'},
-    require = {'tabular'},
+    dependencies = {'tabular'},
     config = function()
       vim.g.vim_markdown_folding_disabled = true
     end,
-  }
-
-  use {
+  },
+  {
     'giginet/denops-deckset.vim',
     ft = {'markdown', 'markdown.slide'},
-    require = {'deops.vim'},
+    cmd = {'InsertCodeHighlight', 'InsertLink'},
+    keys = {'<C-s>_', '<C-s>l'},
+    dependencies = {'denops.vim'},
     config = function()
       vim.api.nvim_set_var('deckset#show_slide_numbers', true)
       vim.api.nvim_set_var('deckset#show_slide_count', true)
@@ -163,79 +160,73 @@ return require('packer').startup(function(use)
       noremap('<C-s>_', ':InsertCodeHighlight<CR>')
       noremap('<C-s>l', ':InsertLink<CR>')
     end
-  }
-
-  use 'tyru/open-browser.vim'
-
-  use {
+  },
+  'tyru/open-browser.vim',
+  {
     'tyru/open-browser-github.vim',
-    require = {'open-browser.vim'},
+    dependencies = {'open-browser.vim'},
     cmd = {'OpenGithubFile', 'OpenGithubIssue', 'OpenGithubPullReq', 'OpenGithubProject',},
-    setup = function()
+    keys = {'<C-g>o', '<C-g>i', '<C-g>p', '<C-g>g'},
+    config = function()
       noremap('<C-g>o', ":OpenGithubFile<CR>")
       vim.api.nvim_set_keymap('v', '<C-g>o', ":'<,'>OpenGithubFile<CR>", { noremap = true, silent = true })
-    end,
-    config = function()
       vim.g.openbrowser_github_always_use_commit_hash = false
       vim.g.openbrowser_github_url_exists_check = 'no'
     end,
-  }
+  },
 
-  use {
+  {
     'tomtom/tcomment_vim',
     keys = {'<C-_><C-_>'}
-  }
+  },
 
-  use {
+  {
     'scrooloose/nerdtree',
     cmd = {'NERDTreeToggle'},
-    setup = function()
-      nnoremap('<C-n>t', ':NERDTreeToggle<CR>')
-    end,
+    keys = {'<C-n>t'},
     config = function()
+      nnoremap('<C-n>t', ':NERDTreeToggle<CR>')
       vim.g.NERDTreeShowHidden = true
       vim.g.NERDTreeIgnore = {'\\.vim$', '\\.git$', '\\.DS_Store', '\\.idea', '\\.build'}
     end
-  }
+  },
 
-  use {
+  {
     'iberianpig/tig-explorer.vim',
-    require = {'blose.vim'},
+    dependencies = {'blose.vim'},
     cmd = {'TigOpenCurrentFile', 'TigOpenProjectRootDir', 'TigGrep', 'TigGrepResume', 'TigBlame'},
-    setup = function()
+    keys = {'<C-g>', '<C-g>l', '<C-g>b', '<C-g>g'},
+    config = function()
       nnoremap('<C-g>', ':TigOpenProjectRootDir<CR>')
       nnoremap('<C-g>l', ':TigOpenCurrentFile<CR>')
       nnoremap('<C-g>b', ':TigBlame<CR>')
       nnoremap('<C-g>g', ':TigGrep<CR>')
     end,
-  }
+  },
 
-  use 'airblade/vim-gitgutter'
+  'airblade/vim-gitgutter',
 
-  use {
+  {
     'keith/investigate.vim',
     keys = {'gK'},
     config = function()
       vim.g.investigate_use_dash = true
     end,
-  }
+  },
 
-  use {
+  {
     'simnalamburt/vim-mundo',
     cmd = 'MundoToggle',
-    setup = function()
+    keys = {'U'},
+    config = function()
       nnoremap('U', ':MundoToggle<CR>')
     end,
-  }
+  },
 
-  use { 
+  { 
     "catppuccin/nvim", as='catppuccin',
     config = function()
       vim.cmd.colorscheme 'catppuccin'
     end
-  }
-
-  if packer_bootstrap then
-    require('packer').sync()
-  end
-end)
+  },
+})
