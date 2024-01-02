@@ -171,12 +171,14 @@ return require('packer').startup(function(use)
     'tyru/open-browser-github.vim',
     require = {'open-browser.vim'},
     cmd = {'OpenGithubFile', 'OpenGithubIssue', 'OpenGithubPullReq', 'OpenGithubProject',},
+    setup = function()
+      noremap('<C-g>o', ":OpenGithubFile<CR>")
+      vim.api.nvim_set_keymap('v', '<C-g>o', ":'<,'>OpenGithubFile<CR>", { noremap = true, silent = true })
+    end,
     config = function()
-      noremap('<C-g>o', 'execute line(".") . "OpenGithubFile"<CR>')
-      keymap('v', '<C-g>o', ":''<','>OpenGithubFile<CR>", { noremap = true, silent = true })
       vim.g.openbrowser_github_always_use_commit_hash = false
       vim.g.openbrowser_github_url_exists_check = 'no'
-    end
+    end,
   }
 
   use {
