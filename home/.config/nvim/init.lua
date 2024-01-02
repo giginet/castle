@@ -7,18 +7,19 @@ local options = {
   cindent = true,
   cinoptions = "g0",
   directory = home_dir .. "/.vimbackup",
-  smartindent = true,
   title = true,
   mouse = "a",
 
   encoding = "utf-8",
-  fileencoding = "utf8",
+  fileencoding = "utf-8",
   hlg = "en",
+  langmenu = "en_US.UTF-8",
 
   tabstop = 2,
   shiftwidth = 2,
   expandtab = true,
   smarttab = true,
+  smartindent = true,
   showmatch = true,
   matchtime = 1,
   backspace = "indent,eol,start",
@@ -36,15 +37,17 @@ local options = {
   grepprg = "grep\\ -nH\\ $*",
   undofile = true,
   undodir = home_dir .. "/.vim/undo",
+
+  termguicolors = true,
 }
 
-vim.opt.shortmess:append("c")
+vim.opt.clipboard:append{'unnamedplus'}
+vim.cmd[[language en_US]]
 
 for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
-vim.opt.clipboard:append{'unnamedplus'}
 
 vim.g.python2_host_prog = home_dir .. '/.pyenv/shims/python2'
 vim.g.python3_host_prog = home_dir .. '/.pyenv/shims/python'
@@ -77,4 +80,4 @@ map("<left>", "<nop>")
 map("<right>", "<nop>")
 
 noremap("<C-k>", "<C-u>")
-noremap("<C-k>", "<C-d>")
+noremap("<C-j>", "<C-d>")
