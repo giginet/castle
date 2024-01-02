@@ -238,14 +238,11 @@ return require('packer').startup(function(use)
     end,
   }
 
-
-  use {
-    'dracula/vim',
-    as = 'dracula',
-    event = 'VimEnter',
+  use { 
+    "catppuccin/nvim", as='catppuccin',
     config = function()
-      vim.cmd('color dracula')
-    end,
+      vim.cmd('colorscheme catppuccin')
+    end
   }
 
   if packer_bootstrap then
