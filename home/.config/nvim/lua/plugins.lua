@@ -200,7 +200,7 @@ return require('packer').startup(function(use)
     'iberianpig/tig-explorer.vim',
     require = {'blose.vim'},
     cmd = {'TigOpenCurrentFile', 'TigOpenProjectRootDir', 'TigGrep', 'TigGrepResume', 'TigBlame'},
-    config = function()
+    setup = function()
       nnoremap('<C-g>', ':TigOpenProjectRootDir<CR>')
       nnoremap('<C-g>l', ':TigOpenCurrentFile<CR>')
       nnoremap('<C-g>b', ':TigBlame<CR>')
