@@ -46,14 +46,8 @@ end
 
 vim.opt.clipboard:append{'unnamedplus'}
 
-vim.api.nvim_set_var(
-  'python2_host_prog',
-  home_dir .. '/.pyenv/shims/python2'
-)
-vim.api.nvim_set_var(
-  'python3_host_prog',
-  home_dir .. '/.pyenv/shims/python'
-)
+vim.g.python2_host_prog = home_dir .. '/.pyenv/shims/python2'
+vim.g.python3_host_prog = home_dir .. '/.pyenv/shims/python'
 
 -- Install Plugins
 require('plugins')
