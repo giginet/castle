@@ -165,18 +165,6 @@ return require('packer').startup(function(use)
     end
   }
 
-  use {
-    'Shougo/denite.nvim',
-    cmd = {'Denite'},
-    config = function()
-      vim.cmd([[
-        source $HOME/.config/nvim/userautoload/plugins/plugins-denite.vim
-        call denite#custom#map('insert', "<C-j>", '<denite:move_to_next_line>', 'noremap')
-        call denite#custom#map('insert', "<C-k>", '<denite:move_to_previous_line>', 'noremap')
-      ]])
-    end,
-  }
-
   use 'tyru/open-browser.vim'
 
   use {
