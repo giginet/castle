@@ -33,7 +33,7 @@ local options = {
   hlsearch = true,
   incsearch = true,
   smartcase = true,
-  --    grepprg = "grep\ -nH\ $*"
+  grepprg = "grep\\ -nH\\ $*",
   undofile = true,
   undodir = home_dir .. "/.vim/undo",
 }
