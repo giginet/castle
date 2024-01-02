@@ -101,39 +101,42 @@ return require('packer').startup(function(use)
 
   use {
     'thinca/vim-quickrun',
-    keys = { '<Plug>(quickrun)' },
     require = {'vimproc.vim'},
-    config = function()
+    setup = function()
+      vim.api.nvim_set_keymap(
+        'n',
+        '<C-x><C-x>', 
+        ':QuickRun<CR>',
+        { silent = true, unique = true, }
+      )
       vim.g.loaded_quicklaunch = true
+    end,
+    config = function()
       local quickrun_config = {
---        '*' = {runner = 'vimproc'},
---        markdown = {
---          outputter = 'null',
---          command = 'open',
---          cmdopt = '-a',
---          args = 'Marked 2',
---          exec = '%c %o %a %s',
---        },
---        'markdown.slide' = {
---          outputter = 'null',
---          command = 'open',
---          cmdopt = '-a',
---          args = 'Deckset',
---          exec = '%c %o %a %s',
---        },
---        swift = {
---          command = '/usr/bin/xcrun',
---          args = 'swift',
---          exec = '%c %a %s',
---        }
+       ['*'] = {
+         runner = 'vimproc'
+       },
+       markdown = {
+         outputter = 'null',
+         command = '/usr/bin/open',
+         cmdopt = '-a',
+         args = 'Marked\\ 2',
+         exec = '%c %o %a %s',
+       },
+       ['markdown.slide'] = {
+         outputter = 'null',
+         command = '/usr/bin/open',
+         cmdopt = '-a',
+         args = 'Deckset',
+         exec = '%c %o %a %s',
+       },
+       swift = {
+         command = '/usr/bin/xcrun',
+         args = 'swift',
+         exec = '%c %a %s',
+       }
       }
       vim.g.quickrun_config = quickrun_config
-      keymap(
-        'n',
-        'C-c><C-x>', 
-        '<Plug>(quickrun)', 
-        { noremap = false, silent = true }
-      )
     end,
   }
 
