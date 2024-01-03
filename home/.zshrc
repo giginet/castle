@@ -219,6 +219,9 @@ export MINT_PATH=$HOME/.mint
 export MINT_LINK_PATH=$HOME/.mint/bin
 export PATH=$PATH:$MINT_LINK_PATH
 
+# Docker
+export PATH=$HOME/.docker/bin:$PATH
+
 # Compile zshrc
 if [ $HOME/.zshrc -nt ~/.zshrc.zwc ]; then
   zcompile $HOME/.zshrc
