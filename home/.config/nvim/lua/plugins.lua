@@ -58,6 +58,7 @@ return require('lazy').setup({
         'coc-solargraph',
         'coc-toml',
         'coc-sh',
+        'coc-lua',
       }
       vim.cmd('source $HOME/.config/nvim/coc.vim')
     end,
