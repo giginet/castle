@@ -1,0 +1,25 @@
+format = """
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status
+"""
+
+[git_branch]
+ignore_branches = ['main']
+
+[git_commit]
+tag_disabled = false
+tab_symbol = ""
+
+[git_metrics]
+disabled = false
+
+[git_status]
+format = '$ahead_behind$modified$conflicted'
+ahead = '[⇡](bold yellow) '
+behind = '[⇣](bold yellow) '
+up_to_date = '[](bold green) '
+modified = '[](bold yellow) '
+conflicted = '[](bold yellow) '

@@ -186,14 +186,12 @@ export ANDROID_HOME=$HOME/Library/Android/sdk
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"
 
-# dracula theme
-source $HOME/.zsh/dracula/dracula.zsh-theme
-ZSH_THEME="dracula"
-export ZSH_THEME_GIT_PROMPT_CLEAN=") %{$fg_bold[green]%} "
-export ZSH_THEME_GIT_PROMPT_DIRTY=") %{$fg_bold[yellow]%}󱗜 "
-export DRACULA_ARROW_ICON=""
-export CLICOLOR=1
-export LSCOLORS=ExFxBxDxCxegedabagacad
+# Starship
+if [[ -z `which starship` ]]; then
+  echo "Please install starship"
+  exit 1
+fi
+eval "$(starship init zsh)"
 
 # My Tools
 source $HOME/.zsh/peco-anyenv/peco-anyenv.sh
