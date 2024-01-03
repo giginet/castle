@@ -211,6 +211,9 @@ function pingen() {
 # Alacritty
 PATH=$PATH:/Applications/Alacritty.app/Contents/MacOS
 
+# Wezterm
+PATH=$PATH:/Applications/Wezterm.app/Contents/MacOS
+
 # Mint
 export MINT_PATH=$HOME/.mint
 export MINT_LINK_PATH=$HOME/.mint/bin
