@@ -1,6 +1,8 @@
 local wezterm = require 'wezterm';
 local config = {}
 
+config.color_scheme = 'Dracula'
+
 config.font = wezterm.font_with_fallback {
   { family = 'BitstromWera Nerd Font Mono' },
   { family = 'Hiragino Sans' },
@@ -59,7 +61,18 @@ config.keys = {
     mods = 'CMD|SHIFT',
     action = wezterm.action.ToggleFullScreen,
   },
+  {
+    key = 'r',
+    mods = 'CMD',
+    action = wezterm.action.ReloadConfiguration,
+  },
+  {
+    key = 'L',
+    mods = 'CTRL',
+    action = wezterm.action.ShowDebugOverlay
+  },
 }
+
 config.use_fancy_tab_bar = false
 config.tab_bar_at_bottom = true
 config.hide_tab_bar_if_only_one_tab = false
@@ -67,32 +80,10 @@ config.skip_close_confirmation_for_processes_named = { }
 
 config.native_macos_fullscreen_mode = true
 
+local status_renderer = require 'status'
+
 wezterm.on('update-right-status', function(window, pane)
-  local cwd_uri = pane:get_current_working_dir()
-
-  if type(cwd_uri) == 'userdata' then
-      -- Running on a newer version of wezterm and we have
-      -- a URL object here, making this simple!
-
-      -- cwd = cwd_uri.file_path
-    else
-      -- an older version of wezterm, 20230712-072601-f4abf8fd or earlier,
-      -- which doesn't have the Url object
-      cwd_uri = cwd_uri:sub(8)
-      local slash = cwd_uri:find '/'
-      if slash then
-        cwd = cwd_uri:sub(slash):gsub('%%(%x%x)', function(hex)
-          return string.char(tonumber(hex, 16))
-        end)
-      end
-    end
-
-
-  window:set_right_status(wezterm.format {
-    { Attribute = { Underline = 'Single' } },
-    { Text = cwd },
-  })
-
+  status_renderer.render_right_status(window, pane)
 end)
 
 return config
