@@ -38,33 +38,65 @@ wezterm.on(
 
     local tab_index = get_tab_index(tabs, tab)
     
-    local color_index = tab_index % #rainbows
+    local color_index = ((tab_index - 1) % #rainbows) + 1
+    local next_color_index = (tab_index % #rainbows) + 1
 
     local is_active = tab.is_active
 
     local background_color = rainbows[color_index]
     local foreground_color = rainbows[color_index]:lighten(0.8)
+    local next_background_color = rainbows[next_color_index]
     local intencity = "Normal"
+
+    local is_first_tab = tab_index == 1
+    local is_last_tab = tab_index == #tabs
+
+    local elements = {}
+
     if is_active then
       background_color = rainbows[color_index]:darken(0.1)
       foreground_color = rainbows[color_index]:lighten(0.8)
+      next_background_color = rainbows[next_color_index]:darken(0.1)
       intencity = "Bold" 
     else
-      background_color = rainbows[color_index]:darken(0.1):desaturate(0.5)
+      background_color = rainbows[color_index]:darken(0.1)
       foreground_color = rainbows[color_index]:lighten(0.8)
+      next_background_color = rainbows[next_color_index]:darken(0.1)
       intencity = "Normal"
+    end 
+
+    if is_first_tab then
+      print(tab)
+      -- local edge_color = utils.make_edge_color(pane.window)
+      elements = utils.concat(elements, {
+        { Background = { Color =  'lightgreen' } },
+        { Foreground = { Color = background_color } },
+        { Text = "" },
+      })
     end
-    return {
-      { Foreground = { Color = background_color } },
-      { Attribute = { Intensity = intencity } },
-      { Text = "" },
+
+    elements = utils.concat(elements, {
       { Background = { Color = background_color } },
       { Foreground = { Color = foreground_color } },
-      { Text = title },
-      { Background = { Color = "black" } },
-      { Foreground = { Color = background_color } },
-      { Text = "" },
-    }
+      { Text = " " .. title .. " " },
+      { Attribute = { Intensity = intencity } },
+    })
+
+    if is_last_tab then
+      elements = utils.concat(elements, {
+        { Background = { Color = "black" } },
+        { Foreground = { Color = background_color } },
+        { Text = "" },
+      })
+    else
+      elements = utils.concat(elements, {
+        { Background = { Color = next_background_color } },
+        { Foreground = { Color = background_color } },
+        { Text = "" },
+      })
+    end
+
+    return elements
   end
 )
 

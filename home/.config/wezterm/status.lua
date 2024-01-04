@@ -51,16 +51,17 @@ local function make_git_info_section(window, pane)
   return elements
 end
 
+local function make_edge_color(window)
+  local leader_is_active = window:leader_is_active()
+  if leader_is_active then
+    return 'yellow'
+  else
+    return 'lightgreen'
+  end
+end
 
 local function make_edge_elements(symbol, window)
-  local leader_is_active = window:leader_is_active()
-  local color = 'lightgreen'
-  if leader_is_active then
-    color = 'yellow'
-  else
-    color = 'lightgreen'
-  end
-
+  local color = make_edge_color(window) 
   return {
     { Foreground = { Color = color } },
     { Text = symbol },
@@ -78,9 +79,12 @@ local function render_right_status(window, pane)
 end
 
 wezterm.on('update-status', function(window, pane) 
-  local edge = make_edge_elements('', window)
+  local color = make_edge_color(window)
 
-  local elements = edge
+  local elements = {
+    { Background = { Color = color } },
+    { Text = " " },
+  }
 
   window:set_left_status(wezterm.format(elements))
 end)

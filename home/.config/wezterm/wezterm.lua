@@ -11,7 +11,7 @@ local config = {
   initial_rows = 48,
 
   window_background_opacity = 0.8,
-  text_background_opacity = 0.8,
+  text_background_opacity = 1,
 
   default_prog = { '/bin/zsh' },
 
