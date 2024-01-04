@@ -42,7 +42,7 @@ return {
     action = wezterm.action.ReloadConfiguration,
   },
   {
-    key = 'd',
+    key = 'L',
     mods = 'CTRL',
     action = wezterm.action.ShowDebugOverlay
   },
