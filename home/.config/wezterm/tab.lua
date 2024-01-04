@@ -44,26 +44,27 @@ wezterm.on(
 
     local background_color = rainbows[color_index]
     local foreground_color = rainbows[color_index]:lighten(0.8)
+    local intencity = "Normal"
     if is_active then
       background_color = rainbows[color_index]:darken(0.1)
       foreground_color = rainbows[color_index]:lighten(0.8)
-
-      return {
-        { Background = { Color = background_color } },
-        { Foreground = { Color = foreground_color } },
-        { Attribute = { Intensity = "Bold" } },
-        { Text = " " .. title .. " " },
-      }
+      intencity = "Bold" 
     else
       background_color = rainbows[color_index]:darken(0.1):desaturate(0.5)
       foreground_color = rainbows[color_index]:lighten(0.8)
-
-      return {
-        { Background = { Color = background_color } },
-        { Foreground = { Color = foreground_color } },
-        { Text = " " .. title .. " " },
-      }
+      intencity = "Normal"
     end
+    return {
+      { Foreground = { Color = background_color } },
+      { Attribute = { Intensity = intencity } },
+      { Text = "" },
+      { Background = { Color = background_color } },
+      { Foreground = { Color = foreground_color } },
+      { Text = title },
+      { Background = { Color = "black" } },
+      { Foreground = { Color = background_color } },
+      { Text = "" },
+    }
   end
 )
 
