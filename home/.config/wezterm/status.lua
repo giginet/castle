@@ -1,7 +1,5 @@
 local wezterm = require 'wezterm'
 
-local module = {}
-
 -- https://wezfurlong.org/wezterm/config/lua/window/set_right_status.html
 local function get_cwd(pane)
   local cwd_uri = pane:get_current_working_dir()
@@ -99,13 +97,41 @@ local function concat(...)
     return res
 end
 
-function module.render_right_status(window, pane)
+local function make_edge_elements(symbol, window)
+  local leader_is_active = window:leader_is_active()
+  local color = 'lightgreen'
+  if leader_is_active then
+    color = 'yellow'
+  else
+    color = 'lightgreen'
+  end
+
+  return {
+    { Foreground = { Color = color } },
+    { Text = symbol },
+  }
+end
+
+function render_right_status(window, pane)
   local dir_section = make_dir_section(window, pane)
   local spacer = { { Text = '  ' } }
   local git_section = make_git_info_section(window, pane)
-  local elements = concat(dir_section, spacer, git_section, spacer)
+  local edge = make_edge_elements('', window)
+  local elements = concat(dir_section, spacer, git_section, spacer, edge)
 
   window:set_right_status(wezterm.format(elements))
 end
 
-return module
+wezterm.on('update-status', function(window, pane) 
+  local edge = make_edge_elements('', window)
+
+  local elements = edge
+
+  window:set_left_status(wezterm.format(elements))
+end)
+
+
+wezterm.on('update-right-status', function(window, pane)
+  render_right_status(window, pane)
+end)
+
