@@ -1,7 +1,7 @@
 local wezterm = require 'wezterm';
 local config = {}
 
-config.color_scheme = 'Dracula'
+config.color_scheme = 'Tokyo Night'
 
 config.font = wezterm.font_with_fallback {
   { family = 'BitstromWera Nerd Font Mono' },
@@ -85,5 +85,7 @@ local status_renderer = require 'status'
 wezterm.on('update-right-status', function(window, pane)
   status_renderer.render_right_status(window, pane)
 end)
+
+require 'tab'
 
 return config

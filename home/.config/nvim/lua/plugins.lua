@@ -225,9 +225,9 @@ return require('lazy').setup({
   },
 
   { 
-    "catppuccin/nvim", as='catppuccin',
+    "folke/tokyonight.nvim",
     config = function()
-      vim.cmd.colorscheme 'catppuccin'
+      vim.cmd.colorscheme 'tokyonight-night'
     end
   },
 })
