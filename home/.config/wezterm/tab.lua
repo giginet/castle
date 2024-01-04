@@ -21,21 +21,49 @@ local function tab_title(tab_info)
   return '󱥸 ' .. process_name
 end
 
+local function get_tab_index(tabs, tab)
+    for index, v in ipairs(tabs) do
+        if v.tab_id == tab.tab_id then
+            return index
+        end
+    end
+    return nil
+end
+
 wezterm.on(
   'format-tab-title',
   function(tab, tabs, panes, config, hover, max_width)
     local title = tab_title(tab)
+    local rainbows = wezterm.color.gradient({preset="Cool"}, 8)
 
-    local icon = ''
-    if tab.is_active then
-      icon = '󰓩'
+    local tab_index = get_tab_index(tabs, tab)
+    
+    local color_index = tab_index % #rainbows
+
+    local is_active = tab.is_active
+
+    local background_color = rainbows[color_index]
+    local foreground_color = rainbows[color_index]:lighten(0.8)
+    if is_active then
+      background_color = rainbows[color_index]:darken(0.1)
+      foreground_color = rainbows[color_index]:lighten(0.8)
+
+      return {
+        { Background = { Color = background_color } },
+        { Foreground = { Color = foreground_color } },
+        { Attribute = { Intensity = "Bold" } },
+        { Text = " " .. title .. " " },
+      }
     else
-      icon = '󰓪'
-    end
+      background_color = rainbows[color_index]:darken(0.1):desaturate(0.5)
+      foreground_color = rainbows[color_index]:lighten(0.8)
 
-    return {
-      { Text = " " .. title .. " " },
-    }
+      return {
+        { Background = { Color = background_color } },
+        { Foreground = { Color = foreground_color } },
+        { Text = " " .. title .. " " },
+      }
+    end
   end
 )
 
