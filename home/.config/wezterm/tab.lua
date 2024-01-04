@@ -47,6 +47,7 @@ wezterm.on(
     local foreground_color = rainbows[color_index]:lighten(0.8)
     local next_background_color = rainbows[next_color_index]
     local intencity = "Normal"
+    local underline = "None"
 
     local is_first_tab = tab_index == 1
     local is_last_tab = tab_index == #tabs
@@ -58,16 +59,16 @@ wezterm.on(
       foreground_color = rainbows[color_index]:lighten(0.8)
       next_background_color = rainbows[next_color_index]:darken(0.1)
       intencity = "Bold" 
+      underline = "Single"
     else
       background_color = rainbows[color_index]:darken(0.1)
       foreground_color = rainbows[color_index]:lighten(0.8)
       next_background_color = rainbows[next_color_index]:darken(0.1)
       intencity = "Normal"
+      underline = "None"
     end 
 
     if is_first_tab then
-      print(tab)
-      -- local edge_color = utils.make_edge_color(pane.window)
       elements = utils.concat(elements, {
         { Background = { Color =  'lightgreen' } },
         { Foreground = { Color = background_color } },
@@ -78,8 +79,9 @@ wezterm.on(
     elements = utils.concat(elements, {
       { Background = { Color = background_color } },
       { Foreground = { Color = foreground_color } },
-      { Text = " " .. title .. " " },
       { Attribute = { Intensity = intencity } },
+      { Attribute = { Underline = underline } },
+      { Text = " " .. title .. " " },
     })
 
     if is_last_tab then
