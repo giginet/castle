@@ -7,9 +7,11 @@ $git_status\
 $direnv
 """
 right_format = """
+$ruby \
 $python \
-$docker_context \
+$swift \
 ${custom.xcode} \
+$docker_context \
 """
 
 add_newline = false
@@ -33,14 +35,26 @@ modified = '[](bold yellow) '
 conflicted = '[](bold yellow) '
 
 [docker_context]
-format = '[$symbol$context]($style) '
+format = '[$symbol$context]($style)'
 symbol = '󰡨 '
 style = 'cyan bold'
+
+[ruby]
+symbol = ''
+format = '[$symbol ($version)]($style)'
+version_format = '${raw}'
 
 [python]
 symbol = ' '
 format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+version_format = '${raw}'
 style = 'yellow bold'
+
+[swift]
+format = '[$symbol ($version)]($style)'
+style = 'bold 202'
+version_format = '${raw}'
+symbol = ''
 
 [custom.xcode]
 command = "/usr/bin/xcrun xcodebuild -version | head -n 1 | awk '{print $2}'"
