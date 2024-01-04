@@ -28,6 +28,7 @@ local config = {
   use_fancy_tab_bar = false,
   tab_bar_at_bottom = true,
   hide_tab_bar_if_only_one_tab = false,
+  show_new_tab_button_in_tab_bar = false,
   skip_close_confirmation_for_processes_named = { },
 
   native_macos_fullscreen_mode = true,
