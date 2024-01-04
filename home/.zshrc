@@ -192,6 +192,7 @@ if [[ -z `which starship` ]]; then
   exit 1
 fi
 eval "$(starship init zsh)"
+export STARSHIP_CONFIG=$XDG_CONFIG_HOME/starship/starship.toml
 
 # My Tools
 source $HOME/.zsh/peco-anyenv/peco-anyenv.sh
