@@ -1,19 +1,24 @@
-
 local wezterm = require 'wezterm'
+local utils = require 'utils'
 
 -- This function returns the suggested title for a tab.
 -- It prefers the title that was set via `tab:set_title()`
 -- or `wezterm cli set-tab-title`, but falls back to the
 -- title of the active pane in that tab.
-function tab_title(tab_info)
-  local title = tab_info.tab_title
-  -- if the tab title is explicitly set, take that
-  if title and #title > 0 then
-    return title
+local function tab_title(tab_info)
+  local pane = tab_info.active_pane
+
+  local process_name = utils.get_basename(pane.foreground_process_name)
+
+  if process_name == 'zsh' then
+    local path = utils.format_path(pane.current_working_dir)
+    if utils.is_home_dir(path) then
+      return "󰋜"
+    else
+      return ' ' .. utils.get_basename(path)
+    end
   end
-  -- Otherwise, use the title from the active pane
-  -- in that tab
-  return tab_info.active_pane.title
+  return '󱥸 ' .. process_name
 end
 
 wezterm.on(
@@ -29,7 +34,7 @@ wezterm.on(
     end
 
     return {
-      { Text = " " .. icon .. " " .. title .. " " },
+      { Text = " " .. title .. " " },
     }
   end
 )
