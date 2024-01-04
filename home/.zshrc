@@ -187,12 +187,12 @@ export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # Starship
-if [[ -z `which starship` ]]; then
+if [[ -x `which starship` ]]; then
+  eval "$(starship init zsh)"
+  export STARSHIP_CONFIG=$XDG_CONFIG_HOME/starship/starship.toml
+else
   echo "Please install starship"
-  exit 1
 fi
-eval "$(starship init zsh)"
-export STARSHIP_CONFIG=$XDG_CONFIG_HOME/starship/starship.toml
 
 # My Tools
 source $HOME/.zsh/peco-anyenv/peco-anyenv.sh
