@@ -51,4 +51,9 @@ return {
     mods = 'CTRL',
     action = wezterm.action.DisableDefaultAssignment,
   },
+  {
+    key = 'v',
+    mods = 'LEADER',
+    action = wezterm.action.ActivateCopyMode,
+  },
 }
