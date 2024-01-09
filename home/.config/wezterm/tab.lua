@@ -6,11 +6,13 @@ local function get_process_icon(process_name)
     return '󱆃'
   elseif process_name == 'nvim' then
     return ''
+  elseif process_name == 'git' then
+    return ''
   elseif process_name == 'ruby' then
     return ''
   elseif process_name == 'python' then
     return ''
-  elseif process_name == 'swift' then
+  elseif utils.is_start_with(process_name, 'swift') then
     return ''
   elseif process_name == 'node' then
     return ''

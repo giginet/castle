@@ -2,6 +2,10 @@ local wezterm = require 'wezterm'
 
 local module = {}
 
+function module.is_start_with(str, prefix)
+  return str.find(str, "^" .. prefix) ~= nil
+end
+
 function module.concat(...)
   local res = {}
   local inputs = {...}
