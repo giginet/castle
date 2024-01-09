@@ -4,9 +4,10 @@ $directory\
 $git_branch\
 $git_commit\
 $git_state\
-$git_status\
-$direnv
 """
+# git status is very slow 🐢
+# $git_status\
+
 right_format = """
 $ruby \
 $python \
@@ -25,7 +26,7 @@ error_symbol = '[!](bold red)'
 home_symbol = '󰜥'
 
 [git_branch]
-ignore_branches = ['main']
+ignore_branches = ['main', 'master']
 
 [git_commit]
 tag_disabled = false
@@ -36,6 +37,7 @@ disabled = false
 
 [git_status]
 format = '$ahead_behind$modified$conflicted'
+ignore_submodules = true
 ahead = '[⇡](bold yellow) '
 behind = '[⇣](bold yellow) '
 up_to_date = '[](bold green) '
@@ -67,7 +69,7 @@ symbol = ''
 [custom.xcode]
 command = "/usr/bin/xcrun xcodebuild -version | head -n 1 | awk '{print $2}'"
 description = "Show the current Xcode version"
-when="exec $XDG_CONFIG_HOME/starship/check-using-xcode.sh"
+when = '$XDG_CONFIG_HOME/starship/check-using-xcode.sh'
 symbol = 'Xcode'
 style = 'bold cyan' 
 format = '[$symbol $output]($style)'
