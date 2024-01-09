@@ -1,6 +1,23 @@
 local wezterm = require 'wezterm'
 local utils = require 'utils'
 
+local function get_process_icon(process_name)
+  if process_name == 'zsh' or process_name == 'bash' then
+    return '󱆃'
+  elseif process_name == 'nvim' then
+    return ''
+  elseif process_name == 'ruby' then
+    return ''
+  elseif process_name == 'python' then
+    return ''
+  elseif process_name == 'swift' then
+    return ''
+  elseif process_name == 'node' then
+    return ''
+  end
+  return '󱥸'
+end
+
 -- This function returns the suggested title for a tab.
 -- It prefers the title that was set via `tab:set_title()`
 -- or `wezterm cli set-tab-title`, but falls back to the
@@ -18,7 +35,8 @@ local function tab_title(tab_info)
       return ' ' .. utils.get_basename(path)
     end
   end
-  return '󱥸 ' .. process_name
+  local process_icon = get_process_icon(process_name)
+  return process_icon .. ' ' .. process_name
 end
 
 local function get_tab_index(tabs, tab)
