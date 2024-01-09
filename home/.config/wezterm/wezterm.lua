@@ -10,7 +10,7 @@ local config = {
   initial_cols = 120,
   initial_rows = 36,
 
-  window_background_opacity = 0.8,
+  window_background_opacity = 0.95,
   text_background_opacity = 1,
 
   default_prog = { '/bin/zsh' },
