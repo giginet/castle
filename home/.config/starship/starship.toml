@@ -4,9 +4,9 @@ $directory\
 $git_branch\
 $git_commit\
 $git_state\
+$git_status\
 """
 # git status is very slow 🐢
-# $git_status\
 
 right_format = """
 $ruby \
