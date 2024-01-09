@@ -22,3 +22,10 @@ bind generic G move-last-line
 bind main G move-last-line
 
 set blame-view = line-number:yes,interval=1 date:custom,format="%Y/%m/%d" file-name:no id:yes,color author:full text 
+
+# Use Git's default (reverse chronological) order, never automatically
+# use topo-order for the commit graph
+set commit-order = default
+
+# Don't show staged and unstaged changes in the main view
+set show-changes = no
