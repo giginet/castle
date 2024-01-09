@@ -15,7 +15,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 return require('lazy').setup({
-  'wbthomason/packer.nvim',
   'Shougo/context_filetype.vim',
   {
     'osyo-manga/vim-precious',
