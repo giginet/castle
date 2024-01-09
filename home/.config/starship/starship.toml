@@ -41,8 +41,10 @@ ignore_submodules = true
 ahead = '[⇡](bold yellow) '
 behind = '[⇣](bold yellow) '
 up_to_date = '[](bold green) '
+diverged = '[](bold red) '
 modified = '[](bold yellow) '
 conflicted = '[](bold yellow) '
+untracked = '' # improve performance on large repos
 
 [docker_context]
 format = '[$symbol$context]($style)'
