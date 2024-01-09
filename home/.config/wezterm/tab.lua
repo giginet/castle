@@ -41,31 +41,36 @@ wezterm.on(
     local color_index = ((tab_index - 1) % #rainbows) + 1
     local next_color_index = (tab_index % #rainbows) + 1
 
+    local is_first_tab = tab_index == 1
+    local is_last_tab = tab_index == #tabs
+
     local is_active = tab.is_active
+    local is_next_active = false
+    if not is_last_tab then
+      is_next_active = tabs[tab_index + 1].is_active
+    end
 
     local background_color = rainbows[color_index]
     local foreground_color = rainbows[color_index]:lighten(0.8)
     local next_background_color = rainbows[next_color_index]
     local intencity = "Normal"
-    local underline = "None"
-
-    local is_first_tab = tab_index == 1
-    local is_last_tab = tab_index == #tabs
-
     local elements = {}
 
     if is_active then
       background_color = rainbows[color_index]:darken(0.1)
       foreground_color = rainbows[color_index]:lighten(0.8)
-      next_background_color = rainbows[next_color_index]:darken(0.1)
+      next_background_color = rainbows[next_color_index]:darken(0.5)
       intencity = "Bold" 
-      underline = "Single"
     else
-      background_color = rainbows[color_index]:darken(0.1)
-      foreground_color = rainbows[color_index]:lighten(0.8)
-      next_background_color = rainbows[next_color_index]:darken(0.1)
+      background_color = rainbows[color_index]:darken(0.5)
+      foreground_color = rainbows[color_index]:lighten(0.2)
+
+      if is_next_active then
+        next_background_color = rainbows[next_color_index]:darken(0.1)
+      else
+        next_background_color = rainbows[next_color_index]:darken(0.5)
+      end
       intencity = "Normal"
-      underline = "None"
     end 
 
     if is_first_tab then
@@ -80,13 +85,12 @@ wezterm.on(
       { Background = { Color = background_color } },
       { Foreground = { Color = foreground_color } },
       { Attribute = { Intensity = intencity } },
-      { Attribute = { Underline = underline } },
       { Text = " " .. title .. " " },
     })
 
     if is_last_tab then
       elements = utils.concat(elements, {
-        { Background = { Color = "black" } },
+        { Background = { Color = "clear" } },
         { Foreground = { Color = background_color } },
         { Text = "" },
       })
