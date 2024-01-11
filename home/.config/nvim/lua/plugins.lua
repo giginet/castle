@@ -48,6 +48,7 @@ return require('lazy').setup({
     branch = 'release',
     build = 'yarn install',
     config = function()
+      require('coc')
       vim.g.coc_config_home = vim.fn.stdpath('config')
       vim.g.coc_global_extensions = {
         'coc-json',
@@ -59,7 +60,6 @@ return require('lazy').setup({
         'coc-sh',
         'coc-lua',
       }
-      vim.cmd('source $HOME/.config/nvim/coc.vim')
     end,
   },
   'tpope/vim-bundler',
