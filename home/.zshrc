@@ -226,6 +226,10 @@ if [ $HOME/.zshrc -nt ~/.zshrc.zwc ]; then
   zcompile $HOME/.zshrc
 fi
 
+# Copilot
+alias suggest="gh copilot suggest"
+alias explain="gh copilot explain"
+
 # 1Password Integration
 # https://developer.1password.com/docs/ssh
 ONE_PASSWORD_AGENT=$HOME/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
