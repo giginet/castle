@@ -1,5 +1,6 @@
 format = """
 $character \
+$time \
 $directory\
 $git_branch\
 $git_commit\
@@ -16,6 +17,10 @@ $docker_context \
 """
 
 add_newline = false
+
+[time]
+disabled = false
+format = '[$time]($style)'
 
 [character]
 format = '$symbol'
