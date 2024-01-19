@@ -175,17 +175,20 @@ return require('lazy').setup({
       vim.g.openbrowser_github_url_exists_check = 'no'
     end,
   },
-
   {
-    'terrortylor/nvim-comment',
-    keys = {'<C-_><C-_>'},
-    config = function()
-      require('nvim_comment').setup()
-      vim.api.nvim_set_keymap('', '<C-_><C-_>', ':CommentToggle<CR>', { noremap = true, silent = true })
-      vim.api.nvim_set_keymap('v', '<C-_><C-_>', ':CommentToggle<CR>', { noremap = true, silent = true })
-    end
+   'numToStr/Comment.nvim',
+    opts = {
+      toggler = {
+        line = '<C-_><C-_>',
+        block = '<C-_><C-_>',
+      },
+      opleader = {
+        line = '<C-_><C-_>',
+        block = '<C-_><C-_>',
+      },
+    },
+    lazy = false,
   },
-
   {
     'scrooloose/nerdtree',
     cmd = {'NERDTreeToggle'},
