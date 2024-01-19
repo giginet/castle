@@ -177,8 +177,13 @@ return require('lazy').setup({
   },
 
   {
-    'tomtom/tcomment_vim',
-    keys = {'<C-_><C-_>'}
+    'terrortylor/nvim-comment',
+    keys = {'<C-_><C-_>'},
+    config = function()
+      require('nvim_comment').setup()
+      vim.api.nvim_set_keymap('', '<C-_><C-_>', ':CommentToggle<CR>', { noremap = true, silent = true })
+      vim.api.nvim_set_keymap('v', '<C-_><C-_>', ':CommentToggle<CR>', { noremap = true, silent = true })
+    end
   },
 
   {
