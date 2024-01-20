@@ -15,6 +15,12 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 return require('lazy').setup({
+  {
+    'neovim/nvim-lspconfig',
+    config = function()
+      require('lsp')
+    end
+  },
   'Shougo/context_filetype.vim',
   {
     'osyo-manga/vim-precious',
@@ -31,25 +37,6 @@ return require('lazy').setup({
       vim.b.copilot_enabled = true
       vim.g.copilot_filetypes = {
         env = false,
-      }
-    end,
-  },
-  {
-    'neoclide/coc.nvim',
-    branch = 'release',
-    build = 'yarn install',
-    config = function()
-      require('coc')
-      vim.g.coc_config_home = vim.fn.stdpath('config')
-      vim.g.coc_global_extensions = {
-        'coc-json',
-        'coc-yaml',
-        'coc-sourcekit',
-        'coc-markdownlint',
-        'coc-solargraph',
-        'coc-toml',
-        'coc-sh',
-        'coc-lua',
       }
     end,
   },
