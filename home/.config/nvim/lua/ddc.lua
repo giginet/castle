@@ -6,24 +6,28 @@ vim.fn["ddc#custom#patch_global"]('sources', {
   'lsp',
 })
 
-vim.fn["ddc#custom#patch_global"]('sourceOptions', {
-  _ = {
-    matchers = {'matcher_fuzzy'},
-    sorters = {'sorter_fuzzy'},
-    converters = {'converter_fuzzy'},
+vim.fn["ddc#custom#patch_global"]({
+  sourceOptions = {
+    _ = {
+      matchers = {'matcher_fuzzy'},
+      sorters = {'sorter_fuzzy'},
+      converters = {'converter_fuzzy'},
+    },
+    around = {
+      mark = 'around',
+    },
+    lsp = {
+      mark = 'lsp',
+      forceCompletionPattern = "\\.\\w*|:\\w*|->\\w*",
+    },
+    file = {
+      mark = 'file',
+      isVolatile = true,
+      forceCompletionPattern = '\\S/\\S*',
+    }
   },
-  around = {
-    mark = 'around',
+  sourceParams = {
   },
-  lsp = {
-    mark = 'lsp',
-    forceCompletionPattern = "\\.\\w*|:\\w*|->\\w*",
-  },
-  file = {
-    mark = 'file',
-    isVolatile = true,
-    forceCompletionPattern = '\\S/\\S*',
-  }
 })
 
 vim.fn["ddc#enable"]()

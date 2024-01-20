@@ -58,6 +58,10 @@ return require('lazy').setup({
     'tani/ddc-fuzzy',
     dependencies = {'Shougo/ddc.vim'},
   },
+  {
+    'uga-rosa/ddc-source-lsp-setup',
+    dependencies = {'Shougo/ddc.vim'},
+  },
   'Shougo/context_filetype.vim',
   {
     'osyo-manga/vim-precious',
@@ -70,6 +74,7 @@ return require('lazy').setup({
     lazy = false,
     cmd = {'Copilot'},
     config = function()
+      vim.g.copilot_no_tab_map = true
       noremap('<C-c><Tab>', ':Copilot<CR>')
       vim.b.copilot_enabled = true
       vim.g.copilot_filetypes = {

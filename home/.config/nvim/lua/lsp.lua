@@ -1,10 +1,11 @@
 -- Setup language servers.
 local lspconfig = require('lspconfig')
 
-local capabilities = require("ddc_source_lsp").make_client_capabilities()
-require("lspconfig").denols.setup({
-  capabilities = capabilities,
-})
+-- Use LSP on ddc.vim
+-- https://zenn.dev/vim_jp/articles/6a2c9717930e54
+require("ddc_source_lsp_setup").setup()
+
+require("lspconfig").denols.setup {}
 
 -- Enable each LSP
 lspconfig.sourcekit.setup {}
@@ -12,7 +13,6 @@ lspconfig.solargraph.setup {}
 lspconfig.grammarly.setup {}
 lspconfig.jsonls.setup {}
 lspconfig.lua_ls.setup {
-  capabilities = capabilities,
   settings = {
     Lua = {
       runtime = {
