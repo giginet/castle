@@ -19,7 +19,44 @@ return require('lazy').setup({
     'neovim/nvim-lspconfig',
     config = function()
       require('lsp')
-    end
+    end,
+  },
+  {
+    "williamboman/mason.nvim",
+    config = function()
+      require("mason").setup()
+    end,
+  },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    dependencies = {"mason.nvim", "nvim-lspconfig"},
+    config = function()
+      require("mason-lspconfig").setup()
+    end,
+  },
+  {
+    'Shougo/ddc.vim',
+    dependencies = {'vim-denops/denops.vim'},
+  },
+  {
+    'Shougo/ddc-source-lsp',
+    dependencies = {'Shougo/ddc.vim'},
+  },
+  {
+    'Shougo/ddc-around',
+    dependencies = {'Shougo/ddc.vim'},
+  },
+  {
+    'Shougo/ddc-ui-native',
+    dependencies = {'Shougo/ddc.vim'},
+  },
+  {
+    'LumaKernel/ddc-source-file',
+    dependencies = {'Shougo/ddc.vim'},
+  },
+  {
+    'tani/ddc-fuzzy',
+    dependencies = {'Shougo/ddc.vim'},
   },
   'Shougo/context_filetype.vim',
   {

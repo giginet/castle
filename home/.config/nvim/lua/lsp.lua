@@ -1,14 +1,35 @@
 -- Setup language servers.
 local lspconfig = require('lspconfig')
-lspconfig.pyright.setup {}
-lspconfig.tsserver.setup {}
-lspconfig.rust_analyzer.setup {
-  -- Server-specific settings. See `:help lspconfig-setup`
+
+local capabilities = require("ddc_source_lsp").make_client_capabilities()
+require("lspconfig").denols.setup({
+  capabilities = capabilities,
+})
+
+-- Enable each LSP
+lspconfig.sourcekit.setup {}
+lspconfig.solargraph.setup {}
+lspconfig.grammarly.setup {}
+lspconfig.jsonls.setup {}
+lspconfig.lua_ls.setup {
+  capabilities = capabilities,
   settings = {
-    ['rust-analyzer'] = {},
+    Lua = {
+      runtime = {
+        version = "LuaJIT",
+        pathStrict = true,
+        path = { "?.lua", "?/init.lua" },
+      },
+      workspace = {
+        library = {
+          "/opt/homebrew/share/nvim/runtime/lua",
+          "/opt/homebrew/share/nvim/runtime/lua/vim",
+          "/opt/homebrew/share/nvim/runtime/lua/vim/lsp",
+        }
+      },
+    },
   },
 }
-
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
