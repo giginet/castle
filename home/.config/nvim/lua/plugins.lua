@@ -38,7 +38,7 @@ return require('lazy').setup({
   {
     'Shougo/deoplete.nvim',
     config = function()
-      vim.api.nvim_set_var('deoplete#enable_at_startup', true)
+      vim.g['deoplete#enable_at_startup'] = true
       vim.cmd("call deoplete#custom#option('smart_case', v:true)")
       vim.opt.completeopt:append('noinsert')
     end,
@@ -102,7 +102,7 @@ return require('lazy').setup({
     cmd = {'QuickRun'},
     dependencies = {'vimproc.vim'},
     config = function()
-      vim.api.nvim_set_keymap(
+      vim.keymap.set(
         'n',
         '<C-x><C-x>', 
         ':QuickRun<CR>',
@@ -154,10 +154,10 @@ return require('lazy').setup({
     keys = {'<C-s>_', '<C-s>l'},
     dependencies = {'denops.vim'},
     config = function()
-      vim.api.nvim_set_var('deckset#show_slide_numbers', true)
-      vim.api.nvim_set_var('deckset#show_slide_count', true)
-      vim.api.nvim_set_var('deckset#autoscale', false)
-      vim.api.nvim_set_var('deckset#theme', 'Simple, 2')
+      vim.g['deckset#show_slide_numbers'] = true
+      vim.g['deckset#show_slide_count'] = true
+      vim.g['deckset#autoscale'] = false
+      vim.g['deckset#theme'] = 'Simple, 2'
       noremap('<C-s>_', ':InsertCodeHighlight<CR>')
       noremap('<C-s>l', ':InsertLink<CR>')
     end
@@ -170,7 +170,7 @@ return require('lazy').setup({
     keys = {'<C-g>o', '<C-g>i', '<C-g>p', '<C-g>g'},
     config = function()
       noremap('<C-g>o', ":OpenGithubFile<CR>")
-      vim.api.nvim_set_keymap('v', '<C-g>o', ":'<,'>OpenGithubFile<CR>", { noremap = true, silent = true })
+      vim.keymap.set('v', '<C-g>o', ":'<,'>OpenGithubFile<CR>", { noremap = true, silent = true })
       vim.g.openbrowser_github_always_use_commit_hash = false
       vim.g.openbrowser_github_url_exists_check = 'no'
     end,
