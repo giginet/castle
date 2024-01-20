@@ -104,7 +104,7 @@ return require('lazy').setup({
     config = function()
       vim.keymap.set(
         'n',
-        '<C-x><C-x>', 
+        '<C-x><C-x>',
         ':QuickRun<CR>',
         { silent = true, }
       )
@@ -232,7 +232,7 @@ return require('lazy').setup({
     end,
   },
 
-  { 
+  {
     "folke/tokyonight.nvim",
     config = function()
       vim.cmd.colorscheme 'tokyonight-night'
