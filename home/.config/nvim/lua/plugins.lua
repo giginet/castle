@@ -20,7 +20,6 @@ return require('lazy').setup({
     'osyo-manga/vim-precious',
     dependencies = {'context_filetype.vim', 'vim-quickrun'}
   },
-  'prabirshrestha/async.vim',
   'rbgrouleff/bclose.vim',
   'vim-denops/denops.vim',
   {
@@ -33,14 +32,6 @@ return require('lazy').setup({
       vim.g.copilot_filetypes = {
         env = false,
       }
-    end,
-  },
-  {
-    'Shougo/deoplete.nvim',
-    config = function()
-      vim.g['deoplete#enable_at_startup'] = true
-      vim.cmd("call deoplete#custom#option('smart_case', v:true)")
-      vim.opt.completeopt:append('noinsert')
     end,
   },
   {
@@ -62,9 +53,13 @@ return require('lazy').setup({
       }
     end,
   },
-  'tpope/vim-bundler',
+  {
+    'tpope/vim-bundler',
+    ft = {'ruby'},
+  },
   {
     'keith/swift.vim',
+    ft = {'swift'},
     config = function()
       vim.g.syntastic_swift_checkers = {
         'swiftpm',
@@ -72,23 +67,72 @@ return require('lazy').setup({
       }
     end,
   },
-  'tfnico/vim-gradle',
-  'cespare/vim-toml',
+  {
+    'tfnico/vim-gradle',
+    ft = {'gradle'},
+  },
+  {
+    'cespare/vim-toml',
+    ft = {'toml'},
+  },
   {
     'elzr/vim-json',
+    ft = {'json'},
     config = function()
       vim.g.vim_json_syntax_conceal = false
     end,
   },
-  'tmux-plugins/vim-tmux',
-  'ekalinin/Dockerfile.vim',
-  'google/vim-jsonnet',
-  'compnerd/modulemap-vim',
-  'keith/xcconfig.vim',
-  'rust-lang/rust.vim',
-  'aklt/plantuml-syntax',
-  'Glench/Vim-Jinja2-Syntax',
-  'stephpy/vim-yaml',
+  {
+    'tmux-plugins/vim-tmux',
+    ft = {'tmux'},
+  },
+  {
+    'ekalinin/Dockerfile.vim',
+    ft = {'dockerfile'},
+  },
+  {
+    'google/vim-jsonnet',
+    ft = {'jsonnet'},
+  },
+  {
+    'rust-lang/rust.vim',
+    ft = {'rust'},
+  },
+  {
+    'cespare/vim-toml',
+    ft = {'toml'},
+  },
+  {
+    'elzr/vim-json',
+    ft = {'json'},
+    config = function()
+      vim.g.vim_json_syntax_conceal = false
+    end,
+  },
+  {
+    'compnerd/modulemap-vim',
+    ft = {'modulemap'},
+  },
+  {
+    'keith/xcconfig.vim',
+    ft = {'xcconfig'},
+  },
+  {
+    'rust-lang/rust.vim',
+    ft = {'rust'},
+  },
+  {
+    'aklt/plantuml-syntax',
+    ft = {'plantuml'},
+  },
+  {
+    'Glench/Vim-Jinja2-Syntax',
+    ft = {'jinja'},
+  },
+  {
+    'stephpy/vim-yaml',
+    ft = {'yaml'},
+  },
   {
     'tpope/vim-git',
     ft = {'git', 'gitcommit', 'gitconfig', 'gitrebase'}
@@ -199,10 +243,9 @@ return require('lazy').setup({
       vim.g.NERDTreeIgnore = {'\\.vim$', '\\.git$', '\\.DS_Store', '\\.idea', '\\.build'}
     end
   },
-  'rbgrouleff/bclose.vim',
   {
     'iberianpig/tig-explorer.vim',
-    dependencies = {'blose.vim'},
+    dependencies = {'bclose.vim'},
     cmd = {'TigOpenCurrentFile', 'TigOpenProjectRootDir', 'TigGrep', 'TigGrepResume', 'TigBlame'},
     keys = {'<C-g>', '<C-g>l', '<C-g>b', '<C-g>g'},
     config = function()
