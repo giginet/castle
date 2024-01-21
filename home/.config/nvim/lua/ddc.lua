@@ -27,6 +27,10 @@ vim.fn["ddc#custom#patch_global"]({
     }
   },
   sourceParams = {
+    lsp = {
+      enableResolveItem = true,
+      enableAdditionalTextEdits = true,
+    },
   },
 })
 
