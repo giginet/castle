@@ -5,7 +5,13 @@ local lspconfig = require('lspconfig')
 -- https://zenn.dev/vim_jp/articles/6a2c9717930e54
 require("ddc_source_lsp_setup").setup()
 
-require("lspconfig").denols.setup {}
+require("mason").setup()
+require("mason-lspconfig").setup {
+  ensure_installed = {
+    "lua_ls",
+    "grammarly-languageserver",
+  }
+}
 
 -- Enable each LSP
 lspconfig.sourcekit.setup {}
