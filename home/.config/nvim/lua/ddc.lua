@@ -14,14 +14,14 @@ vim.fn["ddc#custom#patch_global"]({
       converters = {'converter_fuzzy'},
     },
     around = {
-      mark = 'around',
+      mark = '[A]',
     },
     lsp = {
-      mark = 'lsp',
+      mark = '[lsp]',
       forceCompletionPattern = "\\.\\w*|:\\w*|->\\w*",
     },
     file = {
-      mark = 'file',
+      mark = '[file]',
       isVolatile = true,
       forceCompletionPattern = '\\S/\\S*',
     }
