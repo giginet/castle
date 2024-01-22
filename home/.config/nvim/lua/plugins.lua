@@ -253,11 +253,9 @@ return require('lazy').setup({
     opts = {
       toggler = {
         line = '<C-_><C-_>',
-        block = '<C-_><C-_>',
       },
       opleader = {
         line = '<C-_><C-_>',
-        block = '<C-_><C-_>',
       },
     },
     lazy = false,
