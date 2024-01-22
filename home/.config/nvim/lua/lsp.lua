@@ -17,7 +17,6 @@ require("mason-lspconfig").setup {
     "denols",
     "solargraph",
     "pylsp",
-    "sourcekit",
     "taplo",
     "clangd",
     "marksman",
@@ -32,6 +31,7 @@ require('mason-lspconfig').setup_handlers {
 }
 
 -- Additional LSP settings
+lspconfig.sourcekit.setup {}
 lspconfig.lua_ls.setup {
   settings = {
     Lua = {
