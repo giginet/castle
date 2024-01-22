@@ -8,18 +8,19 @@ require("ddc_source_lsp_setup").setup()
 require("mason").setup()
 require("mason-lspconfig").setup {
   ensure_installed = {
-    "lua_ls",
-    "grammarly",
-    "jsonls",
-    "yamlls",
+    "bashls",
+    "clangd",
+    "denols",
     "docker_compose_language_service",
     "dockerls",
-    "denols",
-    "solargraph",
-    "pylsp",
-    "taplo",
-    "clangd",
+    "grammarly",
+    "jsonls",
+    "lua_ls",
     "marksman",
+    "pylsp",
+    "solargraph",
+    "taplo",
+    "yamlls",
   },
 }
 
