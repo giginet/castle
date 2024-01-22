@@ -10,14 +10,28 @@ require("mason-lspconfig").setup {
   ensure_installed = {
     "lua_ls",
     "grammarly",
-  }
+    "jsonls",
+    "yamlls",
+    "docker_compose_language_service",
+    "dockerls",
+    "denols",
+    "solargraph",
+    "pylsp",
+    "sourcekit",
+    "taplo",
+    "clangd",
+    "marksman",
+  },
 }
 
--- Enable each LSP
-lspconfig.sourcekit.setup {}
-lspconfig.solargraph.setup {}
-lspconfig.grammarly.setup {}
-lspconfig.jsonls.setup {}
+-- Enable LSP settings from Mason
+require('mason-lspconfig').setup_handlers {
+  function(server_name)
+    require('lspconfig')[server_name].setup {}
+  end,
+}
+
+-- Additional LSP settings
 lspconfig.lua_ls.setup {
   settings = {
     Lua = {
