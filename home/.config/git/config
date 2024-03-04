@@ -16,6 +16,8 @@
 	autocrlf = false
 [pull]
 	rebase = true
+[submodule]
+	recurse = true
 [rebase]
 	autosquash = true
 	autostash = true
