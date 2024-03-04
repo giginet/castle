@@ -16,6 +16,9 @@
 	autocrlf = false
 [pull]
 	rebase = true
+[rebase]
+	autosquash = true
+	autostash = true
 [alias]
 	br = branch --sort=-committerdate
 	st = !"tig status"
