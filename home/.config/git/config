@@ -49,7 +49,7 @@
 [ghq]
 	root = ~/.ghq
 [include]
-	path = ~/.gitconfig.local
+	path = ~/.config/git/config.local
 [rerere]
 	enabled = true
 [url "git@github.com:"]
