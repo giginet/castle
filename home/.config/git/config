@@ -56,7 +56,7 @@
 	pushinsteadof = "https://github.com/"
 	pushinsteadof = "git://github.com/"
 [includeIf "gitdir:~/.ghq/github.com/"]
-	path = ~/.config/git/config.work
+	path = ~/.config/git/config.local
 [includeIf "gitdir:~/.homesick/repos/"]
 	path = ~/.config/git/config.public
 [includeIf "gitdir:~/.ghq/github.com/line/"]
