@@ -25,6 +25,9 @@ zstyle ':completion:*:default' list-colors ${LS_COLORS}
 autoload -Uz add-zsh-hock
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
 
+# Enable compinit
+autoload -Uz compinit && compinit
+
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([%0-9]#)*=0=01;31'
 
@@ -158,7 +161,6 @@ fpath=($BREW_PREFIX/share/zsh/site-functions/
   $HOME/.homesick/repos/homeshick/completions 
   $HOME/.zsh/shell-completions
   ${fpath})
-autoload -U compinit && compinit
 
 # Settings for go lang
 if [ -x "`which go`" ]; then
