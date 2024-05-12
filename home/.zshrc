@@ -220,6 +220,9 @@ export MINT_PATH=$HOME/.mint
 export MINT_LINK_PATH=$HOME/.mint/bin
 export PATH=$PATH:$MINT_LINK_PATH
 
+# swift package experimental-install
+export PATH=$PATH:$HOME/.swiftpm/bin
+
 # Docker
 export PATH=$HOME/.docker/bin:$PATH
 
