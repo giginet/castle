@@ -1,6 +1,4 @@
-vim.opt_local.append({
-  expandtab = true,
-  tabstop = 4,
-  shiftwidth = 4,
-  smartindent = true,
-})
+vim.opt_local.expandtab = true
+vim.opt_local.tabstop = 4
+vim.opt_local.shiftwidth = 4
+vim.opt_local.smartindent = true
