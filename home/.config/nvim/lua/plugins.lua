@@ -217,6 +217,7 @@ return require('lazy').setup({
     dependencies = {'tabular'},
     config = function()
       vim.g.vim_markdown_folding_disabled = true
+      vim.g.vim_markdown_conceal_code_blocks = false
       nnoremap('==', ':TableFormat<CR>')
     end,
   },
