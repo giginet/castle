@@ -9,4 +9,5 @@ pager:
 # Aliases allow you to create nicknames for gh commands
 aliases:
     co: pr checkout
+    fork: repo fork --remote --remote-name giginet
 version: "1"
