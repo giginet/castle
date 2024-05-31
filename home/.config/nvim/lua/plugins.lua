@@ -74,6 +74,13 @@ return require('lazy').setup({
     lazy = false,
     cmd = {'Copilot'},
     config = function()
+      local keymap = vim.keymap.set
+      keymap(
+        "i",
+        "<C-c>",
+        'copilot#Accept("<CR>")',
+        { silent = true, expr = true, script = true, replace_keycodes = false }
+      )
       vim.g.copilot_no_tab_map = true
       noremap('<C-c><Tab>', ':Copilot<CR>')
       vim.b.copilot_enabled = true
