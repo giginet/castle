@@ -31,8 +31,26 @@ require('mason-lspconfig').setup_handlers {
   end,
 }
 
+local handle = io.popen("xcrun --sdk iphonesimulator --show-sdk-path")
+local sdkpath = handle:read("*a")
+handle:close()
+
 -- Additional LSP settings
-lspconfig.sourcekit.setup {}
+lspconfig.sourcekit.setup {
+  cmd = {
+    '/usr/bin/xcrun',
+    'sourcekit-lsp',
+    '-Xswiftc',
+    '-sdk',
+    '-Xswiftc',
+    sdkpath,
+    '-Xswiftc',
+    '-target',
+    '-Xswiftc',
+    'x86_64-apple-ios17.5-simulator',
+  }
+}
+
 lspconfig.lua_ls.setup {
   settings = {
     Lua = {
