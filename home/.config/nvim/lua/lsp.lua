@@ -47,7 +47,7 @@ lspconfig.sourcekit.setup {
     '-Xswiftc',
     '-target',
     '-Xswiftc',
-    'x86_64-apple-ios17.5-simulator',
+    'arm64-apple-ios17.5-simulator',
   }
 }
 
