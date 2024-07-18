@@ -5,6 +5,7 @@ local config = {
   font = wezterm.font_with_fallback {
     { family = 'BitstromWera Nerd Font Mono' },
     { family = 'Hiragino Sans' },
+    { family = 'SF Pro' },
   },
   font_size = 24,
   initial_cols = 120,
