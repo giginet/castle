@@ -217,15 +217,12 @@ return require('lazy').setup({
       vim.g.quickrun_config = quickrun_config
     end,
   },
-  'godlygeek/tabular',
   {
-    'plasticboy/vim-markdown',
-    ft = {'markdown'},
-    dependencies = {'tabular'},
+    'MeanderingProgrammer/markdown.nvim',
+    name = 'render-markdown',
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' },
     config = function()
-      vim.g.vim_markdown_folding_disabled = true
-      vim.g.vim_markdown_conceal_code_blocks = false
-      nnoremap('==', ':TableFormat<CR>')
+      require('render-markdown').setup({})
     end,
   },
   {
