@@ -1,6 +1,6 @@
 local wezterm = require 'wezterm';
 local config = {
-  color_scheme = 'Tokyo Night',
+  color_scheme = 'duskfox',
 
   font = wezterm.font_with_fallback {
     { family = 'BitstromWera Nerd Font Mono' },

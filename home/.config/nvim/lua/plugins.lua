@@ -306,14 +306,12 @@ return require('lazy').setup({
       nnoremap('U', ':MundoToggle<CR>')
     end,
   },
-
-  {
-    "folke/tokyonight.nvim",
+  { 
+    "EdenEast/nightfox.nvim",
     config = function()
-      vim.cmd.colorscheme 'tokyonight-night'
+      vim.cmd.colorscheme 'duskfox'
     end
   },
-
   {
     "epwalsh/obsidian.nvim",
     version = "*",
