@@ -6,6 +6,18 @@ function module.is_start_with(str, prefix)
   return str.find(str, "^" .. prefix) ~= nil
 end
 
+local color_scheme = 'duskfox'
+local scheme = wezterm.color.get_builtin_schemes()[color_scheme]
+
+module.color_scheme = color_scheme
+
+module.palette = {
+  green = scheme.brights[3],
+  yellow = scheme.brights[4],
+  background = scheme.background,
+  cursor_bg = scheme.cursor_bg,
+}
+
 function module.concat(...)
   local res = {}
   local inputs = {...}

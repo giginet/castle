@@ -1,8 +1,8 @@
 local wezterm = require 'wezterm';
+local utils = require 'utils';
 
-local color_scheme = 'duskfox'
-local scheme = wezterm.color.get_builtin_schemes()[color_scheme]
-local background_color = wezterm.color.parse(scheme.background)
+local color_scheme = utils.color_scheme
+local background_color = wezterm.color.parse(utils.palette.background)
 
 local config = {
   color_scheme = color_scheme,

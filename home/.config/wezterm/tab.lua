@@ -94,13 +94,11 @@ wezterm.on(
       intencity = "Normal"
     end 
 
-    local color_scheme_palette = wezterm.color.get_default_colors()
-    local green = color_scheme_palette.brights[3] -- Green
-    local yellow = color_scheme_palette.brights[4] -- Yellow
+    local palette = utils.palette
 
     if is_first_tab then
       elements = utils.concat(elements, {
-        { Background = { Color =  green } },
+        { Background = { Color =  palette.green } },
         { Foreground = { Color = background_color } },
         { Text = "" },
       })
@@ -115,7 +113,7 @@ wezterm.on(
 
     if is_last_tab then
       elements = utils.concat(elements, {
-        { Background = { Color = "clear" } },
+        { Background = { Color = 'black' } },
         { Foreground = { Color = background_color } },
         { Text = "" },
       })
