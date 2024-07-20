@@ -63,25 +63,16 @@ local function make_edge_color(window)
   end
 end
 
-local function make_edge_elements(symbol, window)
-  local color = make_edge_color(window) 
-  return {
-    { Foreground = { Color = color } },
-    { Text = symbol },
-  }
-end
-
 local function render_right_status(window, pane)
   local dir_section = make_dir_section(window, pane)
   local spacer = { { Text = '  ' } }
   local git_section = make_git_info_section(window, pane)
-  local edge = make_edge_elements('', window)
-  local elements = utils.concat(dir_section, spacer, git_section, spacer, edge)
+  local elements = utils.concat(dir_section, spacer, git_section)
 
   window:set_right_status(wezterm.format(elements))
 end
 
-wezterm.on('update-status', function(window, pane) 
+wezterm.on('update-status', function(window, pane)
   local color = make_edge_color(window)
 
   local elements = {
