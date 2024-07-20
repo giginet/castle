@@ -266,13 +266,31 @@ return require('lazy').setup({
     lazy = false,
   },
   {
-    'scrooloose/nerdtree',
-    cmd = {'NERDTreeToggle'},
+    'nvim-tree/nvim-tree.lua',
+    cmd = {'NvimTreeToggle'},
     keys = {'<C-n>t'},
     config = function()
-      nnoremap('<C-n>t', ':NERDTreeToggle<CR>')
-      vim.g.NERDTreeShowHidden = true
-      vim.g.NERDTreeIgnore = {'\\.vim$', '\\.git$', '\\.DS_Store', '\\.idea', '\\.build'}
+      nnoremap('<C-n>t', ':NvimTreeToggle<CR>')
+      require("nvim-tree").setup({
+        sort = {
+          sorter = "case_sensitive",
+        },
+        view = {
+          width = 20,
+        },
+        renderer = {
+          group_empty = true,
+        },
+        filters = {
+          custom = {
+            '\\.vim$',
+            '\\.git$',
+            '\\.DS_Store',
+            '\\.idea',
+            '\\.build',
+          }
+        },
+      })
     end
   },
   {
