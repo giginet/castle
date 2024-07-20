@@ -39,7 +39,9 @@ local options = {
   undodir = home_dir .. "/.vim/undo",
 
   termguicolors = true,
+  winblend = 0,
 }
+
 
 vim.opt.clipboard:append{'unnamedplus'}
 vim.cmd[[language en_US]]

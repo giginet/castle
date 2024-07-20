@@ -1,6 +1,11 @@
 local wezterm = require 'wezterm';
+
+local color_scheme = 'duskfox'
+local scheme = wezterm.color.get_builtin_schemes()[color_scheme]
+local background_color = wezterm.color.parse(scheme.background)
+
 local config = {
-  color_scheme = 'duskfox',
+  color_scheme = color_scheme,
 
   font = wezterm.font_with_fallback {
     { family = 'BitstromWera Nerd Font Mono' },
@@ -34,6 +39,16 @@ local config = {
   tab_max_width = 64,
 
   native_macos_fullscreen_mode = true,
+  window_background_gradient = {
+    orientation = 'Vertical',
+    colors = {
+      background_color:darken(0.5),
+      background_color,
+      background_color:lighten(0.1),
+    },
+    interpolation = 'Linear',
+    blend = 'Rgb',
+  }
 }
 
 require 'status'
