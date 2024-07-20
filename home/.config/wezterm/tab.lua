@@ -54,7 +54,7 @@ wezterm.on(
   'format-tab-title',
   function(tab, tabs, panes, config, hover, max_width)
     local title = tab_title(tab)
-    local rainbows = wezterm.color.gradient({preset="Cool"}, 8)
+    local rainbows = wezterm.color.gradient({preset="Cividis"}, 8)
 
     local tab_index = get_tab_index(tabs, tab)
     
@@ -70,6 +70,7 @@ wezterm.on(
       is_next_active = tabs[tab_index + 1].is_active
     end
 
+    local first_color = rainbows[1]
     local background_color = rainbows[color_index]
     local foreground_color = rainbows[color_index]:lighten(0.8)
     local next_background_color = rainbows[next_color_index]
@@ -93,9 +94,13 @@ wezterm.on(
       intencity = "Normal"
     end 
 
+    local color_scheme_palette = wezterm.color.get_default_colors()
+    local green = color_scheme_palette.brights[3] -- Green
+    local yellow = color_scheme_palette.brights[4] -- Yellow
+
     if is_first_tab then
       elements = utils.concat(elements, {
-        { Background = { Color =  'lightgreen' } },
+        { Background = { Color =  green } },
         { Foreground = { Color = background_color } },
         { Text = "" },
       })

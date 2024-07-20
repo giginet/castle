@@ -53,10 +53,13 @@ end
 
 local function make_edge_color(window)
   local leader_is_active = window:leader_is_active()
+  local color_scheme_palette = wezterm.color.get_default_colors()
+  local non_active = color_scheme_palette.brights[3] -- Green
+  local active = color_scheme_palette.brights[4] -- Yellow
   if leader_is_active then
-    return 'yellow'
+    return active
   else
-    return 'lightgreen'
+    return non_active
   end
 end
 
