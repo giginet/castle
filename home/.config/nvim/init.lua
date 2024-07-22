@@ -59,7 +59,7 @@ require('plugins')
 vim.api.nvim_create_augroup('lua', {})
 vim.api.nvim_create_autocmd({'BufWritePost'}, {
   group = 'lua',
-  pattern = {'plugins.lua'},
+  pattern = {'plugins/init.lua'},
   callback = function()
     vim.api.nvim_echo({{"Please execute :Lazy sync", "WarningMsg"}}, false, {})
   end,
