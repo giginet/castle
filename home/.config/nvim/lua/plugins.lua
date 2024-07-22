@@ -186,6 +186,9 @@ return require('lazy').setup({
     'udalov/kotlin-vim',
   },
   {
+    'jparise/vim-graphql',
+  },
+  {
     'tpope/vim-git',
     ft = {'git', 'gitcommit', 'gitconfig', 'gitrebase'}
   },
