@@ -16,6 +16,8 @@ local function get_process_icon(process_name)
     return ''
   elseif process_name == 'node' then
     return ''
+  elseif process_name == 'ssh' then
+    return ''
   end
   return '󱥸'
 end
