@@ -18,7 +18,7 @@ return require('lazy').setup({
   {
     'neovim/nvim-lspconfig',
     config = function()
-      require('lsp')
+      require('plugins.settings.nvim-lspconfig')
     end,
   },
   {
@@ -37,12 +37,15 @@ return require('lazy').setup({
   {
     "nvim-treesitter/nvim-treesitter",
     config = function()
-      require("treesitter")
+      require("plugins.settings.nvim-treesitter")
     end,
   },
   {
     'Shougo/ddc.vim',
     dependencies = {'vim-denops/denops.vim'},
+    config = function()
+      require('plugins.settings.ddc')
+    end
   },
   {
     'Shougo/ddc-source-lsp',

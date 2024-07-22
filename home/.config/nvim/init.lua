@@ -82,5 +82,3 @@ map("<right>", "<nop>")
 
 noremap("<C-k>", "<C-u>")
 noremap("<C-j>", "<C-d>")
-
-require('ddc')
