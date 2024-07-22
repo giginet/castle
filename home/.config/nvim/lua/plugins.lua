@@ -35,6 +35,12 @@ return require('lazy').setup({
     end,
   },
   {
+    "nvim-treesitter/nvim-treesitter",
+    config = function()
+      require("treesitter")
+    end,
+  },
+  {
     'Shougo/ddc.vim',
     dependencies = {'vim-denops/denops.vim'},
   },
@@ -181,12 +187,6 @@ return require('lazy').setup({
   {
     'stephpy/vim-yaml',
     ft = {'yaml'},
-  },
-  {
-    'udalov/kotlin-vim',
-  },
-  {
-    'jparise/vim-graphql',
   },
   {
     'tpope/vim-git',
