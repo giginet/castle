@@ -12,8 +12,13 @@ local scheme = wezterm.color.get_builtin_schemes()[color_scheme]
 module.color_scheme = color_scheme
 
 module.palette = {
+  red = scheme.brights[2],
   green = scheme.brights[3],
   yellow = scheme.brights[4],
+  blue = scheme.brights[5],
+  purple = scheme.brights[6],
+  cyan = scheme.brights[7],
+  ivory = scheme.brights[8],
   background = scheme.background,
   cursor_bg = scheme.cursor_bg,
 }
