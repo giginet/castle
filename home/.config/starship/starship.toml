@@ -12,6 +12,7 @@ $git_status\
 right_format = """
 $ruby \
 $python \
+$swift \
 ${custom.xcode} \
 $docker_context \
 """
@@ -77,6 +78,6 @@ command = "/usr/bin/xcrun xcodebuild -version | head -n 1 | awk '{print $2}'"
 description = "Show the current Xcode version"
 when = '$XDG_CONFIG_HOME/starship/check-using-xcode.sh'
 symbol = ''
-style = 'bold cyan' 
+style = 'bold gray' 
 format = '[$symbol $output]($style)'
 os = 'macos'
