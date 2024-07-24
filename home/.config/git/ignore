@@ -60,3 +60,5 @@ fake-eggs
 
 # bazel-intelij
 .clwb
+
+.nvim
