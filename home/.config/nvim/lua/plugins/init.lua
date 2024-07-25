@@ -93,16 +93,6 @@ return require('lazy').setup({
     ft = {'ruby'},
   },
   {
-    'keith/swift.vim',
-    ft = {'swift'},
-    config = function()
-      vim.g.syntastic_swift_checkers = {
-        'swiftpm',
-        'swiftlint',
-      }
-    end,
-  },
-  {
     'nvim-telescope/telescope.nvim',
     dependencies = {
       'nvim-lua/plenary.nvim'
@@ -133,10 +123,6 @@ return require('lazy').setup({
     ft = {'gradle'},
   },
   {
-    'cespare/vim-toml',
-    ft = {'toml'},
-  },
-  {
     'elzr/vim-json',
     ft = {'json'},
     config = function()
@@ -146,22 +132,6 @@ return require('lazy').setup({
   {
     'tmux-plugins/vim-tmux',
     ft = {'tmux'},
-  },
-  {
-    'ekalinin/Dockerfile.vim',
-    ft = {'dockerfile'},
-  },
-  {
-    'google/vim-jsonnet',
-    ft = {'jsonnet'},
-  },
-  {
-    'rust-lang/rust.vim',
-    ft = {'rust'},
-  },
-  {
-    'cespare/vim-toml',
-    ft = {'toml'},
   },
   {
     'elzr/vim-json',
