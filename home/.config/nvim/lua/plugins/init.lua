@@ -112,6 +112,10 @@ return require('lazy').setup({
     end,
   },
   {
+    'davvid/telescope-git-grep.nvim',
+    dependencies = { 'nvim-telescope/telescope.nvim' },
+  },
+  {
   "wojciech-kulik/xcodebuild.nvim",
   dependencies = {
     "nvim-telescope/telescope.nvim",
