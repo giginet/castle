@@ -199,6 +199,10 @@ return require('lazy').setup({
     ft = {'git', 'gitcommit', 'gitconfig', 'gitrebase'}
   },
   {
+    'apple/pkl-neovim',
+    dependencies = {'nvim-treesitter/nvim-treesitter'},
+  },
+  {
     'Shougo/vimproc.vim',
     build = 'make',
   },
@@ -349,7 +353,7 @@ return require('lazy').setup({
       nnoremap('U', ':MundoToggle<CR>')
     end,
   },
-  { 
+  {
     "EdenEast/nightfox.nvim",
     config = function()
       -- Erase all background. background will be rendered by WezTerm
