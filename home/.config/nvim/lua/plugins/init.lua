@@ -40,38 +40,28 @@ return require('lazy').setup({
       require("plugins.settings.nvim-treesitter")
     end,
   },
-  {
-    'Shougo/ddc.vim',
-    dependencies = {'vim-denops/denops.vim'},
-    config = function()
-      require('plugins.settings.ddc')
-    end
-  },
-  {
-    'Shougo/ddc-source-lsp',
-    dependencies = {'Shougo/ddc.vim'},
-  },
-  {
-    'Shougo/ddc-around',
-    dependencies = {'Shougo/ddc.vim'},
-  },
-  {
-    'Shougo/ddc-ui-native',
-    dependencies = {'Shougo/ddc.vim'},
-  },
-  {
-    'LumaKernel/ddc-source-file',
-    dependencies = {'Shougo/ddc.vim'},
-  },
-  {
-    'tani/ddc-fuzzy',
-    dependencies = {'Shougo/ddc.vim'},
-  },
-  {
-    'uga-rosa/ddc-source-lsp-setup',
-    dependencies = {'Shougo/ddc.vim'},
-  },
   'Shougo/context_filetype.vim',
+  {
+    'hrsh7th/nvim-cmp',
+    config = function()
+      require('plugins.settings.nvim-cmp')
+    end,
+  },
+  {
+    'hrsh7th/cmp-nvim-lsp',
+    dependencies = {'hrsh7th/nvim-cmp'},
+  },
+  {
+    'hrsh7th/cmp-buffer',
+    dependencies = {'hrsh7th/nvim-cmp'},
+  },
+  {
+    'hrsh7th/cmp-path',
+    dependencies = {'hrsh7th/nvim-cmp'},
+  },
+  {
+    'onsails/lspkind.nvim'
+  },
   {
     'osyo-manga/vim-precious',
     dependencies = {'context_filetype.vim', 'vim-quickrun'}
