@@ -113,6 +113,15 @@ return require('lazy').setup({
     end,
   },
   {
+    'nvim-telescope/telescope.nvim',
+    dependencies = {
+      'nvim-lua/plenary.nvim'
+    },
+    config = function()
+      require('plugins.settings.telescope-nvim')
+    end,
+  },
+  {
   "wojciech-kulik/xcodebuild.nvim",
   dependencies = {
     "nvim-telescope/telescope.nvim",
