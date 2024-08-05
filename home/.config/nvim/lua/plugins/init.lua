@@ -67,7 +67,10 @@ return require('lazy').setup({
     dependencies = {'context_filetype.vim', 'vim-quickrun'}
   },
   'rbgrouleff/bclose.vim',
-  'vim-denops/denops.vim',
+  {
+    'vim-denops/denops.vim',
+    version = '^6.0.11',
+  },
   {
     'github/copilot.vim',
     lazy = false,
