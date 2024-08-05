@@ -29,7 +29,6 @@ local options = {
   list = true,
   ruler = true,
   wrap = false,
-  shellslash = true,
 
   hlsearch = true,
   incsearch = true,
