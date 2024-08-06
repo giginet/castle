@@ -69,7 +69,6 @@ return require('lazy').setup({
   'rbgrouleff/bclose.vim',
   {
     'vim-denops/denops.vim',
-    version = '^6.0.11',
   },
   {
     'github/copilot.vim',
