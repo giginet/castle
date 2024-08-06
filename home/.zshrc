@@ -244,3 +244,6 @@ ONE_PASSWORD_AGENT=$HOME/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/ag
 if [ -e "$ONE_PASSWORD_AGENT" ]; then;
   export SSH_AUTH_SOCK=$ONE_PASSWORD_AGENT
 fi
+
+# Setting for Rancher Desktop
+export PATH="$HOME/.rd/bin:$PATH"
