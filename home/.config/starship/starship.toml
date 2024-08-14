@@ -10,11 +10,11 @@ $git_status\
 # git status is very slow 🐢
 
 right_format = """
-$ruby \
 $python \
-$swift \
-${custom.xcode} \
 $docker_context \
+$ruby \
+$swift \
+${custom.xcode}
 """
 
 add_newline = false
@@ -53,28 +53,28 @@ untracked = '' # improve performance on large repos
 
 [docker_context]
 format = '[$symbol$context]($style)'
-symbol = '󰡨 '
+symbol = '󰡨'
 style = 'cyan bold'
 
 [ruby]
 symbol = ''
-format = '[$symbol ($version)]($style)'
+format = '[${symbol} ($version)]($style)'
 version_format = '${raw}'
 
 [python]
-symbol = ' '
-format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+symbol = ''
+format = '[${symbol} ${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 version_format = '${raw}'
 style = 'yellow bold'
 
 [swift]
-format = '[$symbol ($version)]($style)'
+format = '[${symbol} ($version)]($style)'
 style = 'bold 202'
 version_format = '${raw}'
 symbol = ''
 
 [custom.xcode]
-command = "/usr/bin/xcrun xcodebuild -version | head -n 1 | awk '{print $2}'"
+command = """/usr/bin/xcrun xcodebuild -version | awk 'NR==1{ver=$2} NR==2{build=$3} END{print ver "(" build ")"}'"""
 description = "Show the current Xcode version"
 when = '$XDG_CONFIG_HOME/starship/check-using-xcode.sh'
 symbol = ''
