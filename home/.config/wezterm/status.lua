@@ -13,12 +13,22 @@ end
 local function make_dir_section(window, pane)
   local cwd = utils.get_cwd(pane)
   local is_home = utils.is_home_dir(cwd)
+  local is_ghe_dir = utils.is_ghe_dir(cwd)
 
   if is_home then
     local icon = "󰋜"
     return {
       { Foreground = { Color = '#92aac7' } },
       { Text = icon },
+    }
+  elseif is_ghe_dir then
+    local display_cwd = utils.get_repo_name(cwd)
+    local icon = ""
+    return {
+      { Foreground = { Color = 'lightblue' } },
+      { Text = icon },
+      { Foreground = { Color = 'white' } },
+      { Text = ' ' .. display_cwd },
     }
   else
     local display_cwd = utils.replace_home_dir(cwd)

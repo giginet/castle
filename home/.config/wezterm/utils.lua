@@ -79,4 +79,13 @@ function module.is_home_dir(cwd)
   return cwd == wezterm.home_dir
 end
 
+function module.is_ghe_dir(cwd)
+  return string.match(cwd, ".ghq")
+end
+
+function module.get_repo_name(full_path)
+  local path = module.replace_home_dir(full_path)
+  return string.match(path, "[a-zA-Z0-9-]+/[a-zA-Z0-9-]+$")
+end
+
 return module
