@@ -2,7 +2,7 @@ local wezterm = require 'wezterm'
 local utils = require 'utils'
 
 local function get_git_branch(repo)
-  local success, stdout, stderr = wezterm.run_child_process { 'git', '-C', repo, 'rev-parse', '--abbrev-ref', 'HEAD' }
+  local success, stdout, _ = wezterm.run_child_process { 'git', '-C', repo, 'rev-parse', '--abbrev-ref', 'HEAD' }
   if success then
     return stdout:gsub("\n$", "")
   else
@@ -10,10 +10,10 @@ local function get_git_branch(repo)
   end
 end
 
-local function make_dir_section(window, pane)
+local function make_dir_section(_, pane)
   local cwd = utils.get_cwd(pane)
   local is_home = utils.is_home_dir(cwd)
-  local is_ghe_dir = utils.is_ghe_dir(cwd)
+  local is_ghq_dir = utils.is_ghq_dir(cwd)
 
   if is_home then
     local icon = "󰋜"
@@ -21,7 +21,7 @@ local function make_dir_section(window, pane)
       { Foreground = { Color = '#92aac7' } },
       { Text = icon },
     }
-  elseif is_ghe_dir then
+  elseif is_ghq_dir then
     local display_cwd = utils.get_repo_name(cwd)
     local icon = ""
     return {
@@ -42,7 +42,7 @@ local function make_dir_section(window, pane)
   end
 end
 
-local function make_git_info_section(window, pane)
+local function make_git_info_section(_, pane)
   local cwd = utils.get_cwd(pane)
   local branch = get_git_branch(cwd)
   local icon = ''
@@ -82,7 +82,7 @@ local function render_right_status(window, pane)
   window:set_right_status(wezterm.format(elements))
 end
 
-wezterm.on('update-status', function(window, pane)
+wezterm.on('update-status', function(window, _)
   local color = make_edge_color(window)
 
   local elements = {

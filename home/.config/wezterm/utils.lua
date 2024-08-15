@@ -79,7 +79,7 @@ function module.is_home_dir(cwd)
   return cwd == wezterm.home_dir
 end
 
-function module.is_ghe_dir(cwd)
+function module.is_ghq_dir(cwd)
   return string.match(cwd, ".ghq")
 end
 
