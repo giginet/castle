@@ -291,6 +291,13 @@ return require('lazy').setup({
             '\\.build',
           }
         },
+        on_attach = function()
+          local api = require('nvim-tree.api')
+
+          vim.keymap.set('n', '<CR>', api.node.open.tab)
+          vim.keymap.set('n', '|', api.node.open.vertical)
+          vim.keymap.set('n', '_', api.node.open.horizontal)
+        end
       })
     end
   },
