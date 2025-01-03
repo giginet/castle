@@ -1,5 +1,11 @@
 font-family = "BitstromWera Nerd Font Mono"
+font-family = "Hiragino Sans"
+font-family = "SF Pro"
 font-size = 18
+font-feature = "-calt"
+font-feature = "-liga"
+font-feature = "-dlig"
+
 cursor-style = "block"
 shell-integration-features = "no-cursor"
 
