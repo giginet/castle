@@ -1,0 +1,12 @@
+font-family = "BitstromWera Nerd Font Mono"
+font-size = 18
+cursor-style = "block"
+cursor-style-blink = true
+shell-integration-features = no-cursor
+
+window-width = 120
+window-height = 40
+
+command = "/opt/homebrew/bin/tmux"
+
+macos-non-native-fullscreen = false
