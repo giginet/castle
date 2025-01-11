@@ -48,7 +48,8 @@ local config = {
     },
     interpolation = 'Linear',
     blend = 'Rgb',
-  }
+  },
+  window_close_confirmation = 'NeverPrompt',
 }
 
 require 'status'
