@@ -29,3 +29,5 @@ set commit-order = default
 
 # Don't show staged and unstaged changes in the main view
 set show-changes = no
+set status-show-untracked-files = no
+set status-show-untracked-dirs = no

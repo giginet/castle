@@ -10,10 +10,13 @@
 	ui = true
 [push]
 	default = simple
+[status]
+	ignoreSubmodules = dirty
 [core]
 	quotepath = false
 	editor = nvim
 	autocrlf = false
+	untrackedCache = true
 [pull]
 	rebase = true
 [submodule]
