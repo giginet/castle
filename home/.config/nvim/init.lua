@@ -64,6 +64,12 @@ vim.api.nvim_create_autocmd({'BufWritePost'}, {
   end,
 })
 
+vim.filetype.add({
+  extension = {
+    log = "log",
+  },
+})
+
 -- Set keymaps
 noremap("<C-w>%", ":vsp<CR>")
 noremap("<C-w><Bar>", ":vsp<CR>")
