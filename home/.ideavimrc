@@ -58,3 +58,4 @@ map <right> <nop>
 
 set visualbell
 set noerrorbells
+set ideajoin
