@@ -9,7 +9,6 @@ require("mason-lspconfig").setup {
     "denols",
     "docker_compose_language_service",
     "dockerls",
-    "grammarly",
     "jsonls",
     "lua_ls",
     "marksman",
