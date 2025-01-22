@@ -273,16 +273,11 @@ return require('lazy').setup({
     config = function()
       nnoremap('<C-n>t', ':NvimTreeToggle<CR>')
       require("nvim-tree").setup({
-        actions = {
-          open_file = {
-            quit_on_open = true,
-          },
-        },
         sort = {
           sorter = "case_sensitive",
         },
         view = {
-          width = 20,
+          width = 30,
         },
         renderer = {
           group_empty = true,
@@ -299,7 +294,8 @@ return require('lazy').setup({
         on_attach = function()
           local api = require('nvim-tree.api')
 
-          vim.keymap.set('n', '<CR>', api.node.open.tab)
+          vim.keymap.set('n', '<CR>', api.node.open.edit)
+          vim.keymap.set('n', '<C-CR>', api.node.open.tab)
           vim.keymap.set('n', '|', api.node.open.vertical)
           vim.keymap.set('n', '_', api.node.open.horizontal)
         end,
