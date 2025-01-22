@@ -40,7 +40,6 @@ return require('lazy').setup({
       require("plugins.settings.nvim-treesitter")
     end,
   },
-  'Shougo/context_filetype.vim',
   {
     'hrsh7th/nvim-cmp',
     config = function()
@@ -61,10 +60,6 @@ return require('lazy').setup({
   },
   {
     'onsails/lspkind.nvim'
-  },
-  {
-    'osyo-manga/vim-precious',
-    dependencies = {'context_filetype.vim', 'vim-quickrun'}
   },
   'rbgrouleff/bclose.vim',
   {
