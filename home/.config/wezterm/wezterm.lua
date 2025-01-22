@@ -49,6 +49,7 @@ local config = {
     blend = 'Rgb',
   },
   window_close_confirmation = 'NeverPrompt',
+  hyperlink_rules = wezterm.default_hyperlink_rules(),
 }
 
 require 'status'
