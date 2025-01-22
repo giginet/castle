@@ -297,7 +297,11 @@ return require('lazy').setup({
           vim.keymap.set('n', '<CR>', api.node.open.tab)
           vim.keymap.set('n', '|', api.node.open.vertical)
           vim.keymap.set('n', '_', api.node.open.horizontal)
-        end
+        end,
+        update_focused_file = {
+          enable = true,
+          update_root = true,
+        },
       })
     end
   },
