@@ -83,9 +83,22 @@ function module.is_ghq_dir(cwd)
   return string.match(cwd, ".ghq")
 end
 
+function module.is_work_dir(cwd)
+  return string.match(cwd, "work") or string.match(cwd, "works")
+end
+
+function module.is_castle_dir(cwd)
+  return string.match(cwd, ".homesick")
+end
+
 function module.get_repo_name(full_path)
   local path = module.replace_home_dir(full_path)
   return string.match(path, "[a-zA-Z0-9-]+/[a-zA-Z0-9-]+$")
+end
+
+function module.last_path_component(full_path)
+  full_path = full_path:gsub("[\\/]+$", "")
+  return full_path:match("^.*/(.*)$")
 end
 
 return module

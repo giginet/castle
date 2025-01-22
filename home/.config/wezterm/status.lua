@@ -14,6 +14,8 @@ local function make_dir_section(_, pane)
   local cwd = utils.get_cwd(pane)
   local is_home = utils.is_home_dir(cwd)
   local is_ghq_dir = utils.is_ghq_dir(cwd)
+  local is_work_dir = utils.is_work_dir(cwd)
+  local is_castle_dir = utils.is_castle_dir(cwd)
 
   if is_home then
     local icon = "󰋜"
@@ -24,6 +26,24 @@ local function make_dir_section(_, pane)
   elseif is_ghq_dir then
     local display_cwd = utils.get_repo_name(cwd)
     local icon = ""
+    return {
+      { Foreground = { Color = 'lightblue' } },
+      { Text = icon },
+      { Foreground = { Color = 'white' } },
+      { Text = ' ' .. display_cwd },
+    }
+  elseif is_work_dir then
+    local display_cwd = utils.last_path_component(cwd)
+    local icon = "󱧶"
+    return {
+      { Foreground = { Color = 'lightblue' } },
+      { Text = icon },
+      { Foreground = { Color = 'white' } },
+      { Text = ' ' .. display_cwd },
+    }
+  elseif is_castle_dir then
+    local display_cwd = utils.last_path_component(cwd)
+    local icon = "󱂵"
     return {
       { Foreground = { Color = 'lightblue' } },
       { Text = icon },
