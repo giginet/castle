@@ -12,9 +12,9 @@ local config = {
     { family = 'Hiragino Sans' },
     { family = 'SF Pro' },
   },
-  font_size = 24,
+  font_size = 18,
   initial_cols = 120,
-  initial_rows = 36,
+  initial_rows = 40,
 
   window_background_opacity = 0.95,
   text_background_opacity = 1,
@@ -42,9 +42,8 @@ local config = {
   window_background_gradient = {
     orientation = 'Vertical',
     colors = {
-      background_color:darken(0.5),
+      background_color:darken(0.1),
       background_color,
-      background_color:lighten(0.1),
     },
     interpolation = 'Linear',
     blend = 'Rgb',
