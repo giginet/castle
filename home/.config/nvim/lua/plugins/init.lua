@@ -273,6 +273,11 @@ return require('lazy').setup({
     config = function()
       nnoremap('<C-n>t', ':NvimTreeToggle<CR>')
       require("nvim-tree").setup({
+        actions = {
+          open_file = {
+            quit_on_open = true,
+          },
+        },
         sort = {
           sorter = "case_sensitive",
         },
@@ -300,7 +305,6 @@ return require('lazy').setup({
         end,
         update_focused_file = {
           enable = true,
-          update_root = true,
         },
       })
     end
