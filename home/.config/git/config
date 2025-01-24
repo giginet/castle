@@ -34,9 +34,7 @@
 	sw = switch -c
 	pbcopy = !printf "$1" | pbcopy
 	delete-merged = !"git branch --merged | grep -v '*' | xargs -I % git branch -d %"
-	search-pr = "!f() { hub browse -- `git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request #' | head -n 1 | cut -f5 -d' ' | sed -e 's%#%pull/%'`; }; f"
 	force-push = "push --force-with-lease"
-	pretty-log = !"git log --oneline -n 100 | emojify"
 	gsub = !"f() { git grep -l \"$1\" | xargs sed -i '' -e \"s/$1/$2/g\"; }; f"
 	browse = !"gh browse"
 	browse-pr = !"gh pr view --web"
@@ -47,8 +45,6 @@
 	user = giginet
 [hub]
 	protocol = ssh
-[ghi]
-	token = !security find-internet-password -a giginet -s github.com -l 'ghi token' -w
 [ghq]
 	root = ~/.ghq
 [include]
