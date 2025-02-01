@@ -12,7 +12,7 @@ local config = {
     { family = 'Hiragino Sans' },
     { family = 'SF Pro' },
   },
-  font_size = 18,
+  font_size = 16,
   initial_cols = 120,
   initial_rows = 40,
 
