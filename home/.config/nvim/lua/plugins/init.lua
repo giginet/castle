@@ -170,50 +170,6 @@ return require('lazy').setup({
     dependencies = {'nvim-treesitter/nvim-treesitter'},
   },
   {
-    'Shougo/vimproc.vim',
-    build = 'make',
-  },
-  {
-    'thinca/vim-quickrun',
-    cmd = {'QuickRun'},
-    dependencies = {'vimproc.vim'},
-    config = function()
-      vim.keymap.set(
-        'n',
-        '<C-x><C-x>',
-        ':QuickRun<CR>',
-        { silent = true, }
-      )
-      vim.g.loaded_quicklaunch = true
-
-      local quickrun_config = {
-       ['*'] = {
-         runner = 'vimproc'
-       },
-       markdown = {
-         outputter = 'null',
-         command = '/usr/bin/open',
-         cmdopt = '-a',
-         args = 'Marked\\ 2',
-         exec = '%c %o %a %s',
-       },
-       ['markdown.slide'] = {
-         outputter = 'null',
-         command = '/usr/bin/open',
-         cmdopt = '-a',
-         args = 'Deckset',
-         exec = '%c %o %a %s',
-       },
-       swift = {
-         command = '/usr/bin/xcrun',
-         args = 'swift',
-         exec = '%c %a %s',
-       }
-      }
-      vim.g.quickrun_config = quickrun_config
-    end,
-  },
-  {
     'MeanderingProgrammer/markdown.nvim',
     name = 'render-markdown',
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' },
