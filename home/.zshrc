@@ -87,7 +87,7 @@ function mdopen() {
 }
 
 # Environment Variable Settings
-export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/bin:$HOME/.nest/bin:$PATH
 
 if [ -x "`which brew`" ]; then
   export BREW_PREFIX=$(brew --prefix)
@@ -103,6 +103,7 @@ colors
 alias ls="ls -a -G -l"
 alias rm="rm -i"
 alias vim=nvim
+alias lg=lazygit
 
 # Homebrew
 if [[ -e "/opt/homebrew/bin/brew" ]]; then
