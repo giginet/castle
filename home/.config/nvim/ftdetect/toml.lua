@@ -3,8 +3,8 @@ vim.filetype.add({
     toml = { ft = 'toml', syntax = 'toml' },
   },
   filename = {
-    ['Pipfile'] = { ft = 'toml', syntax = 'toml' },
-    ['pylintrc'] = { ft = 'toml', syntax = 'toml' },
-    ['.pylintrc'] = { ft = 'toml', syntax = 'toml' },
+    ['Pipfile'] = 'toml',
+    ['pylintrc'] = 'toml',
+    ['.pylintrc'] = 'toml',
   },
 })
