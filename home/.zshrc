@@ -103,6 +103,7 @@ colors
 alias ls="ls -a -G -l"
 alias rm="rm -i"
 alias vim=nvim
+alias lz=lazygit
 alias lg=lazygit
 
 # Homebrew
