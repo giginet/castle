@@ -1,6 +1,11 @@
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-  pattern = { "*.apns", "*.pif", "Package.resolved", "*.xctestplan", ".swift-format" },
-  callback = function()
-    vim.cmd("setlocal filetype=json syntax=json")
-  end,
+vim.filetype.add({
+  extension = {
+    apns = { ft = 'json', syntax = 'json' },
+    pif = { ft = 'json', syntax = 'json' },
+    xctestplan = { ft = 'json', syntax = 'json' },
+  },
+  filename = {
+    ['Package.resolved'] = { ft = 'json', syntax = 'json' },
+    ['.swift-format'] = { ft = 'json', syntax = 'json' },
+  },
 })
