@@ -1,7 +1,6 @@
-vim.opt_local.conceallevel = 2
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.wrap = true
+vim.opt_local.tabstop = 4
+vim.opt_local.shiftwidth = 4
+vim.opt_local.wrap = true
 vim.opt_local.conceallevel = 2
 vim.keymap.set('n', '<C-x><C-x>', function()
   local current_file = vim.fn.expand('%:p')
