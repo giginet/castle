@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json
+# https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md
+gui:
+  language: 'en'
+  nerdFontsVersion: '3'
+os:
+  editCommand: 'nvim'
+  
