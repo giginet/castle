@@ -180,7 +180,7 @@ return require('lazy').setup({
   {
     'giginet/denops-deckset.vim',
     ft = {'markdown', 'markdown.slide'},
-    cmd = {'InsertCodeHighlight', 'InsertLink'},
+    cmd = {'InsertCodeHighlight', 'InsertLink', 'InsertConfiguration'},
     keys = {'<C-s>_', '<C-s>l'},
     dependencies = {'denops.vim'},
     config = function()
@@ -190,6 +190,7 @@ return require('lazy').setup({
       vim.g['deckset#theme'] = 'Simple, 2'
       noremap('<C-s>_', ':InsertCodeHighlight<CR>')
       noremap('<C-s>l', ':InsertLink<CR>')
+      noremap('<C-s>C', ':InsertConfiguration<CR>')
     end
   },
   'tyru/open-browser.vim',
