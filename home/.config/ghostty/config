@@ -20,4 +20,6 @@ keybind = cmd+shift+f=toggle_fullscreen
 quit-after-last-window-closed = true
 confirm-close-surface = false
 
-theme = "tokyonight"
+theme = tokyonight
+
+macos-icon = retro
