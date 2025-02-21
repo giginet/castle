@@ -162,6 +162,9 @@ return require('lazy').setup({
     ft = {'yaml'},
   },
   {
+    'rhysd/vim-syntax-codeowners',
+  },
+  {
     'tpope/vim-git',
     ft = {'git', 'gitcommit', 'gitconfig', 'gitrebase'}
   },
