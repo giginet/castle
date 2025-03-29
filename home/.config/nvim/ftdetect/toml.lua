@@ -1,6 +1,6 @@
 vim.filetype.add({
   extension = {
-    toml = { ft = 'toml', syntax = 'toml' },
+    toml = 'toml',
   },
   filename = {
     ['Pipfile'] = 'toml',
