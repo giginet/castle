@@ -6,5 +6,6 @@ vim.filetype.add({
     ['Pipfile'] = 'toml',
     ['pylintrc'] = 'toml',
     ['.pylintrc'] = 'toml',
+    ['uv.lock'] = 'toml',
   },
 })
