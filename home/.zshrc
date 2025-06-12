@@ -247,5 +247,7 @@ if [ -e "$ONE_PASSWORD_AGENT" ]; then;
   export SSH_AUTH_SOCK=$ONE_PASSWORD_AGENT
 fi
 
+alias cppwd="pwd | tr -d '\n' | pbcopy"
+
 # Setting for Rancher Desktop
 export PATH="$HOME/.rd/bin:$PATH"
