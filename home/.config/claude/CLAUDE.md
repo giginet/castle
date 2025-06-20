@@ -19,4 +19,3 @@
 - Do not use following legacy APIs:
     - URL(fileURLWithPath:)
     - appendingPathComponent(_:)
-
