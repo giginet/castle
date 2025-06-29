@@ -87,6 +87,6 @@ os = 'macos'
 command = """$VOLTA_HOME/bin/ccusage monthly --json | jq -r '.monthly[-1].modelBreakdowns | map(.cost) | add' | awk '{ printf(\"%.2f\", $1) }'"""
 description = "Show the today's Claude usage cost"
 detect_folders = [".claude"]
-symbol = ''
+symbol = ''
 style = 'bold yellow'
 format = '[$symbol \$$output]($style)'
