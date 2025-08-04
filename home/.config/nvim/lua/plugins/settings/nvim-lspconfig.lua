@@ -20,7 +20,7 @@ require("mason-lspconfig").setup {
 }
 
 -- Enable LSP settings from Mason
-require('mason-lspconfig').setup_handlers {
+require('mason-lspconfig').setup {
   function(server_name)
     require('lspconfig')[server_name].setup {}
   end,
