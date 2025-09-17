@@ -70,6 +70,15 @@ vim.filetype.add({
   },
 })
 
+-- Set nowrap only for buffers without a filetype
+vim.api.nvim_create_autocmd({"BufNew", "BufNewFile", "BufWinEnter"}, {
+  callback = function()
+    if vim.bo.filetype == "" then
+      vim.opt_local.wrap = true
+    end
+  end,
+})
+
 -- Set keymaps
 noremap("<C-w>%", ":vsp<CR>")
 noremap("<C-w><Bar>", ":vsp<CR>")
