@@ -64,3 +64,4 @@ fake-eggs
 .nvim
 
 **/.claude/settings.local.json
+.serena/*
