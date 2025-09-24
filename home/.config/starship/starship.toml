@@ -15,7 +15,6 @@ $docker_context \
 $ruby \
 $swift \
 ${custom.xcode} \
-${custom.claude}
 """
 
 add_newline = false
@@ -82,11 +81,3 @@ symbol = ''
 style = 'bold gray' 
 format = '[$symbol $output]($style)'
 os = 'macos'
-
-[custom.claude]
-command = """$VOLTA_HOME/bin/ccusage monthly --json | jq -r '.monthly[-1].modelBreakdowns | map(.cost) | add' | awk '{ printf(\"%.2f\", $1) }'"""
-description = "Show the today's Claude usage cost"
-detect_folders = [".claude"]
-symbol = ''
-style = 'bold yellow'
-format = '[$symbol \$$output]($style)'
