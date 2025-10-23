@@ -56,4 +56,9 @@ return {
     mods = 'LEADER',
     action = wezterm.action.ActivateCopyMode,
   },
+  {
+    key = 'Enter',
+    mods = 'SHIFT',
+    action = wezterm.action.SendString('\n')
+  },
 }
