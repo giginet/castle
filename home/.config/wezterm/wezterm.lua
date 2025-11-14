@@ -21,7 +21,7 @@ local config = {
 
   default_prog = { '/bin/zsh' },
 
-  default_cursor_style = 'BlinkingBlock',
+  default_cursor_style = 'SteadyBlock',
   window_padding = {
     left = 24,
     right = 0,
