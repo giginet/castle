@@ -111,3 +111,14 @@ function pxcode-install() {
 function pstm() {
   stm list | peco | xargs stm show
 }
+
+pwt() {
+    local selected=$(git worktree list | \
+        peco --prompt "Select worktree>" | \
+        awk '{print $1}')
+    
+    if [ -n "$selected" ]; then
+        cd "$selected"
+        echo "📂 $(basename "$selected") [$(git branch --show-current)]"
+    fi
+}
