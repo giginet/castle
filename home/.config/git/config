@@ -39,7 +39,7 @@
 	browse = !"gh browse"
 	browse-pr = !"gh pr view --web"
 	# .tigrc can't treat `#`.
-	browse-from-tig = !"f() { gh browse -- \"blob/${3:-master}/$1#L$2\"; }; f"
+	browse-from-tig = !"f() { gh browse "$1:$2" --branch \"main\"; }; f"
 	revive = !"f() { git log --oneline -1 --format=%h -- $1 | xargs -I{} git restore -s {}^ $1; }; f"
 [github]
 	user = giginet

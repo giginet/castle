@@ -1,15 +1,13 @@
 bind main Y !git pbcopy %(commit)
-bind main B @hub browse -- commit/%(commit)
+bind main B @gh browse -- %(commit)
 bind main P @git search-pr %(commit)
-bind main D @hub compare %(commit)...%(branch)
 bind main R <git rebase -i %(commit)
-bind refs D @hub compare master...%(branch)
 bind blame P @git search-pr %(commit)
 bind blame B @git browse-from-tig %(file) %(lineno)
 bind diff R <git rebase -i %(commit)
 bind diff B @git browse-from-tig %(file) %(lineno) %(ref)
 bind status P ?<git push
-bind status B @hub browse -- blob/master/%(file)
+bind status B @hub browse -- blob/main/%(file)
 
 set mouse = yes
 set main-view = id date author:full commit-title,graph=v2,refs=true
