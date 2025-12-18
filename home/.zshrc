@@ -282,4 +282,4 @@ alias cppwd="pwd | tr -d '\n' | pbcopy"
 # Setting for Rancher Desktop
 export PATH="$HOME/.rd/bin:$PATH"
 
-alias claude="/Users/kohki.miki/.claude/local/claude"
+alias claude="$HOME/.claude/local/claude"
