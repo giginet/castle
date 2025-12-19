@@ -16,6 +16,7 @@ command = "/opt/homebrew/bin/tmux"
 
 macos-non-native-fullscreen = false
 keybind = cmd+shift+f=toggle_fullscreen
+keybind = shift+enter=text:\n
 
 quit-after-last-window-closed = true
 confirm-close-surface = false
