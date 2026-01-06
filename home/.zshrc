@@ -148,6 +148,10 @@ if [ -x "`which gh`" ]; then
   eval "$(gh completion -s zsh)"
 fi
 
+if [ -x "`which wtp`" ]; then
+  eval "$(wtp shell-init zsh)"
+fi
+
 # Show current directory on Finder
 function showFinder() { open -R "`pwd`" }
 zle -N showFinder

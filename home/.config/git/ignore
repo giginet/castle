@@ -65,3 +65,5 @@ fake-eggs
 
 **/.claude/settings.local.json
 .serena/*
+
+.wtp.yml
