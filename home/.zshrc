@@ -215,32 +215,6 @@ function ccost() {
   ccusage monthly --json | jq -r '.monthly[-1].modelBreakdowns | map(.cost) | add'
 }
 
-function cwt() {
-  if [ $# -ne 1 ]; then
-    echo "Usage: cwt <branch_name>"
-    return 1
-  fi
-
-  local branch_name="$1"
-
-  # Get repository name with owner
-  local name_with_owner=$(gh repo view --json nameWithOwner --jq .nameWithOwner)
-
-  if [ -z "$name_with_owner" ] || [ "$name_with_owner" = "null" ]; then
-    echo "Error: Failed to get repository name with owner"
-    return 1
-  fi
-
-  # Create directory if it doesn't exist
-  mkdir -p "$HOME/.worktrees/$name_with_owner"
-
-  # Create worktree
-  local worktree_path="$HOME/.worktrees/$name_with_owner/$branch_name"
-  git worktree add -b $branch_name "$worktree_path"
-
-  echo "Worktree created at: $worktree_path"
-}
-
 function pingen() {
   ruby -e 'puts 4.times.map { (0...10).to_a.sample.to_s }.join'
 }
