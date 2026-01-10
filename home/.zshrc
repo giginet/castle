@@ -139,13 +139,7 @@ plugins=(
     zsh-autosuggestions
 )
 
-# Autojump settings
-AUTOJUMP_ROOT=$HOME/.autojump
-if [ -e $AUTOJUMP_ROOT/etc/profile.d/autojump.sh ]; then
-  [ -f $AUTOJUMP_ROOT/etc/profile.d/autojump.sh ] && . $AUTOJUMP_ROOT/etc/profile.d/autojump.sh
-elif [ -e $BREW_PREFIX/etc/profile.d/autojump.sh ]; then
-  [ -f $BREW_PREFIX/etc/profile.d/autojump.sh ] && . $BREW_PREFIX/etc/profile.d/autojump.sh
-fi
+bindkey '^l' autosuggest-accept
 
 # Zoxide settings
 if [ -x "`which zoxide`" ]; then
