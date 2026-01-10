@@ -206,10 +206,6 @@ else
   echo "Please install starship"
 fi
 
-# My Tools
-source $HOME/.zsh/peco-anyenv/peco-anyenv.sh
-PATH=$PATH:$HOME/.zsh/swift-toolchain-manager/bin:$HOME/.zsh/xcode-opener/bin
-
 function highlight() { 
   pbpaste | pygmentize -l $1 -O style=monokai -f rtf | pbcopy 
   echo "Your clipboard is highlighted ✨"

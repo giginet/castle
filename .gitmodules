@@ -1,12 +1,6 @@
 [submodule "home/.zsh/zsh-syntax-highlighting"]
 	path = home/.zsh/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
-[submodule "home/.zsh/peco-anyenv"]
-	path = home/.zsh/peco-anyenv
-	url = https://github.com/giginet/peco-anyenv
-[submodule "home/.zsh/xcode-opener"]
-	path = home/.zsh/xcode-opener
-	url = https://github.com/giginet/xcode-opener
 [submodule "home/.zsh/swift-toolchain-manager"]
 	path = home/.zsh/swift-toolchain-manager
 	url = https://github.com/giginet/swift-toolchain-manager.git
