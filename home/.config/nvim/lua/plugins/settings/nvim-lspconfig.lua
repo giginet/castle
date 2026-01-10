@@ -1,5 +1,5 @@
--- Setup language servers.
-local lspconfig = require('lspconfig')
+-- Setup language servers using Neovim 0.11+ native API
+-- mason-lspconfig v2 automatically enables servers via vim.lsp.enable()
 
 require("mason").setup()
 require("mason-lspconfig").setup {
@@ -17,19 +17,11 @@ require("mason-lspconfig").setup {
     "taplo",
     "yamlls",
   },
+  -- automatic_enable = true is the default in v2
 }
 
--- Enable LSP settings from Mason
-require('mason-lspconfig').setup {
-  function(server_name)
-    require('lspconfig')[server_name].setup {}
-  end,
-}
-
--- Additional LSP settings
-lspconfig.sourcekit.setup { }
-
-lspconfig.lua_ls.setup {
+-- Custom settings for specific servers using vim.lsp.config
+vim.lsp.config('lua_ls', {
   settings = {
     Lua = {
       runtime = {
@@ -46,7 +38,11 @@ lspconfig.lua_ls.setup {
       },
     },
   },
-}
+})
+
+-- sourcekit is not managed by mason, enable it manually
+vim.lsp.config('sourcekit', {})
+vim.lsp.enable('sourcekit')
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
