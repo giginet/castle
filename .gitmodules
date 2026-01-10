@@ -10,3 +10,6 @@
 [submodule "home/.zsh/swift-toolchain-manager"]
 	path = home/.zsh/swift-toolchain-manager
 	url = https://github.com/giginet/swift-toolchain-manager.git
+[submodule "home/.zsh/zsh-autosuggestions"]
+	path = home/.zsh/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions

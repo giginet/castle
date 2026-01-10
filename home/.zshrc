@@ -134,6 +134,10 @@ then
 fi
 
 source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+plugins=( 
+    zsh-autosuggestions
+)
 
 # Autojump settings
 AUTOJUMP_ROOT=$HOME/.autojump
