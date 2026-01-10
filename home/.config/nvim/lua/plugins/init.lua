@@ -61,10 +61,6 @@ return require('lazy').setup({
   {
     'onsails/lspkind.nvim'
   },
-  'rbgrouleff/bclose.vim',
-  {
-    'vim-denops/denops.vim',
-  },
   {
     'github/copilot.vim',
     lazy = false,
@@ -263,21 +259,7 @@ return require('lazy').setup({
       })
     end
   },
-  {
-    'iberianpig/tig-explorer.vim',
-    dependencies = {'bclose.vim'},
-    cmd = {'TigOpenCurrentFile', 'TigOpenProjectRootDir', 'TigGrep', 'TigGrepResume', 'TigBlame'},
-    keys = {'<C-g>', '<C-g>l', '<C-g>b', '<C-g>g'},
-    config = function()
-      nnoremap('<C-g>', ':TigOpenProjectRootDir<CR>')
-      nnoremap('<C-g>l', ':TigOpenCurrentFile<CR>')
-      nnoremap('<C-g>b', ':TigBlame<CR>')
-      nnoremap('<C-g>g', ':TigGrep<CR>')
-    end,
-  },
-
   'airblade/vim-gitgutter',
-
   {
     'keith/investigate.vim',
     keys = {'gK'},
