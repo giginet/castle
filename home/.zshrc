@@ -147,6 +147,12 @@ elif [ -e $BREW_PREFIX/etc/profile.d/autojump.sh ]; then
   [ -f $BREW_PREFIX/etc/profile.d/autojump.sh ] && . $BREW_PREFIX/etc/profile.d/autojump.sh
 fi
 
+# Zoxide settings
+if [ -x "`which zoxide`" ]; then
+  eval "$(zoxide init zsh)"
+fi
+alias j=z
+
 # gh completion
 if [ -x "`which gh`" ]; then
   eval "$(gh completion -s zsh)"
