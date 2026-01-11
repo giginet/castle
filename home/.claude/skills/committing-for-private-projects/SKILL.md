@@ -1,6 +1,7 @@
 ---
 name: Committing for Private Projects
 description: 現在のステージにある内容をコミット。このスキルは、ユーザーが「commit」「コミット」「コミットして」「変更をコミット」と言ったとき、またはステージされた変更でgitコミットを作成したいときに使用する。
+allowed-tools: Bash(git add:*), Bash(git commit:*)
 ---
 
 # コミットスキル
@@ -32,8 +33,3 @@ Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
 EOF
 )"
 ```
-
-## 使用可能なツール
-
-- `Bash(git add:*)` - 必要に応じて追加のファイルをステージング
-- `Bash(git commit:*)` - コミットの作成

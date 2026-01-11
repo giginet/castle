@@ -1,6 +1,7 @@
 ---
 name: Fetching PR Reviews
 description: 現在のブランチに関連するPRのレビューコメントを取得する。このスキルは、ユーザーが「PRレビュー」「レビューコメント」「PR feedback」「review comments」と言ったとき、または現在のPRに対するレビューを確認したいときに使用する。
+allowed-tools: Bash(gh pr view:*), Bash(gh api:*)
 ---
 
 # PR レビューコメント取得スキル
@@ -49,8 +50,3 @@ gh api repos/{owner}/{repo}/pulls/{pr_number}/comments --jq '.[] | "\(.user.logi
 - 対象ファイルと行番号（インラインコメントの場合）
 
 未解決のコメントがあれば、それを強調して表示する。
-
-## 使用可能なツール
-
-- `Bash(gh pr view:*)` - PR情報の取得
-- `Bash(gh api:*)` - GitHub APIの直接呼び出し

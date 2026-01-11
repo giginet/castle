@@ -1,6 +1,7 @@
 ---
 name: Opening PR for Private Projects
 description: 現在の差分からPull Requestを作成する。このスキルは、ユーザーが「PR作成」「PRを開く」「プルリクエスト」「open pr」「create pr」と言ったとき、またはGitHubにPull Requestを作成したいときに使用する。
+allowed-tools: Bash(gh pr create:*), Bash(git diff:*), Bash(git push:*)
 ---
 
 # Pull Request 作成スキル
@@ -39,9 +40,3 @@ git diff main...HEAD
 ```bash
 gh pr create --title "<title>" --body "<description>" --head "<head>"
 ```
-
-## 使用可能なツール
-
-- `Bash(gh pr create:*)` - PRの作成
-- `Bash(git diff:*)` - 差分の確認
-- `Bash(git push:*)` - ブランチのプッシュ
