@@ -17,7 +17,9 @@ require("mason-lspconfig").setup {
     "taplo",
     "yamlls",
   },
-  -- automatic_enable = true is the default in v2
+  automatic_enable = {
+    exclude = { "grammarly" },
+  },
 }
 
 -- Custom settings for specific servers using vim.lsp.config
@@ -43,6 +45,9 @@ vim.lsp.config('lua_ls', {
 -- sourcekit is not managed by mason, enable it manually
 vim.lsp.config('sourcekit', {})
 vim.lsp.enable('sourcekit')
+
+-- Disable grammarly LSP
+vim.lsp.enable('grammarly', false)
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions

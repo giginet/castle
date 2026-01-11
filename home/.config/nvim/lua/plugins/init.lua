@@ -176,22 +176,22 @@ return require('lazy').setup({
       require('render-markdown').setup({})
     end,
   },
-  {
-    'giginet/denops-deckset.vim',
-    ft = {'markdown', 'markdown.slide'},
-    cmd = {'InsertCodeHighlight', 'InsertLink', 'InsertConfiguration'},
-    keys = {'<C-s>_', '<C-s>l'},
-    dependencies = {'denops.vim'},
-    config = function()
-      vim.g['deckset#show_slide_numbers'] = true
-      vim.g['deckset#show_slide_count'] = true
-      vim.g['deckset#autoscale'] = false
-      vim.g['deckset#theme'] = 'Simple, 2'
-      noremap('<C-s>_', ':InsertCodeHighlight<CR>')
-      noremap('<C-s>l', ':InsertLink<CR>')
-      noremap('<C-s>C', ':InsertConfiguration<CR>')
-    end
-  },
+  -- {
+  --   'giginet/denops-deckset.vim',
+  --   ft = {'markdown', 'markdown.slide'},
+  --   cmd = {'InsertCodeHighlight', 'InsertLink', 'InsertConfiguration'},
+  --   keys = {'<C-s>_', '<C-s>l'},
+  --   dependencies = {'denops.vim'},
+  --   config = function()
+  --     vim.g['deckset#show_slide_numbers'] = true
+  --     vim.g['deckset#show_slide_count'] = true
+  --     vim.g['deckset#autoscale'] = false
+  --     vim.g['deckset#theme'] = 'Simple, 2'
+  --     noremap('<C-s>_', ':InsertCodeHighlight<CR>')
+  --     noremap('<C-s>l', ':InsertLink<CR>')
+  --     noremap('<C-s>C', ':InsertConfiguration<CR>')
+  --   end
+  -- },
   'tyru/open-browser.vim',
   {
     'tyru/open-browser-github.vim',
