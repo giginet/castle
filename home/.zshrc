@@ -87,7 +87,7 @@ function mdopen() {
 }
 
 # Environment Variable Settings
-export PATH=/usr/local/bin:$HOME/.nest/bin:$PATH
+export PATH=/usr/local/bin:$HOME/.nest/bin:$HOME/.local/bin:$PATH
 
 if [ -x "`which brew`" ]; then
   export BREW_PREFIX=$(brew --prefix)
@@ -285,5 +285,3 @@ alias cppwd="pwd | tr -d '\n' | pbcopy"
 
 # Setting for Rancher Desktop
 export PATH="$HOME/.rd/bin:$PATH"
-
-alias claude="$HOME/.claude/local/claude"
