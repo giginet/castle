@@ -31,9 +31,13 @@ local function tab_title(tab_info)
 
   local process_name = utils.get_basename(pane.foreground_process_name)
 
-  if process_name == 'zsh' then
+  -- Fallback to current directory if process name looks like a version number (e.g., "2.1.7")
+  local maybe_claude_code = process_name:match("^%d+%.%d+") ~= nil
+  if process_name == 'zsh' or maybe_claude_code then
     local path = utils.format_path(pane.current_working_dir)
-    if utils.is_home_dir(path) then
+    if maybe_claude_code then
+      return '󰚩 ' .. utils.get_basename(path)
+    elseif utils.is_home_dir(path) then
       return "󰋜"
     else
       return ' ' .. utils.get_basename(path)
