@@ -16,6 +16,13 @@ vim.opt.rtp:prepend(lazypath)
 
 return require('lazy').setup({
   {
+    "rose-pine/neovim",
+    name = "rose-pine",
+    config = function()
+      vim.cmd("colorscheme rose-pine")
+    end
+  },
+  {
     'neovim/nvim-lspconfig',
     config = function()
       require('plugins.settings.nvim-lspconfig')
