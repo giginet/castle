@@ -79,6 +79,16 @@ vim.api.nvim_create_autocmd({"BufNew", "BufNewFile", "BufWinEnter"}, {
   end,
 })
 
+-- Auto-create parent directories when saving a file
+vim.api.nvim_create_autocmd("BufWritePre", {
+  callback = function()
+    local dir = vim.fn.expand('<afile>:p:h')
+    if vim.fn.isdirectory(dir) == 0 then
+      vim.fn.mkdir(dir, 'p')
+    end
+  end,
+})
+
 -- Set keymaps
 noremap("<C-w>%", ":vsp<CR>")
 noremap("<C-w><Bar>", ":vsp<CR>")
