@@ -1,5 +1,6 @@
 local wezterm = require 'wezterm'
 local utils = require 'utils'
+local bell = require 'bell'
 
 local function get_process_icon(process_name)
   if process_name == 'zsh' or process_name == 'bash' then
@@ -60,6 +61,14 @@ wezterm.on(
   'format-tab-title',
   function(tab, tabs, panes, config, hover, max_width)
     local title = tab_title(tab)
+
+    -- Clear bell when the tab becomes active, show bell icon otherwise
+    if tab.is_active then
+      bell.clear_bell(tab.tab_id)
+    elseif bell.has_bell(tab.tab_id) then
+      title = title .. ' 🔔'
+    end
+
     local palette = utils.palette
     local rainbows = {
       wezterm.color.parse(palette.red),
