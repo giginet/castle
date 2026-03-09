@@ -27,17 +27,29 @@ if [ -n "$model" ]; then
 fi
 
 if [ "$total_context" -gt 0 ] && [ "$context_size" -gt 0 ]; then
-  usage_percent=$(echo "scale=1; $total_context * 100 / $context_size" | bc)
+  usage_percent_raw=$(echo "scale=1; $total_context * 100 / $context_size" | bc)
+  filled=$(echo "$total_context * 10 / $context_size" | bc)
+  [ "$filled" -gt 10 ] && filled=10
+
+  bar=""
+  for i in $(seq 1 10); do
+    if [ "$i" -le "$filled" ]; then
+      bar="${bar}█"
+    else
+      bar="${bar}░"
+    fi
+  done
+
   if [ "$total_context" -ge 1000 ]; then
-    printf " | 📊 %.1fK/%.0fK (%.1f%%)" "$(echo "scale=1; $total_context / 1000" | bc)" "$(echo "scale=0; $context_size / 1000" | bc)" "$usage_percent"
+    printf " | 󰍛 %s %.1fK/%.0fK (%s%%)" "$bar" "$(echo "scale=1; $total_context / 1000" | bc)" "$(echo "scale=0; $context_size / 1000" | bc)" "$usage_percent_raw"
   else
-    printf " | 📊 %d/%d (%.1f%%)" "$total_context" "$context_size" "$usage_percent"
+    printf " | 󰍛 %s %d/%d (%s%%)" "$bar" "$total_context" "$context_size" "$usage_percent_raw"
   fi
 elif [ "$total_context" -gt 0 ]; then
   if [ "$total_context" -ge 1000 ]; then
-    printf " | 📊 %.1fK tokens" "$(echo "scale=1; $total_context / 1000" | bc)"
+    printf " | 󰍛 %.1fK tokens" "$(echo "scale=1; $total_context / 1000" | bc)"
   else
-    printf " | 📊 %d tokens" "$total_context"
+    printf " | 󰍛 %d tokens" "$total_context"
   fi
 fi
 
