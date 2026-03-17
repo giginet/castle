@@ -40,11 +40,7 @@ if [ "$total_context" -gt 0 ] && [ "$context_size" -gt 0 ]; then
     fi
   done
 
-  if [ "$total_context" -ge 1000 ]; then
-    printf " | 󰍛 %s %.1fK/%.0fK (%s%%)" "$bar" "$(echo "scale=1; $total_context / 1000" | bc)" "$(echo "scale=0; $context_size / 1000" | bc)" "$usage_percent_raw"
-  else
-    printf " | 󰍛 %s %d/%d (%s%%)" "$bar" "$total_context" "$context_size" "$usage_percent_raw"
-  fi
+  printf " | 󰍛 %s %s%%" "$bar" "$usage_percent_raw"
 elif [ "$total_context" -gt 0 ]; then
   if [ "$total_context" -ge 1000 ]; then
     printf " | 󰍛 %.1fK tokens" "$(echo "scale=1; $total_context / 1000" | bc)"
@@ -53,9 +49,11 @@ elif [ "$total_context" -gt 0 ]; then
   fi
 fi
 
+printf "\n"
+
 month=$(date +"%Y/%m")
 monthly_cost=$(ccusage monthly --json 2>/dev/null | jq -r '.monthly[-1].modelBreakdowns | map(.cost) | add // 0')
 daily_cost=$(ccusage --daily --json 2>/dev/null | jq -r '.daily[-1].totalCost // 0')
-printf " | 💰 Today: \$%.2f | %s: \$%.2f" "$daily_cost" "$month" "$monthly_cost"
+printf "💰 Today: \$%.2f | %s: \$%.2f" "$daily_cost" "$month" "$monthly_cost"
 
 printf "\n"
