@@ -26,13 +26,15 @@ if [ -n "$model" ]; then
   printf " | 🤖 %s" "$model"
 fi
 
+printf "\n"
+
 if [ "$total_context" -gt 0 ] && [ "$context_size" -gt 0 ]; then
   usage_percent_raw=$(echo "scale=1; $total_context * 100 / $context_size" | bc)
-  filled=$(echo "$total_context * 10 / $context_size" | bc)
-  [ "$filled" -gt 10 ] && filled=10
+  filled=$(echo "$total_context * 40 / $context_size" | bc)
+  [ "$filled" -gt 40 ] && filled=40
 
   bar=""
-  for i in $(seq 1 10); do
+  for i in $(seq 1 40); do
     if [ "$i" -le "$filled" ]; then
       bar="${bar}█"
     else
@@ -40,12 +42,12 @@ if [ "$total_context" -gt 0 ] && [ "$context_size" -gt 0 ]; then
     fi
   done
 
-  printf " | 󰍛 %s %s%%" "$bar" "$usage_percent_raw"
+  printf "󰍛 %s %s%%" "$bar" "$usage_percent_raw"
 elif [ "$total_context" -gt 0 ]; then
   if [ "$total_context" -ge 1000 ]; then
-    printf " | 󰍛 %.1fK tokens" "$(echo "scale=1; $total_context / 1000" | bc)"
+    printf "󰍛 %.1fK tokens" "$(echo "scale=1; $total_context / 1000" | bc)"
   else
-    printf " | 󰍛 %d tokens" "$total_context"
+    printf "󰍛 %d tokens" "$total_context"
   fi
 fi
 
