@@ -42,12 +42,43 @@ if [ "$total_context" -gt 0 ] && [ "$context_size" -gt 0 ]; then
     fi
   done
 
-  printf "󰍛 %s %s%%" "$bar" "$usage_percent_raw"
+  printf "󰍛 %s %s%%\n" "$bar" "$usage_percent_raw"
 elif [ "$total_context" -gt 0 ]; then
   if [ "$total_context" -ge 1000 ]; then
-    printf "󰍛 %.1fK tokens" "$(echo "scale=1; $total_context / 1000" | bc)"
+    printf "󰍛 %.1fK tokens\n" "$(echo "scale=1; $total_context / 1000" | bc)"
   else
-    printf "󰍛 %d tokens" "$total_context"
+    printf "󰍛 %d tokens\n" "$total_context"
+  fi
+fi
+
+rate_5h=$(echo "$json" | jq -r '.rate_limits.five_hour.used_percentage // empty')
+rate_5h_resets=$(echo "$json" | jq -r '.rate_limits.five_hour.resets_at // empty')
+
+if [ -n "$rate_5h" ]; then
+  if [ "$rate_5h" -ge 100 ] 2>/dev/null; then
+    remaining=""
+    if [ -n "$rate_5h_resets" ]; then
+      now=$(date +%s)
+      diff=$((rate_5h_resets - now))
+      if [ "$diff" -gt 0 ]; then
+        hours=$((diff / 3600))
+        mins=$(( (diff % 3600) / 60 ))
+        remaining=" (resets in ${hours}h${mins}m)"
+      fi
+    fi
+    printf "\033[31m⚠ Rate limit exceeded%s\033[0m" "$remaining"
+  else
+    filled=$((rate_5h * 20 / 100))
+    [ "$filled" -gt 20 ] && filled=20
+    bar=""
+    for i in $(seq 1 20); do
+      if [ "$i" -le "$filled" ]; then
+        bar="${bar}█"
+      else
+        bar="${bar}░"
+      fi
+    done
+    printf "⏱ 5h: %s %d%%" "$bar" "$rate_5h"
   fi
 fi
 
