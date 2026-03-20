@@ -24,16 +24,10 @@ def gradient(pct: float) -> str:
         return f"\033[38;2;255;{max(g, 0)};60m"
 
 
-def bar(pct: float, width: int = 10) -> str:
+def bar(pct: float, width: int = 20) -> str:
     pct = min(max(pct, 0), 100)
-    filled = pct * width / 100
-    full = int(filled)
-    frac = int((filled - full) * 8)
-    b = "█" * full
-    if full < width:
-        b += BLOCKS[frac]
-        b += "░" * (width - full - 1)
-    return b
+    full = round(pct * width / 100)
+    return "█" * full + "░" * (width - full)
 
 
 def fmt(label: str, pct: float) -> str:
