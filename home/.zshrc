@@ -259,3 +259,10 @@ alias cppwd="pwd | tr -d '\n' | pbcopy"
 
 # Setting for Rancher Desktop
 export PATH="$HOME/.rd/bin:$PATH"
+
+# bun completions
+[ -s "/Users/giginet/.bun/_bun" ] && source "/Users/giginet/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
