@@ -261,7 +261,7 @@ alias cppwd="pwd | tr -d '\n' | pbcopy"
 export PATH="$HOME/.rd/bin:$PATH"
 
 # bun completions
-[ -s "/Users/giginet/.bun/_bun" ] && source "/Users/giginet/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
