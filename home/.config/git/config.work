@@ -2,3 +2,5 @@
 [user]
 	name = Kohki Miki
 	email = kohki.miki@lycorp.co.jp
+[url "https://github.com/"]
+	insteadOf = git@github.com:
