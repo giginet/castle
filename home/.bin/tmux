@@ -1,0 +1,602 @@
+#!/bin/bash
+# tmux shim for WezTerm - translates tmux CLI to wezterm cli
+# Enables Claude Code Agent Team to work with WezTerm's built-in multiplexer
+
+set -euo pipefail
+
+REAL_TMUX=/opt/homebrew/bin/tmux
+
+# If not in WezTerm, pass through to real tmux
+if [[ -z "${WEZTERM_PANE:-}" ]]; then
+  exec "$REAL_TMUX" "$@"
+fi
+
+# --- Utility functions ---
+
+# Strip % prefix from tmux pane ID to get WezTerm pane ID
+strip_pane_prefix() {
+  echo "${1#%}"
+}
+
+# Add % prefix to WezTerm pane ID to make tmux pane ID
+add_pane_prefix() {
+  echo "%${1}"
+}
+
+# Extract pane ID from a tmux target string (session:window.pane or %N)
+parse_target_pane() {
+  local target="$1"
+  # If it starts with %, it's a direct pane ID
+  if [[ "$target" == %* ]]; then
+    strip_pane_prefix "$target"
+    return
+  fi
+  # If it contains a dot, extract the pane part after the last dot
+  if [[ "$target" == *.* ]]; then
+    local pane_part="${target##*.}"
+    strip_pane_prefix "$pane_part"
+    return
+  fi
+  # Otherwise treat as-is (might be a window/session reference)
+  echo "$target"
+}
+
+# Get pane info from wezterm cli list as JSON
+get_pane_list_json() {
+  wezterm cli list --format json 2>/dev/null
+}
+
+# Look up tab_id for a given pane_id
+get_tab_id_for_pane() {
+  local pane_id="$1"
+  get_pane_list_json | python3 -c "
+import sys, json
+panes = json.load(sys.stdin)
+for p in panes:
+    if str(p['pane_id']) == '$pane_id':
+        print(p['tab_id'])
+        sys.exit(0)
+sys.exit(1)
+" 2>/dev/null
+}
+
+# Look up window_id for a given pane_id
+get_window_id_for_pane() {
+  local pane_id="$1"
+  get_pane_list_json | python3 -c "
+import sys, json
+panes = json.load(sys.stdin)
+for p in panes:
+    if str(p['pane_id']) == '$pane_id':
+        print(p['window_id'])
+        sys.exit(0)
+sys.exit(1)
+" 2>/dev/null
+}
+
+# Resolve a window target to a tab_id
+resolve_window_target() {
+  local target="$1"
+  # If it looks like a tmux session:window format, try to find matching tab
+  # For simplicity, use the current pane's tab if we can't resolve
+  if [[ "$target" == *:* ]]; then
+    # Extract window part
+    local window_part="${target##*:}"
+    # Try to find by tab index or just use current tab
+    get_tab_id_for_pane "$WEZTERM_PANE"
+  else
+    echo "$target"
+  fi
+}
+
+# --- Command handlers ---
+
+handle_split_window() {
+  local target_pane="$WEZTERM_PANE"
+  local direction="--bottom"  # default: vertical split in tmux = bottom in wezterm
+  local size_args=()
+  local print_pane=false
+  local prog=()
+
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      -t)
+        target_pane="$(parse_target_pane "$2")"
+        shift 2
+        ;;
+      -h)
+        direction="--right"  # horizontal split in tmux = right in wezterm
+        shift
+        ;;
+      -v)
+        direction="--bottom"  # vertical split in tmux = bottom in wezterm
+        shift
+        ;;
+      -l)
+        local size="$2"
+        if [[ "$size" == *% ]]; then
+          size_args=(--percent "${size%\%}")
+        else
+          size_args=(--cells "$size")
+        fi
+        shift 2
+        ;;
+      -P)
+        print_pane=true
+        shift
+        ;;
+      -F)
+        # Ignore format string, we always output %N
+        shift 2
+        ;;
+      -d)
+        # tmux -d means don't switch to new pane; WezTerm split doesn't switch by default
+        shift
+        ;;
+      --)
+        shift
+        prog=("$@")
+        break
+        ;;
+      *)
+        prog+=("$1")
+        shift
+        ;;
+    esac
+  done
+
+  local cmd=(wezterm cli split-pane "$direction" --pane-id "$target_pane")
+  if [[ ${#size_args[@]} -gt 0 ]]; then
+    cmd+=("${size_args[@]}")
+  fi
+  if [[ ${#prog[@]} -gt 0 ]]; then
+    cmd+=(-- "${prog[@]}")
+  fi
+
+  local new_pane_id
+  new_pane_id=$("${cmd[@]}" 2>/dev/null)
+
+  if [[ "$print_pane" == true ]]; then
+    add_pane_prefix "$new_pane_id"
+  fi
+}
+
+handle_new_window() {
+  local target=""
+  local name=""
+  local print_pane=false
+  local prog=()
+
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      -t)
+        target="$2"
+        shift 2
+        ;;
+      -n)
+        name="$2"
+        shift 2
+        ;;
+      -P)
+        print_pane=true
+        shift
+        ;;
+      -F)
+        shift 2
+        ;;
+      -d)
+        shift
+        ;;
+      --)
+        shift
+        prog=("$@")
+        break
+        ;;
+      *)
+        prog+=("$1")
+        shift
+        ;;
+    esac
+  done
+
+  local cmd=(wezterm cli spawn)
+  if [[ ${#prog[@]} -gt 0 ]]; then
+    cmd+=(-- "${prog[@]}")
+  fi
+
+  local new_pane_id
+  new_pane_id=$("${cmd[@]}" 2>/dev/null)
+
+  if [[ -n "$name" ]]; then
+    wezterm cli set-tab-title "$name" --pane-id "$new_pane_id" 2>/dev/null || true
+  fi
+
+  if [[ "$print_pane" == true ]]; then
+    add_pane_prefix "$new_pane_id"
+  fi
+}
+
+handle_list_panes() {
+  local target=""
+  local format=""
+  local all_flag=false
+
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      -t)
+        target="$2"
+        shift 2
+        ;;
+      -F)
+        format="$2"
+        shift 2
+        ;;
+      -a)
+        all_flag=true
+        shift
+        ;;
+      *)
+        shift
+        ;;
+    esac
+  done
+
+  local tab_id=""
+  if [[ -n "$target" ]]; then
+    tab_id="$(resolve_window_target "$target")"
+  else
+    tab_id="$(get_tab_id_for_pane "$WEZTERM_PANE")"
+  fi
+
+  if [[ "$all_flag" == true ]]; then
+    # List all panes across all tabs
+    get_pane_list_json | python3 -c "
+import sys, json
+panes = json.load(sys.stdin)
+for p in panes:
+    print(f'%{p[\"pane_id\"]}')
+"
+  else
+    get_pane_list_json | python3 -c "
+import sys, json
+tab_id = int('$tab_id') if '$tab_id'.isdigit() else -1
+panes = json.load(sys.stdin)
+for p in panes:
+    if tab_id == -1 or p['tab_id'] == tab_id:
+        print(f'%{p[\"pane_id\"]}')
+"
+  fi
+}
+
+handle_send_keys() {
+  local target_pane="$WEZTERM_PANE"
+  local keys=()
+  local literal=false
+
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      -t)
+        target_pane="$(parse_target_pane "$2")"
+        shift 2
+        ;;
+      -l)
+        literal=true
+        shift
+        ;;
+      *)
+        keys+=("$1")
+        shift
+        ;;
+    esac
+  done
+
+  # Build the text to send
+  local text=""
+  local append_newline=false
+
+  for i in "${!keys[@]}"; do
+    local key="${keys[$i]}"
+    # Check if this is the last key and it's Enter/C-m
+    if [[ $i -eq $((${#keys[@]} - 1)) ]]; then
+      if [[ "$key" == "Enter" || "$key" == "C-m" ]]; then
+        append_newline=true
+        continue
+      fi
+    fi
+    if [[ -n "$text" ]]; then
+      text+=" "
+    fi
+    text+="$key"
+  done
+
+  if [[ "$append_newline" == true ]]; then
+    text+=$'\n'
+  fi
+
+  if [[ -n "$text" ]]; then
+    wezterm cli send-text --pane-id "$target_pane" --no-paste -- "$text"
+  fi
+}
+
+handle_display_message() {
+  local target_pane="$WEZTERM_PANE"
+  local format=""
+  local print_mode=false
+
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      -p)
+        print_mode=true
+        shift
+        ;;
+      -t)
+        target_pane="$(parse_target_pane "$2")"
+        shift 2
+        ;;
+      -F)
+        format="$2"
+        shift 2
+        ;;
+      *)
+        # Positional argument might be format string
+        if [[ -z "$format" ]]; then
+          format="$1"
+        fi
+        shift
+        ;;
+    esac
+  done
+
+  if [[ -z "$format" ]]; then
+    return
+  fi
+
+  # Resolve format variables
+  local result="$format"
+
+  if [[ "$result" == *'#{pane_id}'* ]]; then
+    result="${result//'#{pane_id}'/%${target_pane}}"
+  fi
+
+  if [[ "$result" == *'#{window_id}'* ]]; then
+    local tab_id
+    tab_id="$(get_tab_id_for_pane "$target_pane")"
+    result="${result//'#{window_id}'/@${tab_id}}"
+  fi
+
+  if [[ "$result" == *'#{session_name}'* ]]; then
+    local workspace
+    workspace=$(get_pane_list_json | python3 -c "
+import sys, json
+panes = json.load(sys.stdin)
+for p in panes:
+    if str(p['pane_id']) == '$target_pane':
+        print(p.get('workspace', 'default'))
+        sys.exit(0)
+print('default')
+" 2>/dev/null)
+    result="${result//'#{session_name}'/${workspace}}"
+  fi
+
+  if [[ "$result" == *'#{pane_current_path}'* ]]; then
+    local cwd
+    cwd=$(get_pane_list_json | python3 -c "
+import sys, json
+panes = json.load(sys.stdin)
+for p in panes:
+    if str(p['pane_id']) == '$target_pane':
+        print(p.get('cwd', ''))
+        sys.exit(0)
+" 2>/dev/null)
+    result="${result//'#{pane_current_path}'/${cwd}}"
+  fi
+
+  if [[ "$result" == *'#{window_index}'* ]]; then
+    local tab_id
+    tab_id="$(get_tab_id_for_pane "$target_pane")"
+    result="${result//'#{window_index}'/${tab_id}}"
+  fi
+
+  echo "$result"
+}
+
+handle_capture_pane() {
+  local target_pane="$WEZTERM_PANE"
+  local print_mode=false
+  local start_line=""
+
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      -t)
+        target_pane="$(parse_target_pane "$2")"
+        shift 2
+        ;;
+      -p)
+        print_mode=true
+        shift
+        ;;
+      -S)
+        start_line="$2"
+        shift 2
+        ;;
+      *)
+        shift
+        ;;
+    esac
+  done
+
+  local cmd=(wezterm cli get-text --pane-id "$target_pane")
+  if [[ -n "$start_line" ]]; then
+    cmd+=(--start-line "$start_line")
+  fi
+
+  if [[ "$print_mode" == true ]]; then
+    "${cmd[@]}" 2>/dev/null
+  fi
+}
+
+handle_kill_pane() {
+  local target_pane="$WEZTERM_PANE"
+
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      -t)
+        target_pane="$(parse_target_pane "$2")"
+        shift 2
+        ;;
+      *)
+        shift
+        ;;
+    esac
+  done
+
+  wezterm cli kill-pane --pane-id "$target_pane" 2>/dev/null || true
+}
+
+handle_kill_session() {
+  local target=""
+
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      -t)
+        target="$2"
+        shift 2
+        ;;
+      *)
+        shift
+        ;;
+    esac
+  done
+
+  # Kill all panes in the workspace/tab
+  # Since WezTerm doesn't have sessions, we kill all panes in the same tab
+  local tab_id
+  if [[ -n "$target" ]]; then
+    tab_id="$(resolve_window_target "$target")"
+  else
+    tab_id="$(get_tab_id_for_pane "$WEZTERM_PANE")"
+  fi
+
+  get_pane_list_json | python3 -c "
+import sys, json
+tab_id = int('$tab_id') if '$tab_id'.isdigit() else -1
+panes = json.load(sys.stdin)
+for p in panes:
+    if p['tab_id'] == tab_id:
+        print(p['pane_id'])
+" 2>/dev/null | while read -r pane_id; do
+    wezterm cli kill-pane --pane-id "$pane_id" 2>/dev/null || true
+  done
+}
+
+handle_select_pane() {
+  local target_pane="$WEZTERM_PANE"
+
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      -t)
+        target_pane="$(parse_target_pane "$2")"
+        shift 2
+        ;;
+      -T)
+        # Set pane title - WezTerm doesn't support per-pane titles in the same way
+        shift 2
+        ;;
+      -P)
+        # Set pane style (e.g., fg=...,bg=...)
+        shift 2
+        ;;
+      *)
+        shift
+        ;;
+    esac
+  done
+
+  wezterm cli activate-pane --pane-id "$target_pane" 2>/dev/null || true
+}
+
+# --- Main dispatch ---
+
+# Handle flags before subcommand
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    -V)
+      echo "tmux 3.5a"
+      exit 0
+      ;;
+    -L|-S|-f)
+      # Skip socket/config options
+      shift 2
+      ;;
+    *)
+      break
+      ;;
+  esac
+done
+
+cmd="${1:-}"
+shift 2>/dev/null || true
+
+case "$cmd" in
+  has-session)
+    exit 0
+    ;;
+  split-window)
+    handle_split_window "$@"
+    ;;
+  new-window)
+    handle_new_window "$@"
+    ;;
+  new-session)
+    # Treat new-session as spawn (new tab)
+    handle_new_window "$@"
+    ;;
+  list-panes)
+    handle_list_panes "$@"
+    ;;
+  send-keys)
+    handle_send_keys "$@"
+    ;;
+  select-layout)
+    # No-op: WezTerm doesn't have layout algorithms like tmux
+    exit 0
+    ;;
+  select-pane)
+    handle_select_pane "$@"
+    ;;
+  display-message)
+    handle_display_message "$@"
+    ;;
+  capture-pane)
+    handle_capture_pane "$@"
+    ;;
+  kill-pane)
+    handle_kill_pane "$@"
+    ;;
+  kill-session)
+    handle_kill_session "$@"
+    ;;
+  kill-server)
+    exit 0
+    ;;
+  show-options)
+    # Return empty / no-op
+    exit 0
+    ;;
+  switch-client)
+    # No-op: WezTerm handles focus differently
+    exit 0
+    ;;
+  resize-pane)
+    # Could implement with wezterm cli adjust-pane-size but skip for now
+    exit 0
+    ;;
+  "")
+    echo "tmux 3.5a"
+    exit 0
+    ;;
+  *)
+    echo "tmux-shim: unsupported command: $cmd" >&2
+    exit 1
+    ;;
+esac

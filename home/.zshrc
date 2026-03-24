@@ -225,6 +225,11 @@ PATH=$PATH:/Applications/Alacritty.app/Contents/MacOS
 # Wezterm
 PATH=$PATH:/Applications/Wezterm.app/Contents/MacOS
 
+# WezTerm tmux shim for Claude Code Agent Team
+if [[ -n "${WEZTERM_PANE:-}" ]] && [[ -z "${TMUX:-}" ]]; then
+  export TMUX="wezterm-shim/${WEZTERM_PANE}/0"
+fi
+
 # Mint
 export MINT_PATH=$HOME/.mint
 export MINT_LINK_PATH=$HOME/.mint/bin
@@ -266,3 +271,8 @@ export PATH="$HOME/.rd/bin:$PATH"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Ensure .bin takes priority (placed last to override all PATH additions)
+if [[ -n "${WEZTERM_PANE:-}" ]]; then
+  export PATH="$HOME/.bin:$PATH"
+fi
