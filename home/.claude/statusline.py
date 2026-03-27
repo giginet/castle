@@ -15,13 +15,16 @@ DIM = "\033[2m"
 RED = "\033[31m"
 
 
-def gradient(pct: float) -> str:
-    if pct < 50:
-        r = int(pct * 5.1)
-        return f"\033[38;2;{r};200;80m"
+def gradient(remaining_pct: float) -> str:
+    """Color gradient based on remaining percentage: green(100%) -> yellow(50%) -> red(0%)."""
+    if remaining_pct > 50:
+        g = 200
+        r = int((100 - remaining_pct) * 5.1)
+        return f"\033[38;2;{r};{g};80m"
     else:
-        g = int(200 - (pct - 50) * 4)
-        return f"\033[38;2;255;{max(g, 0)};60m"
+        r = 255
+        g = int(remaining_pct * 4)
+        return f"\033[38;2;{r};{max(g, 0)};60m"
 
 
 def bar(pct: float, width: int = 20) -> str:
@@ -30,9 +33,9 @@ def bar(pct: float, width: int = 20) -> str:
     return "█" * full + "░" * (width - full)
 
 
-def fmt(label: str, pct: float) -> str:
-    p = round(pct)
-    return f"{label} {gradient(pct)}{bar(pct)} {p}%{R}"
+def fmt(label: str, remaining_pct: float) -> str:
+    p = round(remaining_pct)
+    return f"{label} {gradient(remaining_pct)}{bar(remaining_pct)} {p}%{R}"
 
 
 # Line 1: cwd, git branch, model
@@ -82,7 +85,7 @@ if used_pct is None:
         used_pct = total * 100 / context_size
 
 if used_pct is not None:
-    gauges.append(fmt("󰍛", used_pct))
+    gauges.append(fmt("󰍛", 100 - used_pct))
 
 rate_5h = data.get("rate_limits", {}).get("five_hour", {})
 rate_5h_pct = rate_5h.get("used_percentage")
@@ -98,7 +101,7 @@ if rate_5h_pct is not None:
                 remaining = f" resets in {h}h{m}m"
         gauges.append(f"{RED}⚠ Rate limit exceeded{remaining}{R}")
     else:
-        gauges.append(fmt("5h", rate_5h_pct))
+        gauges.append(fmt("5h", 100 - rate_5h_pct))
 
 if gauges:
     print(f" {DIM}│{R} ".join(gauges))
