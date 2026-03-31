@@ -265,6 +265,9 @@ alias cppwd="pwd | tr -d '\n' | pbcopy"
 # Setting for Rancher Desktop
 export PATH="$HOME/.rd/bin:$PATH"
 
+# npm
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
+
 # bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
