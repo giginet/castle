@@ -1,1 +1,5 @@
 min-release-age=7
+engine-strict=true
+ignore-scripts=true
+audit=true
+audit-level=high
