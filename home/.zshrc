@@ -83,7 +83,7 @@ function git-root() {
 }
 
 function mdopen() {
-  open -a "Marked 2.app" $@
+  open -a "Marked.app" $@
 }
 
 # Environment Variable Settings
