@@ -31,6 +31,9 @@ local config = {
 
   leader = { key = 'b', mods = 'CTRL', timeout_milliseconds = 1000 },
   keys = require 'keymap',
+  key_tables = {
+    copy_mode = require 'copy_mode',
+  },
   use_fancy_tab_bar = false,
   tab_bar_at_bottom = true,
   hide_tab_bar_if_only_one_tab = false,

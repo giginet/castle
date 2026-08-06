@@ -57,6 +57,16 @@ return {
     action = wezterm.action.ActivateCopyMode,
   },
   {
+    key = '[',
+    mods = 'LEADER',
+    action = wezterm.action.ActivateCopyMode,
+  },
+  {
+    key = ']',
+    mods = 'LEADER',
+    action = wezterm.action.PasteFrom 'Clipboard',
+  },
+  {
     key = 'Enter',
     mods = 'SHIFT',
     action = wezterm.action.SendString('\n')
