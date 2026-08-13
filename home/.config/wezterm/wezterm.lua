@@ -6,6 +6,12 @@ local background_color = wezterm.color.parse(utils.palette.background)
 
 local config = {
   color_scheme = color_scheme,
+  -- rose-pine-moon defines selection_bg/fg identically to the normal
+  -- background/foreground, which makes selections invisible
+  colors = {
+    selection_bg = '#56526e', -- rose-pine "highlight high"
+    selection_fg = '#e0def4',
+  },
 
   font = wezterm.font_with_fallback {
     { family = 'BitstromWera Nerd Font Mono' },
