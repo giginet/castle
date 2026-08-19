@@ -37,6 +37,7 @@ local config = {
 
   leader = { key = 'b', mods = 'CTRL', timeout_milliseconds = 1000 },
   keys = require 'keymap',
+  mouse_bindings = require 'mousemap',
   key_tables = {
     copy_mode = require 'copy_mode',
   },
