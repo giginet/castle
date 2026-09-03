@@ -230,6 +230,10 @@ if [[ -n "${WEZTERM_PANE:-}" ]] && [[ -z "${TMUX:-}" ]]; then
   export TMUX="wezterm-shim/${WEZTERM_PANE}/0"
 fi
 
+# Claude Code: refresh plugin marketplaces over HTTPS.
+# Otherwise it probes `ssh -T git@github.com` on every update and 1Password asks for the SSH key.
+export CLAUDE_CODE_PLUGIN_PREFER_HTTPS=1
+
 # Mint
 export MINT_PATH=$HOME/.mint
 export MINT_LINK_PATH=$HOME/.mint/bin
