@@ -32,12 +32,16 @@ local function tab_title(tab_info)
 
   local process_name = utils.get_basename(pane.foreground_process_name)
 
-  -- Fallback to current directory if process name looks like a version number (e.g., "2.1.7")
-  local maybe_claude_code = process_name:match("^%d+%.%d+") ~= nil
-  if process_name == 'zsh' or maybe_claude_code then
+  -- Coding agents show an icon plus the current directory name instead of the process name.
+  -- Claude Code may use its version number as the process name (e.g., "2.1.7").
+  local is_claude_code = process_name == 'claude' or process_name:match("^%d+%.%d+") ~= nil
+  local is_codex = process_name == 'codex'
+  if process_name == 'zsh' or is_claude_code or is_codex then
     local path = utils.format_path(pane.current_working_dir)
-    if maybe_claude_code then
-      return '󰚩 ' .. utils.get_basename(path)
+    if is_claude_code then
+      return ' ' .. utils.get_basename(path) -- nf-cod-claude (U+EC82)
+    elseif is_codex then
+      return ' ' .. utils.get_basename(path) -- nf-cod-openai (U+EC81)
     elseif utils.is_home_dir(path) then
       return "󰋜"
     else
@@ -152,4 +156,3 @@ wezterm.on(
 )
 
 return {}
-
