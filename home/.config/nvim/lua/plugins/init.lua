@@ -17,7 +17,7 @@ vim.opt.rtp:prepend(lazypath)
 return require('lazy').setup({
   {
     "nvim-treesitter/nvim-treesitter",
-    branch = "master",
+    branch = "main",
     config = function()
       require("plugins.settings.nvim-treesitter")
     end,

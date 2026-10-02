@@ -1,5 +1,4 @@
-require('nvim-treesitter.configs').setup {
-  ensure_installed = {
+local languages = {
     'bash',
     'dockerfile',
     'git_config',
@@ -23,13 +22,14 @@ require('nvim-treesitter.configs').setup {
     'vim',
     'vimdoc',
     'yaml',
-  },
-  sync_install = false,
-  auto_install = true,
-  highlight = {
-    enable = true,
-  },
-  incremental_selection = {
-    enable = false,
-  },
 }
+
+local treesitter = require('nvim-treesitter')
+treesitter.setup({})
+treesitter.install(languages)
+
+vim.api.nvim_create_autocmd('FileType', {
+  callback = function(args)
+    pcall(vim.treesitter.start, args.buf)
+  end,
+})
