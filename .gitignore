@@ -66,3 +66,4 @@ home/.vim/.init.vim-rplugin~
 home/.config/gh/hosts.yml
 home/.ssh
 !home/.ssh/config
+home/.config/nvim/lazy-lock.json
