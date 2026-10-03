@@ -18,4 +18,6 @@ require('telescope').setup {
   }
 }
 vim.keymap.set('n', '<C-M-o>', '<cmd>Telescope git_files<CR>')
-vim.keymap.set('n', '<C-M-f>', '<cmd>Telescope git_grep live_grep<CR>')
+-- Terminals without CSI u send Ctrl-/ as Ctrl-_, so map both
+vim.keymap.set('n', '<C-M-/>', '<cmd>Telescope git_grep live_grep<CR>')
+vim.keymap.set('n', '<C-M-_>', '<cmd>Telescope git_grep live_grep<CR>')

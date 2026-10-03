@@ -16,61 +16,10 @@ vim.opt.rtp:prepend(lazypath)
 
 return require('lazy').setup({
   {
-    "rose-pine/neovim",
-    name = "rose-pine",
-    config = function()
-      vim.cmd("colorscheme rose-pine")
-    end
-  },
-  {
-    'neovim/nvim-lspconfig',
-    config = function()
-      require('plugins.settings.nvim-lspconfig')
-    end,
-  },
-  {
-    "williamboman/mason.nvim",
-    config = function()
-      require("mason").setup()
-    end,
-  },
-  {
-    "williamboman/mason-lspconfig.nvim",
-    dependencies = {"mason.nvim", "nvim-lspconfig"},
-    config = function()
-      require("mason-lspconfig").setup()
-    end,
-  },
-  {
     "nvim-treesitter/nvim-treesitter",
     config = function()
       require("plugins.settings.nvim-treesitter")
     end,
-  },
-  {
-    'hrsh7th/nvim-cmp',
-    config = function()
-      require('plugins.settings.nvim-cmp')
-    end,
-  },
-  {
-    'hrsh7th/cmp-nvim-lsp',
-    dependencies = {'hrsh7th/nvim-cmp'},
-  },
-  {
-    'hrsh7th/cmp-buffer',
-    dependencies = {'hrsh7th/nvim-cmp'},
-  },
-  {
-    'hrsh7th/cmp-path',
-    dependencies = {'hrsh7th/nvim-cmp'},
-  },
-  {
-    'onsails/lspkind.nvim'
-  },
-  {
-    'tpope/vim-bundler',
-    ft = {'ruby'},
   },
   {
     'nvim-telescope/telescope.nvim',
@@ -86,23 +35,6 @@ return require('lazy').setup({
     dependencies = { 'nvim-telescope/telescope.nvim' },
   },
   {
-  "wojciech-kulik/xcodebuild.nvim",
-  dependencies = {
-    "nvim-telescope/telescope.nvim",
-    "MunifTanjim/nui.nvim",
-    "nvim-tree/nvim-tree.lua",
-    "nvim-treesitter/nvim-treesitter",
-  },
-  config = function()
-    require("xcodebuild").setup({
-    })
-  end,
-  },
-  {
-    'tfnico/vim-gradle',
-    ft = {'gradle'},
-  },
-  {
     'elzr/vim-json',
     ft = {'json'},
     config = function()
@@ -114,23 +46,12 @@ return require('lazy').setup({
     ft = {'tmux'},
   },
   {
-    'elzr/vim-json',
-    ft = {'json'},
-    config = function()
-      vim.g.vim_json_syntax_conceal = false
-    end,
-  },
-  {
     'compnerd/modulemap-vim',
     ft = {'modulemap'},
   },
   {
     'keith/xcconfig.vim',
     ft = {'xcconfig'},
-  },
-  {
-    'rust-lang/rust.vim',
-    ft = {'rust'},
   },
   {
     'aklt/plantuml-syntax',
@@ -161,35 +82,6 @@ return require('lazy').setup({
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' },
     config = function()
       require('render-markdown').setup({})
-    end,
-  },
-  -- {
-  --   'giginet/denops-deckset.vim',
-  --   ft = {'markdown', 'markdown.slide'},
-  --   cmd = {'InsertCodeHighlight', 'InsertLink', 'InsertConfiguration'},
-  --   keys = {'<C-s>_', '<C-s>l'},
-  --   dependencies = {'denops.vim'},
-  --   config = function()
-  --     vim.g['deckset#show_slide_numbers'] = true
-  --     vim.g['deckset#show_slide_count'] = true
-  --     vim.g['deckset#autoscale'] = false
-  --     vim.g['deckset#theme'] = 'Simple, 2'
-  --     noremap('<C-s>_', ':InsertCodeHighlight<CR>')
-  --     noremap('<C-s>l', ':InsertLink<CR>')
-  --     noremap('<C-s>C', ':InsertConfiguration<CR>')
-  --   end
-  -- },
-  'tyru/open-browser.vim',
-  {
-    'tyru/open-browser-github.vim',
-    dependencies = {'open-browser.vim'},
-    cmd = {'OpenGithubFile', 'OpenGithubIssue', 'OpenGithubPullReq', 'OpenGithubProject',},
-    keys = {'<C-g>o', '<C-g>i', '<C-g>p', '<C-g>g'},
-    config = function()
-      noremap('<C-g>o', ":OpenGithubFile<CR>")
-      vim.keymap.set('v', '<C-g>o', ":'<,'>OpenGithubFile<CR>", { noremap = true, silent = true })
-      vim.g.openbrowser_github_always_use_commit_hash = false
-      vim.g.openbrowser_github_url_exists_check = 'no'
     end,
   },
   {
@@ -248,14 +140,6 @@ return require('lazy').setup({
   },
   'airblade/vim-gitgutter',
   {
-    'keith/investigate.vim',
-    keys = {'gK'},
-    config = function()
-      vim.g.investigate_use_dash = true
-    end,
-  },
-
-  {
     'simnalamburt/vim-mundo',
     cmd = 'MundoToggle',
     keys = {'U'},
@@ -275,17 +159,4 @@ return require('lazy').setup({
       vim.cmd.colorscheme 'duskfox'
     end
   },
-  {
-    "obsidian-nvim/obsidian.nvim",
-    version = "*", -- use latest release, remove to use latest commit
-    opts = {
-      legacy_commands = false, -- this will be removed in 4.0.0
-      workspaces = {
-        {
-          name = "personal",
-          path = "~/Library/Mobile Documents/iCloud~md~obsidian/Documents",
-        },
-      },
-    },
-  }
 })
