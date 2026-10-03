@@ -106,3 +106,17 @@ map("<right>", "<nop>")
 
 noremap("<C-k>", "<C-u>")
 noremap("<C-j>", "<C-d>")
+
+-- Reveal the current file in Finder
+local function reveal_in_finder()
+  local path = vim.fn.expand('%:p')
+  if path ~= '' and vim.uv.fs_stat(path) then
+    vim.system({'open', '-R', path})
+  else
+    -- Fall back to the directory for unsaved or non-file buffers
+    local dir = vim.fn.expand('%:p:h')
+    vim.system({'open', vim.fn.isdirectory(dir) == 1 and dir or vim.fn.getcwd()})
+  end
+end
+vim.api.nvim_create_user_command('RevealInFinder', reveal_in_finder, {})
+vim.keymap.set('n', '<C-f>', reveal_in_finder, { noremap = true, silent = true })
