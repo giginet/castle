@@ -11,3 +11,7 @@ This repository uses homeshick to manage dotfiles. With this tool, all dotfiles 
 ## Claude Code Development
 
 Claude Code configuration files are stored under `.claude`. The plugin-dev plugin is enabled in this repository, so use skills like skill-development for development.
+
+## Agent Skills
+
+Skills are shared between Codex and Claude Code. The canonical files live in `home/.agents/skills/<name>/` (read by Codex), and `home/.claude/skills/<name>` is a relative symlink to `../../.agents/skills/<name>`. To add a skill, create it under `home/.agents/skills/`, add the symlink under `home/.claude/skills/`, then run `homeshick symlink castle`. Keep SKILL.md agent-agnostic (refer to `~/.agents/skills/...` paths).
